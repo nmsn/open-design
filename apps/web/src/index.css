@@ -2807,6 +2807,7 @@ code {
   border-radius: var(--radius-sm);
   color: var(--text-muted);
   font-size: 12.5px;
+  white-space: nowrap;
 }
 .viewer-action:hover:not(:disabled) { background: var(--bg-subtle); color: var(--text); }
 .viewer-action.primary {
@@ -2832,6 +2833,7 @@ code {
   color: var(--text-muted);
   padding: 4px 10px;
   border-radius: var(--radius-sm);
+  white-space: nowrap;
 }
 .viewer-toggle .switch {
   position: relative;
@@ -2863,6 +2865,7 @@ code {
   font-size: 12px;
   border-radius: var(--radius-sm);
   color: var(--text-muted);
+  white-space: nowrap;
 }
 .viewer-tab:hover { background: var(--bg-subtle); color: var(--text); }
 .viewer-tab.active {
