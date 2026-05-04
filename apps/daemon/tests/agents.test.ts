@@ -50,7 +50,7 @@ test('codex args disable plugins when OD_CODEX_DISABLE_PLUGINS is 1', () => {
     'exec',
     '--json',
     '--skip-git-repo-check',
-    '--full-auto',
+    '--sandbox', 'workspace-write',
     '-c',
     'sandbox_workspace_write.network_access=true',
     '--disable',

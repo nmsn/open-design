@@ -215,7 +215,7 @@ export const AGENT_DEFS = [
         'exec',
         '--json',
         '--skip-git-repo-check',
-        '--full-auto',
+        '--sandbox', 'workspace-write', // --full-auto deprecated in Codex CLI v0.128+ (replaced by --sandbox)
         '-c',
         'sandbox_workspace_write.network_access=true',
       ];

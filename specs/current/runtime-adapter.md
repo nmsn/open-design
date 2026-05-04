@@ -109,14 +109,14 @@ These four runtimes currently use the unified `json-event-stream` output format,
 Codex currently uses:
 
 ```bash
-codex exec --json --skip-git-repo-check --full-auto -C <cwd> <prompt>
+codex exec --json --skip-git-repo-check --sandbox workspace-write -C <cwd> <prompt>
 ```
 
 The current integration uses the lightweight structured path through `exec --json`. Compared with the original plain-text `codex exec`, this path adds:
 
 - `--json`: structured event output
 - `--skip-git-repo-check`: allows running in a temporary working directory
-- `--full-auto`: non-interactive automatic execution
+- `--sandbox workspace-write`: non-interactive automatic execution with workspace write access (replaces deprecated `--full-auto`)
 - `-C <cwd>`: explicit working directory
 
 The daemon currently maps:
