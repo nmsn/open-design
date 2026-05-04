@@ -116,7 +116,7 @@ The current integration uses the lightweight structured path through `exec --jso
 
 - `--json`: structured event output
 - `--skip-git-repo-check`: allows running in a temporary working directory
-- `--sandbox workspace-write`: non-interactive automatic execution with workspace write access (replaces deprecated `--full-auto`)
+- `--sandbox workspace-write`: non-interactive automatic execution with workspace write access (replaces deprecated `--full-auto`; requires Codex CLI v0.128+)
 - `-C <cwd>`: explicit working directory
 
 The daemon currently maps:

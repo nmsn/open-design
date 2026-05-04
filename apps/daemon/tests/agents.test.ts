@@ -46,7 +46,7 @@ test('codex args disable plugins when OD_CODEX_DISABLE_PLUGINS is 1', () => {
 
   const args = codex.buildArgs('', [], [], {}, { cwd: '/tmp/od-project' });
 
-  assert.deepEqual(args.slice(0, 8), [
+  assert.deepEqual(args.slice(0, 9), [
     'exec',
     '--json',
     '--skip-git-repo-check',
