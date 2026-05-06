@@ -387,6 +387,7 @@ export interface ComposioPendingConnection {
   connectorId: string;
   state: string;
   providerConnectionId?: string;
+  webOrigin?: string;
   expiresAtMs: number;
 }
 
@@ -394,6 +395,7 @@ export interface ComposioConnectionCompletion {
   connectorId: string;
   accountLabel: string;
   credentials: ConnectorCredentialMaterial;
+  webOrigin?: string;
 }
 
 export class ComposioConnectorProvider {
@@ -480,7 +482,7 @@ export class ComposioConnectorProvider {
     return undefined;
   }
 
-  async connect(definition: ConnectorCatalogDefinition, callbackUrl: string, signal?: AbortSignal): Promise<ComposioConnectionStart> {
+  async connect(definition: ConnectorCatalogDefinition, callbackUrl: string, webOrigin: string | undefined, signal?: AbortSignal): Promise<ComposioConnectionStart> {
     this.pruneExpiredPendingConnections();
 
     const authConfigId = await this.getOrCreateManagedAuthConfigId(definition, signal);
@@ -508,7 +510,7 @@ export class ComposioConnectorProvider {
     const providerConnectionId = getComposioConnectionId(response);
     const redirectUrl = getString(response.redirect_url) ?? getString(response.redirectUrl);
     const status = getString(response.status)?.toUpperCase();
-    this.pendingConnections.set(state, { connectorId: definition.id, state, ...(providerConnectionId ? { providerConnectionId } : {}), expiresAtMs });
+    this.pendingConnections.set(state, { connectorId: definition.id, state, ...(providerConnectionId ? { providerConnectionId } : {}), ...(webOrigin ? { webOrigin } : {}), expiresAtMs });
 
     const validatedConnection = status === 'ACTIVE' && providerConnectionId
       ? await this.getValidatedConnectedAccount(definition, providerConnectionId, authConfigId, signal)
@@ -545,7 +547,7 @@ export class ComposioConnectorProvider {
     }
     const expectedAuthConfigId = await this.getAuthConfigId(input.definition, input.signal);
     const response = await this.getValidatedConnectedAccount(input.definition, providerConnectionId, expectedAuthConfigId, input.signal);
-    return this.connectionToCredentials(input.definition, providerConnectionId, response);
+    return { ...this.connectionToCredentials(input.definition, providerConnectionId, response), ...(pending.webOrigin ? { webOrigin: pending.webOrigin } : {}) };
   }
 
   private pruneExpiredPendingConnections(now = Date.now()): void {

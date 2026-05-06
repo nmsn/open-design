@@ -89,7 +89,7 @@ function escapeHtml(value: string): string {
   });
 }
 
-function renderConnectorConnectedHtml(connectorId: string): string {
+function renderConnectorConnectedHtml(connectorId: string, appBaseUrl: string): string {
   const knownConnectorLabels: Record<string, string> = {
     github: 'GitHub',
     google_drive: 'Google Drive',
@@ -105,6 +105,7 @@ function renderConnectorConnectedHtml(connectorId: string): string {
   const connectorLabelHtml = escapeHtml(connectorLabel);
   const connectorIdJson = JSON.stringify(connectorId);
   const connectorLabelJson = JSON.stringify(connectorLabel);
+  const appBaseUrlJson = JSON.stringify(appBaseUrl);
 
   return `<!doctype html>
 <html lang="en">
@@ -293,18 +294,31 @@ function renderConnectorConnectedHtml(connectorId: string): string {
       (() => {
         const connectorId = ${connectorIdJson};
         const connectorLabel = ${connectorLabelJson};
+        const appBaseUrl = ${appBaseUrlJson};
+        const hasOpener = window.opener && !window.opener.closed;
         const message = { type: 'open-design:connector-connected', connectorId, connectorLabel };
         try {
-          if (window.opener && !window.opener.closed) {
+          if (hasOpener) {
             window.opener.postMessage(message, '*');
             window.setTimeout(() => window.close(), 900);
+            document.getElementById('auto-close-hint').textContent = 'This popup will close automatically if your browser allows it.';
           } else {
-            document.getElementById('auto-close-hint').textContent = 'You can close this tab and return to Open Design.';
+            document.getElementById('auto-close-hint').textContent = 'You can return to Open Design using the button below.';
           }
         } catch {
-          document.getElementById('auto-close-hint').textContent = 'You can close this tab and return to Open Design.';
+          if (!hasOpener) {
+            document.getElementById('auto-close-hint').textContent = 'You can return to Open Design using the button below.';
+          }
         }
-        document.getElementById('close-window').addEventListener('click', () => window.close());
+        const btn = document.getElementById('close-window');
+        if (hasOpener) {
+          btn.addEventListener('click', () => window.close());
+        } else {
+          btn.textContent = 'Return to Open Design';
+          btn.addEventListener('click', () => {
+            window.location.href = appBaseUrl;
+          });
+        }
       })();
     </script>
   </body>
@@ -368,11 +382,24 @@ export function registerConnectorRoutes(app: Express, options: RegisterConnector
         options.sendApiError(res, 400, 'VALIDATION_FAILED', 'Composio connector credentials can only be stored through OAuth callback completion');
         return;
       }
+      const origin = req.headers.origin;
+      let webOrigin: string | undefined;
+      if (origin) {
+        try {
+          const url = new URL(origin);
+          if (isLoopbackHostname(url.hostname)) {
+            webOrigin = origin;
+          }
+        } catch {
+          // invalid origin, ignore
+        }
+      }
       res.json({
         ...(await service.connect(connectorId, {
           ...(accountLabel === undefined ? {} : { accountLabel }),
           ...(credentials === undefined ? {} : { credentials }),
           callbackUrl: `${connectorCallbackUrl(req)}/${encodeURIComponent(connectorId)}`,
+          ...(webOrigin === undefined ? {} : { webOrigin }),
         })),
       });
     } catch (err) {
@@ -394,8 +421,20 @@ export function registerConnectorRoutes(app: Express, options: RegisterConnector
             ? req.query.account_id
             : undefined;
       const status = typeof req.query.status === 'string' ? req.query.status : undefined;
-      await service.completeComposioConnection({ connectorId, state, ...(providerConnectionId === undefined ? {} : { providerConnectionId }), ...(status === undefined ? {} : { status }) });
-      res.type('html').send(renderConnectorConnectedHtml(connectorId));
+      const result = await service.completeComposioConnection({ connectorId, state, ...(providerConnectionId === undefined ? {} : { providerConnectionId }), ...(status === undefined ? {} : { status }) });
+      const host = req.get('host') ?? 'localhost';
+      let appBaseUrl = `${req.protocol}://${host}`;
+      if (result.webOrigin) {
+        try {
+          const url = new URL(result.webOrigin);
+          if (isLoopbackHostname(url.hostname)) {
+            appBaseUrl = result.webOrigin;
+          }
+        } catch {
+          // invalid webOrigin, use daemon host
+        }
+      }
+      res.type('html').send(renderConnectorConnectedHtml(connectorId, appBaseUrl));
     } catch (err) {
       sendConnectorRouteError(res, err, options.sendApiError);
     }

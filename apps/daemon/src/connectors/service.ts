@@ -570,7 +570,7 @@ export class ConnectorService {
     return this.toDetail(definition);
   }
 
-  async connect(connectorId: string, options: { accountLabel?: string; credentials?: ConnectorCredentialMaterial; callbackUrl?: string; signal?: AbortSignal } = {}): Promise<ConnectorConnectResult> {
+  async connect(connectorId: string, options: { accountLabel?: string; credentials?: ConnectorCredentialMaterial; callbackUrl?: string; webOrigin?: string; signal?: AbortSignal } = {}): Promise<ConnectorConnectResult> {
     const definition = await this.getDefinition(connectorId, options.signal);
     if (!definition) {
       throw new ConnectorServiceError('CONNECTOR_NOT_FOUND', 'connector not found', 404);
@@ -582,7 +582,7 @@ export class ConnectorService {
       if (!options.callbackUrl) {
         throw new ConnectorServiceError('CONNECTOR_EXECUTION_FAILED', 'callbackUrl is required for Composio connectors', 400, { connectorId });
       }
-      auth = await composioConnectorProvider.connect(definition, options.callbackUrl, options.signal);
+      auth = await composioConnectorProvider.connect(definition, options.callbackUrl, options.webOrigin, options.signal);
       detailDefinition = await this.getDefinition(connectorId, options.signal) ?? definition;
       if (auth.kind === 'redirect_required' || auth.kind === 'pending') {
         return { connector: this.toDetail(detailDefinition), auth: publicComposioAuthStart(auth) };
@@ -611,7 +611,7 @@ export class ConnectorService {
     return this.toDetail(definition);
   }
 
-  async completeComposioConnection(input: { connectorId: string; state: string; providerConnectionId?: string; status?: string; signal?: AbortSignal }): Promise<ConnectorDetail> {
+  async completeComposioConnection(input: { connectorId: string; state: string; providerConnectionId?: string; status?: string; signal?: AbortSignal }): Promise<ConnectorDetail & { webOrigin?: string }> {
     const definition = await this.getDefinition(input.connectorId, input.signal);
     if (!definition) {
       throw new ConnectorServiceError('CONNECTOR_NOT_FOUND', 'connector not found', 404);
@@ -621,7 +621,7 @@ export class ConnectorService {
     }
     const completed = await composioConnectorProvider.completeConnection({ definition, state: input.state, ...(input.providerConnectionId === undefined ? {} : { providerConnectionId: input.providerConnectionId }), ...(input.status === undefined ? {} : { status: input.status }), ...(input.signal === undefined ? {} : { signal: input.signal }) });
     this.statusService.connect(definition, completed.accountLabel, completed.credentials);
-    return this.toDetail(definition);
+    return { ...this.toDetail(definition), ...(completed.webOrigin ? { webOrigin: completed.webOrigin } : {}) };
   }
 
   async execute(request: ConnectorExecuteRequest, context: ConnectorExecutionContext): Promise<ConnectorExecuteResponse> {
