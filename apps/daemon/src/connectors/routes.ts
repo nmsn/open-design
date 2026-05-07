@@ -89,7 +89,11 @@ function escapeHtml(value: string): string {
   });
 }
 
-function renderConnectorConnectedHtml(connectorId: string, appBaseUrl: string): string {
+function escapeForScript(value: string): string {
+  return JSON.stringify(value).replace(/</g, '\\u003c');
+}
+
+function renderConnectorConnectedHtml(connectorId: string, appBaseUrl?: string): string {
   const knownConnectorLabels: Record<string, string> = {
     github: 'GitHub',
     google_drive: 'Google Drive',
@@ -105,7 +109,7 @@ function renderConnectorConnectedHtml(connectorId: string, appBaseUrl: string): 
   const connectorLabelHtml = escapeHtml(connectorLabel);
   const connectorIdJson = JSON.stringify(connectorId);
   const connectorLabelJson = JSON.stringify(connectorLabel);
-  const appBaseUrlJson = JSON.stringify(appBaseUrl);
+  const appBaseUrlJson = escapeForScript(appBaseUrl ?? '');
 
   return `<!doctype html>
 <html lang="en">
@@ -303,21 +307,26 @@ function renderConnectorConnectedHtml(connectorId: string, appBaseUrl: string): 
             window.setTimeout(() => window.close(), 900);
             document.getElementById('auto-close-hint').textContent = 'This popup will close automatically if your browser allows it.';
           } else {
-            document.getElementById('auto-close-hint').textContent = 'You can return to Open Design using the button below.';
+            document.getElementById('auto-close-hint').textContent = appBaseUrl
+              ? 'You can return to Open Design using the button below.'
+              : 'You can close this tab.';
           }
         } catch {
-          if (!hasOpener) {
-            document.getElementById('auto-close-hint').textContent = 'You can return to Open Design using the button below.';
-          }
+          document.getElementById('auto-close-hint').textContent = appBaseUrl
+            ? 'You can return to Open Design using the button below.'
+            : 'You can close this tab.';
         }
         const btn = document.getElementById('close-window');
         if (hasOpener) {
           btn.addEventListener('click', () => window.close());
-        } else {
+        } else if (appBaseUrl) {
           btn.textContent = 'Return to Open Design';
           btn.addEventListener('click', () => {
             window.location.href = appBaseUrl;
           });
+        } else {
+          btn.textContent = 'Close tab';
+          btn.addEventListener('click', () => window.close());
         }
       })();
     </script>
@@ -422,16 +431,26 @@ export function registerConnectorRoutes(app: Express, options: RegisterConnector
             : undefined;
       const status = typeof req.query.status === 'string' ? req.query.status : undefined;
       const result = await service.completeComposioConnection({ connectorId, state, ...(providerConnectionId === undefined ? {} : { providerConnectionId }), ...(status === undefined ? {} : { status }) });
-      const host = req.get('host') ?? 'localhost';
-      let appBaseUrl = `${req.protocol}://${host}`;
+      let appBaseUrl: string | undefined;
       if (result.webOrigin) {
         try {
           const url = new URL(result.webOrigin);
           if (isLoopbackHostname(url.hostname)) {
-            appBaseUrl = result.webOrigin;
+            appBaseUrl = url.origin;
           }
         } catch {
-          // invalid webOrigin, use daemon host
+          // invalid webOrigin, fall through to host fallback
+        }
+      }
+      if (!appBaseUrl) {
+        const host = req.get('host') ?? 'localhost';
+        try {
+          const url = new URL(`http://${host}`);
+          if (isLoopbackHostname(url.hostname)) {
+            appBaseUrl = url.origin;
+          }
+        } catch {
+          // invalid host, render without navigation
         }
       }
       res.type('html').send(renderConnectorConnectedHtml(connectorId, appBaseUrl));
