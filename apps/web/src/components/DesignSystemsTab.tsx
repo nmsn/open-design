@@ -131,7 +131,7 @@ export function DesignSystemsTab({ systems, selectedId, onSelect, onPreview }: P
         aria-label={t('ds.surfaceLabel')}
       >
         <span className="examples-filter-label">{t('ds.surfaceLabel')}</span>
-        {SURFACE_PILLS.map((p) => (
+        {SURFACE_PILLS.filter((p) => p.value === 'all' || surfaceCounts[p.value] > 0).map((p) => (
           <button
             key={p.value}
             type="button"
