@@ -63,6 +63,15 @@ export function DesignSystemsTab({ systems, selectedId, onSelect, onPreview }: P
     return counts;
   }, [systems]);
 
+  const categories = useMemo(() => {
+    const cats = new Set<string>();
+    for (const s of surfaceScoped) cats.add(s.category || 'Uncategorized');
+    const ordered: string[] = [];
+    for (const c of CATEGORY_ORDER) if (cats.has(c)) ordered.push(c);
+    for (const c of [...cats].sort()) if (!ordered.includes(c)) ordered.push(c);
+    return ['All', ...ordered];
+  }, [surfaceScoped]);
+
   // Keep surfaceFilter and category in sync when systems changes dynamically.
   // If the currently selected surface has zero items, fall back to 'all'.
   // If the current category is no longer present in the filtered list, fall back to 'All'.
@@ -74,15 +83,6 @@ export function DesignSystemsTab({ systems, selectedId, onSelect, onPreview }: P
       setCategory('All');
     }
   }, [systems, surfaceFilter, surfaceCounts, category, categories]);
-
-  const categories = useMemo(() => {
-    const cats = new Set<string>();
-    for (const s of surfaceScoped) cats.add(s.category || 'Uncategorized');
-    const ordered: string[] = [];
-    for (const c of CATEGORY_ORDER) if (cats.has(c)) ordered.push(c);
-    for (const c of [...cats].sort()) if (!ordered.includes(c)) ordered.push(c);
-    return ['All', ...ordered];
-  }, [surfaceScoped]);
 
   const filtered = useMemo(() => {
     const q = filter.trim().toLowerCase();
