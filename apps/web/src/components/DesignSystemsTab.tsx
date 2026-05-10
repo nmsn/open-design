@@ -63,6 +63,18 @@ export function DesignSystemsTab({ systems, selectedId, onSelect, onPreview }: P
     return counts;
   }, [systems]);
 
+  // Keep surfaceFilter and category in sync when systems changes dynamically.
+  // If the currently selected surface has zero items, fall back to 'all'.
+  // If the current category is no longer present in the filtered list, fall back to 'All'.
+  useEffect(() => {
+    if (surfaceFilter !== 'all' && surfaceCounts[surfaceFilter] === 0) {
+      setSurfaceFilter('all');
+      setCategory('All');
+    } else if (category !== 'All' && !categories.includes(category)) {
+      setCategory('All');
+    }
+  }, [systems, surfaceFilter, surfaceCounts, category, categories]);
+
   const categories = useMemo(() => {
     const cats = new Set<string>();
     for (const s of surfaceScoped) cats.add(s.category || 'Uncategorized');
