@@ -967,7 +967,7 @@ function PlatformPicker({
       className="newproj-section ds-picker platform-picker"
       ref={wrapRef}
     >
-      <label className="newproj-label">Target platforms</label>
+      <label className="newproj-label">{t('newproj.targetPlatformsLabel')}</label>
       <button
         type="button"
         className={`ds-picker-trigger${open ? ' open' : ''}${primary ? '' : ' empty'}`}
@@ -996,7 +996,7 @@ function PlatformPicker({
           className="ds-picker-popover"
           id={listboxId}
           role="listbox"
-          aria-label="Target platforms"
+          aria-label={t('newproj.targetPlatformsLabel')}
           aria-multiselectable="true"
         >
           <div className="ds-picker-list">

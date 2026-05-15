@@ -18,6 +18,7 @@ import type {
   SkillSummary,
 } from '../types';
 import { Icon } from './Icon';
+import { useT } from '../i18n';
 import { NewProjectPanel, type CreateInput } from './NewProjectPanel';
 
 interface Props {
@@ -55,6 +56,48 @@ export function NewProjectModal({
   onOpenConnectorsTab,
   onClose,
 }: Props) {
+  const props = {
+    open,
+    skills,
+    designSystems,
+    defaultDesignSystemId,
+    templates,
+    promptTemplates,
+    mediaProviders,
+    connectors,
+    connectorsLoading,
+    loading,
+    onCreate,
+    onImportClaudeDesign,
+    onImportFolder,
+    onOpenConnectorsTab,
+    onClose,
+  };
+
+  if (!open) return null;
+
+  return <NewProjectModalContent {...props} />;
+}
+
+// Extracted to avoid hooks rule violation - must be called unconditionally
+function NewProjectModalContent({
+  open,
+  skills,
+  designSystems,
+  defaultDesignSystemId,
+  templates,
+  promptTemplates,
+  mediaProviders,
+  connectors,
+  connectorsLoading,
+  loading,
+  onCreate,
+  onImportClaudeDesign,
+  onImportFolder,
+  onOpenConnectorsTab,
+  onClose,
+}: Props) {
+  const t = useT();
   const closeRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
@@ -80,14 +123,12 @@ export function NewProjectModal({
     closeRef.current?.focus();
   }, [open]);
 
-  if (!open) return null;
-
   return (
     <div
       className="new-project-modal-backdrop"
       role="dialog"
       aria-modal="true"
-      aria-label="New project"
+      aria-label={t('newproj.titleOther')}
       data-testid="new-project-modal"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
@@ -95,7 +136,7 @@ export function NewProjectModal({
     >
       <div className="new-project-modal">
         <header className="new-project-modal__head">
-          <h2 className="new-project-modal__title">New project</h2>
+          <h2 className="new-project-modal__title">{t('newproj.titleOther')}</h2>
           <button
             ref={closeRef}
             type="button"
