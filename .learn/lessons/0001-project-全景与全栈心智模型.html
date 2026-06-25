@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第 1 课：项目全景与全栈心智模型</title>
+  <style>
+    :root {
+      --text: #1a1a2e;
+      --bg: #fafafa;
+      --accent: #6c5ce7;
+      --accent-light: #a29bfe;
+      --border: #e0e0e0;
+      --code-bg: #f0f0f5;
+      --card-bg: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    .subtitle {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 2rem 0 0.8rem;
+      color: var(--text);
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem;
+    }
+    p { margin-bottom: 1rem; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin: 1rem 0;
+    }
+    .card-title {
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    code {
+      background: var(--code-bg);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+      font-family: "SF Mono", "Fira Code", monospace;
+    }
+    pre {
+      background: var(--code-bg);
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 1rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+    .diagram {
+      background: #f8f8fc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      font-family: "SF Mono", monospace;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    .quiz {
+      background: #fff8e1;
+      border: 1px solid #ffcc02;
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .quiz-label {
+      font-weight: 600;
+      color: #e65100;
+      margin-bottom: 0.5rem;
+    }
+    .options {
+      list-style: none;
+      margin: 0.5rem 0;
+    }
+    .options li {
+      padding: 0.4rem 0;
+    }
+    .options label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .options input[type="radio"] { margin: 0; }
+    .feedback {
+      display: none;
+      margin-top: 0.8rem;
+      padding: 0.8rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    .feedback.correct { background: #e8f5e9; color: #2e7d32; display: block; }
+    .feedback.wrong { background: #fbe9e7; color: #c62828; display: block; }
+    .tip {
+      background: #e3f2fd;
+      border-left: 3px solid #1976d2;
+      padding: 0.8rem 1rem;
+      margin: 1rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.9rem;
+    }
+    .next-lesson {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .next-lesson a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .next-lesson a:hover { text-decoration: underline; }
+    .ask-agent {
+      background: #f3e5f5;
+      border-left: 3px solid #9c27b0;
+      padding: 0.8rem 1rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.9rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      padding: 0.5rem 0.8rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    th { background: var(--code-bg); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<h1>第 1 课：项目全景与全栈心智模型</h1>
+<p class="subtitle">从你熟悉的前端出发，建立对 Open Design 全栈架构的完整心智模型 &middot; 预计 20 分钟</p>
+
+<h2>你已经知道的</h2>
+<p>作为前端开发者，你熟悉这个流程：</p>
+<div class="diagram">
+用户 → 浏览器 → React 组件 → fetch() → 某个 API → 返回 JSON → 渲染 UI
+</div>
+<p>在 Open Design 中，<code>apps/web</code> 就是你熟悉的这一层。但"某个 API"背后，是一个完整的 Node.js 后端——这就是你要学习的部分。</p>
+
+<h2>Open Design 的三层架构</h2>
+<div class="diagram">
+┌─────────────────────────────────────────────────────┐
+│  浏览器 (你已经懂)                                      │
+│  apps/web — Next.js 16 + React 18                   │
+└──────────────────────┬──────────────────────────────┘
+                       │ HTTP / SSE
+                       ▼
+┌─────────────────────────────────────────────────────┐
+│  守护进程 (你要学的)                                    │
+│  apps/daemon — Express 5.2 + SQLite                 │
+│  ├── /api/* 路由      ← HTTP 接口                    │
+│  ├── db.ts            ← 数据库                       │
+│  ├── runtimes/        ← 代理编排                     │
+│  └── routes/          ← 业务逻辑                     │
+└──────────────────────┬──────────────────────────────┘
+                       │ 子进程 stdin/stdout
+                       ▼
+┌─────────────────────────────────────────────────────┐
+│  代理 CLI (外部工具)                                    │
+│  Claude Code, Codex, Cursor, Gemini CLI ...         │
+└─────────────────────────────────────────────────────┘
+</div>
+
+<h2>前端开发者的心智映射</h2>
+<table>
+  <tr><th>前端概念</th><th>Open Design 后端对应</th><th>文件位置</th></tr>
+  <tr><td>路由 (React Router)</td><td>Express 路由</td><td><code>apps/daemon/src/routes/</code></td></tr>
+  <tr><td>API 调用 (fetch)</td><td>路由处理器</td><td><code>routes/chat.ts</code>, <code>routes/project/</code></td></tr>
+  <tr><td>状态管理 (useState)</td><td>SQLite 数据库</td><td><code>apps/daemon/src/db.ts</code></td></tr>
+  <tr><td>组件树</td><td>中间件链</td><td><code>server.ts</code></td></tr>
+  <tr><td>WebSocket</td><td>Server-Sent Events (SSE)</td><td><code>routes/chat.ts</code></td></tr>
+  <tr><td>npm 包</td><td>子进程 (child_process)</td><td><code>runtimes/launch.ts</code></td></tr>
+</table>
+
+<h2>一个请求的完整旅程</h2>
+<p>当你在 Open Design 的聊天界面输入提示词并发送：</p>
+<ol>
+  <li><strong>前端</strong>：React 组件调用 <code>POST /api/chat</code></li>
+  <li><strong>路由</strong>：Express 匹配到 <code>routes/chat.ts</code></li>
+  <li><strong>数据库</strong>：在 SQLite 中创建会话和消息记录</li>
+  <li><strong>代理编排</strong>：<code>runtimes/launch.ts</code> 生成一个子进程运行 Claude Code</li>
+  <li><strong>流式传输</strong>：代理的 stdout 输出被解析为事件，通过 SSE 推送给前端</li>
+  <li><strong>渲染</strong>：前端在沙箱 iframe 中渲染生成的 HTML 制品</li>
+</ol>
+
+<div class="tip">
+  <strong>💡 关键洞察：</strong>整个后端的核心工作就是"编排"——接收前端请求，调度外部代理，把结果流式传回。它本身不做 AI 推理，而是连接用户和 AI 代理的桥梁。
+</div>
+
+<h2>检查理解</h2>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 1</div>
+  <p>在 Open Design 的架构中，守护进程（daemon）的主要职责是什么？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q1" value="a"> 运行 AI 模型进行推理</label></li>
+    <li><label><input type="radio" name="q1" value="b"> 编排前端请求和外部代理 CLI</label></li>
+    <li><label><input type="radio" name="q1" value="c"> 提供静态文件托管</label></li>
+    <li><label><input type="radio" name="q1" value="d"> 管理用户认证</label></li>
+  </ul>
+  <div id="f1" class="feedback"></div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 2</div>
+  <p>前端和守护进程之间的流式通信用的是什么技术？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q2" value="a"> WebSocket</label></li>
+    <li><label><input type="radio" name="q2" value="b"> 轮询 (Polling)</label></li>
+    <li><label><input type="radio" name="q2" value="c"> Server-Sent Events (SSE)</label></li>
+    <li><label><input type="radio" name="q2" value="d"> gRPC</label></li>
+  </ul>
+  <div id="f2" class="feedback"></div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 3</div>
+  <p>Open Design 的数据持久化用的是什么？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q3" value="a"> PostgreSQL</label></li>
+    <li><label><input type="radio" name="q3" value="b"> MongoDB</label></li>
+    <li><label><input type="radio" name="q3" value="c"> SQLite (better-sqlite3)</label></li>
+    <li><label><input type="radio" name="q3" value="d"> Redis</label></li>
+  </ul>
+  <div id="f3" class="feedback"></div>
+</div>
+
+<script>
+const answers = {
+  q1: { correct: 'b', explanation: '✅ 正确！守护进程是一个"编排者"——它不运行 AI 模型，而是生成子进程调用外部代理 CLI，然后把结果流式传回前端。' },
+  q2: { correct: 'c', explanation: '✅ 正确！Open Design 用 SSE（Server-Sent Events）做流式通信。SSE 比 WebSocket 更简单，适合服务端单向推送的场景。' },
+  q3: { correct: 'c', explanation: '✅ 正确！用的是 SQLite，通过 better-sqlite3 驱动。SQLite 是一个文件数据库，不需要独立的数据库服务器，适合本地应用。' }
+};
+
+document.querySelectorAll('.options input').forEach(input => {
+  input.addEventListener('change', (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    const fb = document.getElementById('f' + name.slice(1));
+    if (value === answers[name].correct) {
+      fb.className = 'feedback correct';
+      fb.textContent = answers[name].explanation;
+    } else {
+      fb.className = 'feedback wrong';
+      fb.textContent = '❌ 再想想。提示：看看上面的架构图。';
+    }
+  });
+});
+</script>
+
+<h2>动手探索</h2>
+<p>现在你对架构有了整体认识，试试以下操作：</p>
+<ol>
+  <li>打开 <code>apps/daemon/src/server.ts</code>，搜索 <code>app.get</code> 和 <code>app.post</code>，看看有哪些路由</li>
+  <li>打开 <code>apps/daemon/src/db.ts</code>，找到 <code>CREATE TABLE</code> 语句，看看数据库有哪些表</li>
+  <li>打开 <code>apps/daemon/src/routes/chat.ts</code>，找到 SSE 推送的代码（搜索 <code>res.write</code>）</li>
+</ol>
+
+<div class="ask-agent">
+  <strong>🤖 向 AI 老师提问：</strong><br>
+  - "中间件是什么？Express 的中间件和 React 的高阶组件有什么相似之处？"<br>
+  - "SSE 和 WebSocket 的区别是什么？为什么这里选 SSE？"<br>
+  - "SQLite 和 MySQL/PostgreSQL 有什么区别？什么时候该用哪个？"
+</div>
+
+<h2>推荐资源</h2>
+<ul>
+  <li><a href="https://expressjs.com/en/guide/routing.html">Express 路由指南</a> — 理解 Open Design 的路由结构</li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events">SSE - MDN</a> — 理解流式通信机制</li>
+  <li><a href="https://github.com/WiseLibs/better-sqlite3">better-sqlite3 文档</a> — 理解数据库层</li>
+</ul>
+
+<div class="next-lesson">
+  <strong>下一课：</strong> <a href="0002-express-路由与中间件.html">第 2 课：Express 路由与中间件 — 从 React Router 到 Express Router</a>
+</div>
+
+</body>
+</html>
