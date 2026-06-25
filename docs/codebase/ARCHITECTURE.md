@@ -1,148 +1,148 @@
-# Open Design — Architecture
+# Open Design — 架构文档
 
-> Auto-generated on 2026-06-25. Covers v0.11.1.
+> 自动生成于 2026-06-25，覆盖 v0.11.1 版本。
 
 ---
 
-## 1. High-Level Architecture
+## 1. 高层架构
 
 ```mermaid
 graph TD
-    subgraph "User's Machine"
-        Browser["Browser"]
-        Web["Next.js Web App<br/>localhost:3000"]
-        Daemon["Daemon (Express)<br/>localhost:7456"]
+    subgraph "用户机器"
+        Browser["浏览器"]
+        Web["Next.js Web 应用<br/>localhost:3000"]
+        Daemon["守护进程 (Express)<br/>localhost:7456"]
         SQLite[("SQLite<br/>app.sqlite")]
-        AgentCLI["Agent CLIs<br/>(Claude, Codex, Cursor, ...)"]
-        Desktop["Electron Desktop"]
+        AgentCLI["代理 CLI<br/>(Claude, Codex, Cursor, ...)"]
+        Desktop["Electron 桌面端"]
     end
 
-    subgraph "External Services"
-        Vercel["Vercel<br/>(optional web hosting)"]
+    subgraph "外部服务"
+        Vercel["Vercel<br/>(可选 web 托管)"]
         Anthropic["Anthropic API"]
         OpenAI["OpenAI API"]
-        OtherAI["Other AI APIs"]
+        OtherAI["其他 AI API"]
     end
 
     Browser -->|"HTTP/SSE"| Web
     Web -->|"HTTP API"| Daemon
     Desktop -->|"Sidecar IPC"| Daemon
-    Daemon -->|"Read/Write"| SQLite
-    Daemon -->|"Spawn & Stream"| AgentCLI
+    Daemon -->|"读/写"| SQLite
+    Daemon -->|"生成 & 流式传输"| AgentCLI
     AgentCLI -->|"stdout JSONL"| Daemon
-    Daemon -->|"SSE Events"| Web
+    Daemon -->|"SSE 事件"| Web
 
-    Vercel -.->|"Optional"| Web
-    Browser -->|"BYOK Proxy"| Daemon
-    Daemon -->|"SSRF-guarded proxy"| Anthropic
-    Daemon -->|"SSRF-guarded proxy"| OpenAI
-    Daemon -->|"SSRF-guarded proxy"| OtherAI
+    Vercel -.->|"可选"| Web
+    Browser -->|"BYOK 代理"| Daemon
+    Daemon -->|"SSRF 防护代理"| Anthropic
+    Daemon -->|"SSRF 防护代理"| OpenAI
+    Daemon -->|"SSRF 防护代理"| OtherAI
 ```
 
 ---
 
-## 2. Deployment Topologies
+## 2. 部署拓扑
 
-### Topology A: Fully Local (Default)
+### 拓扑 A：完全本地（默认）
 
 ```mermaid
 sequenceDiagram
-    participant U as User
-    participant B as Browser
+    participant U as 用户
+    participant B as 浏览器
     participant W as Next.js (localhost:3000)
-    participant D as Daemon (localhost:7456)
-    participant A as Agent CLI (child process)
+    participant D as 守护进程 (localhost:7456)
+    participant A as 代理 CLI (子进程)
     participant DB as SQLite
 
-    U->>B: Opens app
-    B->>W: Load UI
+    U->>B: 打开应用
+    B->>W: 加载 UI
     W->>D: GET /api/health
     D-->>W: 200 OK
 
-    U->>B: Selects skill + writes prompt
+    U->>B: 选择技能 + 编写提示词
     B->>D: POST /api/chat {skill, prompt, agent}
-    D->>DB: Create conversation + message
-    D->>A: Spawn agent process (stdin: prompt)
-    A-->>D: stdout JSONL events
-    D-->>B: SSE stream (content, tool_use, artifacts)
-    B-->>U: Render in sandboxed iframe
+    D->>DB: 创建会话 + 消息
+    D->>A: 生成代理进程 (stdin: 提示词)
+    A-->>D: stdout JSONL 事件
+    D-->>B: SSE 流 (content, tool_use, artifacts)
+    B-->>U: 在沙箱 iframe 中渲染
 ```
 
-### Topology B: Web on Vercel + Local Daemon
+### 拓扑 B：Vercel Web + 本地守护进程
 
 ```mermaid
 sequenceDiagram
-    participant U as User
-    participant B as Browser
+    participant U as 用户
+    participant B as 浏览器
     participant V as Vercel Web
-    participant D as Local Daemon
-    participant A as Agent CLI
+    participant D as 本地守护进程
+    participant A as 代理 CLI
 
-    U->>B: Opens app (vercel URL)
-    B->>V: Load UI
-    V->>D: WebSocket tunnel
-    D-->>V: Status + API responses
-    U->>B: Chat
-    B->>D: POST /api/chat (via tunnel)
-    D->>A: Spawn agent
-    A-->>D: stdout events
-    D-->>B: SSE stream (via tunnel)
+    U->>B: 打开应用 (vercel URL)
+    B->>V: 加载 UI
+    V->>D: WebSocket 隧道
+    D-->>V: 状态 + API 响应
+    U->>B: 聊天
+    B->>D: POST /api/chat (通过隧道)
+    D->>A: 生成代理
+    A-->>D: stdout 事件
+    D-->>B: SSE 流 (通过隧道)
 ```
 
-### Topology C: Web on Vercel + Direct API (No Daemon)
+### 拓扑 C：Vercel Web + 直连 API（无守护进程）
 
 ```mermaid
 sequenceDiagram
-    participant U as User
-    participant B as Browser
+    participant U as 用户
+    participant B as 浏览器
     participant V as Vercel Serverless
     participant API as Anthropic/OpenAI API
 
-    U->>B: Opens app
-    B->>V: Load UI
-    U->>B: Chat (BYOK)
+    U->>B: 打开应用
+    B->>V: 加载 UI
+    U->>B: 聊天 (BYOK)
     B->>V: POST /api/proxy/anthropic/stream
-    V->>API: Forward (SSRF-guarded)
-    API-->>V: SSE stream
-    V-->>B: Proxy stream
-    B-->>U: Render artifacts
+    V->>API: 转发 (SSRF 防护)
+    API-->>V: SSE 流
+    V-->>B: 代理流
+    B-->>U: 渲染制品
 ```
 
 ---
 
-## 3. Data Flow — Chat to Artifact
+## 3. 数据流 — 从聊天到制品
 
 ```mermaid
 flowchart LR
-    A["User writes prompt"] --> B["Web: POST /api/chat"]
-    B --> C["Daemon: resolve agent + skill + design system"]
-    C --> D["Daemon: compose system prompt"]
-    D --> E["Daemon: spawn agent process"]
-    E --> F["Agent: stdout JSONL stream"]
-    F --> G["Daemon: stream parser<br/>(claude-stream / json-event-stream)"]
-    G --> H["Daemon: SSE events to web"]
-    H --> I["Web: render content blocks"]
-    I --> J{"Content type?"}
-    J -->|"text/markdown"| K["Render in chat"]
-    J -->|"HTML artifact"| L["Sandboxed iframe srcdoc"]
-    J -->|"tool_use"| M["Execute tool, feed result back"]
+    A["用户编写提示词"] --> B["Web: POST /api/chat"]
+    B --> C["守护进程: 解析代理 + 技能 + 设计系统"]
+    C --> D["守护进程: 组合系统提示词"]
+    D --> E["守护进程: 生成代理进程"]
+    E --> F["代理: stdout JSONL 流"]
+    F --> G["守护进程: 流解析器<br/>(claude-stream / json-event-stream)"]
+    G --> H["守护进程: SSE 事件到 web"]
+    H --> I["Web: 渲染内容块"]
+    I --> J{"内容类型?"}
+    J -->|"text/markdown"| K["在聊天中渲染"]
+    J -->|"HTML 制品"| L["沙箱 iframe srcdoc"]
+    J -->|"tool_use"| M["执行工具，回传结果"]
     M --> F
 ```
 
 ---
 
-## 4. Module Dependency Graph
+## 4. 模块依赖图
 
 ```mermaid
 graph TD
-    subgraph "Apps"
+    subgraph "应用"
         Web["@open-design/web"]
         Daemon["@open-design/daemon"]
         Desktop["@open-design/desktop"]
         Packaged["@open-design/packaged"]
     end
 
-    subgraph "Core Packages"
+    subgraph "核心包"
         Contracts["@open-design/contracts"]
         Components["@open-design/components"]
         Sidecar["@open-design/sidecar"]
@@ -150,13 +150,13 @@ graph TD
         Platform["@open-design/platform"]
     end
 
-    subgraph "Protocol Packages"
+    subgraph "协议包"
         Host["@open-design/host"]
         LauncherProto["@open-design/launcher-proto"]
         AguiAdapter["@open-design/agui-adapter"]
     end
 
-    subgraph "Utility Packages"
+    subgraph "工具包"
         PluginRuntime["@open-design/plugin-runtime"]
         RegistryProtocol["@open-design/registry-protocol"]
         Diagnostics["@open-design/diagnostics"]
@@ -183,22 +183,22 @@ graph TD
 
 ---
 
-## 5. Daemon Internal Architecture
+## 5. 守护进程内部架构
 
 ```mermaid
 graph TD
-    subgraph "Daemon (Express Server)"
-        HTTP["HTTP Server<br/>localhost:7456"]
-        Routes["Route Handlers<br/>/api/*"]
+    subgraph "守护进程 (Express Server)"
+        HTTP["HTTP 服务器<br/>localhost:7456"]
+        Routes["路由处理器<br/>/api/*"]
         DB["SQLite<br/>better-sqlite3"]
-        RunTimes["Agent Runtimes<br/>Detection + Launch + Stream"]
-        Plugins["Plugin System<br/>Manifest + Validation"]
-        Skills["Skill Loader<br/>SKILL.md parser"]
-        DS["Design Systems<br/>DESIGN.md parser"]
-        Critique["Critique Engine<br/>Self-review"]
-        Media["Media Adapters<br/>Image/Video/Audio"]
-        MCP["MCP Server<br/>stdio protocol"]
-        Prompts["Prompt Composer<br/>System + Skill + DS"]
+        RunTimes["代理运行时<br/>检测 + 启动 + 流式传输"]
+        Plugins["插件系统<br/>清单 + 验证"]
+        Skills["技能加载器<br/>SKILL.md 解析器"]
+        DS["设计系统<br/>DESIGN.md 解析器"]
+        Critique["评审引擎<br/>自评审"]
+        Media["媒体适配器<br/>图片/视频/音频"]
+        MCP["MCP 服务器<br/>stdio 协议"]
+        Prompts["提示词组合器<br/>系统 + 技能 + DS"]
     end
 
     HTTP --> Routes
@@ -211,66 +211,66 @@ graph TD
     RunTimes --> Prompts
     Prompts --> Skills
     Prompts --> DS
-    RunTimes -->|"Spawn child"| AgentCLI["Agent CLIs"]
+    RunTimes -->|"生成子进程"| AgentCLI["代理 CLI"]
     AgentCLI -->|"stdout"| RunTimes
-    Critique -->|"Review artifacts"| DB
-    MCP -->|"Tool calls"| Routes
+    Critique -->|"评审制品"| DB
+    MCP -->|"工具调用"| Routes
 ```
 
 ---
 
-## 6. Sidecar IPC Architecture
+## 6. Sidecar IPC 架构
 
 ```mermaid
 graph LR
-    subgraph "Packaged App"
-        PackagedEntry["Packaged Entry<br/>(esbuild bundle)"]
+    subgraph "打包应用"
+        PackagedEntry["打包入口<br/>(esbuild bundle)"]
     end
 
     subgraph "Sidecar"
-        SidecarRuntime["@open-design/sidecar<br/>IPC Server"]
-        SidecarProto["@open-design/sidecar-proto<br/>Protocol Schema"]
+        SidecarRuntime["@open-design/sidecar<br/>IPC 服务器"]
+        SidecarProto["@open-design/sidecar-proto<br/>协议模式"]
     end
 
-    subgraph "Daemon"
-        DaemonProcess["Daemon Process"]
-        Stamp["Process Stamp<br/>app, mode, namespace,<br/>ipc, source"]
+    subgraph "守护进程"
+        DaemonProcess["守护进程"]
+        Stamp["进程戳<br/>app, mode, namespace,<br/>ipc, source"]
     end
 
-    PackagedEntry -->|"Unix socket /<br/>Named pipe"| SidecarRuntime
+    PackagedEntry -->|"Unix 套接字 /<br/>命名管道"| SidecarRuntime
     SidecarRuntime --> SidecarProto
-    SidecarRuntime -->|"Launch daemon"| DaemonProcess
+    SidecarRuntime -->|"启动守护进程"| DaemonProcess
     DaemonProcess --> Stamp
-    Stamp -->|"5 fields"| SidecarRuntime
+    Stamp -->|"5 个字段"| SidecarRuntime
 ```
 
 ---
 
-## 7. Plugin Ecosystem Architecture
+## 7. 插件生态系统架构
 
 ```mermaid
 graph TD
-    subgraph "Plugin Spec"
-        Spec["open-design.json<br/>Manifest"]
-        SkillMd["SKILL.md<br/>Skill Definition"]
+    subgraph "插件规范"
+        Spec["open-design.json<br/>清单"]
+        SkillMd["SKILL.md<br/>技能定义"]
     end
 
-    subgraph "Plugin Runtime"
-        Manifest["Manifest Parser<br/>(@open-design/plugin-runtime)"]
-        Validator["Schema Validator<br/>(Zod)"]
-        Merger["Config Merger"]
-        Resolver["Ref Resolver"]
+    subgraph "插件运行时"
+        Manifest["清单解析器<br/>(@open-design/plugin-runtime)"]
+        Validator["模式验证器<br/>(Zod)"]
+        Merger["配置合并器"]
+        Resolver["引用解析器"]
     end
 
-    subgraph "Plugin Sources"
-        Official["plugins/_official/<br/>261 plugins"]
+    subgraph "插件来源"
+        Official["plugins/_official/<br/>261 个插件"]
         Community["plugins/community/"]
-        Local["User local plugins"]
+        Local["用户本地插件"]
     end
 
-    subgraph "Daemon"
-        PluginRoutes["Plugin Routes<br/>/api/plugins"]
-        PluginDB["Plugin Tables<br/>(SQLite)"]
+    subgraph "守护进程"
+        PluginRoutes["插件路由<br/>/api/plugins"]
+        PluginDB["插件表<br/>(SQLite)"]
     end
 
     Spec --> Manifest
@@ -287,151 +287,151 @@ graph TD
 
 ---
 
-## 8. Skill & Design System Flow
+## 8. 技能与设计系统流程
 
 ```mermaid
 sequenceDiagram
-    participant U as User
+    participant U as 用户
     participant W as Web
-    participant D as Daemon
-    participant S as Skill (SKILL.md)
-    participant DS as Design System (DESIGN.md)
-    participant A as Agent CLI
+    participant D as 守护进程
+    participant S as 技能 (SKILL.md)
+    participant DS as 设计系统 (DESIGN.md)
+    participant A as 代理 CLI
 
-    U->>W: Select skill "deck-creator"
+    U->>W: 选择技能 "deck-creator"
     W->>D: GET /api/skills
-    D->>S: Read SKILL.md + od: frontmatter
-    D-->>W: Skill list with metadata
+    D->>S: 读取 SKILL.md + od: frontmatter
+    D-->>W: 技能列表及元数据
 
-    U->>W: Select design system "Linear"
+    U->>W: 选择设计系统 "Linear"
     W->>D: GET /api/design-systems
-    D->>DS: Read DESIGN.md (9 sections)
-    D-->>W: Design system list
+    D->>DS: 读取 DESIGN.md（9 个部分）
+    D-->>W: 设计系统列表
 
-    U->>W: Submit prompt
+    U->>W: 提交提示词
     W->>D: POST /api/chat
-    D->>S: Load skill instructions
-    D->>DS: Load design constraints
-    D->>D: Compose system prompt<br/>(skill + DS + craft rules + context)
-    D->>A: Spawn with composed prompt
-    A-->>D: Generate HTML artifact
-    D-->>W: SSE: artifact content
-    W-->>U: Render in sandboxed iframe
+    D->>S: 加载技能指令
+    D->>DS: 加载设计约束
+    D->>D: 组合系统提示词<br/>(技能 + DS + 工艺规则 + 上下文)
+    D->>A: 使用组合提示词生成代理
+    A-->>D: 生成 HTML 制品
+    D-->>W: SSE: 制品内容
+    W-->>U: 在沙箱 iframe 中渲染
 ```
 
 ---
 
-## 9. Agent Stream Processing
+## 9. 代理流处理
 
 ```mermaid
 flowchart TD
-    A["Agent CLI stdout"] --> B{"Agent type?"}
-    B -->|"Claude"| C["claude-stream.ts<br/>JSONL parser"]
-    B -->|"Generic"| D["json-event-stream.ts<br/>NDJSON parser"]
-    B -->|"Qoder"| E["qoder-stream.ts<br/>Custom parser"]
+    A["代理 CLI stdout"] --> B{"代理类型?"}
+    B -->|"Claude"| C["claude-stream.ts<br/>JSONL 解析器"]
+    B -->|"通用"| D["json-event-stream.ts<br/>NDJSON 解析器"]
+    B -->|"Qoder"| E["qoder-stream.ts<br/>自定义解析器"]
 
-    C --> F["Event normalization"]
+    C --> F["事件标准化"]
     D --> F
     E --> F
 
-    F --> G{"Event type?"}
-    G -->|"content_block_start"| H["Start content chunk"]
-    G -->|"content_block_delta"| I["Append to content"]
-    G -->|"content_block_stop"| J["Finalize content block"]
-    G -->|"tool_use"| K["Register tool call"]
-    G -->|"tool_result"| L["Feed result back to agent"]
-    G -->|"turn_end"| M["Close stdin if no pending answers"]
+    F --> G{"事件类型?"}
+    G -->|"content_block_start"| H["开始内容块"]
+    G -->|"content_block_delta"| I["追加内容"]
+    G -->|"content_block_stop"| J["完成内容块"]
+    G -->|"tool_use"| K["注册工具调用"]
+    G -->|"tool_result"| L["回传结果给代理"]
+    G -->|"turn_end"| M["如果没有待处理答案则关闭 stdin"]
 
-    H --> N["SSE to web"]
+    H --> N["SSE 到 web"]
     I --> N
     J --> N
     K --> N
-    L -->|"Write to agent stdin"| A
+    L -->|"写入代理 stdin"| A
     M --> N
 ```
 
 ---
 
-## 10. Key Architectural Decisions
+## 10. 关键架构决策
 
-### 10.1 Agent-Native, Model-Agnostic
+### 10.1 代理原生、模型无关
 
-Open Design does **not** ship its own AI model or agent. It discovers coding-agent CLIs on the user's PATH and orchestrates them. This means:
-- Users bring their own API keys and model access
-- The system works with any agent that speaks JSONL/NDJSON stdout
-- Agent capabilities are discovered at runtime via `capabilities.ts`
+Open Design **不**附带自己的 AI 模型或代理。它发现用户 PATH 中的编码代理 CLI 并编排它们。这意味着：
+- 用户自带 API 密钥和模型访问权限
+- 系统适用于任何输出 JSONL/NDJSON stdout 的代理
+- 代理功能在运行时通过 `capabilities.ts` 发现
 
-### 10.2 Skill-Driven Design
+### 10.2 技能驱动设计
 
-Every design task is driven by a **SKILL.md** file — a Markdown document with YAML frontmatter that defines:
-- The skill's mode (prototype, deck, image, etc.)
-- Required craft rules
-- Prompt templates
-- Output format expectations
+每个设计任务由一个 **SKILL.md** 文件驱动 — 一个带有 YAML frontmatter 的 Markdown 文档，定义：
+- 技能的模式（prototype、deck、image 等）
+- 所需的工艺规则
+- 提示词模板
+- 输出格式期望
 
-Agents read SKILL.md as part of their system prompt and follow its instructions.
+代理在系统提示词中读取 SKILL.md 并遵循其指令。
 
-### 10.3 Design System Contracts
+### 10.3 设计系统契约
 
-Brand consistency is enforced through **DESIGN.md** files with a 9-section schema:
-1. Color palette
-2. Typography scale
-3. Spacing system
-4. Layout grid
-5. Component library
-6. Motion/animation
-7. Voice/tone
-8. Brand guidelines
-9. Anti-patterns
+品牌一致性通过 **DESIGN.md** 文件强制执行，包含 9 个部分的模式：
+1. 调色板
+2. 排版比例
+3. 间距系统
+4. 布局网格
+5. 组件库
+6. 动效/动画
+7. 语调
+8. 品牌指南
+9. 反模式
 
-### 10.4 Sandboxed Artifact Preview
+### 10.4 沙箱制品预览
 
-All generated artifacts (HTML, SVG, etc.) are rendered in a sandboxed iframe:
+所有生成的制品（HTML、SVG 等）在沙箱 iframe 中渲染：
 ```html
 <iframe sandbox="allow-scripts" srcdoc="..."></iframe>
 ```
-This prevents untrusted generated code from accessing the host page, localStorage, or making arbitrary network requests.
+这防止不受信任的生成代码访问宿主页面、localStorage 或发起任意网络请求。
 
-### 10.5 SQLite as Single Source of Truth
+### 10.5 SQLite 作为唯一数据源
 
-The daemon uses a single SQLite file (`app.sqlite`) in WAL mode for all persistent state: projects, conversations, messages, plugins, media tasks. This keeps the system fully local with no external database dependency.
+守护进程使用单个 SQLite 文件（`app.sqlite`），采用 WAL 模式存储所有持久状态：项目、会话、消息、插件、媒体任务。这使系统完全本地化，无需外部数据库依赖。
 
-### 10.6 Capability Dual-Track
+### 10.6 能力双轨制
 
-Every user-facing feature must be accessible through **both** the web UI **and** the `od` CLI. Both surfaces call the same `/api/*` endpoints. The CLI supports `--json` for machine-readable output and `--prompt-file` for piped input.
+每个面向用户的功能必须通过 **Web UI** 和 **`od` CLI** 两种方式可访问。两种表面调用相同的 `/api/*` 端点。CLI 支持 `--json` 用于机器可读输出，支持 `--prompt-file` 用于管道输入。
 
-### 10.7 MCP Server Integration
+### 10.7 MCP 服务器集成
 
-The daemon exposes an MCP (Model Context Protocol) server over stdio, installable into any MCP-compatible agent. This allows external agents to call Open Design's tools (artifact rendering, design system lookup, etc.) as MCP tool calls.
+守护进程通过 stdio 暴露 MCP（模型上下文协议）服务器，可安装到任何兼容 MCP 的代理中。这允许外部代理通过 MCP 工具调用调用 Open Design 的工具（制品渲染、设计系统查询等）。
 
 ---
 
-## 11. Release Channel Model
+## 11. 发布频道模型
 
 ```mermaid
 graph LR
-    Beta["Beta Channel<br/>(daily R&D)"]
-    Nightly["Nightly Channel<br/>(internal validation)"]
-    Preview["Preview Channel<br/>(early access)"]
-    Stable["Stable Channel<br/>(formal delivery)"]
+    Beta["Beta 频道<br/>(日常研发)"]
+    Nightly["Nightly 频道<br/>(内部验证)"]
+    Preview["Preview 频道<br/>(抢先体验)"]
+    Stable["Stable 频道<br/>(正式发布)"]
 
-    Beta -->|"Validate"| Nightly
-    Nightly -->|"Gate"| Stable
-    Preview -.->|"Independent"| Stable
+    Beta -->|"验证"| Nightly
+    Nightly -->|"门控"| Stable
+    Preview -.->|"独立"| Stable
 ```
 
-| Channel | App Identity | Purpose |
+| 频道 | 应用标识 | 用途 |
 |---|---|---|
-| `beta` | Open Design Beta | Daily R&D/development validation |
-| `nightly` | Open Design | Internal validation for stable delivery |
-| `preview` | Open Design Preview | Early-access with stable-like rigor |
-| `stable` | Open Design | Formal delivery |
+| `beta` | Open Design Beta | 日常研发/开发验证 |
+| `nightly` | Open Design | 稳定发布的内部验证 |
+| `preview` | Open Design Preview | 具有稳定版严谨度的抢先体验 |
+| `stable` | Open Design | 正式发布 |
 
 ---
 
-## 12. i18n Architecture
+## 12. 国际化架构
 
-- **24 locales** supported: ar, de, en, es-ES, fa, fr, hu, id, ja, ko, pl, pt-BR, ru, th, tr, uk, zh-CN, zh-TW, and more
-- Typed `Dict` in `apps/web/src/i18n/types.ts`
-- Each locale is a separate `.ts` file under `apps/web/src/i18n/locales/`
-- Missing keys produce typecheck errors
+- 支持 **24 种语言**：ar、de、en、es-ES、fa、fr、hu、id、ja、ko、pl、pt-BR、ru、th、tr、uk、zh-CN、zh-TW 等
+- `apps/web/src/i18n/types.ts` 中的类型化 `Dict`
+- 每种语言是 `apps/web/src/i18n/locales/` 下的独立 `.ts` 文件
+- 缺失的键会产生类型检查错误
