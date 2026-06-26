@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Design 数据库表关系图</title>
+  <style>
+    :root {
+      --text: #1a1a2e;
+      --bg: #fafafa;
+      --accent: #6c5ce7;
+      --border: #e0e0e0;
+      --card-bg: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    .subtitle {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 2rem 0 0.8rem;
+    }
+    .mermaid {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.85rem;
+    }
+    th, td {
+      padding: 0.5rem 0.8rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    th { background: #f0f0f5; font-weight: 600; }
+    .group-label {
+      display: inline-block;
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .group-core { background: #6c5ce7; }
+    .group-ui { background: #00b894; }
+    .group-auto { background: #e17055; }
+    .group-deploy { background: #0984e3; }
+  </style>
+</head>
+<body>
+
+<h1>Open Design — 数据库表关系图</h1>
+<p class="subtitle">基于 <code>apps/daemon/src/db.ts</code> 的 CREATE TABLE 语句 &middot; 共 11 张表</p>
+
+<h2>ER 关系图</h2>
+<div class="mermaid">
+erDiagram
+    projects {
+        TEXT id PK
+        TEXT name
+        TEXT skill_id
+        TEXT design_system_id
+        TEXT pending_prompt
+        TEXT metadata_json
+        TEXT custom_instructions
+        INTEGER created_at
+        INTEGER updated_at
+    }
+
+    templates {
+        TEXT id PK
+        TEXT name
+        TEXT description
+        TEXT source_project_id
+        TEXT files_json
+        INTEGER created_at
+    }
+
+    conversations {
+        TEXT id PK
+        TEXT project_id FK
+        TEXT title
+        TEXT session_mode
+        INTEGER created_at
+        INTEGER updated_at
+    }
+
+    agent_sessions {
+        TEXT conversation_id FK
+        TEXT agent_id
+        TEXT session_id
+        TEXT stable_prompt_hash
+        INTEGER updated_at
+    }
+
+    messages {
+        TEXT id PK
+        TEXT conversation_id FK
+        TEXT role
+        TEXT content
+        TEXT agent_id
+        TEXT agent_name
+        TEXT events_json
+        TEXT attachments_json
+        TEXT produced_files_json
+        TEXT feedback_json
+        TEXT run_context_json
+        TEXT applied_plugin_snapshot_json
+        INTEGER position
+        INTEGER started_at
+        INTEGER ended_at
+        INTEGER created_at
+    }
+
+    preview_comments {
+        TEXT id PK
+        TEXT project_id FK
+        TEXT conversation_id FK
+        TEXT file_path
+        TEXT element_id
+        TEXT selector
+        TEXT label
+        TEXT text
+        TEXT note
+        TEXT status
+        INTEGER slide_index
+        INTEGER slide_key
+        INTEGER created_at
+        INTEGER updated_at
+    }
+
+    tabs {
+        TEXT project_id FK
+        TEXT name
+        INTEGER position
+        INTEGER is_active
+    }
+
+    tabs_state {
+        TEXT project_id FK
+        TEXT state_json
+        INTEGER updated_at
+    }
+
+    deployments {
+        TEXT id PK
+        TEXT project_id FK
+        TEXT file_name
+        TEXT provider_id
+        TEXT url
+        TEXT status
+        INTEGER deployment_count
+        INTEGER created_at
+        INTEGER updated_at
+    }
+
+    routines {
+        TEXT id PK
+        TEXT name
+        TEXT prompt
+        TEXT schedule_kind
+        TEXT schedule_value
+        TEXT skill_id
+        TEXT agent_id
+        INTEGER enabled
+        INTEGER created_at
+        INTEGER updated_at
+    }
+
+    routine_runs {
+        TEXT id PK
+        TEXT routine_id FK
+        TEXT trigger
+        TEXT status
+        TEXT project_id
+        TEXT conversation_id
+        TEXT error
+        INTEGER started_at
+        INTEGER completed_at
+    }
+
+    routine_schedule_claims {
+        TEXT routine_id FK
+        INTEGER slot_at
+        INTEGER claimed_at
+    }
+
+    projects ||--o{ conversations : "has many"
+    projects ||--o{ preview_comments : "has many"
+    projects ||--o{ tabs : "has many"
+    projects ||--o| tabs_state : "has one"
+    projects ||--o{ deployments : "has many"
+    conversations ||--o{ messages : "has many"
+    conversations ||--o{ agent_sessions : "has many"
+    conversations ||--o{ preview_comments : "has many"
+    routines ||--o{ routine_runs : "has many"
+    routines ||--o{ routine_schedule_claims : "has many"
+</div>
+
+<h2>表分组说明</h2>
+
+<table>
+  <tr>
+    <th>分组</th>
+    <th>表</th>
+    <th>说明</th>
+  </tr>
+  <tr>
+    <td><span class="group-label group-core">核心业务</span></td>
+    <td>projects, conversations, messages, agent_sessions</td>
+    <td>项目 → 会话 → 消息，构成聊天主链路</td>
+  </tr>
+  <tr>
+    <td><span class="group-label group-ui">制品与 UI</span></td>
+    <td>preview_comments, tabs, tabs_state</td>
+    <td>制品评审评论、工作区标签页状态</td>
+  </tr>
+  <tr>
+    <td><span class="group-label group-auto">自动化</span></td>
+    <td>routines, routine_runs, routine_schedule_claims</td>
+    <td>定时任务定义、执行记录、调度锁</td>
+  </tr>
+  <tr>
+    <td><span class="group-label group-deploy">部署</span></td>
+    <td>deployments</td>
+    <td>项目的部署记录（URL、状态）</td>
+  </tr>
+  <tr>
+    <td>—</td>
+    <td>templates</td>
+    <td>可复用模板（独立，无外键关联）</td>
+  </tr>
+</table>
+
+<h2>核心链路：项目 → 消息</h2>
+<div class="mermaid">
+graph LR
+    P["projects<br/>项目"] -->|project_id| C["conversations<br/>会话"]
+    C -->|conversation_id| M["messages<br/>消息"]
+    C -->|conversation_id| AS["agent_sessions<br/>代理会话"]
+    M -->|role| R{"角色?"}
+    R -->|user| U["用户消息"]
+    R -->|assistant| A["AI 回复"]
+    A -->|events_json| E["SSE 事件流"]
+    A -->|produced_files_json| F["生成的文件"]
+</div>
+
+<h2>级联删除关系</h2>
+<p>所有子表都使用 <code>ON DELETE CASCADE</code>，删除一个 project 时自动清理所有关联数据：</p>
+
+<div class="mermaid">
+graph TD
+    P["删除 project"] --> C["自动删除 conversations"]
+    P --> PC["自动删除 preview_comments"]
+    P --> T["自动删除 tabs"]
+    P --> TS["自动删除 tabs_state"]
+    P --> D["自动删除 deployments"]
+    C --> M["自动删除 messages"]
+    C --> AS["自动删除 agent_sessions"]
+    C --> PC2["自动删除 preview_comments"]
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'default', securityLevel: 'loose' });
+</script>
+
+</body>
+</html>
