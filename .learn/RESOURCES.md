@@ -33,6 +33,16 @@
 
 - [Electron 官方文档](https://www.electronjs.org/docs)
   主进程/渲染进程、IPC 通信。Use for: 理解 Open Design 的桌面端架构。
+- [Electron 安全指南](https://www.electronjs.org/docs/latest/tutorial/security)
+  contextIsolation、sandbox、nodeIntegration 等安全最佳实践。Use for: 理解 Open Design 的安全架构设计。
+- [Electron IPC 教程](https://www.electronjs.org/docs/latest/tutorial/ipc)
+  ipcMain.handle / ipcRenderer.invoke 的完整用法。Use for: 理解渲染进程与主进程的通信模式。
+- [Electron 打包与分发](https://www.electronjs.org/docs/latest/tutorial/webpack)
+  electron-builder、auto-updater。Use for: 理解 Open Design 的打包和更新系统。
+- [contextBridge API](https://www.electronjs.org/docs/latest/api/context-bridge)
+  预加载脚本安全暴露 API 的标准方式。Use for: 理解 preload.cts 的设计。
+- [Electron BrowserWindow API](https://www.electronjs.org/docs/latest/api/browser-window)
+  窗口创建和管理的完整参考。Use for: 理解多窗口管理、闪屏、桌面宠物等。
 
 ## Wisdom (Communities)
 

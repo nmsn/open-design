@@ -1,6 +1,6 @@
 # 学习路线图：从前端到全栈 AI 应用工程师
 
-> 以 Open Design 项目为主线，共 4 个阶段，约 20 节课。
+> 以 Open Design 项目为主线，共 5 个阶段，约 25 节课。
 
 ---
 
@@ -40,17 +40,49 @@
 | 14 | 代码规范与 Guard | pnpm guard、类型检查 | `scripts/guard.ts` |
 | 15 | 提交第一个 PR | 分支策略、PR 模板、Code Review | `.github/` |
 
-## 阶段四：进阶专题（第 16-20 课）
+## 阶段四：Electron 桌面端（第 16-22 课）⭐ 重点
+
+> 目标：理解 Electron 应用的完整生命周期，掌握主进程/渲染进程架构、安全模型、原生集成和自动更新。能独立开发 Electron 桌面应用。
+>
+> 为什么是重点：Open Design 的 Electron 层是最复杂的部分——7 个包协作、自定义更新系统（3200+ 行）、Sidecar 子进程架构、跨平台原生集成、完整的安全边界设计。这是前端开发者迈向"全栈 + 桌面"的关键跳板。
+
+| # | 课程 | 核心概念 | 对应源码 |
+|---|------|---------|---------|
+| 16 | Electron 基础：进程模型 | 主进程 vs 渲染进程、BrowserWindow、preload 脚本、contextBridge | `apps/desktop/src/main/index.ts`, `preload.cts` |
+| 17 | IPC 通信深潜 | ipcMain.handle / ipcRenderer.invoke、双向通信、类型安全的 Bridge 接口 | `preload.cts`, `runtime.ts`, `packages/host/` |
+| 18 | Sidecar 子进程架构 | Unix socket / Windows named pipe、JSON IPC 协议、进程戳（stamp）、守护进程编排 | `packages/sidecar/`, `packages/sidecar-proto/`, `apps/packaged/src/sidecars.ts` |
+| 19 | 窗口管理与原生 UI | 多窗口管理、闪屏动画、桌面宠物、菜单系统、PDF/图片导出 | `runtime.ts`, `pdf-export.ts`, `artifact-export.ts` |
+| 20 | 安全架构 | contextIsolation、sandbox、nodeIntegration、HMAC 认证、URL 白名单、webview 隔离 | `runtime.ts`, `preload.cts` |
+| 21 | 自定义协议与打包 | od:// 协议注册、esbuild 打包、单实例锁、命名空间路径、Headless 模式 | `apps/packaged/src/protocol.ts`, `launch.ts`, `paths.ts` |
+| 22 | 自动更新系统 | 元数据拉取、校验和验证、平台特定安装器、延迟安装、指数退避轮询 | `updater.ts`, `packages/launcher-proto/` |
+
+### Electron 学习路径图
+
+```
+第 16 课：进程模型（基础）
+    │
+    ├── 第 17 课：IPC 通信（核心机制）
+    │       │
+    │       ├── 第 18 课：Sidecar 架构（进阶 IPC）
+    │       │
+    │       └── 第 19 课：窗口与原生 UI（应用层）
+    │
+    ├── 第 20 课：安全架构（横切关注点）
+    │
+    └── 第 21 课：协议与打包（部署）
+            │
+            └── 第 22 课：自动更新（生产级）
+```
+
+## 阶段五：进阶专题（第 23-25 课）
 
 > 目标：理解高级架构决策，能做技术判断。
 
 | # | 课程 | 核心概念 | 对应源码 |
 |---|------|---------|---------|
-| 16 | Electron 桌面端 | 主进程/渲染进程、IPC、Sidecar | `apps/desktop/`, `packages/sidecar/` |
-| 17 | 设计系统引擎 | DESIGN.md 解析、9 段式模式 | `design-systems/`, `routes/design-systems.ts` |
-| 18 | 制品自评审系统 | Critique 引擎、反馈循环 | `critique/` |
-| 19 | 多代理编排 | 并发控制、错误恢复 | `runtimes/` (advanced) |
-| 20 | 架构决策复盘 | Trade-off 分析、系统设计思维 | `docs/architecture.md` |
+| 23 | 设计系统引擎 | DESIGN.md 解析、9 段式模式 | `design-systems/`, `routes/design-systems.ts` |
+| 24 | 制品自评审系统 | Critique 引擎、反馈循环 | `critique/` |
+| 25 | 架构决策复盘 | Trade-off 分析、系统设计思维 | `docs/architecture.md` |
 
 ---
 
@@ -60,3 +92,4 @@
 2. 完成每课的"检查理解"和"动手探索"
 3. 遇到不懂的，用"向 AI 老师提问"框提问
 4. 每完成 5 课，尝试为项目提一个小 PR
+5. 阶段四（Electron）是重点，建议每课花更多时间做动手实验
