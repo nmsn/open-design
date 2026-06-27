@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第 3 课：SQLite 数据库操作</title>
+  <style>
+    :root {
+      --text: #1a1a2e;
+      --bg: #fafafa;
+      --accent: #6c5ce7;
+      --border: #e0e0e0;
+      --code-bg: #f0f0f5;
+      --card-bg: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    .subtitle {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 { font-size: 1.3rem; font-weight: 600; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    code {
+      background: var(--code-bg);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+      font-family: "SF Mono", "Fira Code", monospace;
+    }
+    pre {
+      background: var(--code-bg);
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 1rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+    pre code { background: none; padding: 0; }
+    .diagram {
+      background: #f8f8fc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      font-family: "SF Mono", monospace;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    .quiz {
+      background: #fff8e1;
+      border: 1px solid #ffcc02;
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .quiz-label { font-weight: 600; color: #e65100; margin-bottom: 0.5rem; }
+    .options { list-style: none; margin: 0.5rem 0; }
+    .options li { padding: 0.4rem 0; }
+    .options label { cursor: pointer; display: flex; align-items: center; gap: 0.5rem; }
+    .options input[type="radio"] { margin: 0; }
+    .feedback {
+      display: none; margin-top: 0.8rem; padding: 0.8rem;
+      border-radius: 6px; font-size: 0.9rem;
+    }
+    .feedback.correct { background: #e8f5e9; color: #2e7d32; display: block; }
+    .feedback.wrong { background: #fbe9e7; color: #c62828; display: block; }
+    .tip {
+      background: #e3f2fd;
+      border-left: 3px solid #1976d2;
+      padding: 0.8rem 1rem;
+      margin: 1rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.9rem;
+    }
+    .ask-agent {
+      background: #f3e5f5;
+      border-left: 3px solid #9c27b0;
+      padding: 0.8rem 1rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.9rem;
+    }
+    .next-lesson {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .next-lesson a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .next-lesson a:hover { text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.5rem 0.8rem; border: 1px solid var(--border); text-align: left; }
+    th { background: var(--code-bg); font-weight: 600; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+    .compare-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .compare-label {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<h1>第 3 课：SQLite 数据库操作</h1>
+<p class="subtitle">从 SQL 到 better-sqlite3 — 用 Open Design 的真实代码学数据库 &middot; 预计 25 分钟</p>
+
+<h2>better-sqlite3 是什么？</h2>
+<p>Open Design 用 <code>better-sqlite3</code> 操作 SQLite。它是一个<strong>同步</strong>的 Node.js SQLite 驱动——所有操作都在当前线程完成，不需要 <code>async/await</code>。</p>
+
+<div class="compare">
+  <div class="compare-box">
+    <div class="compare-label">大多数数据库驱动（异步）</div>
+<pre><code>const user = await db.query(
+  'SELECT * FROM users WHERE id = ?', [id]
+);</code></pre>
+  </div>
+  <div class="compare-box">
+    <div class="compare-label">better-sqlite3（同步）</div>
+<pre><code>const user = db.prepare(
+  'SELECT * FROM users WHERE id = ?'
+).get(id);</code></pre>
+  </div>
+</div>
+
+<div class="tip">
+  <strong>💡 为什么是同步的？</strong>SQLite 是文件数据库，所有操作都在本机磁盘上完成，没有网络 IO。同步操作足够快（微秒级），不会阻塞 Node.js 事件循环。
+</div>
+
+<h2>核心 API：三步走</h2>
+
+<h3>第 1 步：打开数据库</h3>
+<pre><code>import Database from 'better-sqlite3';
+
+const db = new Database('app.sqlite');
+db.pragma('journal_mode = WAL');  // 启用 WAL 模式（性能优化）</code></pre>
+
+<h3>第 2 步：准备 SQL 语句</h3>
+<pre><code>// prepare() 创建一个可复用的语句对象
+const insertProject = db.prepare(`
+  INSERT INTO projects (id, name, skill_id, created_at, updated_at)
+  VALUES (?, ?, ?, ?, ?)
+`);</code></pre>
+
+<h3>第 3 步：执行语句</h3>
+<pre><code>// .run() — 执行写操作（INSERT/UPDATE/DELETE），返回变更信息
+insertProject.run('p1', '我的项目', 'deck-creator', Date.now(), Date.now());
+
+// .get() — 查询一行，返回对象或 undefined
+const project = db.prepare('SELECT * FROM projects WHERE id = ?').get('p1');
+
+// .all() — 查询多行，返回数组
+const projects = db.prepare('SELECT * FROM projects').all();</code></pre>
+
+<h2>Open Design 中的真实代码</h2>
+
+<p>打开 <code>apps/daemon/src/db.ts</code>，你会看到这样的代码：</p>
+
+<h3>建表（migrate 函数）</h3>
+<pre><code>function migrate(db: SqliteDb): void {
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS projects (
+      id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      skill_id TEXT,
+      design_system_id TEXT,
+      pending_prompt TEXT,
+      metadata_json TEXT,
+      created_at INTEGER NOT NULL,
+      updated_at INTEGER NOT NULL
+    );
+  `);
+}</code></pre>
+
+<p>要点：</p>
+<ul>
+  <li><code>IF NOT EXISTS</code> — 已存在就不重建，安全的幂等操作</li>
+  <li><code>TEXT PRIMARY KEY</code> — 用 UUID 字符串做主键，不是自增整数</li>
+  <li><code>INTEGER NOT NULL</code> — 时间戳用整数存储（Unix 毫秒）</li>
+  <li><code>JSON TEXT</code> — SQLite 没有 JSON 类型，用 TEXT 存 JSON 字符串</li>
+</ul>
+
+<h3>查询（典型的 CRUD 操作）</h3>
+<pre><code>// 创建项目
+db.prepare(`
+  INSERT INTO projects (id, name, skill_id, created_at, updated_at)
+  VALUES (?, ?, ?, ?, ?)
+`).run(id, name, skillId, now, now);
+
+// 查询单个项目
+const project = db.prepare('SELECT * FROM projects WHERE id = ?').get(id);
+
+// 查询项目列表
+const projects = db.prepare('SELECT * FROM projects ORDER BY updated_at DESC').all();
+
+// 更新项目
+db.prepare('UPDATE projects SET name = ?, updated_at = ? WHERE id = ?')
+  .run(newName, now, id);
+
+// 删除项目（级联删除关联的 conversations、messages 等）
+db.prepare('DELETE FROM projects WHERE id = ?').run(id);</code></pre>
+
+<h3>参数占位符</h3>
+<pre><code>// ? — 位置参数（按顺序填入）
+db.prepare('SELECT * FROM projects WHERE id = ?').get(id);
+
+// ?1, ?2 — 命名位置参数（可重复使用）
+db.prepare('SELECT * FROM messages WHERE conversation_id = ?1 AND role = ?2')
+  .all(convId, 'assistant');
+
+// :name, @name, $name — 命名参数（传对象）
+db.prepare('INSERT INTO projects (id, name) VALUES (:id, :name)')
+  .run({ id: 'p1', name: '我的项目' });</code></pre>
+
+<h2>事务（Transaction）</h2>
+<p>当需要<strong>批量执行多条 SQL</strong>时，用事务保证原子性——要么全部成功，要么全部失败。</p>
+
+<pre><code>// 不用事务：每条 SQL 单独执行，中途失败会留下半成品
+db.prepare('INSERT INTO projects ...').run(id, ...);
+db.prepare('INSERT INTO conversations ...').run(convId, ...);  // ← 这里失败了
+db.prepare('INSERT INTO messages ...').run(msgId, ...);         // ← 不会执行
+
+// 用事务：要么全部成功，要么全部回滚
+const createProjectWithConversation = db.transaction((project, conversation) => {
+  db.prepare('INSERT INTO projects ...').run(project.id, ...);
+  db.prepare('INSERT INTO conversations ...').run(conversation.id, ...);
+  db.prepare('INSERT INTO messages ...').run(msgId, ...);
+});
+
+createProjectWithConversation(project, conversation);  // 原子操作</code></pre>
+
+<div class="tip">
+  <strong>💡 better-sqlite3 的事务性能：</strong>100 条 INSERT 不用事务需要 ~100ms，用事务只需要 ~1ms。因为每次写操作都要刷磁盘，事务把多次刷盘合并为一次。
+</div>
+
+<h2>检查理解</h2>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 1</div>
+  <p>better-sqlite3 的 <code>.get()</code>、<code>.all()</code>、<code>.run()</code> 分别用于什么场景？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q1" value="a"> .get() 查一行，.all() 查多行，.run() 执行写操作</label></li>
+    <li><label><input type="radio" name="q1" value="b"> .get() 查多行，.all() 查一行，.run() 执行读操作</label></li>
+    <li><label><input type="radio" name="q1" value="c"> 三个都可以读写，没有区别</label></li>
+    <li><label><input type="radio" name="q1" value="d"> .get() 写入，.all() 删除，.run() 查询</label></li>
+  </ul>
+  <div id="f1" class="feedback"></div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 2</div>
+  <p>为什么 Open Design 用 UUID 字符串做主键，而不是自增整数？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q2" value="a"> UUID 更好看</label></li>
+    <li><label><input type="radio" name="q2" value="b"> UUID 可以在客户端生成，不需要查询数据库获取 ID</label></li>
+    <li><label><input type="radio" name="q2" value="c"> SQLite 不支持自增整数</label></li>
+    <li><label><input type="radio" name="q2" value="d"> UUID 占用更少空间</label></li>
+  </ul>
+  <div id="f2" class="feedback"></div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 3</div>
+  <p>事务的主要作用是什么？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q3" value="a"> 加速查询</label></li>
+    <li><label><input type="radio" name="q3" value="b"> 保证多条 SQL 要么全部成功，要么全部失败</label></li>
+    <li><label><input type="radio" name="q3" value="c"> 自动备份数据</label></li>
+    <li><label><input type="radio" name="q3" value="d"> 加密数据库</label></li>
+  </ul>
+  <div id="f3" class="feedback"></div>
+</div>
+
+<script>
+const answers = {
+  q1: { correct: 'a', explanation: '✅ .get() 返回一行对象，.all() 返回数组，.run() 执行写操作返回 { changes, lastInsertRowid }。' },
+  q2: { correct: 'b', explanation: '✅ UUID 可以在客户端（或 API 层）提前生成，INSERT 时直接带上，不需要先 INSERT 再查询获取自增 ID。这在分布式场景和离线创建时特别有用。' },
+  q3: { correct: 'b', explanation: '✅ 事务保证原子性——多条 SQL 被当作一个整体执行。中途失败会回滚到事务开始前的状态，不会留下半成品数据。' }
+};
+
+document.querySelectorAll('.options input').forEach(input => {
+  input.addEventListener('change', (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    const fb = document.getElementById('f' + name.slice(1));
+    if (value === answers[name].correct) {
+      fb.className = 'feedback correct';
+      fb.textContent = answers[name].explanation;
+    } else {
+      fb.className = 'feedback wrong';
+      fb.textContent = '❌ 再想想。';
+    }
+  });
+});
+</script>
+
+<h2>动手探索</h2>
+<ol>
+  <li>打开 <code>apps/daemon/src/db.ts</code>，找到 <code>migrate</code> 函数，看看所有 <code>CREATE TABLE</code> 语句</li>
+  <li>搜索 <code>.prepare(</code>，看看有多少个 SQL 语句被预编译</li>
+  <li>搜索 <code>db.transaction</code>，看看哪些操作用了事务</li>
+  <li>搜索 <code>ON DELETE CASCADE</code>，找到所有级联删除关系</li>
+</ol>
+
+<div class="ask-agent">
+  <strong>🤖 向 AI 老师提问：</strong><br>
+  - "WAL 模式是什么？和普通模式有什么区别？"<br>
+  - "SQLite 的 JSON 函数（json_extract 等）怎么用？"<br>
+  - "better-sqlite3 的 pragma 是做什么的？"
+</div>
+
+<h2>推荐资源</h2>
+<ul>
+  <li><a href="https://github.com/WiseLibs/better-sqlite3/blob/master/docs/api.md">better-sqlite3 API 文档</a> — 完整 API 参考</li>
+  <li><a href="https://www.sqlite.org/lang.html">SQLite SQL 语法</a> — 官方 SQL 参考</li>
+  <li><a href="https://sqlbolt.com/">SQLBolt</a> — 交互式 SQL 练习（15 分钟入门）</li>
+</ul>
+
+<div class="next-lesson">
+  <strong>下一课：</strong> <a href="0004-子进程与进程管理.html">第 4 课：子进程与进程管理 — child_process、spawn、stdin/stdout</a>
+</div>
+
+</body>
+</html>
