@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第 2 课：Express 路由与中间件</title>
+  <style>
+    :root {
+      --text: #1a1a2e;
+      --bg: #fafafa;
+      --accent: #6c5ce7;
+      --accent-light: #a29bfe;
+      --border: #e0e0e0;
+      --code-bg: #f0f0f5;
+      --card-bg: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    .subtitle {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 2rem 0 0.8rem;
+      color: var(--text);
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.5rem;
+    }
+    p { margin-bottom: 1rem; }
+    code {
+      background: var(--code-bg);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+      font-family: "SF Mono", "Fira Code", monospace;
+    }
+    pre {
+      background: var(--code-bg);
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 1rem 0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+    .diagram {
+      background: #f8f8fc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      font-family: "SF Mono", monospace;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    .quiz {
+      background: #fff8e1;
+      border: 1px solid #ffcc02;
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .quiz-label {
+      font-weight: 600;
+      color: #e65100;
+      margin-bottom: 0.5rem;
+    }
+    .options {
+      list-style: none;
+      margin: 0.5rem 0;
+    }
+    .options li { padding: 0.4rem 0; }
+    .options label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .options input[type="radio"] { margin: 0; }
+    .feedback {
+      display: none;
+      margin-top: 0.8rem;
+      padding: 0.8rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    .feedback.correct { background: #e8f5e9; color: #2e7d32; display: block; }
+    .feedback.wrong { background: #fbe9e7; color: #c62828; display: block; }
+    .tip {
+      background: #e3f2fd;
+      border-left: 3px solid #1976d2;
+      padding: 0.8rem 1rem;
+      margin: 1rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.9rem;
+    }
+    .ask-agent {
+      background: #f3e5f5;
+      border-left: 3px solid #9c27b0;
+      padding: 0.8rem 1rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.9rem;
+    }
+    .next-lesson {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .next-lesson a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .next-lesson a:hover { text-decoration: underline; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      padding: 0.5rem 0.8rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    th { background: var(--code-bg); font-weight: 600; }
+    .file-ref {
+      display: inline-block;
+      background: #e8eaf6;
+      color: #283593;
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-family: "SF Mono", monospace;
+    }
+  </style>
+</head>
+<body>
+
+<h1>第 2 课：Express 路由与中间件</h1>
+<p class="subtitle">从 React Router 到 Express Router — 理解后端请求处理的核心机制 &middot; 预计 25 分钟</p>
+
+<h2>你已经知道的</h1>
+<p>上节课你发现 <code>server.ts</code> 只有 5 个路由直接定义，其余路由分散在 <code>routes/</code> 目录的 20+ 个文件中。这节课我们来理解它是怎么组织的。</p>
+
+<h2>React Router vs Express Router</h2>
+<p>作为前端开发者，你已经用过路由了：</p>
+
+<table>
+  <tr><th>概念</th><th>前端 (React Router)</th><th>后端 (Express)</th></tr>
+  <tr><td>定义路由</td><td><code>&lt;Route path="/users" /&gt;</code></td><td><code>app.get('/users', handler)</code></td></tr>
+  <tr><td>嵌套路由</td><td><code>&lt;Route&gt;&lt;Route /&gt;&lt;/Route&gt;</code></td><td><code>router.use('/users', userRouter)</code></td></tr>
+  <tr><td>路由参数</td><td><code>useParams()</code></td><td><code>req.params.id</code></td></tr>
+  <tr><td>中间件</td><td>高阶组件 / Layout</td><td><code>app.use(middleware)</code></td></tr>
+  <tr><td>404 页面</td><td><code>&lt;Route path="*" /&gt;</code></td><td><code>app.use((req, res) =&gt; res.status(404))</code></td></tr>
+</table>
+
+<h2>Express 路由基础</h2>
+
+<h3>一个路由 = 方法 + 路径 + 处理函数</h3>
+<pre><code>// 前端写法（React）
+&lt;Route path="/api/health" element={&lt;HealthPage /&gt;} /&gt;
+
+// 后端写法（Express）
+app.get('/api/health', async (req, res) => {
+  res.json({ status: 'ok' });
+});</code></pre>
+
+<p>Express 的路由方法对应 HTTP 方法：</p>
+<pre><code>app.get('/api/projects', handler)     // 读取
+app.post('/api/projects', handler)    // 创建
+app.put('/api/projects/:id', handler) // 更新
+app.delete('/api/projects/:id', handler) // 删除</code></pre>
+
+<h3>路由参数</h3>
+<pre><code>// 前端：/projects/:id
+const { id } = useParams();
+
+// 后端：/api/projects/:id
+const id = req.params.id;</code></pre>
+
+<h3>请求体</h3>
+<pre><code>// 前端
+fetch('/api/projects', {
+  method: 'POST',
+  body: JSON.stringify({ name: '新项目' })
+});
+
+// 后端
+const { name } = req.body;  // 自动解析 JSON</code></pre>
+
+<h2>模块化路由（Router）</h2>
+
+<p>Open Design 把路由拆分到独立文件，用 <code>express.Router()</code> 组织：</p>
+
+<pre><code>// routes/project.ts — 项目相关路由
+import { Router } from 'express';
+const router = Router();
+
+router.get('/', listProjects);       // GET  /api/projects
+router.post('/', createProject);     // POST /api/projects
+router.get('/:id/files', getFiles);  // GET  /api/projects/:id/files
+
+export default router;</code></pre>
+
+<pre><code>// server.ts — 注册路由模块
+import projectRoutes from './routes/project/index.js';
+
+// 所有 /api/projects/* 请求交给 projectRoutes 处理
+app.use('/api/projects', projectRoutes);</code></pre>
+
+<div class="diagram">
+请求: GET /api/projects/p123/files
+    │
+    ▼
+server.ts
+    │ app.use('/api/projects', projectRoutes)
+    ▼
+routes/project/index.ts
+    │ router.get('/:id/files', getFiles)
+    ▼
+getFiles(req, res)
+    │ req.params.id === 'p123'
+    ▼
+查询 SQLite → 返回文件列表 JSON
+</div>
+
+<h2>中间件（Middleware）</h2>
+
+<p>中间件是 Express 的核心概念——<strong>在路由处理函数之前执行的函数</strong>。</p>
+
+<h3>类比前端</h3>
+<p>中间件就像 React 的高阶组件或 Layout 路由——在真正渲染页面之前，先做一些通用处理：</p>
+
+<pre><code>// 前端：Layout 路由（在子路由之前执行）
+&lt;Route element={&lt;AuthLayout /&gt;}&gt;     ← 检查登录
+  &lt;Route path="/dashboard" /&gt;          ← 真正的页面
+&lt;/Route&gt;
+
+// 后端：中间件（在路由之前执行）
+app.use(authMiddleware);                ← 检查登录
+app.get('/api/dashboard', handler);     ← 真正的处理</code></pre>
+
+<h3>中间件的执行顺序</h3>
+<pre><code>app.use(middlewareA);  // ① 先执行
+app.use(middlewareB);  // ② 再执行
+app.get('/api/data', handler);  // ③ 最后执行</code></pre>
+
+<div class="diagram">
+请求进入
+    │
+    ▼
+┌─────────────┐
+│ middlewareA  │  ← 解析请求体、记录日志
+└──────┬──────┘
+       │ next()
+       ▼
+┌─────────────┐
+│ middlewareB  │  ← 验证身份、检查权限
+└──────┬──────┘
+       │ next()
+       ▼
+┌─────────────┐
+│   handler   │  ← 处理业务逻辑，返回响应
+└─────────────┘
+</div>
+
+<h3>关键：调用 next()</h3>
+<pre><code>// 中间件必须调用 next() 才能传递给下一个
+function logger(req, res, next) {
+  console.log(`${req.method} ${req.path}`);
+  next();  // ← 不调用就卡住了！
+}
+
+// 不调用 next() 的情况：直接返回响应
+function authCheck(req, res, next) {
+  if (!req.headers.authorization) {
+    return res.status(401).json({ error: '未登录' });  // 直接返回，不调用 next
+  }
+  next();  // 验证通过，继续
+}</code></pre>
+
+<h2>Open Design 中的真实路由结构</h2>
+
+<p>根据你之前在 <code>apps/daemon/src/routes/</code> 看到的文件：</p>
+
+<pre><code>server.ts
+├── app.get('/api/health')          ← 健康检查（直接定义）
+├── app.get('/api/ready')           ← 就绪检查（直接定义）
+├── app.get('/api/version')         ← 版本信息（直接定义）
+│
+├── app.use('/api/projects', ...)   → routes/project/     ← 项目 CRUD
+├── app.use('/api/chat', ...)       → routes/chat.ts      ← 聊天 SSE
+├── app.use('/api/plugins', ...)    → routes/plugins/     ← 插件管理
+├── app.use('/api/design-systems')  → routes/design-systems.ts
+├── app.use('/api/media', ...)      → routes/media.ts     ← 媒体生成
+├── app.use('/api/runs', ...)       → routes/runs.ts      ← 代理运行
+├── app.use('/api/terminal', ...)   → routes/terminal.ts  ← 终端
+├── app.use('/api/routines', ...)   → routes/routine.ts   ← 自动化
+└── ...（20+ 个路由模块）</code></pre>
+
+<h2>检查理解</h2>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 1</div>
+  <p>Express 中间件的 <code>next()</code> 函数的作用是什么？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q1" value="a"> 结束请求，返回响应</label></li>
+    <li><label><input type="radio" name="q1" value="b"> 将请求传递给下一个中间件或路由</label></li>
+    <li><label><input type="radio" name="q1" value="c"> 记录日志</label></li>
+    <li><label><input type="radio" name="q1" value="d"> 解析请求体</label></li>
+  </ul>
+  <div id="f1" class="feedback"></div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 2</div>
+  <p><code>app.use('/api/projects', projectRoutes)</code> 这行代码的含义是？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q2" value="a"> 定义一个 GET 路由</label></li>
+    <li><label><input type="radio" name="q2" value="b"> 将 /api/projects 开头的请求交给 projectRoutes 处理</label></li>
+    <li><label><input type="radio" name="q2" value="c"> 创建一个数据库表</label></li>
+    <li><label><input type="radio" name="q2" value="d"> 注册一个中间件</label></li>
+  </ul>
+  <div id="f2" class="feedback"></div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 3</div>
+  <p>一个请求经过中间件 A 和中间件 B 后到达路由处理函数。如果中间件 A 没有调用 <code>next()</code>，会发生什么？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q3" value="a"> 中间件 B 和路由仍然会执行</label></li>
+    <li><label><input type="radio" name="q3" value="b"> 请求卡住，中间件 B 和路由都不会执行</label></li>
+    <li><label><input type="radio" name="q3" value="c"> 自动跳过中间件 A</label></li>
+    <li><label><input type="radio" name="q3" value="d"> 返回 500 错误</label></li>
+  </ul>
+  <div id="f3" class="feedback"></div>
+</div>
+
+<script>
+const answers = {
+  q1: { correct: 'b', explanation: '✅ 正确！next() 将请求传递给下一个中间件或路由处理函数。不调用 next()，请求就会卡在当前中间件。' },
+  q2: { correct: 'b', explanation: '✅ 正确！app.use(path, router) 是路由挂载——所有以 /api/projects 开头的请求都会交给 projectRoutes 处理。' },
+  q3: { correct: 'b', explanation: '✅ 正确！中间件必须显式调用 next() 才能传递请求。如果 A 不调用 next()，请求就卡住了，B 和路由都不会执行。这是 Express 中间件的核心机制。' }
+};
+
+document.querySelectorAll('.options input').forEach(input => {
+  input.addEventListener('change', (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    const fb = document.getElementById('f' + name.slice(1));
+    if (value === answers[name].correct) {
+      fb.className = 'feedback correct';
+      fb.textContent = answers[name].explanation;
+    } else {
+      fb.className = 'feedback wrong';
+      fb.textContent = '❌ 再想想。提示：中间件的执行是线性的，像流水线一样。';
+    }
+  });
+});
+</script>
+
+<h2>动手探索</h2>
+<ol>
+  <li>打开 <code>apps/daemon/src/routes/chat.ts</code>，找到最顶部的 <code>export default function registerChatRoutes</code>，看看它接收什么参数</li>
+  <li>打开 <code>apps/daemon/src/routes/project/index.ts</code>，数一数有多少个 <code>router.get</code> 和 <code>router.post</code></li>
+  <li>在 <code>server.ts</code> 中搜索 <code>app.use</code>，列出所有挂载的路由模块</li>
+</ol>
+
+<div class="ask-agent">
+  <strong>🤖 向 AI 老师提问：</strong><br>
+  - "Express 的中间件和 Koa 的中间件有什么区别？"<br>
+  - "错误处理中间件（4 个参数的函数）是怎么工作的？"<br>
+  - "Router 的路由匹配顺序是怎样的？如果有两个路由都匹配怎么办？"
+</div>
+
+<h2>推荐资源</h2>
+<ul>
+  <li><a href="https://expressjs.com/en/guide/routing.html">Express 路由指南</a> — 官方文档，路由基础</li>
+  <li><a href="https://expressjs.com/en/guide/using-middleware.html">Express 中间件指南</a> — 官方文档，中间件详解</li>
+  <li><a href="https://expressjs.com/en/guide/routing.html#express-router">Express Router 文档</a> — 模块化路由</li>
+</ul>
+
+<div class="next-lesson">
+  <strong>下一课：</strong> <a href="0003-SQLite-数据库操作.html">第 3 课：SQLite 数据库操作 — 从 SQL 到 better-sqlite3</a>
+</div>
+
+</body>
+</html>
