@@ -72,6 +72,45 @@
     .group-ui { background: #00b894; }
     .group-auto { background: #e17055; }
     .group-deploy { background: #0984e3; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .table-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem;
+      transition: box-shadow 0.2s;
+    }
+    .table-card:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .table-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+    }
+    .table-name {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .table-desc {
+      font-size: 0.9rem;
+      color: #333;
+      margin-bottom: 0.6rem;
+    }
+    .table-example {
+      font-size: 0.8rem;
+      color: #888;
+      font-style: italic;
+      border-top: 1px dashed var(--border);
+      padding-top: 0.5rem;
+    }
   </style>
 </head>
 <body>
@@ -224,40 +263,95 @@ erDiagram
     routines ||--o{ routine_schedule_claims : "has many"
 </div>
 
-<h2>表分组说明</h2>
+<h2>📋 表清单与用途</h2>
 
-<table>
-  <tr>
-    <th>分组</th>
-    <th>表</th>
-    <th>说明</th>
-  </tr>
-  <tr>
-    <td><span class="group-label group-core">核心业务</span></td>
-    <td>projects, conversations, messages, agent_sessions</td>
-    <td>项目 → 会话 → 消息，构成聊天主链路</td>
-  </tr>
-  <tr>
-    <td><span class="group-label group-ui">制品与 UI</span></td>
-    <td>preview_comments, tabs, tabs_state</td>
-    <td>制品评审评论、工作区标签页状态</td>
-  </tr>
-  <tr>
-    <td><span class="group-label group-auto">自动化</span></td>
-    <td>routines, routine_runs, routine_schedule_claims</td>
-    <td>定时任务定义、执行记录、调度锁</td>
-  </tr>
-  <tr>
-    <td><span class="group-label group-deploy">部署</span></td>
-    <td>deployments</td>
-    <td>项目的部署记录（URL、状态）</td>
-  </tr>
-  <tr>
-    <td>—</td>
-    <td>templates</td>
-    <td>可复用模板（独立，无外键关联）</td>
-  </tr>
-</table>
+<h3>🟣 核心业务 — 聊天主链路</h3>
+<div class="card-grid">
+  <div class="table-card">
+    <div class="table-icon">📁</div>
+    <div class="table-name">projects</div>
+    <div class="table-desc">项目注册表。每个项目是一个设计任务的容器，记录使用的技能（skill_id）和设计系统（design_system_id）。</div>
+    <div class="table-example">例：用户创建一个"产品发布会 PPT"项目</div>
+  </div>
+  <div class="table-card">
+    <div class="table-icon">💬</div>
+    <div class="table-name">conversations</div>
+    <div class="table-desc">聊天会话。一个项目可以有多轮对话，每轮对话是一个 conversation。session_mode 区分设计模式和普通聊天。</div>
+    <div class="table-example">例：用户对同一个项目发起"第一版"和"修改版"两轮对话</div>
+  </div>
+  <div class="table-card">
+    <div class="table-icon">✉️</div>
+    <div class="table-name">messages</div>
+    <div class="table-desc">聊天消息。每条消息记录角色（user/assistant）、内容、SSE 事件流、生成的文件、反馈等。是数据量最大的表。</div>
+    <div class="table-example">例：用户说"帮我做一个蓝色主题的 PPT"，AI 回复包含 HTML 代码</div>
+  </div>
+  <div class="table-card">
+    <div class="table-icon">🤖</div>
+    <div class="table-name">agent_sessions</div>
+    <div class="table-desc">代理会话追踪。记录哪个代理（Claude/Codex 等）在处理哪个对话，以及会话 ID 和提示词哈希（用于缓存）。</div>
+    <div class="table-example">例：Claude Code 处理了对话 c1，会话 ID 为 sess_abc123</div>
+  </div>
+</div>
+
+<h3>🟢 制品与 UI — 界面状态</h3>
+<div class="card-grid">
+  <div class="table-card">
+    <div class="table-icon">📝</div>
+    <div class="table-name">preview_comments</div>
+    <div class="table-desc">制品评审评论。用户在预览的 HTML 制品上选中元素，添加批注。记录选中的 CSS 选择器、位置、状态（待处理/已解决）。</div>
+    <div class="table-example">例：用户在 PPT 第 3 页的标题上标注"字体太大"</div>
+  </div>
+  <div class="table-card">
+    <div class="table-icon">🗂️</div>
+    <div class="table-name">tabs</div>
+    <div class="table-desc">工作区标签页。记录用户打开了哪些文件标签，以及它们的排列顺序和当前激活的是哪个。</div>
+    <div class="table-example">例：用户打开了 index.html、style.css、readme.md 三个标签</div>
+  </div>
+  <div class="table-card">
+    <div class="table-icon">⚙️</div>
+    <div class="table-name">tabs_state</div>
+    <div class="table-desc">标签页状态。存储每个项目的标签页 UI 状态（JSON 格式），如滚动位置、分屏比例等。</div>
+    <div class="table-example">例：用户把编辑器分成了左右两栏，左侧 60%，右侧 40%</div>
+  </div>
+</div>
+
+<h3>🟠 自动化 — 定时任务</h3>
+<div class="card-grid">
+  <div class="table-card">
+    <div class="table-icon">⏰</div>
+    <div class="table-name">routines</div>
+    <div class="table-desc">自动化例程定义。用户创建的定时任务，如"每天早上 9 点生成一份日报"。记录调度规则、使用的技能和代理。</div>
+    <div class="table-example">例：每周一 10:00 用 Claude 生成团队周报</div>
+  </div>
+  <div class="table-card">
+    <div class="table-icon">▶️</div>
+    <div class="table-name">routine_runs</div>
+    <div class="table-desc">例程执行记录。每次定时任务触发后生成一条记录，记录状态（成功/失败）、关联的项目和对话、错误信息。</div>
+    <div class="table-example">例：周报任务在 6 月 23 日执行成功，生成了对话 c5</div>
+  </div>
+  <div class="table-card">
+    <div class="table-icon">🔒</div>
+    <div class="table-name">routine_schedule_claims</div>
+    <div class="table-desc">调度锁。防止同一个定时任务在同一时间窗口被重复执行。通过 routine_id + 时间槽实现分布式锁。</div>
+    <div class="table-example">例：10:00 这个时间槽已被实例 A 领取，实例 B 跳过</div>
+  </div>
+</div>
+
+<h3>🔵 部署与模板</h3>
+<div class="card-grid">
+  <div class="table-card">
+    <div class="table-icon">🚀</div>
+    <div class="table-name">deployments</div>
+    <div class="table-desc">部署记录。项目发布到预览/生产环境的记录，包含 URL、提供商（Vercel 等）、部署状态和次数。</div>
+    <div class="table-example">例：项目 p1 部署到 Vercel，URL 为 https://preview-abc.vercel.app</div>
+  </div>
+  <div class="table-card">
+    <div class="table-icon">📦</div>
+    <div class="table-name">templates</div>
+    <div class="table-desc">可复用模板。从已有项目保存为模板，包含文件列表（JSON）。独立表，不与其他表关联。</div>
+    <div class="table-example">例：用户把"产品发布会 PPT"保存为模板，下次直接复用</div>
+  </div>
+</div>
 
 <h2>核心链路：项目 → 消息</h2>
 <div class="mermaid">
