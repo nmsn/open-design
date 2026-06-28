@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第 4 课：子进程与进程管理</title>
+  <style>
+    :root {
+      --text: #1a1a2e;
+      --bg: #fafafa;
+      --accent: #6c5ce7;
+      --border: #e0e0e0;
+      --code-bg: #f0f0f5;
+      --card-bg: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--accent); }
+    .subtitle { color: #666; font-size: 0.95rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+    h2 { font-size: 1.3rem; font-weight: 600; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    code { background: var(--code-bg); padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.9em; font-family: "SF Mono", "Fira Code", monospace; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 6px; overflow-x: auto; margin: 1rem 0; font-size: 0.85rem; line-height: 1.6; }
+    pre code { background: none; padding: 0; }
+    .diagram { background: #f8f8fc; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; font-family: "SF Mono", monospace; font-size: 0.8rem; line-height: 1.5; overflow-x: auto; white-space: pre; }
+    .quiz { background: #fff8e1; border: 1px solid #ffcc02; border-radius: 8px; padding: 1.2rem; margin: 1.5rem 0; }
+    .quiz-label { font-weight: 600; color: #e65100; margin-bottom: 0.5rem; }
+    .options { list-style: none; margin: 0.5rem 0; }
+    .options li { padding: 0.4rem 0; }
+    .options label { cursor: pointer; display: flex; align-items: center; gap: 0.5rem; }
+    .options input[type="radio"] { margin: 0; }
+    .feedback { display: none; margin-top: 0.8rem; padding: 0.8rem; border-radius: 6px; font-size: 0.9rem; }
+    .feedback.correct { background: #e8f5e9; color: #2e7d32; display: block; }
+    .feedback.wrong { background: #fbe9e7; color: #c62828; display: block; }
+    .tip { background: #e3f2fd; border-left: 3px solid #1976d2; padding: 0.8rem 1rem; margin: 1rem 0; border-radius: 0 6px 6px 0; font-size: 0.9rem; }
+    .ask-agent { background: #f3e5f5; border-left: 3px solid #9c27b0; padding: 0.8rem 1rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; font-size: 0.9rem; }
+    .next-lesson { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .next-lesson a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .next-lesson a:hover { text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.5rem 0.8rem; border: 1px solid var(--border); text-align: left; }
+    th { background: var(--code-bg); font-weight: 600; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+    .compare-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+    .compare-label { font-weight: 600; font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body>
+
+<h1>第 4 课：子进程与进程管理</h1>
+<p class="subtitle">child_process、spawn、stdin/stdout — 理解 Open Design 如何调度 AI 代理 &middot; 预计 25 分钟</p>
+
+<h2>为什么需要子进程？</h2>
+<p>Open Design 本身<strong>不运行 AI 模型</strong>，而是通过<strong>启动外部代理 CLI</strong>（如 Claude Code）来完成工作。这意味着：</p>
+
+<div class="diagram">
+Daemon (Node.js)
+   │
+   ├── spawn → Claude Code 子进程 (独立进程)
+   │             │
+   │             ├── stdin:  接收提示词
+   │             ├── stdout: 流式输出 AI 回复
+   │             └── stderr: 错误日志
+   │
+   ├── spawn → Codex 子进程
+   │
+   └── spawn → Gemini CLI 子进程
+</div>
+
+<p>每个代理都是一个<strong>独立进程</strong>，运行在自己的 Python/Rust/Node 环境中。Daemon 通过进程间通信（IPC）协调它们。</p>
+
+<h2>Node.js 的 child_process 模块</h2>
+
+<table>
+  <tr><th>方法</th><th>特点</th><th>用途</th></tr>
+  <tr><td><code>spawn</code></td><td>流式，不缓冲</td><td>长期运行的进程、流式输出</td></tr>
+  <tr><td><code>exec</code></td><td>缓冲完整输出</td><td>短命令、捕获完整输出</td></tr>
+  <tr><td><code>execFile</code></td><td>类似 exec 但更安全</td><td>执行指定文件</td></tr>
+  <tr><td><code>fork</code></td><td>创建 Node.js 子进程</td><td>Node-to-Node 通信</td></tr>
+</table>
+
+<div class="tip">
+  <strong>💡 Open Design 几乎只用 <code>spawn</code></strong>，因为代理 CLI 的输出是<strong>流式的</strong>（一个字符一个字符地输出），不能缓冲。
+</div>
+
+<h2>spawn 基础</h2>
+
+<pre><code>import { spawn } from 'node:child_process';
+
+// 最简单的 spawn
+const child = spawn('ls', ['-la', '/tmp']);
+
+// 监听输出
+child.stdout.on('data', (chunk) => {
+  console.log('stdout:', chunk.toString());
+});
+
+child.stderr.on('data', (chunk) => {
+  console.error('stderr:', chunk.toString());
+});
+
+// 等待子进程结束
+child.on('close', (code) => {
+  console.log(`进程退出，码 ${code}`);
+});</code></pre>
+
+<h2>Open Design 中的真实代码</h2>
+
+<p>打开 <code>apps/daemon/src/runtimes/launch.ts</code>，你会看到类似的代码：</p>
+
+<h3>启动 Claude Code 子进程</h3>
+<pre><code>const child = spawn('claude', [
+  '--print',                       // 打印输出模式
+  '--output-format', 'stream-json',// 流式 JSON 输出
+  '--session-id', sessionId,       // 会话 ID
+], {
+  env: { ...process.env, ...customEnv },  // 继承环境变量
+  cwd: projectDir,                          // 工作目录
+  stdio: ['pipe', 'pipe', 'pipe'],         // 三个流都可读可写
+});
+
+// 监听代理输出
+child.stdout.on('data', (chunk: Buffer) => {
+  parseAgentOutput(chunk, (event) => {
+    sse.send('delta', { delta: event.text });
+  });
+});
+
+// 监听代理错误
+child.stderr.on('data', (chunk: Buffer) => {
+  console.error('[agent stderr]', chunk.toString());
+});
+
+// 进程退出
+child.on('exit', (code) => {
+  sse.send('end', { exitCode: code });
+});</code></pre>
+
+<h2>stdin/stdout 双向通信</h2>
+<p>spawn 默认三个流都是 pipe（管道），可以双向通信：</p>
+
+<div class="diagram">
+Daemon                          Agent CLI
+   │                                │
+   ├── stdin.write(prompt) ───────→ │ 接收提示词
+   │                                │
+   │ ←────── stdout.on('data') ────┤ 流式输出回复
+   │                                │
+   │ ←────── stderr.on('data') ────┤ 错误日志
+   │                                │
+   ├── child.kill('SIGTERM') ─────→ │ 优雅退出
+   │                                │
+</div>
+
+<h3>写入子进程 stdin</h3>
+<pre><code>// 给子进程发送多轮对话
+child.stdin.write('第一轮问题\n');
+// ... 等一会儿
+child.stdin.write('第二轮问题\n');
+child.stdin.end();  // 关闭输入，子进程会处理完已收到的内容后退出</code></pre>
+
+<h3>超时与杀进程</h3>
+<pre><code>// 设置超时（30 秒没响应就杀进程）
+const timeout = setTimeout(() => {
+  console.warn('代理超时，强制结束');
+  child.kill('SIGTERM');   // 优雅退出（允许子进程清理）
+  setTimeout(() => child.kill('SIGKILL'), 5000); // 5 秒后强杀
+}, 30000);
+
+child.on('exit', () => clearTimeout(timeout));</code></pre>
+
+<h2>进程管理</h2>
+
+<h3>获取 PID 和检测进程存活</h3>
+<pre><code>// 获取子进程 PID
+const pid = child.pid;
+
+// 检测进程是否还活着
+try {
+  process.kill(pid, 0);  // signal 0 = 不杀，只检测
+  console.log('进程存活');
+} catch (e) {
+  console.log('进程已死');
+}</code></pre>
+
+<h3>进程组（Process Group）</h3>
+<p>默认情况下，<code>spawn</code> 不会创建新的进程组——子进程的子进程和 Daemon 在同一个组里。杀子进程不会杀孙进程。</p>
+
+<pre><code>// detached: true 创建独立的进程组
+const child = spawn('claude', args, {
+  detached: true,   // 创建新进程组
+  stdio: 'ignore',
+});
+
+// 可以通过进程组 ID 杀整个组
+process.kill(-child.pid, 'SIGTERM');  // 负号 = 进程组
+</code></pre>
+
+<h2>检查理解</h2>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 1</div>
+  <p>Open Design 启动代理 CLI 时，为什么用 <code>spawn</code> 而不是 <code>exec</code>？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q1" value="a"> spawn 更快</label></li>
+    <li><label><input type="radio" name="q1" value="b"> 代理输出是流式的，exec 会缓冲整个输出导致延迟</label></li>
+    <li><label><input type="radio" name="q1" value="c"> spawn 更安全</label></li>
+    <li><label><input type="radio" name="q1" value="d"> exec 在 Windows 上不支持</label></li>
+  </ul>
+  <div id="f1" class="feedback"></div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 2</div>
+  <p>子进程的 stdout 和 stderr 有什么区别？什么时候应该分别处理？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q2" value="a"> 完全一样，可以混用</label></li>
+    <li><label><input type="radio" name="q2" value="b"> stdout 是正常输出，stderr 是错误/日志输出，应该分开监听</label></li>
+    <li><label><input type="radio" name="q2" value="c"> stdout 是二进制，stderr 是文本</label></li>
+    <li><label><input type="radio" name="q2" value="d"> stderr 只能写不能读</label></li>
+  </ul>
+  <div id="f2" class="feedback"></div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 3</div>
+  <p><code>child.kill('SIGTERM')</code> 和 <code>child.kill('SIGKILL')</code> 有什么区别？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q3" value="a"> 完全一样</label></li>
+    <li><label><input type="radio" name="q3" value="b"> SIGTERM 让子进程有机会清理，SIGKILL 强制立即终止</label></li>
+    <li><label><input type="radio" name="q3" value="c"> SIGKILL 比 SIGTERM 更礼貌</label></li>
+    <li><label><input type="radio" name="q3" value="d"> SIGTERM 只能在 Windows 上用</label></li>
+  </ul>
+  <div id="f3" class="feedback"></div>
+</div>
+
+<script>
+const answers = {
+  q1: { correct: 'b', explanation: '✅ spawn 是流式的，数据一到达就触发 data 事件；exec 会等子进程结束后才返回完整的 Buffer。对于流式 AI 输出，spawn 才是正确选择。' },
+  q2: { correct: 'b', explanation: '✅ stdout 是正常输出（AI 回复），stderr 是错误/日志（调试信息）。分开监听可以避免日志污染输出，也能单独处理错误情况。' },
+  q3: { correct: 'b', explanation: '✅ SIGTERM 是礼貌的终止信号，子进程可以捕获并清理资源；SIGKILL 是强制终止，内核立即杀死进程，子进程无法拦截。最佳实践是先 SIGTERM，等几秒没退出再 SIGKILL。' }
+};
+
+document.querySelectorAll('.options input').forEach(input => {
+  input.addEventListener('change', (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    const fb = document.getElementById('f' + name.slice(1));
+    if (value === answers[name].correct) {
+      fb.className = 'feedback correct';
+      fb.textContent = answers[name].explanation;
+    } else {
+      fb.className = 'feedback wrong';
+      fb.textContent = '❌ 再想想。';
+    }
+  });
+});
+</script>
+
+<h2>动手探索</h2>
+<ol>
+  <li>打开 <code>apps/daemon/src/runtimes/launch.ts</code>，找到 <code>spawn</code> 调用，看传给 CLI 的参数</li>
+  <li>搜索 <code>child.stdout.on</code> 或 <code>proc.stdout.on</code>，看看如何处理代理输出</li>
+  <li>搜索 <code>process.kill</code>，找到进程清理逻辑</li>
+  <li>查看 <code>packages/platform/src/index.ts</code>，了解 Open Design 封装的进程管理工具</li>
+</ol>
+
+<div class="ask-agent">
+  <strong>🤖 向 AI 老师提问：</strong><br>
+  - "stdio: 'inherit' / 'pipe' / 'ignore' 有什么区别？"<br>
+  - "如何检测子进程的退出码，0 和非 0 代表什么？"<br>
+  - "spawn 和 fork 在 Node.js 子进程中的区别？"
+</div>
+
+<h2>推荐资源</h2>
+<ul>
+  <li><a href="https://nodejs.org/api/child_process.html">Node.js child_process 文档</a> — 官方文档</li>
+  <li><a href="https://nodejs.org/api/child_process.html#spawning-bat-and-cmd-files-on-windows">spawn 在 Windows 上的特殊性</a></li>
+  <li><a href="https://www.electronjs.org/docs/latest/api/utility-process">Electron Utility Process</a> — Electron 中的类似概念</li>
+</ul>
+
+<div class="next-lesson">
+  <strong>下一课：</strong> <a href="0005-环境搭建与本地运行.html">第 5 课：环境搭建与本地运行 — tools-dev、端口、命名空间</a>
+</div>
+
+</body>
+</html>
