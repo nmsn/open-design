@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第 5 课：环境搭建与本地运行</title>
+  <style>
+    :root { --text: #1a1a2e; --bg: #fafafa; --accent: #6c5ce7; --border: #e0e0e0; --code-bg: #f0f0f5; --card-bg: #ffffff; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.8; max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+    h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--accent); }
+    .subtitle { color: #666; font-size: 0.95rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+    h2 { font-size: 1.3rem; font-weight: 600; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    code { background: var(--code-bg); padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.9em; font-family: "SF Mono", "Fira Code", monospace; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 6px; overflow-x: auto; margin: 1rem 0; font-size: 0.85rem; line-height: 1.6; }
+    pre code { background: none; padding: 0; }
+    .diagram { background: #f8f8fc; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; font-family: "SF Mono", monospace; font-size: 0.8rem; line-height: 1.5; overflow-x: auto; white-space: pre; }
+    .quiz { background: #fff8e1; border: 1px solid #ffcc02; border-radius: 8px; padding: 1.2rem; margin: 1.5rem 0; }
+    .quiz-label { font-weight: 600; color: #e65100; margin-bottom: 0.5rem; }
+    .options { list-style: none; margin: 0.5rem 0; }
+    .options li { padding: 0.4rem 0; }
+    .options label { cursor: pointer; display: flex; align-items: center; gap: 0.5rem; }
+    .options input[type="radio"] { margin: 0; }
+    .feedback { display: none; margin-top: 0.8rem; padding: 0.8rem; border-radius: 6px; font-size: 0.9rem; }
+    .feedback.correct { background: #e8f5e9; color: #2e7d32; display: block; }
+    .feedback.wrong { background: #fbe9e7; color: #c62828; display: block; }
+    .tip { background: #e3f2fd; border-left: 3px solid #1976d2; padding: 0.8rem 1rem; margin: 1rem 0; border-radius: 0 6px 6px 0; font-size: 0.9rem; }
+    .ask-agent { background: #f3e5f5; border-left: 3px solid #9c27b0; padding: 0.8rem 1rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; font-size: 0.9rem; }
+    .next-lesson { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .next-lesson a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .next-lesson a:hover { text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.5rem 0.8rem; border: 1px solid var(--border); text-align: left; }
+    th { background: var(--code-bg); font-weight: 600; }
+    .command { background: #1a1a2e; color: #f8f8f8; padding: 0.6rem 1rem; border-radius: 6px; font-family: "SF Mono", monospace; font-size: 0.9rem; margin: 0.3rem 0; }
+    .command::before { content: "$ "; color: #6c5ce7; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<h1>第 5 课：环境搭建与本地运行</h1>
+<p class="subtitle">tools-dev、端口、命名空间 — 启动 Open Design 本地开发环境 &middot; 预计 20 分钟</p>
+
+<h2>为什么需要 tools-dev？</h2>
+<p>Open Design 是一个多进程应用（daemon + web + desktop），不能用 <code>npm run dev</code> 简单启动。<code>tools-dev</code> 是统一的<strong>本地生命周期控制平面</strong>。</p>
+
+<div class="diagram">
+tools-dev
+   │
+   ├── start         启动所有进程
+   ├── stop          停止所有进程
+   ├── run web       启动 daemon + web（开发模式）
+   ├── status        查看进程状态
+   ├── logs          查看日志
+   ├── inspect       桌面端调试（截图、eval、控制台）
+   └── check         检查环境
+</div>
+
+<div class="tip">
+  <strong>💡 为什么不让每个 app 自己 dev？</strong>daemon 和 web 需要协调端口、命名空间、日志路径。tools-dev 统一管理这些，避免冲突。
+</div>
+
+<h2>第一次启动</h2>
+
+<h3>安装依赖</h3>
+<div class="command">pnpm install</div>
+
+<h3>启动开发环境</h3>
+<div class="command">pnpm tools-dev run web</div>
+
+<p>这会启动：</p>
+<ul>
+  <li><strong>Daemon</strong> — Express 服务，监听 <code>localhost:7456</code></li>
+  <li><strong>Web</strong> — Next.js 开发服务器，监听 <code>localhost:3000</code></li>
+</ul>
+
+<p>等待几秒，看到 "ready" 提示后，浏览器打开 <code>http://localhost:3000</code>。</p>
+
+<h2>关键概念：端口与命名空间</h2>
+
+<h3>端口（Port）</h3>
+<table>
+  <tr><th>端口</th><th>服务</th><th>环境变量</th></tr>
+  <tr><td>7456</td><td>Daemon HTTP API</td><td><code>OD_PORT</code></td></tr>
+  <tr><td>3000</td><td>Next.js Web</td><td><code>OD_WEB_PORT</code></td></tr>
+</table>
+
+<p>自定义端口：</p>
+<div class="command">pnpm tools-dev run web --daemon-port 17456 --web-port 17573</div>
+
+<h3>命名空间（Namespace）</h3>
+<p>命名空间用于<strong>隔离不同的开发实例</strong>。多个 dev 实例可以同时运行而不冲突。</p>
+
+<div class="command">pnpm tools-dev run web --namespace my-feature</div>
+
+<p>不同 namespace 的差异：</p>
+<ul>
+  <li><strong>数据目录</strong>：<code>.tmp/tools-dev/my-feature/</code></li>
+  <li><strong>IPC 路径</strong>：<code>/tmp/open-design/ipc/my-feature/daemon.sock</code></li>
+  <li><strong>日志路径</strong>：<code>.tmp/tools-dev/my-feature/daemon.log</code></li>
+</ul>
+
+<h3>为什么要命名空间？</h3>
+<div class="tip">
+  想象你同时开发两个 feature，每个都需要独立的 daemon + 数据库 + 日志。命名空间让它们互不干扰——feature A 的聊天记录不会出现在 feature B 的会话里。
+</div>
+
+<h2>常用命令</h2>
+
+<h3>查看状态</h3>
+<div class="command">pnpm tools-dev status</div>
+
+<h3>查看日志</h3>
+<div class="command">pnpm tools-dev logs --namespace main</div>
+
+<h3>停止</h3>
+<div class="command">pnpm tools-dev stop</div>
+
+<h3>环境检查</h3>
+<div class="command">pnpm tools-dev check</div>
+
+<h3>桌面端调试</h3>
+<div class="command">pnpm tools-dev inspect desktop status</div>
+<div class="command">pnpm tools-dev inspect desktop screenshot --path /tmp/od.png</div>
+
+<h2>目录结构</h2>
+
+<p>运行时数据都在 <code>.tmp/</code> 目录下（被 gitignore）：</p>
+
+<pre><code>.tmp/tools-dev/main/
+├── daemon.log           # daemon 日志
+├── web.log              # web 日志
+├── status.json          # 运行时状态（PID、端口）
+├── od/                  # daemon 数据
+│   └── app.sqlite       # SQLite 数据库
+└── ipc/                 # IPC socket
+    └── main/
+        ├── daemon.sock
+        └── web.sock</code></pre>
+
+<h2>环境变量</h2>
+
+<table>
+  <tr><th>变量</th><th>用途</th><th>示例</th></tr>
+  <tr><td><code>OD_DATA_DIR</code></td><td>自定义数据目录</td><td><code>export OD_DATA_DIR=~/.od-test</code></td></tr>
+  <tr><td><code>OD_PORT</code></td><td>daemon 端口</td><td><code>export OD_PORT=17456</code></td></tr>
+  <tr><td><code>OD_WEB_PORT</code></td><td>web 端口</td><td><code>export OD_WEB_PORT=17573</code></td></tr>
+  <tr><td><code>OD_DEBUG</code></td><td>调试日志</td><td><code>export OD_DEBUG=1</code></td></tr>
+</table>
+
+<h2>常见问题</h2>
+
+<h3>端口被占用</h3>
+<pre><code>EADDRINUSE: address already in use 0.0.0.0:7456</code></pre>
+
+<p>解决方案：换端口或杀掉占用进程</p>
+<div class="command">lsof -ti:7456 | xargs kill -9</div>
+
+<h3>数据库锁定</h3>
+<pre><code>SQLITE_BUSY: database is locked</code></pre>
+
+<p>解决方案：删除锁文件或重启 daemon</p>
+<div class="command">rm .tmp/tools-dev/main/od/*.db-*</div>
+
+<h2>检查理解</h2>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 1</div>
+  <p>tools-dev 启动后，Daemon 默认监听哪个端口？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q1" value="a"> 3000</label></li>
+    <li><label><input type="radio" name="q1" value="b"> 7456</label></li>
+    <li><label><input type="radio" name="q1" value="c"> 8080</label></li>
+    <li><label><input type="radio" name="q1" value="d"> 5432</label></li>
+  </ul>
+  <div id="f1" class="feedback"></div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 2</div>
+  <p>命名空间（namespace）的主要作用是什么？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q2" value="a"> 美化路径</label></li>
+    <li><label><input type="radio" name="q2" value="b"> 让多个开发实例可以同时运行而不冲突</label></li>
+    <li><label><input type="radio" name="q2" value="c"> 提高性能</label></li>
+    <li><label><input type="radio" name="q2" value="d"> 用于生产环境部署</label></li>
+  </ul>
+  <div id="f2" class="feedback"></div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 3</div>
+  <p>想看 daemon 的日志，应该用什么命令？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q3" value="a"> pnpm tools-dev logs --namespace main</label></li>
+    <li><label><input type="radio" name="q3" value="b"> tail -f .tmp/tools-dev/main/daemon.log</label></li>
+    <li><label><input type="radio" name="q3" value="c"> pnpm tools-dev inspect desktop</label></li>
+    <li><label><input type="radio" name="q3" value="d"> cat .od/daemon.log</label></li>
+  </ul>
+  <div id="f3" class="feedback"></div>
+</div>
+
+<script>
+const answers = {
+  q1: { correct: 'b', explanation: '✅ daemon 默认端口是 7456，web 是 3000。这两个端口由 tools-dev 协调管理。' },
+  q2: { correct: 'b', explanation: '✅ 命名空间的核心作用是隔离。不同 namespace 的数据、日志、IPC socket 完全独立，多个实例可以并行运行。' },
+  q3: { correct: 'a', explanation: '✅ pnpm tools-dev logs --namespace main 是推荐方式。当然也可以直接 tail 日志文件，但 tools-dev 会做格式化输出。' }
+};
+
+document.querySelectorAll('.options input').forEach(input => {
+  input.addEventListener('change', (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    const fb = document.getElementById('f' + name.slice(1));
+    if (value === answers[name].correct) {
+      fb.className = 'feedback correct';
+      fb.textContent = answers[name].explanation;
+    } else {
+      fb.className = 'feedback wrong';
+      fb.textContent = '❌ 再想想。';
+    }
+  });
+});
+</script>
+
+<h2>动手探索</h2>
+<ol>
+  <li>运行 <code>pnpm install</code> 安装依赖（首次需要几分钟）</li>
+  <li>运行 <code>pnpm tools-dev run web</code> 启动开发环境</li>
+  <li>浏览器打开 <code>http://localhost:3000</code>，确认 UI 加载</li>
+  <li>另一个终端运行 <code>pnpm tools-dev status</code> 查看进程状态</li>
+  <li>尝试 <code>pnpm tools-dev run web --namespace test1</code> 启动一个隔离实例</li>
+</ol>
+
+<div class="ask-agent">
+  <strong>🤖 向 AI 老师提问：</strong><br>
+  - "OD_DATA_DIR 和 OD_MEDIA_CONFIG_DIR 的优先级是什么？"<br>
+  - "tools-dev 和直接运行 pnpm --filter @open-design/daemon dev 有什么区别？"<br>
+  - "如何用 Chrome DevTools 调试 daemon？"
+</div>
+
+<h2>推荐资源</h2>
+<ul>
+  <li>Open Design `CONTRIBUTING.md` — 贡献指南</li>
+  <li>Open Design `QUICKSTART.md` — 快速启动</li>
+  <li><a href="https://nodejs.org/en/learn">Node.js 官方学习资源</a></li>
+</ul>
+
+<div class="next-lesson">
+  <strong>下一课：</strong> <a href="0006-SSE-流式通信.html">第 6 课：SSE 流式通信 — Server-Sent Events 深入</a>
+</div>
+
+</body>
+</html>
