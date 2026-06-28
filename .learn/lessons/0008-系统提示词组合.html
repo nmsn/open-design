@@ -57,7 +57,7 @@
 <p>Open Design 的系统提示词不只是"你是助手"，还要：</p>
 
 <ul>
-  <li>📋 定义代理的<strong>技能</strong>（如 deck-creator、image-gen）</li>
+  <li>📋 定义代理的<strong>技能</strong>（如 frontend-slides、image-gen）</li>
   <li>🎨 应用<strong>设计系统</strong>（如 Linear 风格）</li>
   <li>🎯 注入<strong>用户上下文</strong>（项目记忆、自定义指令）</li>
   <li>🛠️ 启用<strong>MCP 工具</strong>（文件系统、图片生成）</li>
@@ -77,7 +77,7 @@ composeSystemPrompt() 组合器
 ┌─────────────────────────────────────────────────────┐
 │  1. 基础身份          (You are an AI assistant...)    │
 │  2. 行为规范          (Be concise, use Markdown...)   │
-│  3. 技能定义          (Skill: deck-creator SKILL.md)  │
+│  3. 技能定义          (Skill: frontend-slides SKILL.md)  │
 │  4. 设计系统          (Design system: Linear)         │
 │  5. Craft 规则        (Craft: a11y-baseline, ...)     │
 │  6. 工具清单          (Available tools: file, image)  │
@@ -135,27 +135,29 @@ composeSystemPrompt() 组合器
 <p>每个技能是一个 Markdown 文件，包含 YAML frontmatter：</p>
 
 <pre><code>---
-name: deck-creator
-mode: deck
-scenarios: [design, marketing]
-craft.requires:
-  - a11y-baseline
-  - typography-hierarchy
+name: frontend-slides
+description: |
+  Generate animation-rich HTML presentations with visual style previews.
+triggers:
+  - "html slides"
+  - "web ppt"
+  - "reveal slides"
+od:
+  mode: deck
+  category: slides
+  upstream: "https://github.com/zarazhangrui/frontend-slides"
 ---
 
-# Skill: deck-creator
+# frontend-slides
 
-You are a presentation designer. Create slide decks with these principles:
+## What it does
 
-## Output Format
-- Generate a single self-contained HTML file
-- Use 16:9 aspect ratio (1280x720)
-- Include navigation controls (← →)
+Generate animation-rich HTML presentations with visual style previews.
 
-## Structure
-- Each slide is a `<section>` with class `slide`
-- Use semantic HTML
-- No external dependencies (no CDN, no fonts)</code></pre>
+## How to use
+
+This catalogue entry advertises the skill in Open Design so the agent
+discovers it during planning.</code></pre>
 
 <div class="tip">
   <strong>💡 关键洞察</strong>：<code>craft.requires</code> 是 Open Design 独有的——技能<strong>声明自己依赖哪些通用规则</strong>，系统自动加载。这样新增 craft 规则时不需要改每个技能。
@@ -293,7 +295,7 @@ document.querySelectorAll('.options input').forEach(input => {
 <h2>动手探索</h2>
 <ol>
   <li>打开 <code>apps/daemon/src/prompts/system.ts</code>，找到 <code>composeSystemPrompt</code> 函数</li>
-  <li>打开 <code>skills/deck-creator/SKILL.md</code>，看看一个真实技能的定义</li>
+  <li>打开 <code>skills/frontend-slides/SKILL.md</code>，看看一个真实技能的定义</li>
   <li>打开 <code>design-systems/linear/DESIGN.md</code>，看看设计系统的 9 段式</li>
   <li>打开 <code>craft/a11y-baseline.md</code>，看看通用 craft 规则</li>
 </ol>
