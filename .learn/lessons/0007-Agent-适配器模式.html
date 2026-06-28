@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第 7 课：Agent 适配器模式</title>
+  <style>
+    :root { --text: #1a1a2e; --bg: #fafafa; --accent: #6c5ce7; --border: #e0e0e0; --code-bg: #f0f0f5; --card-bg: #ffffff; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.8; max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+    h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--accent); }
+    .subtitle { color: #666; font-size: 0.95rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+    h2 { font-size: 1.3rem; font-weight: 600; margin: 2rem 0 0.8rem; }
+    h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    code { background: var(--code-bg); padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.9em; font-family: "SF Mono", "Fira Code", monospace; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 6px; overflow-x: auto; margin: 1rem 0; font-size: 0.85rem; line-height: 1.6; }
+    pre code { background: none; padding: 0; }
+    .diagram { background: #f8f8fc; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; font-family: "SF Mono", monospace; font-size: 0.8rem; line-height: 1.5; overflow-x: auto; white-space: pre; }
+    .quiz { background: #fff8e1; border: 1px solid #ffcc02; border-radius: 8px; padding: 1.2rem; margin: 1.5rem 0; }
+    .quiz-label { font-weight: 600; color: #e65100; margin-bottom: 0.5rem; }
+    .options { list-style: none; margin: 0.5rem 0; }
+    .options li { padding: 0.4rem 0; }
+    .options label { cursor: pointer; display: flex; align-items: center; gap: 0.5rem; }
+    .options input[type="radio"] { margin: 0; }
+    .feedback { display: none; margin-top: 0.8rem; padding: 0.8rem; border-radius: 6px; font-size: 0.9rem; }
+    .feedback.correct { background: #e8f5e9; color: #2e7d32; display: block; }
+    .feedback.wrong { background: #fbe9e7; color: #c62828; display: block; }
+    .tip { background: #e3f2fd; border-left: 3px solid #1976d2; padding: 0.8rem 1rem; margin: 1rem 0; border-radius: 0 6px 6px 0; font-size: 0.9rem; }
+    .ask-agent { background: #f3e5f5; border-left: 3px solid #9c27b0; padding: 0.8rem 1rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0; font-size: 0.9rem; }
+    .next-lesson { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .next-lesson a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .next-lesson a:hover { text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { padding: 0.5rem 0.8rem; border: 1px solid var(--border); text-align: left; }
+    th { background: var(--code-bg); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<h1>第 7 课：Agent 适配器模式</h1>
+<p class="subtitle">检测、注册、启动、流解析 — 理解 Open Design 如何支持 22+ 代理 &middot; 预计 30 分钟</p>
+
+<h2>问题：22+ 代理如何统一管理？</h2>
+<p>Open Design 支持 Claude Code、Codex、Cursor、Gemini CLI、Qwen、Hermes 等 22+ 编码代理 CLI。每个代理的：</p>
+<ul>
+  <li>📦 安装路径不同（npm/pip/cargo/curl）</li>
+  <li>🚀 启动参数不同（不同 CLI flags）</li>
+  <li>📡 输出格式不同（JSONL / NDJSON / 自定义）</li>
+  <li>🔌 通信协议不同（spawn 直连 / ACP）</li>
+</ul>
+<p>如果不抽象，每个新代理都要改 N 处代码。Open Design 用<strong>适配器模式**解决了这个问题。</p>
+
+<h2>适配器模式</h2>
+
+<div class="diagram">
+                ┌──────────────────────────────┐
+                │  Daemon (统一的代理接口)         │
+                └──────────────┬───────────────┘
+                               │
+                ┌──────────────┴───────────────┐
+                │     RuntimeAgentDef (接口)       │
+                └──────────────┬───────────────┘
+                               │
+       ┌──────────┬────────────┼────────────┬──────────┐
+       ▼          ▼            ▼            ▼          ▼
+   Claude      Codex       Hermes        Aider     Gemini
+   适配器      适配器       适配器        适配器     适配器
+</div>
+
+<p>每个代理实现同一套接口，Daemon 只跟接口交互。</p>
+
+<h2>RuntimeAgentDef 接口</h2>
+
+<p>打开 <code>apps/daemon/src/runtimes/types.ts</code>，看接口定义：</p>
+
+<pre><code>interface RuntimeAgentDef {
+  id: string;                              // 'claude', 'codex', 'hermes'
+  label: string;                           // 'Claude Code', 'OpenAI Codex'
+  family: 'claude' | 'openai' | 'gemini' | 'custom';
+  bin: string;                             // 默认二进制名 'claude'
+  versionProbe: VersionProbe;              // 如何检测版本
+  spawn: SpawnConfig;                      // 启动参数
+  streamFormat: 'jsonl' | 'ndjson' | 'acp'; // 输出格式
+  capabilities: AgentCapabilities;         // 功能矩阵
+  // ...
+}</code></pre>
+
+<h2>四步代理生命周期</h2>
+
+<div class="diagram">
+1. 检测 (detection.ts)
+   └─ 用户机器上有 claude 吗？→ /usr/local/bin/claude
+
+2. 注册 (registry.ts)
+   └─ 把代理定义加载到内存中的注册表
+
+3. 启动 (launch.ts + acp.ts / codex-cli.ts)
+   └─ spawn 子进程，传入参数
+
+4. 流解析 (claude-stream.ts / json-event-stream.ts / acp.ts)
+   └─ 解析 stdout JSONL，归一化为统一事件
+</div>
+
+<h2>第 1 步：检测</h2>
+
+<h3>apps/daemon/src/runtimes/detection.ts</h3>
+
+<pre><code>// 检测系统里有哪些代理 CLI
+async function detectAgents(): Promise<RuntimeAgentDef[]> {
+  const detected = [];
+  for (const def of ALL_AGENT_DEFS) {
+    const path = await findExecutable(def.bin);
+    if (path) {
+      detected.push({ ...def, resolvedPath: path });
+    }
+  }
+  return detected;
+}
+
+// 在 PATH 和用户工具链目录中找
+async function findExecutable(bin: string) {
+  const dirs = [
+    ...process.env.PATH.split(':'),
+    ...wellKnownUserToolchainBins(),  // ~/.npm, ~/.cargo/bin 等
+  ];
+  for (const dir of dirs) {
+    const candidate = path.join(dir, bin);
+    if (await exists(candidate)) return candidate;
+  }
+  return null;
+}</code></pre>
+
+<div class="tip">
+  <strong>💡 为什么要扫描用户工具链目录？</strong>nvm、fnm、mise、asdf 等工具会把 CLI 装在用户目录（如 <code>~/.nvm/versions/node/v20/bin</code>），不在系统 PATH 中。需要单独扫描这些位置。
+</div>
+
+<h2>第 2 步：注册</h2>
+
+<h3>apps/daemon/src/runtimes/registry.ts</h3>
+
+<pre><code>// 维护一个全局注册表
+const AGENT_REGISTRY = new Map<string, RuntimeAgentDef>();
+
+export function registerAgent(def: RuntimeAgentDef) {
+  AGENT_REGISTRY.set(def.id, def);
+}
+
+export function getAgent(id: string): RuntimeAgentDef {
+  return AGENT_REGISTRY.get(id);
+}
+
+export function listAgents(): RuntimeAgentDef[] {
+  return Array.from(AGENT_REGISTRY.values());
+}</code></pre>
+
+<p>所有代理定义在 <code>runtimes/defs/*.ts</code> 中，启动时一次性注册。</p>
+
+<h2>第 3 步：启动</h2>
+
+<h3>spawn 直连模式（Claude Code / Codex / Aider 等 12 个）</h3>
+
+<pre><code>// apps/daemon/src/runtimes/launch.ts — 只解析路径
+const resolution = resolveAgentLaunch(def);
+const binPath = resolution.launchPath;  // '/usr/local/bin/claude'
+
+// 各代理自己的启动逻辑（codex-cli.ts / acp.ts / ...）
+import { spawn } from 'node:child_process';
+const child = spawn(binPath, def.spawn.args, {
+  env: buildAgentEnv(def),
+  cwd: projectDir,
+  stdio: ['pipe', 'pipe', 'pipe'],
+});</code></pre>
+
+<h3>ACP 协议模式（Hermes / Kilo / Kiro 等 13 个）</h3>
+
+<pre><code>// apps/daemon/src/acp.ts — 统一 ACP 客户端
+import { spawn } from 'node:child_process';
+import { createAcpClient } from './acp.js';
+
+const client = createAcpClient({
+  bin: 'hermes',
+  args: ['--acp'],
+});
+
+await client.connect();
+await client.sessionNew({ model: 'gpt-4' });
+await client.prompt({ sessionId, content: prompt });
+
+// 监听流式事件
+client.on('text_chunk', (delta) => {
+  sse.send('delta', { delta });
+});</code></pre>
+
+## 第 4 步：流解析
+
+每个代理的 stdout 格式都不同，需要不同的解析器归一化为统一事件：
+
+<table>
+  <tr><th>代理</th><th>原始格式</th><th>解析器</th></tr>
+  <tr><td>Claude Code</td><td>Anthropic SSE</td><td><code>claude-stream.ts</code></td></tr>
+  <tr><td>Codex</td><td>JSONL (OpenAI 格式)</td><td><code>codex-stream.ts</code></td></tr>
+  <tr><td>通用 JSONL</td><td>NDJSON</td><td><code>json-event-stream.ts</code></td></tr>
+  <tr><td>ACP 代理</td><td>JSON-RPC 2.0</td><td><code>acp.ts</code></td></tr>
+</table>
+
+### 归一化为统一事件
+
+所有解析器最终都把数据转成同样的内部事件：
+
+```ts
+type AgentEvent =
+  | { type: 'start', model: string }
+  | { type: 'text_delta', text: string }
+  | { type: 'tool_use', id: string, name: string, input: any }
+  | { type: 'tool_result', id: string, content: any }
+  | { type: 'finish', reason: string }
+  | { type: 'error', message: string };
+```
+
+Daemon 上层只处理这个统一类型，**不再关心底层代理是谁**。
+
+## 能力矩阵（Capabilities）
+
+不同代理支持不同功能，比如：
+
+```ts
+interface AgentCapabilities {
+  supportsResume: boolean;        // 是否支持恢复会话
+  supportsMcp: boolean;           // 是否支持 MCP
+  supportsImageGeneration: boolean;
+  supportsVideoGeneration: boolean;
+  maxContextTokens: number;
+}
+```
+
+调用前先检查：
+
+```ts
+if (agent.capabilities.supportsImageGeneration) {
+  // 注入图片生成工具
+} else {
+  // 不显示给用户
+}
+```
+
+## 新增一个代理的步骤
+
+如果要支持一个新代理（如 "MyAgent"）：
+
+```ts
+// 1. 创建 apps/daemon/src/runtimes/defs/myagent.ts
+export const myAgentDef: RuntimeAgentDef = {
+  id: 'myagent',
+  label: 'My Agent',
+  family: 'custom',
+  bin: 'myagent',
+  versionProbe: { args: ['--version'], parse: parseSemver },
+  spawn: {
+    args: ['--acp'],   // 或自定义 JSONL 格式
+    env: { ... },
+  },
+  streamFormat: 'acp',  // 或 'jsonl'
+  capabilities: { ... },
+};
+
+// 2. 在 registry.ts 中注册
+import { myAgentDef } from './defs/myagent.js';
+registerAgent(myAgentDef);
+```
+
+**只需要 2 个文件**，无需改 daemon 核心代码。这就是适配器模式的力量。
+
+## 检查理解
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 1</div>
+  <p>Open Design 支持 22+ 代理，最关键的设计模式是什么？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q1" value="a"> 单例模式</label></li>
+    <li><label><input type="radio" name="q1" value="b"> 适配器模式（RuntimeAgentDef 接口）</label></li>
+    <li><label><input type="radio" name="q1" value="c"> 观察者模式</label></li>
+    <li><label><input type="radio" name="q1" value="d"> 工厂模式</label></li>
+  </ul>
+  <div id="f1" class="feedback"></div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 2</div>
+  <p>代理生命周期的四个步骤是？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q2" value="a"> 安装 → 启动 → 配置 → 卸载</label></li>
+    <li><label><input type="radio" name="q2" value="b"> 检测 → 注册 → 启动 → 流解析</label></li>
+    <li><label><input type="radio" name="q2" value="c"> 编译 → 链接 → 加载 → 执行</label></li>
+    <li><label><input type="radio" name="q2" value="d"> 认证 → 授权 → 计费 → 审计</label></li>
+  </ul>
+  <div id="f2" class="feedback"></div>
+</div>
+
+<div class="quiz">
+  <div class="quiz-label">🧠 问题 3</div>
+  <p>ACP 协议模式比 spawn 直连模式有什么优势？</p>
+  <ul class="options">
+    <li><label><input type="radio" name="q3" value="a"> ACP 性能更好</label></li>
+    <li><label><input type="radio" name="q3" value="b"> ACP 是统一的 JSON-RPC 协议，多个代理共享一份解析代码</label></li>
+    <li><label><input type="radio" name="q3" value="c"> ACP 安全性更高</label></li>
+    <li><label><input type="radio" name="q3" value="d"> ACP 支持更多模型</label></li>
+  </ul>
+  <div id="f3" class="feedback"></div>
+</div>
+
+<script>
+const answers = {
+  q1: { correct: 'b', explanation: '✅ RuntimeAgentDef 是统一接口，每个代理都是它的实现。Daemon 只跟接口交互，不知道具体代理是谁。' },
+  q2: { correct: 'b', explanation: '✅ 检测（哪些代理装了）→ 注册（加载到内存）→ 启动（spawn 子进程）→ 流解析（归一化为统一事件）。' },
+  q3: { correct: 'b', explanation: '✅ ACP 统一了 JSON-RPC 协议，13 个代理共享 acp.ts 的同一份解析代码。新增代理只需实现 ACP 接口，不用写新解析器。' }
+};
+
+document.querySelectorAll('.options input').forEach(input => {
+  input.addEventListener('change', (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    const fb = document.getElementById('f' + name.slice(1));
+    if (value === answers[name].correct) {
+      fb.className = 'feedback correct';
+      fb.textContent = answers[name].explanation;
+    } else {
+      fb.className = 'feedback wrong';
+      fb.textContent = '❌ 再想想。';
+    }
+  });
+});
+</script>
+
+<h2>动手探索</h2>
+<ol>
+  <li>打开 <code>apps/daemon/src/runtimes/defs/</code>，数一数有多少个 <code>*.ts</code> 文件</li>
+  <li>对比 <code>claude.ts</code> 和 <code>hermes.ts</code>，看它们如何实现 <code>RuntimeAgentDef</code> 接口</li>
+  <li>打开 <code>apps/daemon/src/runtimes/registry.ts</code>，看代理如何注册</li>
+  <li>运行 <code>pnpm tools-dev inspect daemon agents</code>，看你机器上检测到了哪些代理</li>
+</ol>
+
+<div class="ask-agent">
+  <strong>🤖 向 AI 老师提问：</strong><br>
+  - "如何为不支持 ACP 的代理写 ACP 适配器？"<br>
+  - "代理检测失败（PATH 找不到）怎么办？"<br>
+  - "VersionProbe 的作用是什么？为什么需要探测版本？"
+</div>
+
+<h2>推荐资源</h2>
+<ul>
+  <li><a href="https://refactoring.guru/design-patterns/adapter">适配器模式 - Refactoring Guru</a> — 设计模式经典教程</li>
+  <li>Open Design `apps/daemon/src/runtimes/` 目录 — 真实实现参考</li>
+</ul>
+
+<div class="next-lesson">
+  <strong>下一课：</strong> <a href="0008-系统提示词组合.html">第 8 课：系统提示词组合 — 上下文注入、技能 + 设计系统</a>
+</div>
+
+</body>
+</html>
