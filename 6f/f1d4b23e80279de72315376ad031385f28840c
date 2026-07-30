@@ -1,0 +1,31 @@
+.learn/lessons/0016-Electron-基础-进程模型.md
+  s_07091f0ed9477d::t_5c5e80ad70276d 1-273
+.learn/lessons/0017-IPC-通信深潜.md
+  s_07091f0ed9477d::t_d1968e5c29ead3 1-257
+.learn/lessons/0018-Sidecar-子进程架构.md
+  s_07091f0ed9477d::t_9040af654ca9b2 1-237
+.learn/lessons/0019-窗口管理与原生-UI.md
+  s_07091f0ed9477d::t_2e3382f69a2315 1-203
+.learn/lessons/0020-安全架构.md
+  s_07091f0ed9477d::t_f8c58cbb48e88d 1-205
+.learn/lessons/0021-自定义协议与打包.md
+  s_07091f0ed9477d::t_1d7743aee28ae9 1-199
+.learn/lessons/0022-自动更新系统.md
+  s_07091f0ed9477d::t_629ad4e2e6ac97 1-213
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "6ff1d4b23e80279de72315376ad031385f28840c",
+  "prompts": {},
+  "sessions": {
+    "s_07091f0ed9477d": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7b1b4d29-b3f2-4732-b302-db1c7dd20e20",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
