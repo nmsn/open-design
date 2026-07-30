@@ -1,0 +1,41 @@
+.learn/lessons/0023-设计系统调用全链路.md
+  s_07091f0ed9477d::t_d59124d7d72906 1-177
+.learn/lessons/0024-DESIGN-md与九段式.md
+  s_07091f0ed9477d::t_4db088f4285ffe 1-154
+.learn/lessons/0025-Design-System-工程面.md
+  s_07091f0ed9477d::t_e39a59f4865935 1-178
+.learn/lessons/0026-Skill-运行时.md
+  s_07091f0ed9477d::t_9cd42bc8cd61f6 1-194
+.learn/lessons/0027-Craft-跨品牌规则.md
+  s_07091f0ed9477d::t_1c87a97efaac03 1-183
+.learn/lessons/0028-Design-Templates.md
+  s_07091f0ed9477d::t_5ecc113aca6fbf 1-217
+.learn/lessons/0029-制品与-FileViewer-预览.md
+  s_07091f0ed9477d::t_d8d1f811ead7cf 1-183
+.learn/lessons/0030-点选评论与-Inspect.md
+  s_07091f0ed9477d::t_8856085a31b0d5 1-179
+.learn/lessons/0031-Tweaks编辑桥与回灌.md
+  s_07091f0ed9477d::t_a4591ebfe17ed0 1-234
+.learn/lessons/0032-产品数据模型.md
+  s_07091f0ed9477d::t_b4966c1490d5d1 1-205
+.learn/reference/design-md-九段式.md
+  s_07091f0ed9477d::t_56bbfd8f302c3e 1-155
+.learn/reference/为什么要有-od-cli-双轨.md
+  s_07091f0ed9477d::t_44c868c0f193ad 1-92
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "4706168b035f8fb00fa60da6e8dce78ccb8dd48a",
+  "prompts": {},
+  "sessions": {
+    "s_07091f0ed9477d": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7b1b4d29-b3f2-4732-b302-db1c7dd20e20",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
