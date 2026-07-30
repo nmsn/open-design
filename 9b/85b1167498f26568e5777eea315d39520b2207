@@ -1,0 +1,25 @@
+.learn/ROADMAP.md
+  s_fe8d72b79d3b93::t_83da625ccbb683 3-4,16,28,39-42,46,50-56,58-64,67-75,78-96,98,100-132,138-154
+.learn/lessons/0033-Modes发现与-question-form.md
+  s_fe8d72b79d3b93::t_f81721efed5eb5 1-200
+.learn/lessons/0034-Critique-Design-Jury.md
+  s_fe8d72b79d3b93::t_d5540a90aac5ef 1-232
+.learn/lessons/0035-架构决策复盘.md
+  s_fe8d72b79d3b93::t_3f4b4de2d3dff6 1-206
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "9b85b1167498f26568e5777eea315d39520b2207",
+  "prompts": {},
+  "sessions": {
+    "s_fe8d72b79d3b93": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "acb7c780-8249-4f79-a1ec-59c630d14782",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
