@@ -1,0 +1,23 @@
+.learn/NOTES.md
+  s_07091f0ed9477d::t_8cc4d859b46318 12-15
+.learn/learning-records/0004-verify-before-teaching.md
+  s_07091f0ed9477d::t_f7d80a69c9573a 11
+.learn/lessons/0012-插件系统架构.md
+  s_07091f0ed9477d::t_545235f0fc3bf8 129,246
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "7f861eff2d223924478622e9401f5c7d1beb79f5",
+  "prompts": {},
+  "sessions": {
+    "s_07091f0ed9477d": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7b1b4d29-b3f2-4732-b302-db1c7dd20e20",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
