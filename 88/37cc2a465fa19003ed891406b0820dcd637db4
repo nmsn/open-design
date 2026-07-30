@@ -1,0 +1,39 @@
+.learn/NOTES.md
+  s_fe8d72b79d3b93::t_ae3db87791d889 19-27
+.learn/ROADMAP.md
+  s_fe8d72b79d3b93::t_d488742364ca01 106
+.learn/lessons/0001-project-全景与全栈心智模型.md
+  s_fe8d72b79d3b93::t_3eb0e8f481540a 36
+.learn/lessons/0004-子进程与进程管理.md
+  s_fe8d72b79d3b93::t_7dfb6df20cc29f 20
+.learn/lessons/0007-Agent-适配器模式.md
+  s_fe8d72b79d3b93::t_027b7b7a1ca252 3,5,7,11,14-15,31,39,43-50,54,145,147,250
+.learn/lessons/0008-系统提示词组合.md
+  s_fe8d72b79d3b93::t_5381efc7f8d515 54-56,59,61
+.learn/lessons/0029-制品与-FileViewer-预览.md
+  s_fe8d72b79d3b93::t_0c621644309de6 88,92-96,98-99,101-102
+.learn/lessons/0030-点选评论与-Inspect.md
+  s_fe8d72b79d3b93::t_ae5b0d30eb3950 5,18-19,117-119,122
+.learn/lessons/0031-Tweaks编辑桥与回灌.md
+  s_fe8d72b79d3b93::t_4018621f57d2e6 17,52,54-58,186,188,192
+.learn/lessons/0033-Modes发现与-question-form.md
+  s_fe8d72b79d3b93::t_05f7025f4a5406 3,12-15,25,27,30,32-34,37,41,44-49,70,90-91,97-98,100,104-106,109,179,185,208
+.learn/lessons/0035-架构决策复盘.md
+  s_fe8d72b79d3b93::t_5ef8ce5f2debc4 136,147
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "8837cc2a465fa19003ed891406b0820dcd637db4",
+  "prompts": {},
+  "sessions": {
+    "s_fe8d72b79d3b93": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "acb7c780-8249-4f79-a1ec-59c630d14782",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
