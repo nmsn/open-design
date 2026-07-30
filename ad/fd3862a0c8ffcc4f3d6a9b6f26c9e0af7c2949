@@ -1,0 +1,23 @@
+.learn/lessons/0013-测试策略.md
+  s_fe8d72b79d3b93::t_6cb0c430e0ab2d 1-295
+.learn/lessons/0014-代码规范与-Guard.md
+  s_fe8d72b79d3b93::t_73ba86e30a67ca 1-196
+.learn/lessons/0015-提交第一个-PR.md
+  s_fe8d72b79d3b93::t_18f25b35f67aa2 1-224
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "adfd3862a0c8ffcc4f3d6a9b6f26c9e0af7c2949",
+  "prompts": {},
+  "sessions": {
+    "s_fe8d72b79d3b93": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "acb7c780-8249-4f79-a1ec-59c630d14782",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
