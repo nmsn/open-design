@@ -1,0 +1,21 @@
+apps/web/src/state/projects.ts
+  s_fe8d72b79d3b93::t_317fef65217b4e 372-377,687-698
+apps/web/tests/state/projects.test.ts
+  s_fe8d72b79d3b93::t_2596a7f1e001ca 465,471-473,476-480,495,500-501,504,509-510
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "e2266fa93b59ffc35942144c2a39a6beb5753cdb",
+  "prompts": {},
+  "sessions": {
+    "s_fe8d72b79d3b93": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "acb7c780-8249-4f79-a1ec-59c630d14782",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
