@@ -1,0 +1,24 @@
+plugins/_official/design-systems/loom/DESIGN.md
+  s_1f8bfb9001ce17::t_590198fa94387f 1-201
+plugins/_official/design-systems/loom/open-design.json
+  s_1f8bfb9001ce17::t_590198fa94387f 1-2,4,26,49-62,67-113
+  s_1f8bfb9001ce17::t_191fe7910f647f 3,5-25,27-48,63-66
+plugins/registry/official/open-design-marketplace.json
+  s_1f8bfb9001ce17::t_ca5e87708d89c7 15,1771-1794
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "370f191e519d917ebca36034439bb389b2b67704",
+  "prompts": {},
+  "sessions": {
+    "s_1f8bfb9001ce17": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "76990a82-f6dc-4927-9f34-37a444a22fb8",
+        "model": "default"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
