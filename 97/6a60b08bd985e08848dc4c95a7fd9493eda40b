@@ -1,0 +1,24 @@
+apps/web/src/components/AmrArtifactUpgradeGate.tsx
+  s_1f8bfb9001ce17::t_438e401d3d9686 104,136-140
+  s_1f8bfb9001ce17::t_738e575728ff09 213,231
+  s_1f8bfb9001ce17::t_a28ac0026c0d21 66-84
+apps/web/tests/components/AmrArtifactUpgradeGate.test.tsx
+  s_1f8bfb9001ce17::t_0924a3c1ad9141 176-208
+  s_1f8bfb9001ce17::t_06eba148d1c09f 174-175
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "976a60b08bd985e08848dc4c95a7fd9493eda40b",
+  "prompts": {},
+  "sessions": {
+    "s_1f8bfb9001ce17": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "76990a82-f6dc-4927-9f34-37a444a22fb8",
+        "model": "default"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
