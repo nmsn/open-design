@@ -1,0 +1,24 @@
+plugins/_official/design-systems/webex/open-design.json
+  s_1f8bfb9001ce17::t_191fe7910f647f 3,6-25,27,29-48,63-66
+  s_1f8bfb9001ce17::t_590198fa94387f 1-2,4-5,26,28,49-62,67-113
+plugins/_official/design-systems/webex/DESIGN.md
+  s_1f8bfb9001ce17::t_590198fa94387f 1-207
+plugins/registry/official/open-design-marketplace.json
+  s_1f8bfb9001ce17::t_ccdf7f72ccab14 15,3547-3570
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "1a853909af4fd703f84e83bf611e69a3c9464d22",
+  "prompts": {},
+  "sessions": {
+    "s_1f8bfb9001ce17": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "76990a82-f6dc-4927-9f34-37a444a22fb8",
+        "model": "default"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
