@@ -1,0 +1,27 @@
+apps/web/src/components/DesignBrowserPanel.tsx
+  s_fe8d72b79d3b93::t_d96c27dd59b783 69-76,83-93,303
+apps/web/src/components/design-browser-storage.ts
+  s_fe8d72b79d3b93::t_67649d994ef117 1-93
+apps/web/src/state/projects.ts
+  s_fe8d72b79d3b93::t_444bdc94c9f585 50
+apps/web/tests/components/DesignBrowserPanel.test.tsx
+  s_fe8d72b79d3b93::t_ee37e5b866ab5d 31-34,416,428,464,469
+apps/web/tests/state/projects.test.ts
+  s_fe8d72b79d3b93::t_1163628ab2135a 44-47,1727-1728
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "6e223935099b136b19f7193aed7d43c931c0f11f",
+  "prompts": {},
+  "sessions": {
+    "s_fe8d72b79d3b93": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "acb7c780-8249-4f79-a1ec-59c630d14782",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
