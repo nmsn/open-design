@@ -1,5 +1,6 @@
 apps/web/src/state/projects.ts
   s_fe8d72b79d3b93::t_317fef65217b4e 823-825,827-828,1238-1249
+  s_a14c4519fc58a7::t_1e6b449274a26f 826
 apps/web/tests/state/projects.test.ts
   s_fe8d72b79d3b93::t_2596a7f1e001ca 1717,1723-1725,1728-1732,1747,1752-1753,1756,1761-1762
 ---
@@ -9,6 +10,14 @@ apps/web/tests/state/projects.test.ts
   "base_commit_sha": "290b687adbd9d6bb9695201a7d3dc9e787f90683",
   "prompts": {},
   "sessions": {
+    "s_a14c4519fc58a7": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7d381d6c-1b6a-45dc-b7ba-17a307d3e782",
+        "model": "default"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    },
     "s_fe8d72b79d3b93": {
       "agent_id": {
         "tool": "cursor",
