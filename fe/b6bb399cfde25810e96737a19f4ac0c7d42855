@@ -1,0 +1,38 @@
+apps/web/tests/state/projects.test.ts
+  s_fe8d72b79d3b93::t_1163628ab2135a 44-47,1727-1728
+  s_fe8d72b79d3b93::t_2596a7f1e001ca 1721,1731-1735,1750,1755-1756,1759,1764-1765
+apps/web/src/state/projects.ts
+  s_fe8d72b79d3b93::t_444bdc94c9f585 50
+  s_fe8d72b79d3b93::t_317fef65217b4e 824-826,828-829
+  s_a14c4519fc58a7::t_1e6b449274a26f 827
+apps/web/src/components/design-browser-storage.ts
+  s_fe8d72b79d3b93::t_67649d994ef117 1-93
+apps/web/src/components/DesignBrowserPanel.tsx
+  s_fe8d72b79d3b93::t_d96c27dd59b783 69-76,83-93,303
+apps/web/tests/components/DesignBrowserPanel.test.tsx
+  s_fe8d72b79d3b93::t_ee37e5b866ab5d 31-34,416,428,464,469
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "feb6bb399cfde25810e96737a19f4ac0c7d42855",
+  "prompts": {},
+  "sessions": {
+    "s_a14c4519fc58a7": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7d381d6c-1b6a-45dc-b7ba-17a307d3e782",
+        "model": "default"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    },
+    "s_fe8d72b79d3b93": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "acb7c780-8249-4f79-a1ec-59c630d14782",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
