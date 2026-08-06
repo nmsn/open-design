@@ -1,0 +1,35 @@
+apps/web/src/components/InlineModelSwitcher.tsx
+  s_a14c4519fc58a7::t_3f5b2d74549a3b 138-139
+  s_a14c4519fc58a7::t_43f11273b8c166 525-537,551-554,566-571,577,580
+  s_a14c4519fc58a7::t_0cc8cb19cc89e4 1221
+  s_a14c4519fc58a7::t_5f091a32952cbe 175-183
+  s_a14c4519fc58a7::t_d22b72874a02b6 1067
+  s_a14c4519fc58a7::t_09c2523c8afa68 5-7
+  s_a14c4519fc58a7::t_c3c04bd51ae547 1438-1439
+  s_a14c4519fc58a7::t_c66aa4e354a81a 546-549,578-579,584
+apps/web/tests/components/InlineModelSwitcher.compact-split-chip.test.tsx
+  s_a14c4519fc58a7::t_821c885686d07e 13
+  s_a14c4519fc58a7::t_d87d01ba5b3193 61-67,69,71,76-80,85,89-90
+  s_a14c4519fc58a7::t_c3ceac13ea48f5 68
+  s_a14c4519fc58a7::t_7bf4375e15e3de 185,209-241
+  s_a14c4519fc58a7::t_a1febb172fe413 4,6-7
+  s_a14c4519fc58a7::t_15c1dbe3ac1032 116-118,124-184
+  s_a14c4519fc58a7::t_3717043001b7f6 91-92
+  s_a14c4519fc58a7::t_2a6e9120a70282 186
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "eb6c2554b7efc480984a7fab61ad14b8ef74347c",
+  "prompts": {},
+  "sessions": {
+    "s_a14c4519fc58a7": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7d381d6c-1b6a-45dc-b7ba-17a307d3e782",
+        "model": "default"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
