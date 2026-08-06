@@ -1,0 +1,21 @@
+apps/web/tests/components/InlineModelSwitcher.compact-split-chip.test.tsx
+  s_a14c4519fc58a7::t_1912c25cf8d8b3 153-193
+apps/web/src/components/InlineModelSwitcher.tsx
+  s_a14c4519fc58a7::t_d88ac32046d701 1246-1248,1250-1313
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "e9e27512ed57c3f961df1b29e04926ffac2882fc",
+  "prompts": {},
+  "sessions": {
+    "s_a14c4519fc58a7": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7d381d6c-1b6a-45dc-b7ba-17a307d3e782",
+        "model": "default"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
