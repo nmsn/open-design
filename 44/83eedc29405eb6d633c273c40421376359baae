@@ -1,0 +1,27 @@
+apps/web/src/components/byok/ByokConnectionTestControl.tsx
+  s_a14c4519fc58a7::t_eb0ebd4c85433c 79
+apps/web/src/styles/workspace/mention-home.css
+  s_a14c4519fc58a7::t_26426df53ca65b 2041,2046
+  s_a14c4519fc58a7::t_1b226aed207c38 2039-2040,2047,2049-2061
+apps/web/src/styles/workspace/artifacts.css
+  s_a14c4519fc58a7::t_a0b948004b60a5 2622-2623
+apps/web/src/components/SettingsDialog.tsx
+  s_a14c4519fc58a7::t_fbcb2a2fdec0b1 4953
+  s_a14c4519fc58a7::t_694cc05438a44d 5028
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "4483eedc29405eb6d633c273c40421376359baae",
+  "prompts": {},
+  "sessions": {
+    "s_a14c4519fc58a7": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7d381d6c-1b6a-45dc-b7ba-17a307d3e782",
+        "model": "default"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
