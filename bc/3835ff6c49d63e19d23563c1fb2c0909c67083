@@ -1,0 +1,23 @@
+apps/web/src/components/InlineModelSwitcher.tsx
+  s_4d1cd96dffd8a8::t_b5aac018d6984d 864-867,874,1704
+apps/web/tests/components/InlineModelSwitcher.compact-split-chip.test.tsx
+  s_4d1cd96dffd8a8::t_e27486609445cd 465-498
+apps/web/tests/components/InlineModelSwitcher.test.tsx
+  s_4d1cd96dffd8a8::t_194feff628b432 1932-2009
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "bc3835ff6c49d63e19d23563c1fb2c0909c67083",
+  "prompts": {},
+  "sessions": {
+    "s_4d1cd96dffd8a8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f3358536-0491-46b0-a80e-ee6e3330c038",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
