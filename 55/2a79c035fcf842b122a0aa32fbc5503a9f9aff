@@ -1,0 +1,255 @@
+.github/scripts/runners.py
+  s_c5aa772a9e6553::t_f132d57a91da5c 10-11,24,30-51,62
+.github/workflows/ci.yml
+  s_c5aa772a9e6553::t_b0ec64e4a90ce8 484,501,508
+.github/workflows/notify-release-feishu.yml
+  s_c5aa772a9e6553::t_38c346cf8dace6 89-90,93-103
+apps/daemon/src/collab/collab-cloud-error.ts
+  s_c5aa772a9e6553::t_8b41686942009b 1-85
+apps/daemon/src/collab/vela-cli-collab-client.ts
+  s_c5aa772a9e6553::t_a47448ebc9132a 224-234,238-243
+apps/daemon/src/design-systems/index.ts
+  s_c5aa772a9e6553::t_5a4ba17792c927 4105,4111
+apps/daemon/src/integrations/vela.ts
+  s_c5aa772a9e6553::t_b474cd9c07f32a 15-16,53-55,86-99,129-131,162-165,1483-1486,1509-1516,1534-1537
+apps/daemon/src/langfuse-bridge.ts
+  s_c5aa772a9e6553::t_75a83cf636dddf 555
+apps/daemon/src/routes/collab-presence.ts
+  s_c5aa772a9e6553::t_1a698912064ac9 15-19,69-76,396-435,437-526,708-714,791-804,862-868,877,879-883,947-948,954
+apps/daemon/tests/collab-presence-upstream.test.ts
+  s_c5aa772a9e6553::t_57b1cab083e5ab 1-14,16-18,20-33,35,37-40,42-57,61-89,91,93-106,110-115,118-141,143-182,184-218
+apps/daemon/tests/connection-test.test.ts
+  s_c5aa772a9e6553::t_0289d1739ccd4b 13-22,2188
+apps/daemon/tests/integrations/vela.routes.test.ts
+  s_c5aa772a9e6553::t_b0112cee7e6eb3 2540-2599,3264-3266,3282-3308
+apps/daemon/tests/langfuse-bridge.test.ts
+  s_c5aa772a9e6553::t_3069aadefe33e8 467-547
+apps/daemon/tests/plugins-headless-run.test.ts
+  s_c5aa772a9e6553::t_90c130725c6901 537-548,552,557-565,611-612,614-617
+apps/daemon/tests/prompts/discovery-plugin-inputs.test.ts
+  s_c5aa772a9e6553::t_892030df09d9a1 5-8,17-18,20,24-27,30-33,36,38
+apps/daemon/tests/proxy-dispatcher-options.test.ts
+  s_c5aa772a9e6553::t_7703cbc80d297b 4-12
+apps/daemon/tests/vela-cli-collab-presence-timeout.test.ts
+  s_c5aa772a9e6553::t_b29df8c3814166 1-42
+apps/landing-page/app/_lib/deepseek-v4-flash-campaign.ts
+  s_c5aa772a9e6553::t_5f0dfa40a7a193 1-4
+apps/landing-page/app/_lib/posthog-analytics.ts
+  s_c5aa772a9e6553::t_3e84f983fbc3cd 41-88
+apps/landing-page/app/env.d.ts
+  s_c5aa772a9e6553::t_dff9cb85dfb688 22-34
+apps/landing-page/app/pages/community/open-design-shanghai-workshop/index.astro
+  s_c5aa772a9e6553::t_6d38a587c81a47 1-275
+apps/landing-page/app/pages/index.astro
+  s_c5aa772a9e6553::t_3e2d7bc8ce000f 33,121-136,234-244,247-420
+apps/landing-page/app/pages/pricing/index.astro
+  s_c5aa772a9e6553::t_3f889d4e2e6797 41,120-142,248-258,420-423,557-560,593-594,674-701,721-722,726-740,758-771,782-789,810-833,846-851,911-915,1051-1052,1057-1064,1067-1068,1071-1074,1076-1081,1170-1238,1458-1466,1727-1735
+apps/landing-page/tests/campaign-attribution.test.ts
+  s_c5aa772a9e6553::t_939b3e6e12326a 1-37
+apps/landing-page/tests/home-campaign-banner.test.ts
+  s_c5aa772a9e6553::t_aac6dd630d2c18 1-58
+apps/landing-page/tests/pricing-contract.test.ts
+  s_c5aa772a9e6553::t_85e54a7cb070c7 78-183
+apps/web/sidecar/server.ts
+  s_c5aa772a9e6553::t_f5fbc357cdefda 3,10,404-504,511-512,528-529,531-567,569-573,575-576,1007
+apps/web/src/App.tsx
+  s_c5aa772a9e6553::t_c4768f7cff7cb5 131,354-384,4668-4680,4704,5005-5009,5057-5058
+apps/web/src/analytics/amr-attribution.ts
+  s_c5aa772a9e6553::t_8dd86aede6f541 4-5,23-24,62-64,101-104,122-125,219-222,305-308
+apps/web/src/analytics/events.ts
+  s_c5aa772a9e6553::t_db26ce620be17f 21-23,81-82,421-455
+apps/web/src/campaigns/deepseek-v4-flash.ts
+  s_c5aa772a9e6553::t_fe526c5efcd730 1-108
+apps/web/src/campaigns/use-deepseek-v4-flash-campaign.ts
+  s_c5aa772a9e6553::t_6c4d220cfff19c 1-29
+apps/web/src/collab/collab-client.ts
+  s_c5aa772a9e6553::t_7d754369f80a06 76-84,166-173,213-215,295-298,331-341,372,380,389-420
+apps/web/src/components/AmrLoginPill.tsx
+  s_c5aa772a9e6553::t_7e80d6321738f9 60,300,745-746
+apps/web/src/components/AvatarMenu.tsx
+  s_c5aa772a9e6553::t_b63ca4fc5d04a9 16-22,81-82,329-408,651-729,731
+apps/web/src/components/DeepSeekV4FlashCampaign.module.css
+  s_c5aa772a9e6553::t_f97c60f8b18d3b 1-225
+apps/web/src/components/DeepSeekV4FlashCampaign.tsx
+  s_c5aa772a9e6553::t_4d87389d4ac885 1-295
+apps/web/src/components/DesignFilesPanel.tsx
+  s_c5aa772a9e6553::t_366c8b0a435215 1,142-218,645-677,1751-1752,1758-1759,1859-1907,1968-1997,2013-2016,2018-2042,2045,2050
+apps/web/src/components/EntryNavRail.tsx
+  s_c5aa772a9e6553::t_a5c901ad35fd15 211-212,569,1281-1283
+apps/web/src/components/EntryShell.tsx
+  s_c5aa772a9e6553::t_e23539afb43b15 24,43-44,48,144-146,227-230,421-426,472-474,480-481,553,585-586,596-602,627-644,1088-1145,1429,1479,1531,1562-1578,1639-1642,1945,1964-1965,1971-1974,1984,2108,2111-2112,2114,2116-2118,2120-2126,2128-2143,2189-2192,2200-2225,2234,2237-2238,2240,2259-2260,2275-2278,2307,2321-2324,2397,2504-2506,2508-2524,2527-2589,2591-2592,2595-2599,2603-2605,2637-2640,2642,2743,2813-2816,3043,3060,3076,3078-3080,3110,3174,3190-3318,3323-3361,3363-3368,3370-3372,3374-3394,3396-3399,3401-3405,3407-3413,3417-3435
+apps/web/src/components/EntryView.tsx
+  s_c5aa772a9e6553::t_f4ed8ddf5e309b 46,82-83,151-152,261,302-303,394,426-427
+apps/web/src/components/HomeView.tsx
+  s_c5aa772a9e6553::t_8ebf6aa44c869d 135-136,289-297,441-444,2528-2537
+apps/web/src/components/InlineModelSwitcher.tsx
+  s_c5aa772a9e6553::t_7963703a8e10bf 41-44,100-101,242-265,278,871-872,885,891,920,923,937-939,972-1002,1008-1010,1012-1020,1041,1244-1248,1377-1386,1521-1555,1568-1569,1593-1595,1629-1638
+apps/web/src/components/OnboardingModelSource.module.css
+  s_c5aa772a9e6553::t_1347d8b8acad69 1-231
+apps/web/src/components/SettingsDialog.tsx
+  s_c5aa772a9e6553::t_6676afae293ebb 494-495,1509,4443,4944
+apps/web/src/i18n/locales/ar.ts
+  s_c5aa772a9e6553::t_27ac659bc68af6 312-313,316,322,344,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/de.ts
+  s_c5aa772a9e6553::t_cad6d65738189d 312-313,316,322,344,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/en.ts
+  s_c5aa772a9e6553::t_be214d8f7dd5b7 312-313,316,322,346-347,350-351,5230-5257
+apps/web/src/i18n/locales/es-ES.ts
+  s_c5aa772a9e6553::t_962e24105316fd 312-313,316,322,344,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/fa.ts
+  s_c5aa772a9e6553::t_62c929db2bd7ba 312-313,316,322,344,346-347,350-351,5211-5238
+apps/web/src/i18n/locales/fr.ts
+  s_c5aa772a9e6553::t_81bd8b2017960a 312-313,316,322,346-347,351,5216-5243
+apps/web/src/i18n/locales/hu.ts
+  s_c5aa772a9e6553::t_70698739f16711 312-313,316,322,344,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/id.ts
+  s_c5aa772a9e6553::t_35e215dca08a03 312-313,316,322,344,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/it.ts
+  s_c5aa772a9e6553::t_188d1a4e352606 312-313,316,322,344,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/ja.ts
+  s_c5aa772a9e6553::t_6b78eb388c560a 312-313,316,322,344,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/ko.ts
+  s_c5aa772a9e6553::t_0ea3d3c2cb4afa 312-313,316,322,344,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/pl.ts
+  s_c5aa772a9e6553::t_eee26b62b0229c 312-313,316,322,344,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/pt-BR.ts
+  s_c5aa772a9e6553::t_4306fc7368f0e0 312-313,316,322,344,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/ru.ts
+  s_c5aa772a9e6553::t_d05ac08dbe9604 312-313,316,322,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/th.ts
+  s_c5aa772a9e6553::t_76ccbaaebfdd27 312-313,316,322,344,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/tr.ts
+  s_c5aa772a9e6553::t_01e9671e885238 312-313,316,322,344,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/uk.ts
+  s_c5aa772a9e6553::t_d4a53a7e7531ac 312-313,316,322,344,346-347,350-351,5216-5243
+apps/web/src/i18n/locales/zh-CN.ts
+  s_c5aa772a9e6553::t_8c1091d7330cf8 289,291,294-295,301,331,333,336-338,5665-5692
+apps/web/src/i18n/locales/zh-TW.ts
+  s_c5aa772a9e6553::t_a21bb6a62832fe 289,291,294-295,301,329,331,333,336-338,5672-5699
+apps/web/src/i18n/types.ts
+  s_c5aa772a9e6553::t_130c567d01f525 5387-5414
+apps/web/src/styles/home/entry-layout.css
+  s_c5aa772a9e6553::t_6e3b90b50f22c8 1054-1114,1966-1997
+apps/web/tests/analytics/amr-attribution.test.ts
+  s_c5aa772a9e6553::t_860432b7a1ff4d 365-395
+apps/web/tests/campaigns/deepseek-v4-flash-i18n-matrix.test.ts
+  s_c5aa772a9e6553::t_28d44d5669da77 1-76
+apps/web/tests/campaigns/deepseek-v4-flash-modal.test.tsx
+  s_c5aa772a9e6553::t_ffc53e28ee3e65 1-218
+apps/web/tests/campaigns/deepseek-v4-flash-ui-contract.test.ts
+  s_c5aa772a9e6553::t_9fff6b1d1a5826 1-2,5-24,26-39,41-44,46-54,57-61,63-73,75-99,102-119,121-125
+apps/web/tests/campaigns/deepseek-v4-flash.test.ts
+  s_c5aa772a9e6553::t_5cc174d21df104 1-179
+apps/web/tests/collab-client.heartbeat-backoff.test.ts
+  s_c5aa772a9e6553::t_542562b0c87b9a 1-116
+apps/web/tests/components/AmrLoginPill.test.tsx
+  s_c5aa772a9e6553::t_f2a963ff1f9715 1134,1160,1168
+apps/web/tests/components/App.onboarding-amr-e2e.test.tsx
+  s_c5aa772a9e6553::t_661ef56e83d1be 240-245,261-268
+apps/web/tests/components/App.onboarding-completion-persistence.test.tsx
+  s_c5aa772a9e6553::t_ccc92677588765 20,54,85,93,98,261,288-383
+apps/web/tests/components/AvatarMenu.test.tsx
+  s_c5aa772a9e6553::t_5ddf684052e3d2 9,529-575
+apps/web/tests/components/EntryNavRail.sign-out-confirm.test.tsx
+  s_c5aa772a9e6553::t_76572883a6b8f0 37,47,122-159
+apps/web/tests/components/EntryShell.onboarding.test.tsx
+  s_c5aa772a9e6553::t_bb23df459d2c28 261,275-286,640-902,919-920,937-939,948-953,957,968-973,998,1021-1026,1045,1148,1153,1365,1419,1469,1492-1493,1526,1539-1544,1570-1575,1590,1604-1608,1615-1620,1648,1698-1699
+apps/web/tests/components/InlineModelSwitcher.compact-model-click.test.tsx
+  s_c5aa772a9e6553::t_b31c34d834337e 24,147,150-155,252-283
+apps/web/tests/components/InlineModelSwitcher.compact-split-chip.test.tsx
+  s_c5aa772a9e6553::t_001617c75fa335 414-417,419,422,425
+apps/web/tests/components/InlineModelSwitcher.test.tsx
+  s_c5aa772a9e6553::t_6e1a1dc8976cc5 1543-1598
+apps/web/tests/design-files-lazy-render.test.tsx
+  s_c5aa772a9e6553::t_2bd9dac5e1b2bb 1-42,44,46-50,52-54,56-58,61-63,65-66,68,70-76,78,80-84,87,89-96,99-109,111,113-120,123-132,135-156,159-188,190-368
+apps/web/tests/sidecar-proxy-keepalive.test.ts
+  s_c5aa772a9e6553::t_04f03932e0f8cb 1-19,23-97,99,102,105-113,115-119,121-144,147-165
+design-systems/_schema/manifest.schema.ts
+  s_c5aa772a9e6553::t_e07bd367c5351b 12,18-20
+e2e/AGENTS.md
+  s_c5aa772a9e6553::t_d1f50e061a396e 56
+e2e/lib/playwright/campaign-dismissals.ts
+  s_c5aa772a9e6553::t_3a61e89897dc9d 1-36
+e2e/lib/playwright/collab-cluster.ts
+  s_c5aa772a9e6553::t_817663a5087aff 6,106-109
+e2e/lib/playwright/mock-factory.ts
+  s_c5aa772a9e6553::t_cfb04006778370 65-68,72-94
+e2e/lib/playwright/rail.ts
+  s_c5aa772a9e6553::t_efe20410e0ec99 89-98,101-102,109-110
+e2e/lib/playwright/runtime-lifecycle.ts
+  s_c5aa772a9e6553::t_ea1f2efbff538b 1,3-5,7,37-85
+e2e/lib/playwright/suite.ts
+  s_c5aa772a9e6553::t_ba097c1110f284 6,9,12,22,31-35,54,82-93,124-129
+e2e/lib/playwright/visual.ts
+  s_c5aa772a9e6553::t_115cbc5dfee70a 182-183,341-358
+e2e/lib/vitest/packaged-app-shell.ts
+  s_c5aa772a9e6553::t_43400ce3ef2867 103-104,112
+e2e/lib/vitest/packaged-smoke-profile.ts
+  s_c5aa772a9e6553::t_defa2a89e05ac5 1-46
+e2e/specs/mac.spec.ts
+  s_c5aa772a9e6553::t_a41ec1b9aacce3 144,1012,1038-1039
+e2e/specs/win.spec.ts
+  s_c5aa772a9e6553::t_5035a66ae32c73 22,43-47,253,1271,1310-1311
+e2e/tests/collab-cluster.test.ts
+  s_c5aa772a9e6553::t_3668945bfc3b70 29,117-127,204
+e2e/tests/packaged-smoke-workflow.test.ts
+  s_c5aa772a9e6553::t_f8c1ec03247317 1217-1221,1363,1374-1375,1390-1391,1394-1406,1417
+e2e/tests/packaged/app-shell.test.ts
+  s_c5aa772a9e6553::t_6eb429b6568581 1-2,53-54,102,117-130,139
+e2e/tests/packaged/smoke-profile.test.ts
+  s_c5aa772a9e6553::t_893e7252ddb500 1-63
+e2e/tests/playwright-runtime-lifecycle.test.ts
+  s_c5aa772a9e6553::t_a9d292baf791bb 10-13,114-213
+e2e/ui/amr-login-pill-workspace-refresh.test.ts
+  s_c5aa772a9e6553::t_bc4a47c28b83e8 37,40-45,55,68-94,135-186,225-256,297-299,310-312,315-319,322-330,332-340
+e2e/ui/amr-logout-requires-relogin.test.ts
+  s_c5aa772a9e6553::t_3ad7213931d620 55,134-148
+e2e/ui/amr-onboarding.test.ts
+  s_c5aa772a9e6553::t_bfa5e0388dbb18 12,29,74-77,85-89,99-100,104-106,112,133-135,141-144,150,158-169,172,176-177,194,201,207,214,221,226,230,233,243,322-323,336-337,363-364,390,395-402,412-413,415-418,423,428-434,436-437,440-448,450,452-456,460-464,467-468,473-478,481-500,502-504,506-508,510,512,521-524,526-528,530-534,571,582,634,656,682,696,749,759,803,816,824,1026-1031,1067-1086,1116-1119
+e2e/ui/api-empty-response.test.ts
+  s_c5aa772a9e6553::t_d136055dcbd0ea 6,16-26
+e2e/ui/app-restoration.test.ts
+  s_c5aa772a9e6553::t_d5364824d68861 16-19,231,268,300-303,305,309,311,1196-1199,1201-1208,1210,1227,1229-1234,2454,2457
+e2e/ui/app.test.ts
+  s_c5aa772a9e6553::t_b269d6ff707412 1327-1347
+e2e/ui/automations-page.test.ts
+  s_c5aa772a9e6553::t_81076e07b85c83 3,9-11,78-86,105,113,115-117,122,210,346-348,350-353,355,357-365,1009,1079,1155,1914
+e2e/ui/entry-chrome-flows.test.ts
+  s_c5aa772a9e6553::t_3349e27b4c4d44 404-414,417-425,428,2780-2781,2784-2789,2791-2804,2806,2811-2827
+e2e/ui/project-management-flows.test.ts
+  s_c5aa772a9e6553::t_a18017b02ce9bc 326-328,350,354,385-392,394-435,1561,3675,3683,3688-3709
+e2e/ui/visual-entry.test.ts
+  s_c5aa772a9e6553::t_5e1daea7657fc7 18-21,26
+e2e/ui/visual-workspace.test.ts
+  s_c5aa772a9e6553::t_711d76b5cad9f6 208-210,221-239,251-258,260-263,272-277
+e2e/ui/workspace-team-interactions.test.ts
+  s_c5aa772a9e6553::t_3609da19db856c 197-199,217,219,716-718,720,749-751
+packages/contracts/src/analytics/events/onboarding.ts
+  s_c5aa772a9e6553::t_d233bf1cd629b1 25-27,33-34,48-49,57-59
+packages/contracts/src/analytics/events/shared-enums.ts
+  s_c5aa772a9e6553::t_bcc4e62667081d 86-88,94-103,109-113
+packages/contracts/src/analytics/events/surface-view.ts
+  s_c5aa772a9e6553::t_3cfcdaa7cf9789 7,36-63,274-276
+packages/contracts/src/analytics/events/ui-click.ts
+  s_c5aa772a9e6553::t_2eb56d6f819468 9,960-977,1656-1657
+scripts/lib/guard/scope.ts
+  s_c5aa772a9e6553::t_80a17f3d8859f8 44
+tools/pack/tests/release-workflows.test.ts
+  s_c5aa772a9e6553::t_31e26b2eae5bdf 397-418
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "552a79c035fcf842b122a0aa32fbc5503a9f9aff",
+  "prompts": {},
+  "sessions": {
+    "s_c5aa772a9e6553": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fda04-c324-77e3-8872-067eddec1ece",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
