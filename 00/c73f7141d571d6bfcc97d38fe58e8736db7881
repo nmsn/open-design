@@ -1,0 +1,2652 @@
+.github/AGENTS.md
+  h_7714b9549db59c 39
+.github/actions/configure-ci-parallelism/action.yml
+  h_7714b9549db59c 2,17-20,27,31
+.github/actions/setup-playwright/action.yml
+  h_7714b9549db59c 2,19-49,52,76,87,93-101,103
+.github/actions/setup-workspace/action.yml
+  h_7714b9549db59c 50-58,60,86-87
+.github/scripts/rerun_infra_cancel.py
+  h_7714b9549db59c 1-1476
+.github/scripts/runners.py
+  h_7714b9549db59c 10-15,23-24,30-51,56-57,59-63
+.github/workflows/backport.yml
+  h_7714b9549db59c 5-6,69,88-121
+.github/workflows/cache-maintenance.yml
+  h_7714b9549db59c 32-48
+.github/workflows/ci.yml
+  h_7714b9549db59c 34-41,53-59,369,374-377,395,484,501,508,621,634,762-763
+.github/workflows/notify-release-feishu.yml
+  h_7714b9549db59c 39-48,78-103
+.github/workflows/release-beta.yml
+  h_7714b9549db59c 58-62,213-216,319-332,501-507,541-545,578-613,1128-1135,1152-1153,1167-1205
+.github/workflows/release-branch-direct-pr-guard.yml
+  h_7714b9549db59c 54,56-57,59
+.github/workflows/release-prerelease.yml
+  h_7714b9549db59c 15-19,51-55,123-140,936-956,958
+.github/workflows/release-preview.yml
+  h_7714b9549db59c 103-118
+.github/workflows/release-stable.yml
+  h_7714b9549db59c 122-137,1264-1270,1272
+.github/workflows/rerun.atom.yml
+  h_7714b9549db59c 1-69
+.github/workflows/ui-extended-main.yml
+  h_7714b9549db59c 45,70,77
+.github/workflows/visual-baseline.yml
+  h_7714b9549db59c 79
+.gitignore
+  h_7714b9549db59c 111-114
+apps/daemon/AGENTS.md
+  h_7714b9549db59c 28
+apps/daemon/package.json
+  h_7714b9549db59c 3
+apps/daemon/src/agent-protocol/acp/json.ts
+  h_7714b9549db59c 135-147
+apps/daemon/src/agent-protocol/acp/rpc.ts
+  h_7714b9549db59c 90-110
+apps/daemon/src/agent-protocol/acp/session.ts
+  h_7714b9549db59c 25,33,96-97,100,145,382-459,596-599,695,715-717,719,723
+apps/daemon/src/analytics.ts
+  h_7714b9549db59c 237-242,250,424-439
+apps/daemon/src/app-config.ts
+  h_7714b9549db59c 96-99,327-343,604-616
+apps/daemon/src/automations/workspace-scope.ts
+  h_7714b9549db59c 1-164
+apps/daemon/src/brand-routes.ts
+  h_7714b9549db59c 19,29-32,57-89,92-98,145-210,340-344,357,364-372,388,541,553,631-661,669,672-700
+apps/daemon/src/brands/index.ts
+  h_7714b9549db59c 122-132,238,255-258,359,369-371,464-469,550-552,1294-1297,1477-1479,2264,2269
+apps/daemon/src/cli-help/design-systems-cli-help.ts
+  h_7714b9549db59c 13-18
+apps/daemon/src/cli.ts
+  h_7714b9549db59c 8,64-65,149-155,170-171,203-205,211,220-224,241-245,247-253,268,315-319,375,385,397,400,415,440-441,484,514,566-568,853-856,878-1176,1458-1460,1511,1533-1535,1540-1545,1548-1549,1557-1563,1568-1574,1584-1587,1601,1780-1799,1816-1817,1847-1848,1902-1909,1930-1934,2064,2088,2173,2202,2426-2427,2430-2434,2715-2723,2752,3010-3011,3017-3022,3024,3033,3054-3055,3099,3136-3140,3154,3158,3170,3196,3201,3209-3217,3302,3352,3419,3425,3509,3534,3583,3896,3934,3972-3973,4067,4154,4222-4223,4270,4336,4385,4438,4471-4477,4479,4482,4485,4487,4489,4500,4503-4506,4523,4531,4548,4571-4579,4612,5299,5357,5402,5455-5461,5472,5498-5499,5513,5536-5537,5567,5588-5589,5603-5606,5625-5626,5652,5687-5689,5722-5725,5732,5874-5876,5893-5896,5898,5921,5947,5969,6524-6525,6562-6564,6580-6583,6585-6586,6589-6591,6604,6609-6611,6649,6669,6682,6692,6703,6713,6725,6742,6757-6762,6768,6773-6776,6794,6806,6825-7105,7111-7112,7124-7127,7132-7135,7137,7143,7154,7159-7161,7168,7173-7175,7194,7199-7202,7208,7213-7215,7248,7256,7260,7265,7269,7292,7314,7323,7353,7379,7391,7393,7443-7446,7452,7461,7475,7481,7490,7499,7515-7517,7581-7583,7592-7595,7597-7598,7601,7606-7608,7617,7623-7626,7633,7645,7660,7678,7693,7699-7702,7708,7715,7719,7726,7734,7753,7761,7770,7786,7797,7810,7831,7834,8145-8148,8153-8160,8162-8165,8168,8189,8200,8205-8207,8253-8256,8261-8264,8266,8273,8294,8654-8655,8796,8799,8890-8892,8895-8899,8911,8916-8920,8932-9020,9057,9066-9068,9183,9186,9227,9230,9301,9304,9503,9506-9510,11299-11300,11345,11350
+apps/daemon/src/collab/active-workspace-selection.ts
+  h_7714b9549db59c 1-113
+apps/daemon/src/collab/authorized-team-project-pull.ts
+  h_7714b9549db59c 1-327
+apps/daemon/src/collab/collab-cloud-error.ts
+  h_7714b9549db59c 1-85
+apps/daemon/src/collab/collab-cloud-service.ts
+  h_7714b9549db59c 1-754
+apps/daemon/src/collab/collab-publish-watcher.ts
+  h_7714b9549db59c 1-136
+apps/daemon/src/collab/comment-relay-outbox.ts
+  h_7714b9549db59c 1-227
+apps/daemon/src/collab/created-project-workspace.ts
+  h_7714b9549db59c 1-258
+apps/daemon/src/collab/hub-events-subscriber.ts
+  h_7714b9549db59c 1-515
+apps/daemon/src/collab/invite-continue.ts
+  h_7714b9549db59c 1-78
+apps/daemon/src/collab/invite-create.ts
+  h_7714b9549db59c 1-110
+apps/daemon/src/collab/persisted-team-share.ts
+  h_7714b9549db59c 1-39
+apps/daemon/src/collab/persistent-sync-cache.ts
+  h_7714b9549db59c 1-169
+apps/daemon/src/collab/presence-tracker.ts
+  h_7714b9549db59c 1-108
+apps/daemon/src/collab/proactive-content-pull.ts
+  h_7714b9549db59c 1-2328
+apps/daemon/src/collab/project-content-transfer-state.ts
+  h_7714b9549db59c 1-152
+apps/daemon/src/collab/project-request-authority.ts
+  h_7714b9549db59c 1-125
+apps/daemon/src/collab/project-share-dir.ts
+  h_7714b9549db59c 1-9
+apps/daemon/src/collab/project-workspace-scope.ts
+  h_7714b9549db59c 1-145
+apps/daemon/src/collab/publish-scheduler.ts
+  h_7714b9549db59c 1-177
+apps/daemon/src/collab/pull-profile.ts
+  h_7714b9549db59c 1-194
+apps/daemon/src/collab/remembered-team-resource-scopes.ts
+  h_7714b9549db59c 1-104
+apps/daemon/src/collab/request-workspace-context.ts
+  h_7714b9549db59c 1-89
+apps/daemon/src/collab/resource-principal.ts
+  h_7714b9549db59c 1-31
+apps/daemon/src/collab/runtime.ts
+  h_7714b9549db59c 1-904
+apps/daemon/src/collab/shared-project-placeholder.ts
+  h_7714b9549db59c 1-60
+apps/daemon/src/collab/should-publish.ts
+  h_7714b9549db59c 1-64
+apps/daemon/src/collab/stub-resource-adapter.ts
+  h_7714b9549db59c 1-29
+apps/daemon/src/collab/swr-cache.ts
+  h_7714b9549db59c 1-79
+apps/daemon/src/collab/sync-digest.ts
+  h_7714b9549db59c 1-180
+apps/daemon/src/collab/sync-snapshot-store.ts
+  h_7714b9549db59c 1-150
+apps/daemon/src/collab/team-mirror-materializer.ts
+  h_7714b9549db59c 1-392
+apps/daemon/src/collab/team-mirror-promotion.ts
+  h_7714b9549db59c 1-596
+apps/daemon/src/collab/team-projects-change-emitter.ts
+  h_7714b9549db59c 1-48
+apps/daemon/src/collab/team-projects.ts
+  h_7714b9549db59c 1-29
+apps/daemon/src/collab/team-resource-list-cache.ts
+  h_7714b9549db59c 1-24
+apps/daemon/src/collab/team-resource-materialization.ts
+  h_7714b9549db59c 1-214
+apps/daemon/src/collab/team-resource-share.ts
+  h_7714b9549db59c 1-404
+apps/daemon/src/collab/team-resource-state.ts
+  h_7714b9549db59c 1-66
+apps/daemon/src/collab/team-resource-version-store.ts
+  h_7714b9549db59c 1-107
+apps/daemon/src/collab/team-share-scope.ts
+  h_7714b9549db59c 1-171
+apps/daemon/src/collab/vela-cli-collab-client.ts
+  h_7714b9549db59c 1-264
+apps/daemon/src/collab/vela-cli-resource-adapter.ts
+  h_7714b9549db59c 1-345
+apps/daemon/src/collab/vela-cli-team-projects.ts
+  h_7714b9549db59c 1-658
+apps/daemon/src/collab/vela-workspace-context.ts
+  h_7714b9549db59c 1-757
+apps/daemon/src/collab/workspace-billing-runtime.ts
+  h_7714b9549db59c 1-1430
+apps/daemon/src/collab/workspace-context.ts
+  h_7714b9549db59c 1-331
+apps/daemon/src/collab/workspace-hub-subscriptions.ts
+  h_7714b9549db59c 1-87
+apps/daemon/src/collab/workspace-invalidation-poller.ts
+  h_7714b9549db59c 1-263
+apps/daemon/src/collab/workspace-project-home.ts
+  h_7714b9549db59c 1-189
+apps/daemon/src/collab/workspace-projects-reconciler.ts
+  h_7714b9549db59c 1-589
+apps/daemon/src/collab/workspace-resource-mutation.ts
+  h_7714b9549db59c 1-908
+apps/daemon/src/collab/workspace-resources-reconciler.ts
+  h_7714b9549db59c 1-381
+apps/daemon/src/collab/workspace-scope.ts
+  h_7714b9549db59c 1-52
+apps/daemon/src/connectionTest.ts
+  h_7714b9549db59c 2185-2209,2338-2357,2365,2368,2524,2563-2573,2848,2856,2861-2863,2872-2874
+apps/daemon/src/craft.ts
+  h_7714b9549db59c 1-5,12-70
+apps/daemon/src/db.ts
+  h_7714b9549db59c 11-15,17-22,79-153,219,254-257,361-376,421-423,455-491,545-648,704-826,1003-1603,1831,1994,1996,2051-2074,2519,2573-2574,2599,2621-2622,2629-2630,2632,2653,2682,2782-2784,2794-2839,2863-2875,2877-2886,2892-2922,2927-2930,2944-2948,2971-2975,2980-3027,3039-3073,3084-3491,3501-3503,3512-3533,3563-3568,3688
+apps/daemon/src/design-systems/generation-jobs.ts
+  h_7714b9549db59c 101-102,110-111,131-134,147,192-196,208,233,241,258,284,309
+apps/daemon/src/design-systems/import.ts
+  h_7714b9549db59c 132,401,413,415-416
+apps/daemon/src/design-systems/index.ts
+  h_7714b9549db59c 16,27-35,58-65,220-222,272-282,299-316,340,384-385,394-436,478,482-484,498,502-504,665,670-672,1264-1268,1295-1297,1414-1431,1592-1720,1749-1758,1771,1778,2383-2473,2926,2952-2955,2962-2973,3002-3023,3269-3273,3275-3278,3282-3285
+apps/daemon/src/design-systems/rename-args.ts
+  h_7714b9549db59c 15-22
+apps/daemon/src/design-systems/server-services.ts
+  h_7714b9549db59c 1,5-13,16,24-25,65,68-78,80,86,88-93,105-112,117-119,122,124-131,148-165,167-250,257-274,277-297,311,316-340,342,349-380,383-396,398-401,409-422,424-427,435-450,452-455,467-473,482,501-504,515,527,531-536,547-594,597-603,606-645,673,675,679,683-684,692-693,699,771-848,860-861
+apps/daemon/src/design-systems/team-owner-materialization.ts
+  h_7714b9549db59c 1-22
+apps/daemon/src/design-systems/team-project-share.ts
+  h_7714b9549db59c 1-278
+apps/daemon/src/design-systems/workspace-owned-create.ts
+  h_7714b9549db59c 1-116
+apps/daemon/src/design-systems/workspace-team-binding.ts
+  h_7714b9549db59c 1-43
+apps/daemon/src/github-install-source.ts
+  h_7714b9549db59c 1-66
+apps/daemon/src/handoff-cli.ts
+  h_7714b9549db59c 39-41,72-73,115-122,145-147,164-172
+apps/daemon/src/http/tool-request-auth.ts
+  h_7714b9549db59c 13-18,23-29
+apps/daemon/src/import-export-routes.ts
+  h_7714b9549db59c 8,27-33,35-38,77-84,87-90,95,99-106,117,120,125-156,165-167,188-202,329-335,448-451,460-471,473-511,522-524,546-559,965,1008,1047,1078-1081,1112,1120,1129,1150,1208,1597-1599,1685-1690
+apps/daemon/src/integrations/collab-cloud.ts
+  h_7714b9549db59c 1-196
+apps/daemon/src/integrations/vela-billing.ts
+  h_7714b9549db59c 1-10,12-20,22-23,25-27,30-31,33-36,39-41,44-53,55,58-82,86-90,92-111,113-129,131-143,145-148,150-163,167-171,173-207,210-229,232-240,242-255,258-270,272-305,307-339,341-367,370-378,380-383,386-430,433-434,437-438,441-444,447-448,451-464,467-500,502-517
+apps/daemon/src/integrations/vela-command.ts
+  h_7714b9549db59c 1-297
+apps/daemon/src/integrations/vela-errors.ts
+  h_7714b9549db59c 22,24-27,29,35
+apps/daemon/src/integrations/vela-profile.ts
+  h_7714b9549db59c 2,4,6,11-12,16
+apps/daemon/src/integrations/vela-team-projects.ts
+  h_7714b9549db59c 1-75
+apps/daemon/src/integrations/vela-wallet.ts
+  h_7714b9549db59c 40-43,171-181,185,190
+apps/daemon/src/integrations/vela.ts
+  h_7714b9549db59c 15-16,33,53-55,86-99,109,129-131,162-165,266-271,278-295,407-410,739-743,902-914,1234,1253,1483-1486,1509-1516,1534-1537
+apps/daemon/src/langfuse-bridge.ts
+  h_7714b9549db59c 555
+apps/daemon/src/mcp-apps/brief-resource.ts
+  h_7714b9549db59c 1,70,87,103,119,135,401,414,419-436,478-482,493-497,527,529,541,545,550
+apps/daemon/src/mcp.ts
+  h_7714b9549db59c 68,76-79,112-194,1011,1018-1021,1395,1478-1491,1639-1640,1774-1787,1833-1837,1854-1857,1859-1860,1891,1897,1901,2072-2083,2482-2488,2529,2563-2566,2568-2571,2573
+apps/daemon/src/media/models.ts
+  h_7714b9549db59c 39
+apps/daemon/src/orbit.ts
+  h_7714b9549db59c 68,193,532
+apps/daemon/src/plugins/installer.ts
+  h_7714b9549db59c 29,35-36,98-101,148-150,153-157,160-164,723-736,830-847
+apps/daemon/src/plugins/lockfile.ts
+  h_7714b9549db59c 77-99,105-111
+apps/daemon/src/plugins/registry.ts
+  h_7714b9549db59c 35,234-413,415-418
+apps/daemon/src/plugins/resolve-snapshot.ts
+  h_7714b9549db59c 70-76,178-196
+apps/daemon/src/project-design-token-suggestions.ts
+  h_7714b9549db59c 1-331
+apps/daemon/src/projects.ts
+  h_7714b9549db59c 1344-1386
+apps/daemon/src/prompts/system.ts
+  h_7714b9549db59c 263
+apps/daemon/src/resource-cli.ts
+  h_7714b9549db59c 1-19
+apps/daemon/src/routes/chat.ts
+  h_7714b9549db59c 40,60-62,116,120-132,136-145,167-169,171-173,427-428,431-439,450-453,456-464,1560-1574
+apps/daemon/src/routes/collab-context.ts
+  h_7714b9549db59c 1-892
+apps/daemon/src/routes/collab-presence.ts
+  h_7714b9549db59c 1-974
+apps/daemon/src/routes/collab-sync.ts
+  h_7714b9549db59c 1-2381
+apps/daemon/src/routes/deploy.ts
+  h_7714b9549db59c 3,5-7,64,66-69,112-121,206,235-237,242,249-257
+apps/daemon/src/routes/design-systems.ts
+  h_7714b9549db59c 1,14-15,21-32,49-62,68-89,91-104,108-120,129-145,148-160,166-172,187-205,210,225-226,231-541,545-549,552,559-565,578,587-590,594,600,609-612,614,625,630,639-640,642,656-670,676,692-700,703-706,710-728,737-746,757-767,769,777,781-784,795-800,802-806,818-828,840-842,854-855,858,876-878,901-908,910,923-971,973-994,996-997,999-1005,1007,1009,1011-1015,1071-1072,1079,1084-1089,1093-1098,1107,1132-1138,1142-1155
+apps/daemon/src/routes/genui.ts
+  h_7714b9549db59c 15,27,33-45,47,49,57,59-64,74-78,135,137-142,153,155-160,189,191,213,215,223,225
+apps/daemon/src/routes/handoff.ts
+  h_7714b9549db59c 3,8-10,96
+apps/daemon/src/routes/host-tools.ts
+  h_7714b9549db59c 28,31-33,350
+apps/daemon/src/routes/library.ts
+  h_7714b9549db59c 50-56,67-70,175-181,185-197,612,637-643,674-682,722
+apps/daemon/src/routes/live-artifact.ts
+  h_7714b9549db59c 3-6,8-11,19-30,37,59-64,99,118,146-150,177-181,206-210,240-244,283-288,309-314,344-349
+apps/daemon/src/routes/media.ts
+  h_7714b9549db59c 11-14,23-31,41-45,506-539,545-549,551-556,633-637,639-644,696-705,736-740,797-819,823-839,874,879-882
+apps/daemon/src/routes/plugins/assets.ts
+  h_7714b9549db59c 4-8,12-18,53-129,133-135,201,204-212,233-238,240-249,262,341-343,379
+apps/daemon/src/routes/plugins/index.ts
+  h_7714b9549db59c 8,10,15-29,31-32,35-45,58,78-93,109,135-144,146-160,175-178,184,188-189,193-223,225-229,231-236,258-291,293-294,297-300,303-305,307-308,317-318,321-340,345-350,355-451,454-576,582-584,589-602,629-655,679-689,697-825,830-894,898
+apps/daemon/src/routes/project/analytics.ts
+  h_7714b9549db59c 1-26
+apps/daemon/src/routes/project/comments.ts
+  h_7714b9549db59c 1-5,7-8,10-132,136,140,142-143,145,147,149-362,366-368,371-382,384-389,393-395,398-406,408-442,444-445,447-511,520-522,525-533,535,539,541-574,577-666,676-678,681-691,695,697-730
+apps/daemon/src/routes/project/conversations.ts
+  h_7714b9549db59c 6-7,10-13,15-34,60-69,73,77,81,85-90,105,177-185,200-207,213,220-222,249-257
+apps/daemon/src/routes/project/index.ts
+  h_7714b9549db59c 4,9-11,18-19,40-42,44,56-59,71-114,117-355,409-413,421,425,427-429,433-441,443-446,449-458,526-530,837-930,938-945,1641,1645-1661,1665,1669-2536,2538-2547,2723,2725-2728,2774-2785,2796-2804,2830-2841,2844,2848,2862-3282,3330-3336,3396-3403,3413-3416,3421-3432,3498-3501,3515-3547,3549-3551,3572,3635,3637-3644,3663-3681,3736,3755-3757,3768-3776,3788-3802,3819-3825,3837,3896,3927-3929,3944-3952,3962,3979,3981-4048,4055-4116,4238-4245,4257-4264,4282,4284-4287,4302-4307,4318-4362,4384,4388-4393,4429-4438,4442,4446,4450,4454-4463,4636-4641,4646-4648,4651-4670,5156-5253,5302-5308,5323-5327,5346-5407,5414,5436-5445,5470-5479,5501,5518,5526-5535,5570-5578,5633-5634,5638-5653,5704-5715,5748-5791,5826-5834,5880-5892,5912-5920,5955,5974-5989,6031-6040,6127-6136,6204,6234-6245,6278-6297,6528-6540,6574-6586,6605-6607,6614,6617-6619,6627-6644
+apps/daemon/src/routes/routine.ts
+  h_7714b9549db59c 13,25-31,36,65-73,79-81,84-86,154-276,338,340-362,367-374,378,382,389-400,410,417-419,421-429,433-443,446,450-451,464-503,507-512,514,518-528,535-540,550,554-563,570,612
+apps/daemon/src/routes/runs.ts
+  h_7714b9549db59c 18-19,26-27,34-40,48,94,96-97,125-128,262-263,293,352,369,379,506-509,511-521,537-591,820,899-1180,1236,1238-1250,1252-1264,1266,1268-1282,1300-1332,1342,1360-1361,1506,1546-1549,1556-1580,1589,1618-1619,1687,1690-1691,1693,1698,1702,1886-1925,2139,2222,2224,2241-2248,2256-2261,2268-2273,2298,2306,2320,2385-2401,2437,2536-2584,2607,2610-2655,2706,2793,2832,2837-2842,2851-2856,2906-2911,2967-2976,2991-3021
+apps/daemon/src/routes/static-resource.ts
+  h_7714b9549db59c 1,5-13,20,25-37,40-47,58-66,74-75,81-83,113,132-133,137,143-346,359-426,481,483-492,508-514,559-564,566-570,603-609,614-638,644-648,666-668,682-688,775,777-790,792-837,839,903-914,935,953,965,974,981,1009,1038-1046,1076-1112,1116-1138,1140-1144,1147-1155,1169-1174,1178-1190,1193-1199,1209-1227,1234-1235,1242,1250-1251,1295,1297,1310,1321-1322,1342,1345,1358,1369-1370,1392,1395,1408,1479-1483,1490
+apps/daemon/src/routes/team-resource-share.ts
+  h_7714b9549db59c 1-193
+apps/daemon/src/routes/team-resources.ts
+  h_7714b9549db59c 1-77
+apps/daemon/src/routes/terminal.ts
+  h_7714b9549db59c 4,9,23,44,48,57-62,82-88,94-100,111-117,128-134
+apps/daemon/src/routes/vela.ts
+  h_7714b9549db59c 37,61-130,213-227,256-272,278,297,299-304,323-327,513-518,536-549,552-561
+apps/daemon/src/routines.ts
+  h_7714b9549db59c 42-45
+apps/daemon/src/run-analytics-observability.ts
+  h_7714b9549db59c 137,139,142,459-471,656-660,713-715,719-721,726
+apps/daemon/src/run-artifact-fs.ts
+  h_7714b9549db59c 30-55,162-174,190-195,205-209,219-228,240-246,250-304
+apps/daemon/src/run-failure-classification.ts
+  h_7714b9549db59c 262,295,390
+apps/daemon/src/runtimes/chat-run-lifecycle.ts
+  h_7714b9549db59c 2,16-25,38-49
+apps/daemon/src/runtimes/defs/amr.ts
+  h_7714b9549db59c 671-675
+apps/daemon/src/runtimes/detection.ts
+  h_7714b9549db59c 329-331,344
+apps/daemon/src/runtimes/env.ts
+  h_7714b9549db59c 198-202,216,234
+apps/daemon/src/runtimes/executables.ts
+  h_7714b9549db59c 183,191-207
+apps/daemon/src/runtimes/json-event-stream.ts
+  h_7714b9549db59c 14-19,664-699,754-755,797-806,883-884
+apps/daemon/src/runtimes/project-amr-trace-env.ts
+  h_7714b9549db59c 1-130
+apps/daemon/src/runtimes/run-terminal-reconciliation.ts
+  h_7714b9549db59c 6-9,275-317,322
+apps/daemon/src/runtimes/runs.ts
+  h_7714b9549db59c 14-17,28-484,535,866-868,1152-1154
+apps/daemon/src/runtimes/types.ts
+  h_7714b9549db59c 232-237,281-282,284,288
+apps/daemon/src/server-context.ts
+  h_7714b9549db59c 6-10,52-77,85-88,97-100,102-105,138-149,161-162,194-231
+apps/daemon/src/server.ts
+  h_7714b9549db59c 22-26,110,118,165,173,236-244,282-288,310,315,325,327-328,331,333-336,339-348,351-356,389-398,477,501,586,595,599-600,605,607-608,610-614,616-620,636,638-642,649,653-654,656,658,661-664,719,733-876,886-889,1255-1262,1348-1401,1965,1970,1985-1995,2478-2481,2492,2494,2507-2533,2546-2547,2661-2666,2859-6205,6207-6323,6352,6496,6563-6570,6602-6610,6615,6618-6700,6729,6731-6732,6734,6736,6745,6905,6916-6917,6925-6934,6980-6998,7001-7024,7028-7169,7178,7193-7194,7197-7235,7238,7241-7242,7248-7249,7268,7273-7274,7277-7280,7282-7325,7338,7345,7348-7368,7408-7409,7429,7438,7448-7455,7468,7477-7479,7484,7502-7504,7514-7531,7549,7590-7594,7610-7611,7614-7621,7630,7636-7642,7649-7668,7674,7687-7688,7694,7717-7720,7722-7730,7794-7896,7899-7900,7905-7912,7914,7916,7948-7949,7961,7966,8000-8001,8003,8026-8081,8127-8130,8133-8141,8398-8410,8412-8417,8424-8434,8440-8444,8448,8475-8483,8860-8870,8921,8930,8939,9062-9066,10160-10176,10970-10971,10981-10982,11039-11044,11070,11073,11117-11122,11124,11149-11175,11195-11196,11221,11335,11343-11351,11353-11387,11506-11513,11741-11744,11890,12034,12349,12352,12359-12369,12507,12519,13136,13157-13158,13178-13183,13283-13289,13291,13316-13341,13353-13376,13394-13395,13434-13437,13450-13455,13508-13534,13538-13546,13559-13560,13650,13658,13786-13787,13840,13855,13881-13885
+apps/daemon/src/services/skill-installation.ts
+  h_7714b9549db59c 1-421
+apps/daemon/src/skills.ts
+  h_7714b9549db59c 12,16-18,107-119,156-225,234,264-280,418-451
+apps/daemon/src/skills/workspace-team-binding.ts
+  h_7714b9549db59c 1-124
+apps/daemon/src/tool-tokens.ts
+  h_7714b9549db59c 5-8,18
+apps/daemon/tests/acp.test.ts
+  h_7714b9549db59c 314-343,553-651,2617,2626,2640-2671,2766-2805
+apps/daemon/tests/amr-acp-integration.test.ts
+  h_7714b9549db59c 26-29,966,1009,1061,1101,1142
+apps/daemon/tests/amr-session-resume.test.ts
+  h_7714b9549db59c 204-247,439,458-460,571-578,581-584,594-599,608-612,621-624,637-648,651-655,658-661
+apps/daemon/tests/analytics-env.test.ts
+  h_7714b9549db59c 8,14,97-130
+apps/daemon/tests/app-config.test.ts
+  h_7714b9549db59c 164-247
+apps/daemon/tests/attribution.test.ts
+  h_7714b9549db59c 17
+apps/daemon/tests/automations/workspace-scope.test.ts
+  h_7714b9549db59c 1-151
+apps/daemon/tests/brand-extraction-engine.test.ts
+  h_7714b9549db59c 31,531-566
+apps/daemon/tests/brand-routes.test.ts
+  h_7714b9549db59c 9-29,76-138,177-221,663-838,1232-1290,1530,1558,1648,1662-1668,1676,1678
+apps/daemon/tests/chat-project-authority.test.ts
+  h_7714b9549db59c 1-342
+apps/daemon/tests/chat-project-skill-critique-label.test.ts
+  h_7714b9549db59c 1-118
+apps/daemon/tests/chat-route.test.ts
+  h_7714b9549db59c 37-42,44-45,109-145,930-931,964-967,970,982,1020-1021,1049-1052,1055,1070,3404-3790
+apps/daemon/tests/cli-skills-install.test.ts
+  h_7714b9549db59c 1-171
+apps/daemon/tests/cli-startup.test.ts
+  h_7714b9549db59c 1-2,4,10,96-239,595-621
+apps/daemon/tests/collab-cli.test.ts
+  h_7714b9549db59c 1-334
+apps/daemon/tests/collab-cloud.test.ts
+  h_7714b9549db59c 1-1180
+apps/daemon/tests/collab-context-routes.test.ts
+  h_7714b9549db59c 1-1357
+apps/daemon/tests/collab-first-open-materializing.test.ts
+  h_7714b9549db59c 1-219
+apps/daemon/tests/collab-fresh-install-placeholder-guard.test.ts
+  h_7714b9549db59c 1-179
+apps/daemon/tests/collab-presence-routes.test.ts
+  h_7714b9549db59c 1-1156
+apps/daemon/tests/collab-presence-tracker.test.ts
+  h_7714b9549db59c 1-87
+apps/daemon/tests/collab-presence-transport-off.test.ts
+  h_7714b9549db59c 1-394
+apps/daemon/tests/collab-presence-upstream.test.ts
+  h_7714b9549db59c 1-218
+apps/daemon/tests/collab-publish-scheduler.test.ts
+  h_7714b9549db59c 1-104
+apps/daemon/tests/collab-publish-watcher.test.ts
+  h_7714b9549db59c 1-96
+apps/daemon/tests/collab-runtime-metadata-refresh.test.ts
+  h_7714b9549db59c 1-271
+apps/daemon/tests/collab-runtime-upload-badge-window.test.ts
+  h_7714b9549db59c 1-63
+apps/daemon/tests/collab-status-local-project-fast-path.test.ts
+  h_7714b9549db59c 1-600
+apps/daemon/tests/collab-sync-routes.test.ts
+  h_7714b9549db59c 1-4935
+apps/daemon/tests/collab-team-projects-routes.test.ts
+  h_7714b9549db59c 1-287
+apps/daemon/tests/collab-workspace-events-route.test.ts
+  h_7714b9549db59c 1-152
+apps/daemon/tests/collab-workspace-invalidation-poller.test.ts
+  h_7714b9549db59c 1-473
+apps/daemon/tests/collab/active-workspace-selection.test.ts
+  h_7714b9549db59c 1-216
+apps/daemon/tests/collab/authorized-team-project-pull.test.ts
+  h_7714b9549db59c 1-347
+apps/daemon/tests/collab/created-project-workspace.test.ts
+  h_7714b9549db59c 1-216
+apps/daemon/tests/collab/hub-events-subscriber.test.ts
+  h_7714b9549db59c 1-623
+apps/daemon/tests/collab/hub-workspace-context-changed-poll.test.ts
+  h_7714b9549db59c 1-116
+apps/daemon/tests/collab/persisted-team-share.test.ts
+  h_7714b9549db59c 1-34
+apps/daemon/tests/collab/persistent-sync-cache.test.ts
+  h_7714b9549db59c 1-399
+apps/daemon/tests/collab/proactive-content-pull.test.ts
+  h_7714b9549db59c 1-3362
+apps/daemon/tests/collab/proactive-pull-authorization.test.ts
+  h_7714b9549db59c 1-109
+apps/daemon/tests/collab/project-content-transfer-state.test.ts
+  h_7714b9549db59c 1-98
+apps/daemon/tests/collab/project-request-authority.test.ts
+  h_7714b9549db59c 1-483
+apps/daemon/tests/collab/project-workspace-scope.test.ts
+  h_7714b9549db59c 1-261
+apps/daemon/tests/collab/pull-profile.test.ts
+  h_7714b9549db59c 1-91
+apps/daemon/tests/collab/remembered-team-resource-scopes.test.ts
+  h_7714b9549db59c 1-119
+apps/daemon/tests/collab/swr-cache.test.ts
+  h_7714b9549db59c 1-169
+apps/daemon/tests/collab/sync-digest.test.ts
+  h_7714b9549db59c 1-228
+apps/daemon/tests/collab/team-mirror-materializer.test.ts
+  h_7714b9549db59c 1-311
+apps/daemon/tests/collab/team-mirror-promotion.test.ts
+  h_7714b9549db59c 1-899
+apps/daemon/tests/collab/team-projects-change-emitter.test.ts
+  h_7714b9549db59c 1-48
+apps/daemon/tests/collab/team-resource-materialization.test.ts
+  h_7714b9549db59c 1-202
+apps/daemon/tests/collab/team-share-scope.test.ts
+  h_7714b9549db59c 1-320
+apps/daemon/tests/collab/workspace-billing-runtime.test.ts
+  h_7714b9549db59c 1-1438
+apps/daemon/tests/collab/workspace-events-authority.test.ts
+  h_7714b9549db59c 1-134
+apps/daemon/tests/collab/workspace-hub-subscriptions.test.ts
+  h_7714b9549db59c 1-69
+apps/daemon/tests/collab/workspace-multi-client-scope.test.ts
+  h_7714b9549db59c 1-310
+apps/daemon/tests/collab/workspace-projects-hub-wiring.test.ts
+  h_7714b9549db59c 1-689
+apps/daemon/tests/collab/workspace-projects-reconcile-http.test.ts
+  h_7714b9549db59c 1-833
+apps/daemon/tests/collab/workspace-projects-reconcile-membership.test.ts
+  h_7714b9549db59c 1-472
+apps/daemon/tests/collab/workspace-projects-reconciler.test.ts
+  h_7714b9549db59c 1-526
+apps/daemon/tests/collab/workspace-resource-mutation.test.ts
+  h_7714b9549db59c 1-807
+apps/daemon/tests/collab/workspace-resources-reconciler.test.ts
+  h_7714b9549db59c 1-619
+apps/daemon/tests/collab/workspace-scope.test.ts
+  h_7714b9549db59c 1-53
+apps/daemon/tests/collab/workspace-settings-url.test.ts
+  h_7714b9549db59c 1-59
+apps/daemon/tests/collab/workspace-switch-warms-caches.test.ts
+  h_7714b9549db59c 1-397
+apps/daemon/tests/comment-attachments.test.ts
+  h_7714b9549db59c 16,61-122,136-156,195,247,358-359,361-370,377
+apps/daemon/tests/comment-pin-seq.test.ts
+  h_7714b9549db59c 1-302
+apps/daemon/tests/comment-relay-outbox.test.ts
+  h_7714b9549db59c 1-895
+apps/daemon/tests/connection-test.test.ts
+  h_7714b9549db59c 13-22,2188,3831-3832,3842-3846,3848-3856,3873-3874,3883-3887,3889-3894
+apps/daemon/tests/connectors-routes.test.ts
+  h_7714b9549db59c 1001-1017
+apps/daemon/tests/craft.test.ts
+  h_7714b9549db59c 6,72-134
+apps/daemon/tests/db-message-events.test.ts
+  h_7714b9549db59c 104-148
+apps/daemon/tests/db-workspace-resources.test.ts
+  h_7714b9549db59c 1-176
+apps/daemon/tests/delete-cancels-active-runs.test.ts
+  h_7714b9549db59c 22,25-27,30-34,135,137-148,289-331
+apps/daemon/tests/design-systems-cli-help.test.ts
+  h_7714b9549db59c 31-32
+apps/daemon/tests/design-systems-workspace-cli.test.ts
+  h_7714b9549db59c 1-175
+apps/daemon/tests/design-systems/asset-sync.test.ts
+  h_7714b9549db59c 1-333
+apps/daemon/tests/design-systems/design-system-family-workspace-authority.test.ts
+  h_7714b9549db59c 1-439
+apps/daemon/tests/design-systems/explicit-workspace-scope-routes.test.ts
+  h_7714b9549db59c 1-610
+apps/daemon/tests/design-systems/generation-jobs.test.ts
+  h_7714b9549db59c 17,193-222,294-333
+apps/daemon/tests/design-systems/import.test.ts
+  h_7714b9549db59c 259-273
+apps/daemon/tests/design-systems/index.test.ts
+  h_7714b9549db59c 10,604-629
+apps/daemon/tests/design-systems/rename-args.test.ts
+  h_7714b9549db59c 6-19
+apps/daemon/tests/design-systems/team-owner-materialization.test.ts
+  h_7714b9549db59c 1-2,4-8,11-20,22-30,32-46
+apps/daemon/tests/design-systems/team-personal-same-id-route-isolation.test.ts
+  h_7714b9549db59c 1-313
+apps/daemon/tests/design-systems/team-project-share.test.ts
+  h_7714b9549db59c 1-476
+apps/daemon/tests/design-systems/team-resource-consumer-scope.test.ts
+  h_7714b9549db59c 1-301
+apps/daemon/tests/design-systems/workspace-owned-create.test.ts
+  h_7714b9549db59c 1-157
+apps/daemon/tests/design-systems/workspace-project-rename.test.ts
+  h_7714b9549db59c 9,12,56-69
+apps/daemon/tests/design-systems/workspace-project-scope.test.ts
+  h_7714b9549db59c 1-280
+apps/daemon/tests/design-systems/workspace-resource-backfill.test.ts
+  h_7714b9549db59c 1-301
+apps/daemon/tests/design-systems/workspace-scope-context-switch.test.ts
+  h_7714b9549db59c 1-265
+apps/daemon/tests/design-systems/workspace-scope.test.ts
+  h_7714b9549db59c 1-148
+apps/daemon/tests/fixtures/fake-vela.mjs
+  h_7714b9549db59c 45-49,80-85,296-298,306-319,321-334,487,489-490,492
+apps/daemon/tests/folder-import-route.test.ts
+  h_7714b9549db59c 7,56-71,125-231,490-539
+apps/daemon/tests/handoff-cli.test.ts
+  h_7714b9549db59c 82-102
+apps/daemon/tests/headless-runs.test.ts
+  h_7714b9549db59c 202-255
+apps/daemon/tests/host-tools-open-in-route.test.ts
+  h_7714b9549db59c 71
+apps/daemon/tests/integrations/vela-command.test.ts
+  h_7714b9549db59c 1-489
+apps/daemon/tests/integrations/vela-errors.test.ts
+  h_7714b9549db59c 12-23
+apps/daemon/tests/integrations/vela-wallet.test.ts
+  h_7714b9549db59c 1-108
+apps/daemon/tests/integrations/vela.routes.test.ts
+  h_7714b9549db59c 33,107-121,232-282,826-833,852-893,1282-1310,1349-1352,2035-2326,2540-2599,3264-3266,3282-3308
+apps/daemon/tests/integrations/vela.test.ts
+  h_7714b9549db59c 23,36,59,62,70-71,85,88-89,242-271,488,493,503,512-513,515-520
+apps/daemon/tests/intent-signal-stable-prompt-cache.test.ts
+  h_7714b9549db59c 213-217
+apps/daemon/tests/invite-continue.test.ts
+  h_7714b9549db59c 1-88
+apps/daemon/tests/invite-create.test.ts
+  h_7714b9549db59c 1-137
+apps/daemon/tests/langfuse-bridge.test.ts
+  h_7714b9549db59c 467-547
+apps/daemon/tests/langfuse-trace.test.ts
+  h_7714b9549db59c 1009-1046,2617-2619,2669
+apps/daemon/tests/mcp-brief-app.test.ts
+  h_7714b9549db59c 79,83,85,90-91,93-118,133-137,141,172-188,191,217-235,258,260-261,266,432-504,514-556
+apps/daemon/tests/mcp-daemon-recovery.test.ts
+  h_7714b9549db59c 1-77
+apps/daemon/tests/mcp-install-cli.test.ts
+  h_7714b9549db59c 2,44-82
+apps/daemon/tests/mcp-runs.test.ts
+  h_7714b9549db59c 262,339-347,769-775
+apps/daemon/tests/mcp-spawn.test.ts
+  h_7714b9549db59c 14,20,365-377,379,381-384
+apps/daemon/tests/media/tasks-routes.test.ts
+  h_7714b9549db59c 1-2,4-9,12,16,23-28,32-293
+apps/daemon/tests/orbit.test.ts
+  h_7714b9549db59c 164-171,196-199,210-252
+apps/daemon/tests/pdf-export.test.ts
+  h_7714b9549db59c 74-81,89
+apps/daemon/tests/plugin-asset-workspace-authority.test.ts
+  h_7714b9549db59c 1-215
+apps/daemon/tests/plugin-events-workspace-scope.test.ts
+  h_7714b9549db59c 1-176
+apps/daemon/tests/plugin-workspace-cli.test.ts
+  h_7714b9549db59c 1-150
+apps/daemon/tests/plugins-apply-workspace-retraction.test.ts
+  h_7714b9549db59c 1-108
+apps/daemon/tests/plugins-asset-route.test.ts
+  h_7714b9549db59c 96-102,163-192
+apps/daemon/tests/plugins-bundled-content-craft.test.ts
+  h_7714b9549db59c 1-24
+apps/daemon/tests/plugins-duplicate-project.test.ts
+  h_7714b9549db59c 7-21,23,29,63-99,125-327,353,355-357,375-377,384,390,395,404-414,419-423,430-502
+apps/daemon/tests/plugins-genui-spec-enrichment.test.ts
+  h_7714b9549db59c 15,17,20-26,43-95,221-223,228-234,251-305,307-314,317-333
+apps/daemon/tests/plugins-headless-run.test.ts
+  h_7714b9549db59c 95-107,332-385,537-548,552,557-565,611-612,614-617,855-908,910,912,914,916-919
+apps/daemon/tests/plugins-installer-archive.test.ts
+  h_7714b9549db59c 128-180
+apps/daemon/tests/plugins-installer.test.ts
+  h_7714b9549db59c 81-111
+apps/daemon/tests/plugins-lockfile.test.ts
+  h_7714b9549db59c 71-98
+apps/daemon/tests/plugins-snapshot-workspace-scope.test.ts
+  h_7714b9549db59c 1-191
+apps/daemon/tests/plugins-team-mutation-target.test.ts
+  h_7714b9549db59c 1-148
+apps/daemon/tests/plugins-uninstall-workspace-gate.test.ts
+  h_7714b9549db59c 1-211
+apps/daemon/tests/plugins-workspace-scope.test.ts
+  h_7714b9549db59c 1-409
+apps/daemon/tests/project-cli.test.ts
+  h_7714b9549db59c 20,51,74-126,168-204,267-491
+apps/daemon/tests/project-command-cli-workspace-scope.test.ts
+  h_7714b9549db59c 1-551
+apps/daemon/tests/project-comment-permissions.test.ts
+  h_7714b9549db59c 1-468
+apps/daemon/tests/project-comment-workspace-gate.test.ts
+  h_7714b9549db59c 1-1182
+apps/daemon/tests/project-consumer-cli-workspace-scope.test.ts
+  h_7714b9549db59c 1-404
+apps/daemon/tests/project-delete-staging.test.ts
+  h_7714b9549db59c 1-32
+apps/daemon/tests/project-file-range.test.ts
+  h_7714b9549db59c 177-183,361-366,386-387,455-460
+apps/daemon/tests/project-file-version-readonly-mirror.test.ts
+  h_7714b9549db59c 1-182
+apps/daemon/tests/project-preview-containment.test.ts
+  h_7714b9549db59c 5,12,25-29,59-93,189-265
+apps/daemon/tests/project-raw-cache.test.ts
+  h_7714b9549db59c 33-39
+apps/daemon/tests/project-share-dir.test.ts
+  h_7714b9549db59c 1-26
+apps/daemon/tests/prompts/discovery-plugin-inputs.test.ts
+  h_7714b9549db59c 5-8,17-18,20,24-27,30-33,36,38
+apps/daemon/tests/prompts/freeform-deck-signal.test.ts
+  h_7714b9549db59c 12
+apps/daemon/tests/proxy-dispatcher-options.test.ts
+  h_7714b9549db59c 4-12
+apps/daemon/tests/proxy-routes.test.ts
+  h_7714b9549db59c 397-404,1771-1777
+apps/daemon/tests/resource-cli.test.ts
+  h_7714b9549db59c 1-65
+apps/daemon/tests/resource-workspace-authority-preflight.test.ts
+  h_7714b9549db59c 1-85
+apps/daemon/tests/routes/design-system-delete-unshares-team-share.test.ts
+  h_7714b9549db59c 1-330
+apps/daemon/tests/routes/design-system-showcase-assets.test.ts
+  h_7714b9549db59c 32-38,41,64-65
+apps/daemon/tests/routes/design-systems-team-mutation-guard.test.ts
+  h_7714b9549db59c 1-384
+apps/daemon/tests/routes/project-delete-unshares-team-share.test.ts
+  h_7714b9549db59c 1-484
+apps/daemon/tests/routes/project-move-owner-conflict.test.ts
+  h_7714b9549db59c 1-420
+apps/daemon/tests/routes/project-move-to-personal.test.ts
+  h_7714b9549db59c 1-1394
+apps/daemon/tests/routes/project-resource-scope-validation.test.ts
+  h_7714b9549db59c 1-264
+apps/daemon/tests/routes/projects.test.ts
+  h_7714b9549db59c 431-434,438-440,442-443,447-452
+apps/daemon/tests/routes/workspace-projects.test.ts
+  h_7714b9549db59c 1-2955
+apps/daemon/tests/routine-routes.test.ts
+  h_7714b9549db59c 10,12,14,48-50,87-89,95-144,178-391,461-708
+apps/daemon/tests/routine-schedule-claims.test.ts
+  h_7714b9549db59c 12-13,22,24,897-1032,1044
+apps/daemon/tests/routines.test.ts
+  h_7714b9549db59c 488-527
+apps/daemon/tests/run-analytics-observability.test.ts
+  h_7714b9549db59c 616,738,973,1037,1052
+apps/daemon/tests/run-artifact-fs.test.ts
+  h_7714b9549db59c 9,38-44,64-70,87-93,134-140,163-214,269-275
+apps/daemon/tests/run-cli.test.ts
+  h_7714b9549db59c 19,47,65-91,98-118,186-189,210-324
+apps/daemon/tests/run-create-workspace-gate.test.ts
+  h_7714b9549db59c 1-1608
+apps/daemon/tests/run-failure-classification.test.ts
+  h_7714b9549db59c 370-385,1120-1134
+apps/daemon/tests/run-retry-runtime.test.ts
+  h_7714b9549db59c 198-337,656,658,671-684,743-804,984,986-991,1005-1025,1034,1044,1049,1052-1085,1087-1090
+apps/daemon/tests/runtimes/chat-run-inactivity-timeout.test.ts
+  h_7714b9549db59c 22,29,179-213,224-227
+apps/daemon/tests/runtimes/env-and-detection.test.ts
+  h_7714b9549db59c 341,350-351
+apps/daemon/tests/runtimes/executables.test.ts
+  h_7714b9549db59c 6-9,132-177,210-239
+apps/daemon/tests/runtimes/json-event-stream.test.ts
+  h_7714b9549db59c 1183-1239
+apps/daemon/tests/runtimes/open-design-amr-trace-env.test.ts
+  h_7714b9549db59c 69-130
+apps/daemon/tests/runtimes/project-amr-trace-env.test.ts
+  h_7714b9549db59c 1-147
+apps/daemon/tests/runtimes/project-amr-workspace-proof.test.ts
+  h_7714b9549db59c 1-288
+apps/daemon/tests/runtimes/run-terminal-reconciliation.test.ts
+  h_7714b9549db59c 315-373
+apps/daemon/tests/runtimes/runs.test.ts
+  h_7714b9549db59c 12-261,1085-1090,1099-1104
+apps/daemon/tests/server-bootstrap-regression.test.ts
+  h_7714b9549db59c 338-339,342,344-345,347-348,458-464,467,484-485,497-499
+apps/daemon/tests/should-publish.test.ts
+  h_7714b9549db59c 1-95
+apps/daemon/tests/skill-navigation-workspace-authority.test.ts
+  h_7714b9549db59c 1-235
+apps/daemon/tests/skill-url-install.test.ts
+  h_7714b9549db59c 1-306
+apps/daemon/tests/skills-workspace-scope.test.ts
+  h_7714b9549db59c 1-568
+apps/daemon/tests/skills/team-resource-list-gate.test.ts
+  h_7714b9549db59c 1-211
+apps/daemon/tests/skills/workspace-team-binding.test.ts
+  h_7714b9549db59c 1-194
+apps/daemon/tests/static-resource-routes.test.ts
+  h_7714b9549db59c 26-29,196-199
+apps/daemon/tests/team-mirror-read-revocation.test.ts
+  h_7714b9549db59c 1-151
+apps/daemon/tests/team-resource-routes.test.ts
+  h_7714b9549db59c 1-100
+apps/daemon/tests/team-resource-share-list-cache.test.ts
+  h_7714b9549db59c 1-603
+apps/daemon/tests/team-resource-share-resync.test.ts
+  h_7714b9549db59c 1-196
+apps/daemon/tests/team-resource-share.test.ts
+  h_7714b9549db59c 3-91,93,95-97,100-106,108-111,114-120,123-142,145-173,176-200,203-246,249-278,281-314,317-319,321,323-324,327-344,346-350,354,356-395,397-415
+apps/daemon/tests/team-resource-version-store.test.ts
+  h_7714b9549db59c 1-180
+apps/daemon/tests/terminal-workspace-authority.test.ts
+  h_7714b9549db59c 1-102
+apps/daemon/tests/tool-tokens.test.ts
+  h_7714b9549db59c 3-8,91-92
+apps/daemon/tests/vela-billing.test.ts
+  h_7714b9549db59c 1-340
+apps/daemon/tests/vela-cli-collab-presence-timeout.test.ts
+  h_7714b9549db59c 1-42
+apps/daemon/tests/vela-cli-resource-adapter.test.ts
+  h_7714b9549db59c 1-498
+apps/daemon/tests/vela-cli-team-projects.test.ts
+  h_7714b9549db59c 1-680
+apps/daemon/tests/vela-console-origin.test.ts
+  h_7714b9549db59c 1-23
+apps/daemon/tests/vela-team-projects.test.ts
+  h_7714b9549db59c 3-22,24-31,34-37
+apps/daemon/tests/vela-workspace-context.test.ts
+  h_7714b9549db59c 1-804
+apps/daemon/tests/workspace-billing-server-wiring.test.ts
+  h_7714b9549db59c 1-207
+apps/daemon/tests/workspace-project-analytics.test.ts
+  h_7714b9549db59c 1-43
+apps/desktop/package.json
+  h_7714b9549db59c 3
+apps/desktop/src/main/deeplink-focus.ts
+  h_7714b9549db59c 1-26
+apps/desktop/src/main/index.ts
+  h_7714b9549db59c 42-43,109,145-165,180-181,184-187,287-289,713-715,904,981,1013-1021
+apps/desktop/src/main/invite-deeplink-core.ts
+  h_7714b9549db59c 1-188
+apps/desktop/src/main/invite-deeplink.ts
+  h_7714b9549db59c 1-84
+apps/desktop/src/main/mailto-open.ts
+  h_7714b9549db59c 1-220
+apps/desktop/src/main/preload.cts
+  h_7714b9549db59c 11,182,313-318
+apps/desktop/src/main/runtime.ts
+  h_7714b9549db59c 9,25,32,448,490,522-537,749-770,776-781,784-787,789-790,1065-1069,1081-1094,1098,1471-1486,1496-1501,1635,1637-1653,1732-1735,2022-2023,2047,2541-2554,2603,2608-2618,2941,3022-3025
+apps/desktop/tests/main/amr-environment-profile-menu.test.ts
+  h_7714b9549db59c 16,71,74,148,158
+apps/desktop/tests/main/deeplink-focus.test.ts
+  h_7714b9549db59c 1-68
+apps/desktop/tests/main/invite-deeplink.test.ts
+  h_7714b9549db59c 1-211
+apps/desktop/tests/main/mailto-open.test.ts
+  h_7714b9549db59c 1-265
+apps/desktop/tests/main/pick-and-import-workspace-context.test.ts
+  h_7714b9549db59c 1-73
+apps/desktop/tests/main/renderer-crash-loop.test.ts
+  h_7714b9549db59c 11,183-225
+apps/desktop/tests/main/updater-host-boundary.test.ts
+  h_7714b9549db59c 69
+apps/desktop/tests/main/updater.test.ts
+  h_7714b9549db59c 2471,2495-2497
+apps/desktop/tests/main/window-chrome.test.ts
+  h_7714b9549db59c 33-46
+apps/landing-page/app/_components/header.tsx
+  h_7714b9549db59c 39,283
+apps/landing-page/app/_components/site-footer.astro
+  h_7714b9549db59c 84
+apps/landing-page/app/_lib/deepseek-v4-flash-campaign.ts
+  h_7714b9549db59c 1-4
+apps/landing-page/app/_lib/github.ts
+  h_7714b9549db59c 206-289
+apps/landing-page/app/_lib/posthog-analytics.ts
+  h_7714b9549db59c 41-88
+apps/landing-page/app/_lib/pricing-content.ts
+  h_7714b9549db59c 121,138-141
+apps/landing-page/app/_lib/pricing-team-content.ts
+  h_7714b9549db59c 1-557
+apps/landing-page/app/_lib/pricing.ts
+  h_7714b9549db59c 14-18,49-71,79,82-83,89-91,93,96-98,101-102,104-117,126,142-143,150-151,155-192,204-212
+apps/landing-page/app/env.d.ts
+  h_7714b9549db59c 22-34
+apps/landing-page/app/info-page-i18n.ts
+  h_7714b9549db59c 3368,3379,3415,3417,3452,3454,3489,3491,3526,3528,3563,3565,3600,3602,3637,3639,3674,3676,3709,3711,3744,3746,3779,3781,3814,3816,3849,3851,3886,3888,3921,3923,4214
+apps/landing-page/app/open-design-plugin-i18n.ts
+  h_7714b9549db59c 2,6-7,119,134
+apps/landing-page/app/open-design-plugin-locales/de.ts
+  h_7714b9549db59c 17,32
+apps/landing-page/app/open-design-plugin-locales/es.ts
+  h_7714b9549db59c 17,32
+apps/landing-page/app/open-design-plugin-locales/fr.ts
+  h_7714b9549db59c 17,32
+apps/landing-page/app/open-design-plugin-locales/it.ts
+  h_7714b9549db59c 17,32
+apps/landing-page/app/open-design-plugin-locales/ja.ts
+  h_7714b9549db59c 18,33
+apps/landing-page/app/open-design-plugin-locales/ko.ts
+  h_7714b9549db59c 17,32
+apps/landing-page/app/open-design-plugin-locales/pt-br.ts
+  h_7714b9549db59c 17,32
+apps/landing-page/app/open-design-plugin-locales/ru.ts
+  h_7714b9549db59c 17,32
+apps/landing-page/app/open-design-plugin-locales/tr.ts
+  h_7714b9549db59c 17,32
+apps/landing-page/app/open-design-plugin-locales/zh.ts
+  h_7714b9549db59c 17,32
+apps/landing-page/app/pages/[locale]/codex-plugin/index.astro
+  h_7714b9549db59c 2
+apps/landing-page/app/pages/codex-plugin/index.astro
+  h_7714b9549db59c 3,22,25,179-184
+apps/landing-page/app/pages/community/open-design-shanghai-workshop/index.astro
+  h_7714b9549db59c 1-275
+apps/landing-page/app/pages/download/index.astro
+  h_7714b9549db59c 5-6,8-9,12-13,23,193,198-199,201-205,233,245,265,296,302-309,392-398,400-403,409,417-419,421-468,470-476,479-495,497,501-505
+apps/landing-page/app/pages/index.astro
+  h_7714b9549db59c 33,121-136,234-244,247-420
+apps/landing-page/app/pages/pricing/index.astro
+  h_7714b9549db59c 8-10,18,20,31,41,46,70-72,75-112,120-142,144-146,148,186,209-234,244,247-258,261-287,298-304,420-423,458,460-473,475-484,486-590,593-595,652-653,669,674-701,717-750,752,755-833,845-851,863-1017,1046,1051-1052,1057-1064,1067-1068,1071-1074,1076-1081,1085-1086,1130,1170-1238,1255,1265-1273,1289-1314,1331,1458-1466,1528-1545,1548-1574,1576,1578,1580-1581,1583-1586,1588-1590,1593-1596,1598-1610,1612,1614-1637,1639-1641,1643-1652,1654-1664,1666-1689,1691-1693,1695-1712,1719,1727-1744,1746-1751
+apps/landing-page/functions/codex-plugin.ts
+  h_7714b9549db59c 1-114
+apps/landing-page/functions/release-metadata.ts
+  h_7714b9549db59c 10
+apps/landing-page/package.json
+  h_7714b9549db59c 3,9
+apps/landing-page/public/pricing.md
+  h_7714b9549db59c 31,37,41-75,83-84
+apps/landing-page/public/pricing/plans.json
+  h_7714b9549db59c 2,29,34,45,50,54-119
+apps/landing-page/tests/campaign-attribution.test.ts
+  h_7714b9549db59c 1-37
+apps/landing-page/tests/codex-plugin-route.test.ts
+  h_7714b9549db59c 1-160
+apps/landing-page/tests/download-release-refresh.test.ts
+  h_7714b9549db59c 1-422
+apps/landing-page/tests/header-download-cta.test.ts
+  h_7714b9549db59c 55
+apps/landing-page/tests/home-campaign-banner.test.ts
+  h_7714b9549db59c 1-58
+apps/landing-page/tests/pricing-contract.test.ts
+  h_7714b9549db59c 6,9-12,15-20,25-32,39,47-50,63-74,78-183,188-213,235-504,532-550
+apps/landing-page/tests/release-metadata.test.ts
+  h_7714b9549db59c 1-27
+apps/landing-page/tests/stable-release-contract.test.ts
+  h_7714b9549db59c 1-113
+apps/packaged/package.json
+  h_7714b9549db59c 3
+apps/packaged/src/config.ts
+  h_7714b9549db59c 23,46-52,71,139,142-145,218
+apps/packaged/src/headless-runtime.ts
+  h_7714b9549db59c 235
+apps/packaged/src/headless.ts
+  h_7714b9549db59c 12,36,66
+apps/packaged/src/index.ts
+  h_7714b9549db59c 18-23,48,59,67,133-140,154,222-223,259,296-299,327-328,342-345
+apps/packaged/src/launch.ts
+  h_7714b9549db59c 12-15,19-22,135,141-142,146-177
+apps/packaged/src/launcher-after-quit.ts
+  h_7714b9549db59c 166,285-292
+apps/packaged/src/payload-desktop-launch.ts
+  h_7714b9549db59c 16-19,31,52-58,71
+apps/packaged/src/protocol.ts
+  h_7714b9549db59c 1,7-26,40-58,98-267,282,285-287,320-325,355,360-361,365-368,378-420,422-423,425-426,428
+apps/packaged/src/sidecars.ts
+  h_7714b9549db59c 42,617-621,656,832,911
+apps/packaged/src/workspace-team.ts
+  h_7714b9549db59c 1-43
+apps/packaged/tests/config.test.ts
+  h_7714b9549db59c 7,31-47
+apps/packaged/tests/launch.test.ts
+  h_7714b9549db59c 12,15,19-41,101,103,113,118-163
+apps/packaged/tests/launcher-after-quit.test.ts
+  h_7714b9549db59c 194,219-222
+apps/packaged/tests/launcher-runtime.test.ts
+  h_7714b9549db59c 34
+apps/packaged/tests/paths.test.ts
+  h_7714b9549db59c 31,73
+apps/packaged/tests/payload-desktop-launch.test.ts
+  h_7714b9549db59c 19,81-94
+apps/packaged/tests/protocol.test.ts
+  h_7714b9549db59c 25-30,37-38,63-116,204,209,212,242-293,397-650
+apps/packaged/tests/sidecars.test.ts
+  h_7714b9549db59c 576-693
+apps/packaged/tests/source-origins.test.ts
+  h_7714b9549db59c 1-64
+apps/packaged/tests/workspace-team.test.ts
+  h_7714b9549db59c 1-41
+apps/web/app/[[...slug]]/client-app.tsx
+  h_7714b9549db59c 6,28-36
+apps/web/app/layout.tsx
+  h_7714b9549db59c 18,22-29,33
+apps/web/next-env.d.ts
+  h_7714b9549db59c 3
+apps/web/package.json
+  h_7714b9549db59c 3,56-57,67
+apps/web/public/agent-icons/glm.svg
+  h_7714b9549db59c 1
+apps/web/public/composer-matrix-loader.svg
+  h_7714b9549db59c 1-125
+apps/web/public/logo-03.svg
+  h_7714b9549db59c 1-21
+apps/web/public/logo-scan.svg
+  h_7714b9549db59c 1-21
+apps/web/public/logo-tiles.svg
+  h_7714b9549db59c 1-21
+apps/web/sidecar/server.ts
+  h_7714b9549db59c 3,10,404-504,511-512,528-529,531-567,569-573,575-576,1007
+apps/web/src/App.tsx
+  h_7714b9549db59c 4,22-31,34,39-42,48-52,56,80,95-128,131,148,153-163,166,174-176,180,182,185,189,191-199,229-230,243-277,354-384,388-391,394-431,574-812,823,834,836-874,884-886,900-919,941-945,955,963-978,983-1000,1005-1010,1015-1150,1156-1165,1167-1182,1185-1188,1212-1224,1247-1315,1318-1324,1326-1327,1351-1357,1360-1389,1401-1403,1405-1407,1411-1418,1423-1455,1458,1462-1463,1497-1502,1515-1516,1521-1525,1561-1624,1634-1650,1653-1677,1687-1719,1764-1768,1770-1771,1780-1788,1881-1884,1900,1917-1926,1929,1952,1954,1993-2000,2004,2007-2041,2043-2046,2076,2112-2129,2153,2162,2169,2171-2174,2179,2183-2201,2283-2284,2286,2289-2293,2295-2369,2371-2404,2407-2420,2422-2493,2697-2701,2706,2714-2718,2723,2728-2732,2737,2743-2745,2748,2752,2758,2783,2845,2848-2876,2889,2950,2977-2982,3029-3039,3041-3042,3046,3049-3051,3149-3171,3177-3183,3186-3192,3210,3215-3217,3230,3239-3251,3258-3263,3293-3296,3317-3320,3336-3337,3358-3359,3367-3443,3445-3449,3451-3540,3543-3605,3608-3619,3621-3649,3652-3654,3656-3657,3664,3667-3673,3706-3712,3714-3720,3733-3764,3768-3848,3855-3857,3859-3860,3871-3880,3890-3899,3903-3938,3953-3960,3963-4001,4013,4025,4030,4043,4045-4062,4081-4236,4238-4241,4243-4264,4267-4268,4270-4284,4290-4354,4356,4358,4360,4364-4390,4393,4395,4398,4400,4402-4408,4412-4422,4429,4440-4448,4452-4453,4463-4471,4474-4476,4577-4578,4625-4719,4739-4805,4849-4990,5004-5009,5027-5032,5046,5057-5058,5100,5104-5117,5119,5130,5158,5161-5176
+apps/web/src/analytics/amr-attribution.ts
+  h_7714b9549db59c 4-5,23-24,42,62-64,101-104,122-125,219-222,305-308
+apps/web/src/analytics/app-version.ts
+  h_7714b9549db59c 1-24
+apps/web/src/analytics/byok-run.ts
+  h_7714b9549db59c 16-17,28,49-50,74-76,92,96-110,124,131-161
+apps/web/src/analytics/client.ts
+  h_7714b9549db59c 19,54,185-204,210-211,253-254
+apps/web/src/analytics/events.ts
+  h_7714b9549db59c 21-23,76,80-82,84-85,165-178,205-262,342-355,377-383,421-455
+apps/web/src/analytics/provider.tsx
+  h_7714b9549db59c 30
+apps/web/src/analytics/run-task.ts
+  h_7714b9549db59c 1-72
+apps/web/src/analytics/workspace.ts
+  h_7714b9549db59c 1-62
+apps/web/src/api-attachment-context.ts
+  h_7714b9549db59c 1,26,102-109,132,154-156,163-165
+apps/web/src/campaigns/deepseek-v4-flash.ts
+  h_7714b9549db59c 1-15,17,19-22,25-33,36-42,44-51,55-60,62,64-77,79-83,86-91,93-103,106-107
+apps/web/src/campaigns/use-deepseek-v4-flash-campaign.ts
+  h_7714b9549db59c 1-29
+apps/web/src/collab/CollabDemoView.module.css
+  h_7714b9549db59c 1-159
+apps/web/src/collab/CollabDemoView.tsx
+  h_7714b9549db59c 1-195
+apps/web/src/collab/CommentDriftDemo.tsx
+  h_7714b9549db59c 1-155
+apps/web/src/collab/FileSyncBadge.module.css
+  h_7714b9549db59c 1-19
+apps/web/src/collab/FileSyncBadge.tsx
+  h_7714b9549db59c 1-147
+apps/web/src/collab/PresenceBar.module.css
+  h_7714b9549db59c 1-225
+apps/web/src/collab/PresenceBar.tsx
+  h_7714b9549db59c 1-221
+apps/web/src/collab/WorkspaceMemberDirectoryPreloader.tsx
+  h_7714b9549db59c 1-15
+apps/web/src/collab/all-projects-list.ts
+  h_7714b9549db59c 1-259
+apps/web/src/collab/collab-client.ts
+  h_7714b9549db59c 1-930
+apps/web/src/collab/collab-context.tsx
+  h_7714b9549db59c 1-56
+apps/web/src/collab/collab-session.ts
+  h_7714b9549db59c 1-52
+apps/web/src/collab/comment-anchor-client.ts
+  h_7714b9549db59c 1-68
+apps/web/src/collab/invite-continuation.ts
+  h_7714b9549db59c 1-294
+apps/web/src/collab/optimistic-project-ownership.ts
+  h_7714b9549db59c 1-115
+apps/web/src/collab/project-shared-status.ts
+  h_7714b9549db59c 1-37
+apps/web/src/collab/public-file-publish.ts
+  h_7714b9549db59c 1-62
+apps/web/src/collab/settings-access.ts
+  h_7714b9549db59c 1-84
+apps/web/src/collab/tab-scope.ts
+  h_7714b9549db59c 1-172
+apps/web/src/collab/team-members-store.ts
+  h_7714b9549db59c 1-285
+apps/web/src/collab/team-plan.ts
+  h_7714b9549db59c 1-174
+apps/web/src/collab/team-projects-catalog.ts
+  h_7714b9549db59c 1-259
+apps/web/src/collab/useCollab.ts
+  h_7714b9549db59c 1-273
+apps/web/src/collab/useProjectCollab.ts
+  h_7714b9549db59c 1-588
+apps/web/src/collab/useProjectRouteWorkspaceContext.ts
+  h_7714b9549db59c 1-209
+apps/web/src/collab/useProjectWorkspaceScope.ts
+  h_7714b9549db59c 1-668
+apps/web/src/collab/useTeamMembers.ts
+  h_7714b9549db59c 1-198
+apps/web/src/collab/useWorkspaceContext.ts
+  h_7714b9549db59c 1-2073
+apps/web/src/collab/workspace-billing-interests.ts
+  h_7714b9549db59c 1-295
+apps/web/src/collab/workspace-events.ts
+  h_7714b9549db59c 1-57
+apps/web/src/collab/workspace-identity.ts
+  h_7714b9549db59c 1-146
+apps/web/src/collab/workspace-snapshot-activation.ts
+  h_7714b9549db59c 1-53
+apps/web/src/comments.ts
+  h_7714b9549db59c 6,224-226,231-368,375,423-449
+apps/web/src/components/AmrArtifactUpgradeGate.tsx
+  h_7714b9549db59c 13,17-22,164,193,236,246
+apps/web/src/components/AmrBalanceDialog.module.css
+  h_7714b9549db59c 8,11,13-28,59-60,67,77-78,80,82,90-91,93,103,107-111,113-114,137-138,140,148,154,156-166,187,194-197,202-205,213-215,218,220
+apps/web/src/components/AmrBalanceDialog.tsx
+  h_7714b9549db59c 12-13,54-58,98-119,151-152,166,194-203,247,251,256
+apps/web/src/components/AmrGuidance.tsx
+  h_7714b9549db59c 78-82
+apps/web/src/components/AmrLoginPill.tsx
+  h_7714b9549db59c 34-40,50,60,88,137,248,290,300,397-414,440,624,631-644,669,721-746,810,825-831
+apps/web/src/components/AmrLowBalanceDialog.tsx
+  h_7714b9549db59c 33,38,59,115
+apps/web/src/components/AppWashKineticGrid.tsx
+  h_7714b9549db59c 1-207
+apps/web/src/components/AssistantMessage.tsx
+  h_7714b9549db59c 15-16,117,214,227-230,636-643,1000-1007,1009,1014-1024,2162,2188,2647,2817-2819,2823,2866-2867,3274,3280,3688,3760,3765,3768-3773,3775-3779
+apps/web/src/components/AvatarMenu.tsx
+  h_7714b9549db59c 1,8,11-19,21,23,29-30,32-41,61-66,70-74,87,91-115,162,164,169-171,221-223,225,228-230,240-241,244,250-264,266-276,278-287,296-302,319-328,330-350,356-362,369-372,377-388,398,409-436,455-469,480,482,485,489-523,525,527-582,585-587,591-592,602,605-607,621-647,652-665,667,669-670,673-731,734-739,742-743
+apps/web/src/components/BoardComposerPopover.tsx
+  h_7714b9549db59c 439-443,463,474-492,647,676-698,700,703-708,710,712,715-803,805-822,826-828,830,832-862,871-872,877,882-889,894,899-900,909-911,913
+apps/web/src/components/BrandEnrichmentBanner.module.css
+  h_7714b9549db59c 65,84
+apps/web/src/components/BrandEnrichmentBanner.tsx
+  h_7714b9549db59c 40
+apps/web/src/components/BrandPickerModal.module.css
+  h_7714b9549db59c 24-28,122-124
+apps/web/src/components/BrandPreviewCard.module.css
+  h_7714b9549db59c 48-49,68-69,124-125,147,149,166,218,220,238,252,271,281-288,455,458,482,578,593,604,606,644,646,692,713,738-739,757,802-803,817,837,843,866,878,913,925,933,939,944,960,1057,1066,1125,1168-1169,1174,1189-1190,1276-1277,1290,1343-1344,1432,1473,1485,1541,1549,1558,1578,1586,1604,1731,1784
+apps/web/src/components/BrandPreviewCard.tsx
+  h_7714b9549db59c 22-27,55-59,69,148-154,160-170,231-232
+apps/web/src/components/BrandReadyPrompt.module.css
+  h_7714b9549db59c 97-101,148
+apps/web/src/components/BrandReadyPrompt.tsx
+  h_7714b9549db59c 84,90
+apps/web/src/components/BrandReferencePicker.module.css
+  h_7714b9549db59c 15,19-109,120-121,128,146-147,174,250,282,318-323,332-335,337-364,441-442,464,473,488,540,587
+apps/web/src/components/BrandReferencePicker.tsx
+  h_7714b9549db59c 3-9,13,59-82,159-165,184-187,190,247-278,280-302,304-308,310-326,328,330-334,336-352,354-355,358-370,372-373,375-390,392-406
+apps/web/src/components/BrandsTab.module.css
+  h_7714b9549db59c 38,69,168,183,192
+apps/web/src/components/BrandsTab.tsx
+  h_7714b9549db59c 3,17-21,38-42,160-162,165,219-220,269-270,273-279,303-304
+apps/web/src/components/ChatComposer.tsx
+  h_7714b9549db59c 8,41-44,60,65,74,100,108-119,237-240,276-279,354-356,386-401,446,459,492,524-526,547-615,674,699-703,1216-1217,1219-1222,1225-1241,1485,1815,1873,1934-1940,2031,2182-2200,2249-2278,2309,2345,2592,2646-2655,2779-2783,2787,2808,2813,2818,2820-2925,2969,3036-3043,3048,3073,3133,3136,3142-3144,3225-3238,3273-3275,3279,3321-3323,3326,3328,3342,3346,3350-3354,3375,3380-3383,3388,3416,3439,3668-3678,3801,3807-3809,3966-3968,3970-3973,3978-3979,3984,4084-4174,4428,4446,4623-4627
+apps/web/src/components/ChatPane.tsx
+  h_7714b9549db59c 20-30,44,46-47,58-61,98-102,177-197,440,445-448,450-456,536-540,564-580,762-764,875,896-902,993,999,1009-1010,1021,1074-1076,1130-1159,1257-1258,1304-1428,1435,1446,1565-1634,1799,1801-1802,1892,1894-1895,2196-2214,2342-2344,2356,2430,2444-2457,2591-2598,2637-2639,2722,2789-2798,2800-2806,2809-2811,2919-2923,2933-2936,2954-2957,2980-2981,2987,3087-3336,3420,3480,3582,3624,4603,4613,4615,4649-4652,4699-4702
+apps/web/src/components/CloudSignInTip.tsx
+  h_7714b9549db59c 1-247
+apps/web/src/components/CommunityTemplatePreview.tsx
+  h_7714b9549db59c 1-339
+apps/web/src/components/CommunityView.tsx
+  h_7714b9549db59c 1-412
+apps/web/src/components/ComposerModePicker.tsx
+  h_7714b9549db59c 1-274
+apps/web/src/components/ComposerPluginPreview.tsx
+  h_7714b9549db59c 15-18,72,76,79-82
+apps/web/src/components/ComposerPlusMenu.tsx
+  h_7714b9549db59c 16,27-28,36-39,43-44,48-49,58-62,80-103,107,118-119,121-124,126-130,135-139,166,178-183,191-196,210-221,228-234,236-240,280-281,284-290,316,323,331-335,345,360-363,420,432-439,449,454-470,475,510,516-534,536,546,592-595,617,620,633,637,642,645,648-649,652-661,664-666,669,672-673,675,677,681,684,687-688,690-709,711,724,752,770,777-781,785-786,788-791,794,797-826,828-878,886,910,928,978,980
+apps/web/src/components/ConnectorsBrowser.tsx
+  h_7714b9549db59c 876,911,937,1021,1202,1220,1236,1460,1498,1531,1549
+apps/web/src/components/ContextChipStrip.tsx
+  h_7714b9549db59c 73
+apps/web/src/components/CustomSelect.tsx
+  h_7714b9549db59c 325
+apps/web/src/components/DeepSeekV4FlashCampaign.module.css
+  h_7714b9549db59c 1-225
+apps/web/src/components/DeepSeekV4FlashCampaign.tsx
+  h_7714b9549db59c 1-295
+apps/web/src/components/DesignBrowserPanel.tsx
+  h_7714b9549db59c 31-35,44,59,73,235-238,270-273,741-860,916,923,1623,1697-1824,1837-1838,1896,1901,1926,1930,2230,2291-2297,2300-2306,2313-2314,2329,2333-2345,2405,2663,2676,2919,3726-3824
+apps/web/src/components/DesignFilesPanel.tsx
+  h_7714b9549db59c 1,9-14,25,28-36,49-58,142-218,268-320,437-442,446-448,480,568-573,577,604-677,855,863,866-869,871,879-881,887,921,925,943,949,953-1000,1002,1005-1006,1008-1011,1013,1017,1021-1023,1025-1189,1225-1230,1265-1267,1306,1421,1439,1458,1496-1507,1515-1539,1542-1548,1550-1551,1553-1609,1612,1615-1633,1667,1685,1739,1744-1763,1765-1766,1769-1770,1825,1859-1888,1890-1904,1908-1919,1922,1926,1928-1931,1933-1997,2000-2016,2018-2042,2045,2047-2054,2056-2070,2073-2094
+apps/web/src/components/DesignKitView.tsx
+  h_7714b9549db59c 30,33-41,91-92,104-105,109,113,117,162-163,191-197,202,226,262-263,315-316,383,396,404,900,1118-1119,1131-1132,1157-1158,1375,1540,1777,1952
+apps/web/src/components/DesignSystemAssetDropzone.module.css
+  h_7714b9549db59c 79,110-111,148,207-208,216,228,262,299,312-313,401,407,429,460-461,467
+apps/web/src/components/DesignSystemAssetDropzone.tsx
+  h_7714b9549db59c 421,519
+apps/web/src/components/DesignSystemCreateHero.module.css
+  h_7714b9549db59c 29,57,67,77,86,117-118,127,132,192-193,203,216,228,258,270,279
+apps/web/src/components/DesignSystemCreateHero.tsx
+  h_7714b9549db59c 26
+apps/web/src/components/DesignSystemFlow.tsx
+  h_7714b9549db59c 9,28,89,134-135,201-205,311,313,321,323-328,356,536,542,551,624,644,681,730,852,948,951,960-962,983,1007,1023-1024,1028,1036,1068,1083,1244,1337,1402-1403,1408,1413,1520-1521,1646-1647,1663-1673,1686-1691,1698,1719-1723,1727,1729-1730,1743,1748,1755,1763,1766,1771,1775-1784,1786,1790-1791,1793,1795-1797,1808,1818,1825-1827,1838,1845,1853,1861-1865,1872,1893-1896,1906,1913,1917-1921,1932,1947,1950,1955,1959,1963-1967,1978,1980,1982-1992,2062,2064,2077-2081,2097-2103,2105,2119-2123,2179-2189,2193-2197,2199,2201-2203,2207-2242,2244-2245,2247,2254,2257-2261,2267-2292,2297-2309,2313,2315,2322,2325,2362,2367-2369,2371,2379,2463-2468,2495,2500,2543,2551-2555,2575-2576,2578-2587,2602-2603,2608-2609,2613-2615,2671,2674,2694,2697-2699,2701,2710,2713,2719,2727,2730-2734,2738-2739,2747,2758-2762,2764,2769,2791-2792,2802,2806,2826,2845,2853,2860,2864,2870,2877,2879-2881,2883,2890,2896,2915,2928-2929,2933,2942,2972,2977,2987,2993,3003-3006,3015-3021,3032,3034,3044,3058,3064,3071,3077-3078,3104-3105,3115-3118,3120,3123,3125,3132,3137,3140,3142,3144-3145,3184,3189-3191,3207-3211,3219,3222-3226,3230,3236,3239-3242,3253,3263,3272,3280,3282-3284,3312,3319,3321-3325,3361-3367,3377,3400,3402-3403,3405,3411,3429,3439,3472-3478,3507,3514,3518,3528,3555-3563,3623,3626,3628-3629,3638,3640-3641,3643-3644,3650,3652-3654,3661,3683,3689-3694,3698,3700,3705,3712-3718,3720,3722-3728,3730,3736,3741,3752,3755,3759,3781,3936,3941,3945,4088,4093,4095,4099-4100,4102,4106-4107,4109,4112,4114,4117,4119,4122,4124,4129,4135,4139,4144,4152-4153,4155,4160-4161,4163,4168,4186-4187,4201,4211,4366,4377,4412,4438-4442,4468,4503-4504,4514-4518,4521,4710,4714,4716,4822,4865,4966,5250,5253-5255,5272-5276,5282,5293-5297,5313,5328-5332,5338,5774-5777,5780-5784,5789,5793-5794,5799-5801,5803-5808
+apps/web/src/components/DesignSystemKitPreview.tsx
+  h_7714b9549db59c 1-2,15-22,31-32,42-43,45-54,63,75,86,93,95-97,102-103,118,125,128-132,138,141,143,148-150,155,169-170,189-190
+apps/web/src/components/DesignSystemPicker.tsx
+  h_7714b9549db59c 15,34-37,53-54,62-63,65,70-71,78,83,86,111-114,208-210,212,214-219,264,371,386-395,427,440,461,466-496,511-512,519,544,575
+apps/web/src/components/DesignSystemPreviewModal.tsx
+  h_7714b9549db59c 3,20-27,33-36,46-52,55-64,87,89-90,96,116,118-120,123,125-127,130,140,142-146,148,155,168,223
+apps/web/src/components/DesignSystemSwitchPicker.tsx
+  h_7714b9549db59c 6-7,37-38,42,58,119
+apps/web/src/components/DesignSystemsSection.tsx
+  h_7714b9549db59c 17-18,77-78,81-88,199-203
+apps/web/src/components/DesignSystemsTab.module.css
+  h_7714b9549db59c 15-62,69-70,73-77,86-91,99-131,140,143-144,146-148,151-152,154-170,179-181,198,203,212-213,219-221,225-226,240-241,247-248,274-277,279-281,283-284,287,292,298-299,303-304,309,314-319,324-327,330,333,337,339-346,351-429,435-436,445,450,479-980,983-988,991-999,1002-1015,1018-1020,1023-1028,1031-1036,1039-1043,1046-1065,1068-1069,1072-1078,1081-1089,1092-1098,1101-1102,1105-1107,1110-1113,1116-1122,1125-1127,1129-1131,1134-1137,1140-1142,1144-1147,1150-1152,1155-1161,1164-1166,1169-1173,1175-1179,1182-1184,1187-1197,1199-1200,1203-1205,1208-1211,1214-1218,1221-1223,1226-1228,1231,1233-1234,1237-1238,1241-1256,1496,1506,1521,1536,1566,1591-1603,1617-1618,1650-1651,1696-1698,1702,1760,1773,1794-1805,1811
+apps/web/src/components/DesignSystemsTab.tsx
+  h_7714b9549db59c 1-2,11,19-36,45,59-60,63-64,71-73,91-93,145-163,165,178,194,198-200,214-274,293-298,306-318,385,388,413-415,418,437-690,707,729,754,771,790-796,805,834,849,864-874,894,905-909,917-929,971,978-992,994-1030,1032-1054,1056,1060,1064,1076-1078,1156-1161,1179,1214-1215,1226-1231,1236-1239,1249,1265,1304-1310,1318,1320-1324,1335,1340,1349-1355,1357-1360,1390-1398,1403-1407,1416,1433,1439-1442,1453-1467,1472-1473,1484-1489,1492-1496,1498-1499,1506-1521,1541,1551-1552,1556-1558,1563,1583,1600-1601,1609,1616,1618-1622,1626-1631,1635-1640,1654-1687,1708-1712,1726-1729,1752-1757,1775-1776
+apps/web/src/components/DesignsTab.tsx
+  h_7714b9549db59c 4,14,112,165-166,176-182,185,189-190,193-194,209-212,216,227,230-231,481,555,592,636,745,753-758,793-797,836,891,932,1059,1239,1277-1282,1290-1295,1363,1370-1373,1387-1395
+apps/web/src/components/EditorIcon.tsx
+  h_7714b9549db59c 1-5,14-31,46-49,58-86
+apps/web/src/components/EntryBlankState.tsx
+  h_7714b9549db59c 1-30
+apps/web/src/components/EntryNavRail.module.css
+  h_7714b9549db59c 1-198
+apps/web/src/components/EntryNavRail.tsx
+  h_7714b9549db59c 1,3-50,52-186,192-193,197-226,232,236-240,244-259,262,269-270,273-274,279-557,562-563,565-571,573-576,578-582,585-958,960-967,971-972,984-1009,1014,1017,1019-1024,1026-1315,1317-1321,1325,1329,1332-1336,1338,1340-1609,1611-1623,1625-1651
+apps/web/src/components/EntrySettingsMenu.tsx
+  h_7714b9549db59c 26,49-51,148,202,265,280,345,369,393,417
+apps/web/src/components/EntryShell.tsx
+  h_7714b9549db59c 15,24,32,43-44,48,76,99-101,108-116,120-121,127,130-165,176,178,183-185,199,219-225,227-230,235-239,289-290,376-388,417-426,455-459,465-469,472-474,480-481,485-488,552-553,577,585-586,596-997,1028-1041,1044-1048,1050-1057,1073-1079,1088-1145,1158-1165,1183-1187,1198-1213,1234-1243,1287,1289-1309,1311-1313,1315-1337,1405,1409-1426,1429-1432,1435-1452,1456-1459,1479,1506-1511,1523,1525-1543,1545-1555,1557-1565,1568-1571,1573-1588,1590-1598,1600,1602-1605,1607,1610,1628-1632,1639-1642,1680-1681,1684,1691,1705,1745-1899,1945,1964-1965,1971-1974,1984,1986-1993,2108,2111-2112,2114,2116-2118,2120-2126,2128-2143,2189-2192,2200-2225,2234,2237-2238,2240,2259-2260,2275-2278,2307,2321-2328,2397,2504-2506,2508-2524,2527-2589,2591-2592,2595-2599,2603-2605,2637-2640,2642,2683,2738,2743,2813-2816,2830-2838,2849,2856,3043,3060,3076-3080,3088-3091,3094-3116,3118-3127,3129-3165,3168-3170,3172,3174-3211,3213-3221,3223-3294,3296-3313,3323-3361,3363-3368,3370-3372,3374-3394,3396-3399,3401-3405,3407-3413,3417-3435
+apps/web/src/components/EntryView.tsx
+  h_7714b9549db59c 34,46,81-83,129-133,139-143,151-152,260-261,294,302-303,393-394,406,418,426-427
+apps/web/src/components/ExamplesTab.tsx
+  h_7714b9549db59c 359
+apps/web/src/components/FigmaImportModal.module.css
+  h_7714b9549db59c 10-11,41,53,81,155,170,245
+apps/web/src/components/FigmaImportModal.tsx
+  h_7714b9549db59c 16,28-30,43-49,90-95,105
+apps/web/src/components/FileOpsSummary.tsx
+  h_7714b9549db59c 77,89
+apps/web/src/components/FileViewer.tsx
+  h_7714b9549db59c 4,6-10,14-17,21,23-27,32,73-84,101,103,110-111,162,191,194,210-211,214-219,230-232,235,238-242,249,254,268,270-276,361-393,400-463,592-635,878-883,885-890,898-903,910-912,1049,1162-1308,1463-1487,1623-1662,1674-1683,1701-1756,1777,1787-1798,1800-1812,1825,1832-1849,1866,1870,1876-1887,1897-1904,1914,1962,2056,2059-2063,2085,2088-2092,2109,2112-2116,2119,2125,2130-2134,2140,2143-2147,2174-2178,2180-2184,2227-2231,2384-2389,2554,2565,2574,3170,3175,3182,3242,3246,3250-3255,3257,3322,3337-3338,3342,3450-3451,3459,3467,3484-3489,3499,3504,3525,3541,3548-3571,3667-3670,3865-3870,3893-3896,3898-3902,3904-3948,3951-3970,3972-3974,3976-3991,3993,3995-4052,4054-4115,4118-4124,4126,4130-4138,4140,4144-4196,4308-4317,4335-4371,4402-4403,4407-4408,4421-4426,4428,4435-4436,4441,4444-4448,4450-4465,4468-4475,4477,4527,4584,4623-4624,4664-4682,4685-4698,4704-4708,4737-4751,4838-4861,4863-4865,4882-4883,4887-4888,4902,4906-4910,4914-4915,4939-4940,4944-4945,5019,5075,5097,5099,5115,5133,5135,5149,5161,5177,5191,5214,5657-5669,5672,5685-5687,5691-5694,5707-5714,5721-5749,5752,5754-5772,5785,5788,5792,5800,5811-5815,5828-5836,6298-6305,6310-6317,6320,6326-6343,6350,6355,6361,6371,6378-6380,6393,6412-6597,6632-6642,6680,6686-6688,6697-6714,6716-6943,7015,7023,7032,7067-7080,7084,7086,7094,7098,7104-7115,7127-7130,7133,7139-7154,7157-7266,7268-7272,7327,7465,7478,7492,7511,7521,7523,7546,7565,7575-7603,7608-7621,7632-7634,7636-7653,7658-7659,7671-7679,7685,7714,7722-8081,8088-8089,8091-8098,8106-8165,8173-8233,8243,8255,8290-8307,8392-8394,8396-8397,8403,8414-8415,8418-8424,8460-8498,8627-8638,8658-8691,8696,8773,8834,8848-8851,8853-8900,8918-8924,8928,8931,8938-8945,8947-8950,8952-8957,8965-8974,8981,8983,9000,9004-9008,9023-9027,9041,9043,9066,9080,9083,9087-9095,9110-9112,9114-9115,9119-9120,9126-9127,9137-9159,9172-9220,9296-9310,9325-9346,9351-9357,9362,9411-9416,9419-9426,9430,9436,9452-9460,9490-9491,9522,9525-9564,9566-9570,9580-9590,9600-9606,9633-9637,9644,9647-9648,9650-9657,9659,9662,9664-9679,9690,9702,9716,9733-9741,9744-9752,9755,9757,9762-9766,9771-9775,9777-9787,9789-9791,9803-9808,9810,9816,9820-9821,9823-9829,9836,9842-9843,9845,9848-9861,9865,9884-9885,9887-9897,9899-9936,9943,9949-9957,9968,9974,9984-9987,9989,10017-10025,10038,10047-10051,10053-10072,10083,10128-10141,10146,10151-10161,10166-10175,10204-10208,10211,10222-10226,10229,10234-10238,10240,10268,10270,10273,10356-10358,10360-10403,10415-10421,10424-10444,10464,10467,10475,10478-10480,10482-10489,10492-10499,10501-10502,10505,10507,10510,10517,10521,10525,10539,10584,10606-10607,10609-10610,10656,10838,10841,10847,10853,10860,10863-10864,10874,10877-10884,10886,10889-10892,10898,10902-10914,10918,10925,10929-10937,10939-10945,10947-10956,10967,10972,10978,10986-11001,11005,11022,11029,11066,11075,11081-11092,11135-11145,11149-11150,11158-11164,11166,11170-11179,11183-11192,11200,11213-11224,11226,11235-11238,11246-11285,11287,11316,11319,11323,11332-11334,11343,11356,11470,11481,11488-11499,11504,11506-11507,11563,11569-11571,11587,11602,11607-11609,11613-11615,11626,11631-11659,11667,11703,11776,11824,11928-11933,11953,11985,11988,12017,12020,12031,12041,12047,12058,12071,12077,12080,12083,12099,12102,12116,12119,12134,12137,12153,12156,12203-12221,12225,12244,12257,12514,12563,12620,12627-12632,12642-12648,12716-12722,12766,12855,12859-12892,12927-12946,12950-12952,12966,12970-12981,13000,13067-13074,13080,13082-13097,13113,13134,13149,13160,13193,13205,13209-13211,13236-13242,13245-13249,13251-13252,13298,13371-13382,13391-13411,13413,13419,13427,13568-13573,13580-13604,13859-13861,13865,13928,13939,13941-13961,13968-14007,14031-14033,14047,14064-14065,14077-14079,14093,14095,14098,14129,14145-14153,14155-14158,14193-14196,14202-14217,14219-14226,14232-14233,14236-14238,14307,14342-14368,14426-14427,14429-14432,14434,14456,14458-14459,14471,14473-14474,14522,14559,14655,14686,14706,14728-14742,14747-14780,14782-14783,14786-14789,14793-14795,14797,14800-14838,14841-14845,14847-14865,14867,14869-14940,14943-14946,14948,14951-14956,14958,14960,14962-14964,14969-14970,14972-15011,15029,15051-15054,15059-15060,15062-15069,15079-15080,15082-15089,15101,15110-15220,15228-15229,15243-15260,15265,15269,15279,15282,15329-15331,15333-15335,15344-15356,15372-15374,15376-15378,15387-15399,15416-15418,15420-15422,15429-15433,15470-15473,15486-15500,15515-15519,15548,15561,15570,15751,15784-15788,15803,15806,15882,15895,15968,16030,16372,16383,16393-16404,16415,16477,16479-16480,16495,16514,16535-16541,16548,16553-16558,16602-16606,16620,16627,16650,16662-16667,16681-16685,16711-16715,16753,16759-16762,16773,16787-16795,16836,16843,16866-16873,16882,16889,16895,17101,17106,17109,17113-17115,17133,17144-17150,17168,17226,17246,17277,17281,17290,17301,17317,17343,17357,17361,17365,17379,17383,17391,17430-17436,17652-17653,17666-17670,17704,17710-17711,17723-17724,17726
+apps/web/src/components/FileWorkspace.tsx
+  h_7714b9549db59c 14,51,53,71-74,110,113-119,132,134-135,170,174-203,207,220-223,253-256,269-274,276-283,319-323,350,352-368,446-450,1275,1282,1301,1313,1333-1337,1351,1353-1355,1357-1359,1361-1362,1391-1401,1448-1452,1463,1473,1506-1591,1636,1638,1647,1662-1664,1693,1701,1704,1710,1716,1732-1737,1803-1807,1811-1814,1881-1895,1952,2015,2019,2022,2038-2045,2056-2063,2078-2081,2086-2104,2160,2212-2221,2225-2232,2240-2243,2319,2411,2502,2504,2534,2540,2573,2583,2655-2661,2674-2680,2684,2687,2698,2840,2971,3004-3255,3270-3278,3280-3281,3284-3285,3288-3296,3299-3351,3715-3750,3768-3771,3780,3782,3788-3833,3844-3854,3913-3932,3986-3993,3999,4041-4048,4053,4102-4105,4110-4115,4158,4162-4170,4180,4186,4203-4206,4212,4357,4375,4384,4387,4399,4404-4466,4507-4513,4550,4573,4602-4606,4647-4652,4671,4679,4684-4688,4701,4708,4731,4734-4738,4740,4771-4775,4794-4803,4820,4840,4855,4887,4903,4929,5019-5023,5311-5315,5377-5380,5388,5497,5505,6691-6694,6706-6707,6762,6768-6773,7388-7389,7401,7408-7413,7416-7420,7427,7439,7446,7456-7459,7461-7466,7483-7488,7513-7524,7531,7535,7574-7592,7597-7599,7603-7608,7615-7620,7629-7634,7640-7645,7651,7661,7667-7672,7674,7677-7682,7689-7694,8036-8044,8281,8302-8304,8317-8321,8323,8347-8348,8357-8361,8408-8420
+apps/web/src/components/GenUIInbox.tsx
+  h_7714b9549db59c 10-11,29,42-44,49,59-67,122-129,135-139,142-145
+apps/web/src/components/GenUISurfaceRenderer.tsx
+  h_7714b9549db59c 12-17,44,74,105,114,202-208,250,259,340,397,406,424,466,472,497,523,660,768,777,867,890,919,966
+apps/web/src/components/HandoffButton.tsx
+  h_7714b9549db59c 5,24,117-119,122,298,303,325,355-358,373,413,566,574-578,592,600,633-637,666,706-715,738-742,744,763-767,777,779-791,814-818,852-856
+apps/web/src/components/HomeHero.tsx
+  h_7714b9549db59c 34,51,57,99,144,297,456-479,698-712,1255-1262,1264-1266,1622,1758,1769-1771,1935,1992-2006,2024,2045-2046,2077,2118,2201,2209,2242,2339,2349,2354-2357,2383-2384,2400-2401
+apps/web/src/components/HomeView.tsx
+  h_7714b9549db59c 20,45-46,48,82-86,88,96-102,118-123,130,135-136,262-270,277-278,289-297,307-316,319-345,367-386,392-406,427-431,441-444,448-474,483-511,521-527,532,617-642,664-683,735-750,759,761-762,765-777,780-783,785-796,801-813,816-843,964-971,1106-1152,1206-1211,1365-1388,1414,1416-1421,1587-1626,1676-1679,1684-1686,1698,1718-1723,2321-2328,2330-2332,2371-2380,2518-2521,2523-2538,2540,2606-2609,2639-2647,2650,2652,2655-2661,2690,2693-2728,2731,2782,2791,2800,2814,3093-3125,3139-3148
+apps/web/src/components/Icon.tsx
+  h_7714b9549db59c 3-4,9,11,14,23,51,56,59-60,84,100,105,107,117-225,227-231,234-253,265-271,302-329,416-422,866-874,891
+apps/web/src/components/IframeKeepAlivePool.tsx
+  h_7714b9549db59c 38-39,46,87-95,104-105,113,137-141,155,163,173,177-195,263-268,406-410,428
+apps/web/src/components/InlineModelSwitcher.tsx
+  h_7714b9549db59c 14,22,38-41,49-53,71,83,97-98,190-221,224-259,369,376,473,716-717,730,757,760-870,874,876,894,905-915,919-929,931-933,935-937,1069-1073,1076-1085,1115,1122-1131,1141-1153,1155-1204,1209-1210,1213,1215,1278,1280-1484,1684,1692-1697,1700-1708,1739
+apps/web/src/components/InlinePluginsRail.tsx
+  h_7714b9549db59c 9,14-26,61-84,89-104,111-112,115-147,149-169,175,177,209
+apps/web/src/components/InsufficientCreditsDialog.tsx
+  h_7714b9549db59c 1-16,19-20,22-23,25-38,40-42,44-51,53-60,62-74,76-96,98-101,103-105,107-109,111,114-118,121-243,246-247,249,251-262,264,269-287,290-302
+apps/web/src/components/IntegrationsView.tsx
+  h_7714b9549db59c 72-85,88-97,170
+apps/web/src/components/InviteDialog.tsx
+  h_7714b9549db59c 1-14,16-20,22-34,36,38-40,42-43,46-48,51-77,80-82,84-87,90-115,118-120,122-127,129-131,133-145,147-156,158-164,166-179,181,183-235,237-245,247,249-252,254-298,300-324,327-359,361-362,364,366-374,376-490,492,495-497,499-503,505-509,511-515,517,520-522,524-528,531-552
+apps/web/src/components/LanguageMenu.tsx
+  h_7714b9549db59c 55,59,100
+apps/web/src/components/LibraryAssetMeta.tsx
+  h_7714b9549db59c 38,42
+apps/web/src/components/LibraryPicker.module.css
+  h_7714b9549db59c 30,141,151-154,179-181,245,252-253
+apps/web/src/components/LibraryPicker.tsx
+  h_7714b9549db59c 280
+apps/web/src/components/LibraryPreviewModal.module.css
+  h_7714b9549db59c 10-11,70,179,232
+apps/web/src/components/LibraryPreviewModal.tsx
+  h_7714b9549db59c 205,244
+apps/web/src/components/LibrarySection.module.css
+  h_7714b9549db59c 71,86,112,121,213,298-300,309-311,317-322,421,447,453-454,479,486-487,562,679,689,732-733,749
+apps/web/src/components/LibrarySection.tsx
+  h_7714b9549db59c 54-59,69-93,109,112-113,372,400,414,465,473,482,486,492,500-502,742-746,752-758,830,833,840-844,847-853,884,1109-1111,1141,1143,1151,1162,1167-1168,1174-1175,1181,1188,1191,1199,1202,1210,1214,1222,1226,1231,1235,1241-1243,1245,1248,1256,1261,1272,1285,1287,1291,1293,1304,1312,1318,1321,1323-1325,1339,1370,1395-1397,1400-1402,1406,1409
+apps/web/src/components/LibraryUploadModal.module.css
+  h_7714b9549db59c 10-11,38,50
+apps/web/src/components/ManualEditPanel.tsx
+  h_7714b9549db59c 1-2,42-45,50-51,69-72,76-79,91-94,119-144,160-163,171-172,187-190,195-197,201-209,221,234,237-241,262,375,391,407,418,530,554,557-559,562,583,637-638,671,674-675,705-758,760-761,763,766-770,772,774-777,779-782,784-791,793-795,797-810,812-830,833-835,837,839-841,843,846-858,860,862-892,898-954,963,967,969,994,996-998,1004,1006,1008,1013-1018,1026-1036,1038,1040,1046,1048-1049,1089-1090,1110-1111,1129,1131,1133,1141-1142,1145,1149-1152
+apps/web/src/components/MarketplaceView.tsx
+  h_7714b9549db59c 27,56,63,70,77,83,89,106,114,117,124,128
+apps/web/src/components/MatrixLoader.module.css
+  h_7714b9549db59c 1-142
+apps/web/src/components/MatrixLoader.tsx
+  h_7714b9549db59c 1-73
+apps/web/src/components/McpClientSection.tsx
+  h_7714b9549db59c 42-43,228,232-275,288,290,293,295,299,302,429,487,526,600,617,619,658,663-664,670,675,687,699-700,703,718,728,735,748-749,771,775,786,791,799,807,812,823,828,835,844-845,847,858,869-870,881,883,896-897,903-905,910-911,917,926,949,953,959,963,976,989,998-999,1003,1016,1041,1056,1098,1102,1106,1111,1134,1282,1300,1302,1304,1312,1314,1322,1324,1339,1341,1347,1349,1356,1366,1368,1371,1381,1389,1396
+apps/web/src/components/MemoryModelInline.tsx
+  h_7714b9549db59c 468,518
+apps/web/src/components/MemoryProfilePanel.module.css
+  h_7714b9549db59c 61
+apps/web/src/components/MemorySection.tsx
+  h_7714b9549db59c 77,311,326,328,337-340,343,361,396-399,401,407-408,415,418-419,425,427,433,436-437,442,445-446,450-451,463,465-467,596,609,657,659,668-670,676-678,680,683,692,694-696,702-703,706,1063,1065-1066,1284,1295,1311-1314,1316-1324,1328-1329,1333-1335,1343,1386-1388,1392-1395,1403,1520-1521,1526-1527,1619,1697,1699,1755-1756,1792-1798,1801,1844,1849,1872,1886,1888,2048,2065,2098,2100,2104-2106,2114,2120,2122,2126,2129,2149-2150,2152,2154-2155,2167,2173,2183,2185,2193-2197,2206,2210-2218,2228-2236,2262,2264,2268,2277,2290,2324,2332,2348,2350-2355,2365,2376,2381,2389,2405,2407,2412,2416-2418,2460,2474,2504-2506,2538-2539,2553,2585,2621,2625,2642-2644
+apps/web/src/components/MemoryToast.tsx
+  h_7714b9549db59c 12-15,29-36,40,42-59,62,66-104,107,137-162,166
+apps/web/src/components/MessageCenter.module.css
+  h_7714b9549db59c 109,129,159,232-239,246-268,274-275,277,292,341-342
+apps/web/src/components/MessageCenter.tsx
+  h_7714b9549db59c 2,39-51,56-63,68-76,173-176,182-189,192,247,249,251,295,299-300
+apps/web/src/components/MissingBrandFontsBanner.tsx
+  h_7714b9549db59c 74
+apps/web/src/components/MoveToTeamConfirmDialog.tsx
+  h_7714b9549db59c 1-96
+apps/web/src/components/NewAutomationModal.tsx
+  h_7714b9549db59c 26-27,252,473-480,498-501,642,644,794,796,945,992,1025,1027,1063
+apps/web/src/components/NewBrandModal.module.css
+  h_7714b9549db59c 67
+apps/web/src/components/NewBrandModal.tsx
+  h_7714b9549db59c 9,21,58,60,69,71
+apps/web/src/components/NewProjectPanel.tsx
+  h_7714b9549db59c 928,947,1113,1138,1155,1556,1558,1561
+apps/web/src/components/NextStepActions.module.css
+  h_7714b9549db59c 4-14,35-42,82-125,129,140,142-143,145-148,153,158-159,170-171,182-183,203-208,213,228,238,258,265,279,291,320,322,328-331,342-344,346,355,365-366
+apps/web/src/components/NextStepActions.tsx
+  h_7714b9549db59c 680-683,715-718,729-732
+apps/web/src/components/OdCard.module.css
+  h_7714b9549db59c 71,87,216,323-351,361,368,385,410,421,441
+apps/web/src/components/OdCard.tsx
+  h_7714b9549db59c 181,188,228,309,321
+apps/web/src/components/OnboardingModelSource.module.css
+  h_7714b9549db59c 1-231
+apps/web/src/components/PaletteTweaks.tsx
+  h_7714b9549db59c 15,17,92,120
+apps/web/src/components/PlanWordmark.tsx
+  h_7714b9549db59c 1-145
+apps/web/src/components/PluginDetailView.tsx
+  h_7714b9549db59c 1,3-29,34-42,46-176,180-188,192,194-197,200-206,210,212-219,225,227,232-248,252-264,270-272,278-280,282-290,293-298,301-304,307,310-315,320-329,332-344,346,349-355,357-407,410-433,437-447,449,451-469,472-473,476-494,496-498,505,507
+apps/web/src/components/PluginDetailsModal.tsx
+  h_7714b9549db59c 21-24,41-42,56,59,86,99,112
+apps/web/src/components/PluginLoopHome.tsx
+  h_7714b9549db59c 15,28,94,135-138,162,394
+apps/web/src/components/PluginsHomeSection.tsx
+  h_7714b9549db59c 19-22,64,84,264,355,563,583
+apps/web/src/components/PluginsSection.tsx
+  h_7714b9549db59c 41,43-44,105-106,110-131,166-171,175,184-191
+apps/web/src/components/PluginsView.tsx
+  h_7714b9549db59c 1-11,16,20-21,23-31,43-44,46-47,57,59-60,72,74,76-77,80,86-95,99-100,110-171,231-263,274-275,300-317,319-340,347-350,352-356,358-359,362-363,392-395,418,474,499,518,535,586,588,591,652,704,706,752-760,765-767,811,820-2732,2748,2769,2782-2783,2793,2809,2814,2818,2824,2830,2842,2857,2867,3021,3043,3321,4189-4383,4385-4386,4388-4414
+apps/web/src/components/PreviewDrawOverlay.tsx
+  h_7714b9549db59c 79-83,1260-1261,1525,1557-1585,1667-1698,1769,1772,1887-1888,1890-1892,1915-1932
+apps/web/src/components/PreviewModal.tsx
+  h_7714b9549db59c 615,681,683
+apps/web/src/components/PrivacyConsentModal.tsx
+  h_7714b9549db59c 61
+apps/web/src/components/PrivacySection.tsx
+  h_7714b9549db59c 77-82,141,143,148,192,196-197,199-210,212-216,233
+apps/web/src/components/ProjectLocationsSection.tsx
+  h_7714b9549db59c 184-187,197-205,238-250
+apps/web/src/components/ProjectReferenceModal.tsx
+  h_7714b9549db59c 6,18,38-43,118-128
+apps/web/src/components/ProjectSearchModal.tsx
+  h_7714b9549db59c 1-9,11-23,25-29,32-37,39-45,48-49,52-54,56-82,85-102,104-111,113-117,119-130,132-176,179-180
+apps/web/src/components/ProjectView.tsx
+  h_7714b9549db59c 13,43-44,53-57,65-66,82,94-95,118-121,135-141,184,191,197,208,247-272,282,291-296,319-322,341,372-378,387-424,469-498,524-556,607-611,625-627,630-636,651,675-717,1040-1043,1052-1057,1078-1086,1099-1114,1119,1122-1123,1357-1370,1392,1404,1409-1415,1420,1423-1436,1438-1439,1595-1604,1641-1683,1686-1695,1721-1722,1730,1733-1745,1747-1862,1895-1964,1966-1970,2063-2064,2069-2099,2104-2114,2139-2147,2165-2172,2176-2186,2188,2192-2206,2254-2259,2432-2440,2490-2499,2529-2535,2555-2556,2586-2589,2597,2607-2610,2613-2621,2623,2638-2651,2660-2666,2668-2809,2836,2840-2843,2846,2849-2862,2870,2884,2886-2887,2901-2921,2923,2936,2949-2955,3098,3104-3106,3118-3137,3147,3156-3160,3168-3175,3182-3199,3207-3213,3216-3220,3223-3234,3237-3240,3265-3297,3299,3319-3321,3329,3333-3335,3338-3347,3351-3406,3420,3570,3573,3657-3659,3679-3689,3694-3705,3710-3717,3721,3723-3801,3818-3820,3851-3886,3953-3959,3962,3975,3980-3986,4004-4007,4009,4018-4021,4026,4049-4052,4057,4073-4078,4080,4088,4106-4115,4127,4348-4353,4355,4362-4366,4376,4498,4501,4531-4535,4579-4582,4635-4641,4648-4685,4688-4704,4710-4724,4727-4729,4731-4754,4760-4768,4772-4798,4800-4855,4857-4864,4882,4891-4897,4902-4908,4941-4945,4948,5040-5041,5109-5113,5182-5186,5428,5502-5506,5661-5664,5796-5799,6022-6026,6071-6074,6127-6131,6201,6274,6283-6289,6294,6311-6336,6345-6349,6361-6378,6381,6385-6394,6405,6407-6410,6418,6420,6439,6441,6445-6477,6487,6494,6496,6498,6500-6501,6503-6506,6514,6517-6532,6538-6541,6549,6559,6568,6607,6659,6738-6743,6764,6791-6796,6815,6932-6934,7100-7102,7342-7345,7452-7454,7532-7537,7547,7554,7586-7589,7594,7600-7608,7698-7701,7719,7726,7758-7763,7766-7769,7774,7777-7785,7827,7857-7860,7912,7999,8006-8012,8030,8091-8094,8096-8103,8105,8117,8119-8126,8128,8131-8134,8138-8150,8155-8164,8207-8216,8224-8232,8236-8242,8244,8251,8257-8260,8262,8264,8313,8319-8323,8344-8349,8408-8413,8566,8616-8617,8721-8723,8758-8765,8770,8797,8804-8806,8821,8826-8830,8844-8846,8858-8863,8872-8877,8879,8889-8894,8903,8938,8942,8976,8987-8993,8998-9018,9028,9030-9095,9098-9104,9222,9277-9310,9494,9498-9504,9533-9539,9573-9617,9730-9732,9735,9740,9745-9750,9852,10290,10306,10358,10361,10363-10369,10406-10412,10414-10442,10453-10455,10524,10530,10535,10549-10555,10562,10571-10581,10603-10609,10628,10630-10656,10660-10662,10757,10763,10765-10767,10769-10773,10781,10790,10793-10794,10827-10830,10842-10844,10862,10873,10893-10900,10903-10907,10930,10941,11017,11292,11297,11434-11436,11438-11442
+apps/web/src/components/PromptTemplatePreviewModal.tsx
+  h_7714b9549db59c 159,175
+apps/web/src/components/RecentProjectsStrip.tsx
+  h_7714b9549db59c 10,12-13,15-19,22,25-74,90-97,102-135,139-145,147-199,202-207,211-318,322-323,330-340,343-344,346-403,407-430,462-468,477-535,539-603,616-675,677-687,689-756,758-790,792-804,806-836,838-847,849-853,855-934,941-946,951-956,977-982,984,988-1088,1091-1100,1102-1115,1117-1128,1135-1311,1316-1547,1549-1594,1597,1600-1605,1617-1620,1625,1628-1653,1657-1718,1721-1725,1731-1734,1750-1751,1755-1756,1761,1763-1772,1774-1786,1788-1818,1822,1835-1839,1852-1858,1863-1870,1872-1878,1883-1933,1939-1940,1995-1998,2005-2009,2011-2017,2026-2146,2151-2454,2474,2477,2499-2504,2513-2518,2526-2536,2538-2550,2555-2560,2569,2574-2582,2587,2607-2608,2611-2617,2628-2629,2631-2636
+apps/web/src/components/RemixIcon.tsx
+  h_7714b9549db59c 3-4,12-20,22,24-28,30-35
+apps/web/src/components/RoutinesSection.tsx
+  h_7714b9549db59c 1,19-21,28-51,405,411,422-424,435-440,487,502-515,530,541-542,544-550,554,556,559,562,568-575,604-620,623-629,633-640,658-659,662-665,671,685-688,703,705,707-710,715,901,938,948-954
+apps/web/src/components/SessionModeToggle.tsx
+  h_7714b9549db59c 209-214,280-302,334,336,339-343,367,371
+apps/web/src/components/SettingsDialog.tsx
+  h_7714b9549db59c 4-7,59,131,162-172,197-201,216,218,243-272,437-443,452-453,488-489,494-495,1491,1498,1500,1506,1509,1541,1560,1628-1670,1672,2033,3148,3164-3184,3332-3335,3806,3808,3823-3827,3861,3922,3925-3930,4012,4020-4024,4073-4079,4081-4083,4142,4144,4148,4150,4152-4153,4155,4195-4210,4261-4272,4277,4285-4295,4312,4334,4366-4371,4415-4446,4631-4655,4659-4661,4663-4674,4676-4680,4682-4706,4709-4710,4845-4858,4860,4904-4908,4911,4914-4915,4917-4926,4944,4980-4992,5135-5138,5145-5192,5813,5828-5865,5867-5873,5875-5880,5882-5887,5889-5895,6143-6146,6156-6168,6662-6669,6693-6696,6702-6712,6744,6757,6807-6820,6930,6975-6979,7683-7725,7747-7752,7774,7783-7820,7822-7836,7838-7856,7858-7861,7866-7868,7871,7875-7882,7884,7887-7914,7916-7987,8002,8478-8481,8502,8564,8609-8616,8644-8646,8666,8671,8694-8696,8730-8787,8791-8811,8820-8842,8844-8845,8975,8978,8980,8982-8990,9061,9064,9067-9076,9078
+apps/web/src/components/SettingsWorkspaceSection.module.css
+  h_7714b9549db59c 1-100
+apps/web/src/components/SettingsWorkspaceSection.tsx
+  h_7714b9549db59c 1-72
+apps/web/src/components/SignOutConfirmDialog.tsx
+  h_7714b9549db59c 1-65
+apps/web/src/components/SketchPreview.tsx
+  h_7714b9549db59c 4-5,59,64,66,68,77-82,89-92,102,316-322,418
+apps/web/src/components/SkillDetailView.tsx
+  h_7714b9549db59c 1-10,13-18,21-24,27-43,45,48-55,57-61,63-74,76-88,90-100,102,104,107-108,110-121,124-127,129-145,147-153,155-171,173-207
+apps/web/src/components/SkillDetailsModal.tsx
+  h_7714b9549db59c 13,19-24,27,29,41,54,192-201
+apps/web/src/components/SkillsSection.tsx
+  h_7714b9549db59c 1,21-28,99-120,122-128,158,173-191,193-205,207,210,212-231,329,331-333,336-341,346-348,351,356,358-360,363-368,372-374,377,397,400,405,409,411,413,421,442,449-453,471-473,478-483,491-494,496-499,513,515-525,537-544,551-554,556-559,581,585-594,625,628,813-814,887-900,908,982,1158
+apps/web/src/components/TasksView.tsx
+  h_7714b9549db59c 32-38,390-412,484-486,493,507-514,568-571,602,635-638,658-661,806,819,831,856,863,927,1015,1022,1072,1080,1087,1094-1096,1107-1110,1157,1175
+apps/web/src/components/TeamSlotPlaceholder.module.css
+  h_7714b9549db59c 2-4,6-9,11-13,16,18-24,27-31,34-37,41-45,48-55
+apps/web/src/components/TeamSlotPlaceholder.tsx
+  h_7714b9549db59c 1-34
+apps/web/src/components/Theater/CritiqueTheaterMount.tsx
+  h_7714b9549db59c 2,4-11,39-48,63-95,99-150,152-156,158,198-203,228-235
+apps/web/src/components/Theater/hooks/useCritiqueReplay.ts
+  h_7714b9549db59c 4,13-16,26-29,44-45,128-132,160,267-271
+apps/web/src/components/Theater/hooks/useCritiqueStream.ts
+  h_7714b9549db59c 15,81,88-95
+apps/web/src/components/Theater/hooks/useCritiqueTheaterEnabled.ts
+  h_7714b9549db59c 2-3,124-128,190-194,198-201,226-227,230
+apps/web/src/components/Theater/state/sse.ts
+  h_7714b9549db59c 8,11,27-28,34-54,145
+apps/web/src/components/Toast.tsx
+  h_7714b9549db59c 16,76,158,168,170
+apps/web/src/components/ToolCard.tsx
+  h_7714b9549db59c 386,435,476,510
+apps/web/src/components/UpdaterPopup.module.css
+  h_7714b9549db59c 1-44
+apps/web/src/components/UpdaterPopup.tsx
+  h_7714b9549db59c 28,32-46,443,464,548-550
+apps/web/src/components/UseEverywhereModal.tsx
+  h_7714b9549db59c 310,327,413
+apps/web/src/components/UserActionCard.module.css
+  h_7714b9549db59c 2-5,59-62,72-79,84,86,91-94,97,103-111,176-189,198,202
+apps/web/src/components/WhatsNewPopup.module.css
+  h_7714b9549db59c 1-7,10-15,18-23,29-30,35-44,48-51,53-54,57-64,67-73,75-86,88-91
+apps/web/src/components/WhatsNewPopup.tsx
+  h_7714b9549db59c 1,4,12,14-15,19,21-30,35-52,55,57-65,71,76,83,85,101-103,111,117,122,125,127-130,132,139,142,145,152,156,158-172,174-201,203-204
+apps/web/src/components/WorkingDirPicker.module.css
+  h_7714b9549db59c 10,24-26,92-95,101-103,106-108,149,189,205,265
+apps/web/src/components/WorkingDirPicker.tsx
+  h_7714b9549db59c 23-24,56,106,108,110,150,173
+apps/web/src/components/WorkspaceSwitcher.module.css
+  h_7714b9549db59c 1-112
+apps/web/src/components/WorkspaceSwitcher.tsx
+  h_7714b9549db59c 1-114
+apps/web/src/components/WorkspaceTabsBar.tsx
+  h_7714b9549db59c 1-9,12,15-27,59-69,88-93,99-112,117,355-378,390-407,410,412,414-429,431-436,438,442-516,600-601,604-606,609-633,635-641,643-679,689-778,789-802,809-816,818,826-846,848,892-906,908-1051,1118-1122,1143-1149,1151-1157,1260-1267,1271-1350,1430,1439-1441,1535-1545,1547-1548,1568-1589,1592-1595,1597-1601,1603,1605-1634,1639-1646,1648-1671,1673-1682,1684-1689,1691-1692,1694-1709,1718,1722-1727,1730,1755-1761,1773-1779
+apps/web/src/components/agentModelSelection.ts
+  h_7714b9549db59c 50-84
+apps/web/src/components/byok/ByokConnectionTestControl.tsx
+  h_7714b9549db59c 90,98
+apps/web/src/components/byok/ByokKeyField.tsx
+  h_7714b9549db59c 76-101,104
+apps/web/src/components/comment-send-result.ts
+  h_7714b9549db59c 1-14
+apps/web/src/components/composer/LexicalComposerInput.tsx
+  h_7714b9549db59c 169-173,359,364,375-376,382-387,660-671,686,700,798-805,839,843
+apps/web/src/components/design-browser-tools.ts
+  h_7714b9549db59c 5-19
+apps/web/src/components/entry-rail-account-state.ts
+  h_7714b9549db59c 1-28
+apps/web/src/components/entryRailBridge.ts
+  h_7714b9549db59c 1-27
+apps/web/src/components/file-viewer-preview-assets.ts
+  h_7714b9549db59c 72-79,114-137,239-255,307-354,379
+apps/web/src/components/home-hero/PixelScanLogo.tsx
+  h_7714b9549db59c 1-69
+apps/web/src/components/home-hero/PlaceholderCarousel.tsx
+  h_7714b9549db59c 40-45,51,77,89,101,103
+apps/web/src/components/home-hero/TemplatePicker.tsx
+  h_7714b9549db59c 2-6,8-9,11,29,38-71,85-92,94-111,119,126,140-160,171-175,191,193-206,209,211,213-216,218,233,236,238-239,243,245-351
+apps/web/src/components/home-hero/chips.ts
+  h_7714b9549db59c 107,276,312,436-440
+apps/web/src/components/home-hero/pixel-scan/engine.ts
+  h_7714b9549db59c 1-557
+apps/web/src/components/home-hero/plugin-authoring.ts
+  h_7714b9549db59c 1,21-26,105-115,133-159
+apps/web/src/components/html-source-snapshot-cache.ts
+  h_7714b9549db59c 1-177
+apps/web/src/components/html-thumbnail-source-cache.ts
+  h_7714b9549db59c 1-90
+apps/web/src/components/modelOptions.tsx
+  h_7714b9549db59c 6,74-127,152-162,188,253-275,285-294,297,300,355-363,433-549,626-650,652,654-658,660-672,674-680,682-699
+apps/web/src/components/modelProviderIcon.ts
+  h_7714b9549db59c 1-45
+apps/web/src/components/pet/PetOverlay.tsx
+  h_7714b9549db59c 17-23,66-78,145,373-380,459,464-467
+apps/web/src/components/pet/PetSettings.tsx
+  h_7714b9549db59c 44,522,535,696,747,761,770,837,881,891,994,1011,1071
+apps/web/src/components/pet/pets.ts
+  h_7714b9549db59c 94,259,335
+apps/web/src/components/plugin-details/PluginByline.tsx
+  h_7714b9549db59c 62,73,91
+apps/web/src/components/plugin-details/PluginDesignSystemDetail.tsx
+  h_7714b9549db59c 17-20,47,84,110,114,117,124,128
+apps/web/src/components/plugin-details/PluginExampleDetail.tsx
+  h_7714b9549db59c 9-12,36,49,68-69,91
+apps/web/src/components/plugin-details/PluginMediaDetail.tsx
+  h_7714b9549db59c 212
+apps/web/src/components/plugin-details/PluginPreviewHero.tsx
+  h_7714b9549db59c 13-14,26,36-41,43-44,107,118,140,146-149
+apps/web/src/components/plugin-details/PluginScenarioDetail.tsx
+  h_7714b9549db59c 15,35,45,143,184
+apps/web/src/components/plugin-details/PluginShareMenu.tsx
+  h_7714b9549db59c 63,157,230,252,276
+apps/web/src/components/plugins-home/PluginCard.tsx
+  h_7714b9549db59c 17-20,56,77,83-86
+apps/web/src/components/plugins-home/cards/DesignSystemSurface.tsx
+  h_7714b9549db59c 11,43-46
+apps/web/src/components/plugins-home/cards/MediaSurface.tsx
+  h_7714b9549db59c 45-57,215-216
+apps/web/src/components/plugins-home/preview.ts
+  h_7714b9549db59c 19-23,71,190-193,259-262,276-279,293-295
+apps/web/src/components/project-cover.tsx
+  h_7714b9549db59c 2,5-9,48-54,75-80,83,118,120-129,140,142
+apps/web/src/components/remix-icon-paths.ts
+  h_7714b9549db59c 1-287
+apps/web/src/components/useOpenFolderImport.ts
+  h_7714b9549db59c 8-9,23,37,46-49,70-76
+apps/web/src/components/workspace/SideChatTab.module.css
+  h_7714b9549db59c 18
+apps/web/src/components/workspace/SideChatTab.tsx
+  h_7714b9549db59c 14,71-75,106,128
+apps/web/src/components/workspace/TabLauncherMenu.module.css
+  h_7714b9549db59c 12-18,79-80,94-97,99-111,116-117,120-121,170-187,205,216
+apps/web/src/components/workspace/TabLauncherMenu.tsx
+  h_7714b9549db59c 14-22,268,275-278,311-314,370-372
+apps/web/src/components/workspace/TerminalViewer.module.css
+  h_7714b9549db59c 230,236,314,339
+apps/web/src/components/workspace/TerminalViewer.tsx
+  h_7714b9549db59c 4-8,24,174-180,222-223,282,298-300,362,376-380,387,444,453
+apps/web/src/components/workspace/tab-launcher.ts
+  h_7714b9549db59c 44-50,73-78,90-100,142-146
+apps/web/src/components/workspace/useConversationChat.ts
+  h_7714b9549db59c 22,57-65,115-119,127,143-145,169,306,312
+apps/web/src/edit-mode/bridge.ts
+  h_7714b9549db59c 2,51-54,56-64,66,69,84,177,276,311-319,321-337,339-359,361,363-418,420,446-448,473-477,487-491,500-718,724-740,748,752,821,823-827,829,837,859,886,901,916-923,930-933,936-938,941-942,945-950,953-968,970-984,987-988,991-1004,1007-1008,1011-1031,1033-1044,1046,1048-1049,1066-1071,1076-1120,1122-1124,1126-1137,1143,1145-1184,1186-1192,1194-1197,1199-1220,1223-1237,1239-1241,1243-1247,1250-1256,1258-1260,1262-1266,1286,1291-1350
+apps/web/src/edit-mode/source-patches.ts
+  h_7714b9549db59c 132-138,144-152,568-574,611-656
+apps/web/src/edit-mode/types.ts
+  h_7714b9549db59c 10-39,82-86,100-104,145-154,181-184,186-189,196-197,202,205,208,213
+apps/web/src/hooks/useDesignMdState.ts
+  h_7714b9549db59c 14,17-21,75-79,87-92,111-116,125-128,130,168
+apps/web/src/hooks/useDismissOnOutsideInteraction.ts
+  h_7714b9549db59c 1-49
+apps/web/src/hooks/useEventStream.ts
+  h_7714b9549db59c 1-345
+apps/web/src/hooks/useFinalizeProject.ts
+  h_7714b9549db59c 21,23,60-63,112-115,179
+apps/web/src/hooks/useGlideIndicator.ts
+  h_7714b9549db59c 1-179
+apps/web/src/hooks/useLiquidGlass.ts
+  h_7714b9549db59c 1-78
+apps/web/src/hooks/useProjectDetail.ts
+  h_7714b9549db59c 8-13,23-47,49-64,70-74,77-84,107-113,117-120,124
+apps/web/src/i18n/index.tsx
+  h_7714b9549db59c 175-194,250-252
+apps/web/src/i18n/locales/ar.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1246-1324,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4091-4092,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/de.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4091-4092,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/en.ts
+  h_7714b9549db59c 4-63,71,75,86-88,110,144,208,232-237,253-254,312-313,316,322,346-347,350-351,420,422-423,432-435,437,439,468,475-476,502,518,559-560,575-576,579,587-588,609-610,618,622-626,679-680,685-686,698,702,711,714-717,728-745,757-830,843-856,877-878,883,929,947,996-997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2767-2768,2770-2771,2780-2781,2804-2805,2807,2826,2828,3037,3067,3109-3111,3115-3125,3131-3132,3138-3164,3206-3234,3793-3794,3896,4167-4168,4292,4298-4304,4332,4344,4501-4514,4665-4681,4706-5257
+apps/web/src/i18n/locales/es-ES.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4091-4092,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/fa.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4019-4020,4279-4285,4313,4325,4482-4495,4646-4662,4687-5238
+apps/web/src/i18n/locales/fr.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,346-347,351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4153-4154,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/hu.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4091-4092,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/id.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4153-4154,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/it.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4091-4092,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/ja.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4091-4092,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/ko.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4091-4092,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/pl.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4091-4092,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/pt-BR.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4091-4092,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/ru.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4091-4092,4284-4290,4318,4330,4487-4500,4632-4648,4692-5243
+apps/web/src/i18n/locales/th.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4153-4154,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/tr.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4091-4092,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/uk.ts
+  h_7714b9549db59c 4-63,73,208,232-237,253-254,312-313,316,322,344,346-347,350-351,420,422-423,432-435,437,502,518,559-560,575-576,579,588,610,728-745,757-830,843-856,877-878,883,947,997,1081-1119,1226-1227,1244-1322,1938,2034,2080-2081,2184-2186,2230-2233,2753-2754,2756-2757,2766-2767,2790-2791,2793,2812,2814,3023,3053,3095-3097,3101-3111,3117-3118,3124-3150,3192-3220,3755-3756,4019-4020,4284-4290,4318,4330,4487-4500,4651-4667,4692-5243
+apps/web/src/i18n/locales/zh-CN.ts
+  h_7714b9549db59c 4-63,74,76,78,89-91,114,216,289,291,294-295,301,316,331,333,336-338,410,412-413,422-425,429,461,512,556-557,576-577,580,589,614-615,625,630-634,672-673,680-681,700,704,714,718-719,721-722,733-750,762-835,848-861,882-883,888,953,1008,1096-1135,1247-1248,1265-1343,2030,2128,2177-2178,2328-2331,2376-2381,2399-2400,2959-2960,2962-2963,2973-2974,2999-3000,3002,3022,3024,3301-3311,3317-3318,3365-3393,3962-3963,4071,4341-4342,4363,4403,4667-4673,4704,4717,4894-4907,5066-5082,5107-5692
+apps/web/src/i18n/locales/zh-TW.ts
+  h_7714b9549db59c 4-63,74,76,78,89-91,114,216,289,291,294-295,301,329,331,333,336-338,410,412-413,422-425,429,462,513,557-558,577-578,581,590,615-616,626,631-635,673-674,681-682,701,705,716,720-721,723-724,735-752,764-837,850-863,884-885,890,955,1010,1098-1136,1249-1250,1267-1345,2038,2136,2185-2186,2336-2339,2384-2389,2407-2408,2968-2969,2971-2972,2982-2983,3007-3008,3010,3030,3032,3309-3319,3326-3327,3374-3402,3970-3971,4079,4346-4347,4368,4408,4673-4679,4710,4723,4900-4913,5073-5089,5114-5699
+apps/web/src/i18n/types.ts
+  h_7714b9549db59c 33-93,152,176-181,197-198,373-374,383-385,464-481,556,595-604,1023-1026,1098-1103,1123-1140,1152-1228,1242-1256,1401,1485-1523,1630-1631,1650-1728,2160-2166,2189,2521,2819-2820,3014-3016,3056-3061,3601-3604,3613-3614,3637-3638,3640,3870,3900,3942-3944,3948-3958,3971-3997,4039-4081,4826-4839,4872-5414
+apps/web/src/index.css
+  h_7714b9549db59c 4-5,34
+apps/web/src/lib/coalesced-get.ts
+  h_7714b9549db59c 1-146
+apps/web/src/lib/liquid-glass.ts
+  h_7714b9549db59c 1-173
+apps/web/src/lib/project-cover-cache.ts
+  h_7714b9549db59c 1-78
+apps/web/src/lib/shared-cancellable-get.ts
+  h_7714b9549db59c 1-166
+apps/web/src/lib/thumbnail-load-gate.ts
+  h_7714b9549db59c 1-177
+apps/web/src/lib/whats-new.ts
+  h_7714b9549db59c 3-15,52-66
+apps/web/src/media/models.ts
+  h_7714b9549db59c 131
+apps/web/src/providers/api-proxy.ts
+  h_7714b9549db59c 8,11,30-31,58-63,154-158,171,186-190,223,226-229
+apps/web/src/providers/daemon.ts
+  h_7714b9549db59c 39,42-43,299,327-336,352,660,679,701,734-740,777,797-800,802-806,919-924,952-959,1102,1104-1105,1107-1111,1121,1125-1129,1138-1140,1142-1146,1166,1205-1210,1227-1229,1363,1396
+apps/web/src/providers/project-events.ts
+  h_7714b9549db59c 2-10,12-15,30-35,39-41,53-65,71-78,98,116,120-121,171-212,215,252,259-272,279-284,286-291,293-300
+apps/web/src/providers/registry.ts
+  h_7714b9549db59c 1,21,29,41,84-98,116-121,243-251,253-256,368-372,375,380-383,420-423,427,432-435,466-469,473,483-487,490,495,518-521,523-526,534-538,551-617,619-622,625-632,638-641,645-648,658,661-664,676,681,693,698,727,732-735,747,752-755,768,771-774,785,790-793,805,808-811,824,831-834,849,854-857,871,876-879,892,897-900,910-923,925-930,932-933,935-972,1557,1563-1566,1632,1635-1638,1653,1663-1666,1688-1775,1779,1783-1786,1817-1920,1922-1925,1927-1928,1934-1937,1939-1942,1954,1959-1962,1976,1981-1984,1987-1989,1995-2032,2038,2041-2044,2079,2084-2091,2111,2115-2119,2136,2141-2144,2147-2150,2172-2176,2179-2186,2207-2215,2220-2232,2239,2242-2248,2256-2296,2313,2318-2320,2332-2337,2339,2347-2350,2354,2367-2372,2386-2390,2405-2410,2441-2450,2454,2457-2460,2472,2477-2480,2493,2500-2503,2508,2518,2523-2527,2537-2544,2549,2556-2559,2576,2583-2586,2598-2637,2642,2647-2650,2669,2671,2690,2695-2698,2718,2734,2739-2742,2746,2758,2766,2770,2786,2795-2797,2811,2841,2863-2867,2884,2925-2929,2936-2939,2942-2950,2960,2964-2968,2970-2972,2982,2986-2989,2996,3045-3055,3079-3081,3092,3098-3100,3130,3136-3139,3150-3153,3155-3161,3169-3172,3174-3180,3201,3204-3207,3225,3228-3232,3252,3255-3259,3277-3278,3283-3286,3297-3301,3304,3309,3338,3343-3345,3446,3451-3454
+apps/web/src/router.ts
+  h_7714b9549db59c 22-35,66-73,137-162,189-195,200-203,241-296,302-423,425,435-436,438-443,447-450,458-466,473-476,485-490
+apps/web/src/runtime/amr-auth-retry-continuation.ts
+  h_7714b9549db59c 1-93
+apps/web/src/runtime/amr-balance-gate.ts
+  h_7714b9549db59c 10-13,15-19,41,46-99,152-248,250-252,291-295
+apps/web/src/runtime/amr-guidance.ts
+  h_7714b9549db59c 7,10-16,18-38,41-43,46-75,78-86,93-121,124-125,130,150-151
+apps/web/src/runtime/brands.ts
+  h_7714b9549db59c 17,19,59,65-69
+apps/web/src/runtime/design-kit.ts
+  h_7714b9549db59c 17,352,365-367,417-432,443-446,471,485,542-546,614-616,632-693,712-713,731,747-751,754-758,770,781,784-788,807-808
+apps/web/src/runtime/exports.ts
+  h_7714b9549db59c 22-26,89,100-104,775,785-790,867,877-882,897-901,938,947-952,1077,1084-1089,1139,1160,1162-1165,1167-1169,1184,1191-1195
+apps/web/src/runtime/font-recovery.ts
+  h_7714b9549db59c 1-87
+apps/web/src/runtime/kit-edit.ts
+  h_7714b9549db59c 1,10-17,26-37,41-46,49,96-101,104,109,132-136,150-151,155-159,165-166,170-177,180-185
+apps/web/src/runtime/kit-upload.ts
+  h_7714b9549db59c 10,27,33,45,57-64,81-87,93-96,107-113,122
+apps/web/src/runtime/plugin-skill-descriptions.ts
+  h_7714b9549db59c 1-245
+apps/web/src/runtime/srcdoc.ts
+  h_7714b9549db59c 54-60,435-439,471,520-521,523-531,534-538,543,753-754,759-760,765,768-769,773-777,779-786,789-800,813-817,1286-1289,1291,1347-1378,2202-2335,2339-2342,2809-2821,2823-2826
+apps/web/src/runtime/useBrandExtract.ts
+  h_7714b9549db59c 12,14,56-70,87-92,110-114
+apps/web/src/state/appearance.ts
+  h_7714b9549db59c 1,12,15-22,39-42,46-72,79-85
+apps/web/src/state/config.ts
+  h_7714b9549db59c 16,18,27-35,62,94,695-697,702-705,765-768,1037-1066,1074-1077,1258-1261,1264-1268,1289-1297
+apps/web/src/state/project-display-cache.ts
+  h_7714b9549db59c 1-131
+apps/web/src/state/projects.ts
+  h_7714b9549db59c 8-10,27-28,30-32,35-41,53-83,85-187,189-254,261-288,290-295,304-449,453,460-465,491,503-507,527,532-537,546,551-554,586,591-594,617-619,658,662-665,681,687,769,774-777,782-793,800-817,821,826,835-841,844-847,849-850,852-865,868-869,874-883,899,920-925,931,942,949-952,958,968,973-978,980,992,997-999,1011,1033-1038,1059,1066-1069,1082-1090,1097,1104-1107,1122,1129-1132,1148-1151,1158-1160,1174-1179,1210-1213,1216-1218,1224-1227,1230,1236-1240,1247-1250,1268-1276,1279-1282,1288-1297,1299-1310,1312-1318,1329,1331,1333,1346-1351,1358,1361,1383-1420,1422-1444,1449-1451,1453-1456,1461-1463,1474-1479,1481-1512,1521-1522,1533,1539-1542,1553,1565-1568,1573-1576,1637,1639-1642,1649-1652,1657-1669,1726,1728-1733,1739,1741-1746,1753,1759-1762,1790,1794-1797,1822-1832,1837,1844-1847,1886,1893-1896,2030-2033,2037-2039,2216,2224-2229
+apps/web/src/styles/app-wash.css
+  h_7714b9549db59c 1-157
+apps/web/src/styles/base.css
+  h_7714b9549db59c 3-26,33-34,39-86,89-92,94-95,97,100-109
+apps/web/src/styles/chat.css
+  h_7714b9549db59c 12-16,23-39,77,90,94-95,98-105,109-110,114-115,119-120,246-248,251-272,274-323,325-330,332-347,349-385,510,519,527,529,532,535-538,652,686,760,795,815,821,848,872,905,907,910,957,973-982,984,989,1001-1030,1034-1063,1072,1106,1113-1117,1141,1191,1210-1213,1266-1270,1273-1277,1308-1309,1321-1342,1378,1386,1416-1434,1441,1450-1454,1479,1496,1550,1603-1647,1653-1661,1672-1716,1735,1740-1744,1746-1747,1753-1759,1824-1842,1844-1858,1890,2013,2019-2020,2035-2036,2053,2107,2111-2120,2130-2131,2136-2138,2141-2193,2195,2252,2259,2324-2351,2356,2364-2369,2387,2452,2472,2531,2552-2553,2559-2564,2578,2588,2604-2611,2686,2718-2737,2754-2755,2810,2842,2892,2918,2924
+apps/web/src/styles/design-system-flow.css
+  h_7714b9549db59c 28,30,32-35,38-39,68,155-157,163,189,202,224-226,232,234,239,269,276,312,342,351,375,404,409,452,459,482,498,510,513-514,520-521,528,548,575,611,663,674,886,968-969,1121,1182,1227,1234,1283,1332,1479,1494,1541,1614,1641,1658,1682,1694,1841,1856,1918,2068,2132,2349-2351,2386,2425,2428-2519,2612,2633-2634,2642,2863,2901,2910,3236,3325,3636
+apps/web/src/styles/entrance.css
+  h_7714b9549db59c 301
+apps/web/src/styles/home/entry-layout.css
+  h_7714b9549db59c 13-24,36,49-55,58-59,69-70,74,77,85-174,191-200,202-235,237,239-263,268,288,304-306,310-313,315,318,324,333-559,561-567,571,590-591,595,602,607-608,620-636,644-647,659,670-682,705-707,712-713,751-753,755,757-765,767-768,770-771,774-795,799-860,862-906,909-912,914-991,995-999,1002-1003,1049-1152,1160-1162,1164-1166,1169-1174,1182-1215,1221-1223,1235,1238-1240,1257-1259,1385,1402,1405,1462,1510,1547,1577,1584,1657-1669,1701-1711,1758-1761,1763,1765-1768,1775-1780,1787,1792-1798,1866-1870,1872,1875-1876,1880-1953,1966-1997,2073-2074,2076-2077,2079-2081,2083-2089,2091-2093,2095-2098,2100-2105,2116-2123,2131-2133,2146-2148,2155-2160,2202-2215,2220,2269,2338,2365-2372,2378-2380,2406-2458,2468,2495-2509,2513-2519,2521,2525-2526,2528,2530-2532,2535-2546,2549-2601,2604,2606-2607,2609,2612,2627,2637,2654,2700-2747,2752,2757-2762,2779-2818,2821,2825-2836,2842,2882,2901,3056,3079,3113,3147,3260,3266,3328,3395,3401,3459,3670-3671,3726,3733,3741,3905,3917-3918,3960-3961,4011-4012,4205,4217,4222,4238,4571,4594,4650,4659,4695,4735,4746,4760,4785,4790-4791,4839,4886-4938,5027,5030,5048,5053,5056,5060,5063-5086,5089-5104,5125-5127,5156,5171,5236,5507,5524-8401
+apps/web/src/styles/home/home-hero.css
+  h_7714b9549db59c 5-8,11-33,43-47,55-57,83-115,117-119,122-123,131,138,175-176,351,430,471-509,516-523,525,528,530-532,550-560,563,566,576,581-582,587,590-591,593-595,603-607,609,611,614-622,637-638,651,671-675,683,690-692,702-705,711-713,731-732,758-760,764-767,770-771,780-781,787,853-854,971,977-978,988-989,1005,1043,1054-1055,1069-1070,1118,1125,1131-1132,1166-1171,1174-1190,1196-1243,1248-1250,1252-1256,1260-1261,1298,1465-1498,1514,1563,1576,1640,1671,1698,1746,1879,1884,1899-1900,1907-1908,1927,1946-1947,1956-1957,1961,1978-1979,1987,1995-1996,2048-2049,2053,2089-2090,2109,2125,2134,2208,2214,2232-2239,2319-2325,2331-2334,2336-2339,2342-2343,2345-2347,2349-2376,2378-2379,2384,2402-2403,2437,2490,2567-2571,2573-2575,2582,2587,2590,2592,2604-2606,2613-2617,2649-2650,2656-2659,2668-2673,2753-2766,2784-2788,2810-2815,2869,2931,2940,2943-2945,2975-2976,2992,2995-2997,3022-3025,3029,3045-3046,3069,3078-3079,3081,3116-3118,3144,3191,3199,3218-3219,3221-3222,3225-3262,3267-3278,3285,3307-3311,3314-3334,3348,3371-3563,3572-3582,3584-3585,3598,3600,3602-3604,3606,3609,3612,3621,3640,3656-3657,3664,3669,3677-3681,3683,3696,3708,3710-3714,3726-3731,3740,3742,3749-3751,3758,3761,3769-3771,3778-3816
+apps/web/src/styles/home/index.css
+  h_7714b9549db59c 15
+apps/web/src/styles/home/integrations.css
+  h_7714b9549db59c 22-23,96,107
+apps/web/src/styles/home/marketplace.css
+  h_7714b9549db59c 33,56,108,122,162,178
+apps/web/src/styles/home/new-project-modal.css
+  h_7714b9549db59c 9-11
+apps/web/src/styles/home/plugin-marketplace-demo.css
+  h_7714b9549db59c 1-1795
+apps/web/src/styles/home/plugins-home.css
+  h_7714b9549db59c 42,184,209,256,275,316,444,505,541-545,561,563-566,568,619,625-629,655-656,715,752,763-764,832,861,909-910,943,948-949,1015,1030-1093,1103,1191-1192
+apps/web/src/styles/home/plugins-view.css
+  h_7714b9549db59c 16,133,140,332,349,359,427,435-464,469-492,494-498,500-536,557,600,640,729-730,825-826,831,868
+apps/web/src/styles/home/plus-menu.css
+  h_7714b9549db59c 30,40-53,55-58,78,83,90,99,102-103,109,145-148,150-151,156,166-167,169,173,199,212-215,230,238,244,248,250,260,266,274-275,278,287,292-295,311,325,333,337-338,344,373-375,389,394-395,406,411,420,425,429,434,436-437,456-669
+apps/web/src/styles/home/recent-projects.css
+  h_7714b9549db59c 6-37,42-44,52-63,77,100-146,152,154-156,158-161,163-166,173,175,177,187-201,203,205-221,223-230,234,240,247-267,284,286-291,311-316,348,354-359,362-367,371,377-389,391,397-399,403-413,511,517,530-534,538-577,583-591,602-1164
+apps/web/src/styles/home/tasks.css
+  h_7714b9549db59c 35-36,90,98,116-117,166,174,181,252-253,258,329-330,344,371-372,430,479-480,515,649,686,776,782-783,820-821,872,879,913,1023,1052-1053,1124-1125,1134,1160,1209,1284,1332,1334-1336,1446-1447,1466,1493,1523-1524,1548,1567
+apps/web/src/styles/home/use-everywhere.css
+  h_7714b9549db59c 16-17,54,62,69,155,172,209,226,283
+apps/web/src/styles/material.css
+  h_7714b9549db59c 1-222
+apps/web/src/styles/modal-window-drag.css
+  h_7714b9549db59c 15,33
+apps/web/src/styles/primitives.css
+  h_7714b9549db59c 3-6,8-13,15-16,19-24,27-28,31-34,37-42,45-47,49-50,55,57-58,61,101,104,106-122,134,136-140,142-143,158,160,162-164,170-173,271-274,302,308,340
+apps/web/src/styles/remixicon/remixicon.css
+  h_7714b9549db59c 13
+apps/web/src/styles/shell.css
+  h_7714b9549db59c 12,20,28-37,62-64,66-67,79-84,105-212,214-215,223-224,239-240,243,248-250,271-308,311-312,315,318-319,321,326-328,350-357,359,361-375,389-393,399-400,404-406,408,421,459-460,463-493,588-589,624-628,667,672,694,819,838-846,873-1467,1469-1470,1472-1478,1480-1481,1483-1487,1489-1503,1546,1620,1640,1698,1758-1770,1804-1823,1829-1831,1833-1836,1848,1856-1884,1886-1894,1897,1902,1906-1908,1910,1914,1916,1920-1923,1926,1930-1932,1934-1953,1958,1961-1971,1983,2002-2004,2016-2017,2019-2020,2039-2041,2045,2075,2081,2086,2089,2092,2098,2102,2108-2122,2137-2221,2253-2268,2271,2274-2277,2280,2286-2295,2298-2302,2320-2328,2331,2338-2340,2347,2409-2412,2416,2426-2428,2434-2435,2446-2449
+apps/web/src/styles/social-share.css
+  h_7714b9549db59c 21,141,150
+apps/web/src/styles/tokens.css
+  h_7714b9549db59c 5-11,15-46,49-62,74-88,91-106,114-126,135-139,143-181,196-200,204-242
+apps/web/src/styles/viewer/code.css
+  h_7714b9549db59c 1444-1446,1452-1456,1462,1464-1465,1467,1469,1473-1479
+apps/web/src/styles/viewer/composio.css
+  h_7714b9549db59c 162,191,213-214,373-374,378,391,433,504,511-514,527,532,567,620,625,668,678,697,703,803-806,832-833,900,950,994-995,1008-1009,1154-1160,1172,1220-1222,1240,1244,1292,1298,2016,2021,2123-2124,2194,2225,2251-2254,2313,2323-2329,2537,2548,2640,2644,2693-2700,2713,2715-2718,2786,2792,2920,2965,3009,3079,3120-3123,3143,3161,3191,3205-3210,3212,3216-3223,3225-3226,3236-3239,3242,3250,3262-3265,3267,3297,3327,3372,3382-3384,3413-3418,3431,3486-3489,3512-3528,3558,3566-3567,3582,3584-3589
+apps/web/src/styles/viewer/core.css
+  h_7714b9549db59c 8,24-31,36-40,43-44,46-49,51-57,59,78,88,158-160,218,275,279-283,285-289,292-293,298-299,335,353,385-388,402,445,475-485,501,537,551-558,560-562,564-572,574-576,592-603,623-627,813,930,948,965,973,1034,1041,1050,1118,1123,1167,1180,1212,1267,1310-1321,1354-1355,1358-1373,1381-1382,1385-1388,1390,1401-1403,1433-1434,1443-1446,1574-1581,1654,1678,1680-1682,1685-1707,1861,2120,2174,2188,2204,2285-2290,2298-2306,2313,2321,2482-2483,2561,2575,2587,2602,2626,2639,2656,2668,2684,2714,2732,2783,2794,2812,2842-2848,2850,2852-2855
+apps/web/src/styles/viewer/library.css
+  h_7714b9549db59c 81,116,322,328,380,387-388,437,441,443-445,455,565,572,586,596,672,778-779,830,912,1041,1110,1187-1188,1254-1255,1267,1322,1328,1392,1399,1439-1456,1488,1499,1507,1521-1522,1586,1602,1609,1654,1672,1705,1730-1766,1832,1841,1959,1968,2199,2214,2402-2403,2444-2445,2506,2515,2528,2625,2681,2712,2748,2796,2809,2818,2848-2861
+apps/web/src/styles/viewer/memory.css
+  h_7714b9549db59c 34,139,167,195,533,620,677-707,709-715,717-718,720,723-729,731,735,738-772,774-807,810,812-954,956-972,975-980,985,988-990,992,997,1002,1013-1014,1016,1022-1027,1031,1036-1037,1044-1045,1064,1067-1070,1073-1074,1078,1080,1082,1090,1093-1095,1097,1100-1154,1209,1246,1256-1258,1266-1268,1285-1289,1298,1302-1304,1316-1317,1323,1336-1339,1342-1347,1350,1353-1355,1365-1367,1369-1371,1373-1378,1382-1385,1389,1393,1410,1415-1427,1432,1439-1441,1448-1449,1451,1461-1463,1465,1467,1469-1470,1480-1481,1484,1493,1496-1497,1502-1509,1514,1529,1539,1550,1581,1588,1610,1629,1634-1636,1643-1645,1649-1665,1669,1671-1675,1691,1747,1760-1784,1810-1835,1841-1847,1936,1944,1951,1968
+apps/web/src/styles/viewer/pets.css
+  h_7714b9549db59c 79-101,164,179,225-229,317,331,396,480,484,492,538-541,561,602,669-672,739-752,769-772,810-811,853,867-868,887,953,1001,1039,1101,1126,1146,1205,1233,1263,1268,1284
+apps/web/src/styles/viewer/plugin-inputs.css
+  h_7714b9549db59c 99,113,143,169,247,316
+apps/web/src/styles/viewer/plugin-rail.css
+  h_7714b9549db59c 62-74,117,124,161,190,200,214,303,317,330,399-400,410,458-459,471,520-521,535,622-623,646
+apps/web/src/styles/viewer/routines.css
+  h_7714b9549db59c 20,71,78,90,97,110-125,127,167-173,225-239,247-292,303-304,377-378,386,454,709,726,759,799,884,899,910,912,947,952,980-983,986-988,990-991,1001,1007-1008,1019,1024-1029,1031-1051,1059-1064,1071-1088,1090-1091,1098-1106,1109-1110,1112-1114,1127,1135-1222,1229-1233,1239-1243,1248-1251,1261-1265,1293-1294,1305-1307,1310-1318,1321-1323,1325,1327-1352,1355,1360-1367,1374-1383,1391-1393,1409,1424-1426,1452,1455,1460,1476,1482-1485,1487-1488,1526,1533-1534,1548-1549,1552-1555,1651,1700,1717-1719,1721,1778,1809,1813,1830,1848,1851,1882,1950,1984-1985,1998-1999,2007,2019,2037,2054-2057,2059,2069-2073,2076-2089,2091-2092,2101-2102,2113-2118,2120,2123-2126,2128-2131,2133-2135,2157,2161-2162,2164,2167-2169,2196-2205,2207,2210-2219,2221-2236,2254-2271,2273-2282,2284-2288,2290-2353,2355-2356,2358,2360-2374,2386,2436,2457,2482,2498,2522,2550-2558,2560-2577,2581-2585,2594-2596,2603-2604,2607-2609,2611,2614-2618,2621,2624-2655,2669,2676,2809,2816-2819,2854,2971-2989,3024-3025,3042,3050-3052,3060,3113,3115,3169,3171,3221,3231,3245-3246,3258-3266,3269-3270,3272-3278,3280-3285,3287-3288,3291,3293-3295,3303,3306-3307,3310-3311,3319,3326,3348,3392,3402-3407,3418,3439-3443,3447,3473,3492,3497-3500,3531,3539,3546,3587-3590,3593-3601,3616,3643-3687,3689,3701-3728,3746-3747,3834-3948
+apps/web/src/styles/viewer/templates-plugins.css
+  h_7714b9549db59c 29,68,73,84,92,98,114,199,212,221,283,323,336,359,364,370,386,412,483,508,589,601,604,636-637,669-670,682,738,745,750,805,826,859,863,876,909,920,952,972,1041-1042,1113,1174,1181,1198,1230,1260,1315,1334,1391,1417,1443,1457,1491,1498,1539,1553,1562,1575,1585,1627,1765,1808,1813,1824,1867,1915,1933,1996,2020,2037,2110,2114,2150,2197-2198,2209,2226,2229,2233,2241,2306,2341,2378,2408,2417,2425
+apps/web/src/styles/viewer/theater.css
+  h_7714b9549db59c 52,97,106,137,154,188,210,214,225,261,270,279,344-345,382-383,408,497-498,520,549,568-569,587,592,601-649,668,696,711-713,720-734,898-903,1362,1373,1388,1393-1394,1432,1443,1453,1458,1512,1584,1588-1589,1640-1641,1668,1693,1734,1740,1763,1787,1810-1814,1875,1916,1950,1955,1972,2034,2048,2061
+apps/web/src/styles/viewer/tools.css
+  h_7714b9549db59c 1,7,37,45,66,88,105,112,151,157,205,216,238-239,266,294,296-302,331,346-355,426,430,435,466,471,477,493-502,515-518,533,614,622-626,638-644,652,654,656-657,672-678,693-714,786-788,792,823,842,857,876,897,923,953,961,1220,1252,1297,1317
+apps/web/src/styles/workspace/artifacts.css
+  h_7714b9549db59c 59,69-70,79,96,152,202-203,210-215,222,224,231-232,234,240,243,249,251,257-269,280-289,308,310,328,335,339,346-347,349,354,359,361-378,383-384,386,391-513,600-613,616-617,619,622,624-651,654-685,687-697,699-714,734,739,766-825,828-877,888,890-892,894-900,963-974,1007-1153,1155-1159,1161-1165,1167-1171,1173-1181,1183-1187,1189-1193,1195-1200,1202-1230,1264,1362,1512,1521-1522,1525-1534,1539-1544,1603-1609,1650-1656,1729-1735,1737-1741,1743,1745-1749,1751-1752,1754,1756,1760,1762-1766,1768,1770-1772,1776-1777,1780-1781,1789-1790,1802-1806,1808-1814,1823-1825,1833-1848,1866,1897-1900,1947-1948,1970,1973-1975,1981,1983-1984,1996-1997,2011,2018,2031,2050-2051,2054-2057,2059-2064,2069-2070,2075-2076,2079-2100,2103-2105,2108,2111,2117-2121,2125-2128,2130,2132-2135,2137-2139,2148,2164-2166,2168,2171,2180-2190,2192-2210,2219,2237,2241,2283,2312,2317,2334,2348-2349,2368-2372,2377-2380,2399-2400,2486,2492-2501,2529-2592,2603,2654,2661,2673,2691,2700,2710,2733-2743,2750-2764,2766-2768,2781-2865,2872-2877,2881-2884,2934,2982-3006,3008,3088,3090-3095,3101-3111,3146-3150,3190,3274,3299,3321,3331,3342,3520-3521,3536,3705,3714,3744,3752,3834,3852-3853,3860,3908,3970,3986,4035,4046-4048,4067-4076,4090,4117-4125,4160,4323,4337,4342,4357,4373,4390,4415,4468,4473,4479
+apps/web/src/styles/workspace/connectors.css
+  h_7714b9549db59c 48,57,66,106,129-132,191,211,270,279,289,306,345,354,385,445-449,475,480,493,815,933,1056,1083,1150,1513,1565,1748,1773-1774,1813
+apps/web/src/styles/workspace/design-browser.css
+  h_7714b9549db59c 35-43,58,140-141,143-144,150-156,158-159,746-749,763-765,777-780,1211-1217
+apps/web/src/styles/workspace/design-files.css
+  h_7714b9549db59c 6-8,10-12,22-23,33,240-243,294-356,527,556-558,654-659,664-665,667,713-714,717-718,723,727-824,832-845,858-860,865,871-874,876-878,882-883,886-888,890-895,897-898,900-915,918-932,938-940,1093-1134,1136-1156,1161-1195,1197-1201,1204,1207,1209-1212,1214-1219,1221-1224,1227-1229,1231-1232,1234-1240,1242-1244,1246-1248,1251-1252,1254,1256,1258-1259,1261,1264-1266,1268-1270,1273-1275,1277-1281,1283-1288,1290-1293,1295-1297,1299,1301-1309,1311,1313-1318,1320-1322,1324-1328,1330-1332,1336-1341,1343-1360,1362-1365,1368-1379,1386-1389,1398-1400,1409-1412
+apps/web/src/styles/workspace/drawer.css
+  h_7714b9549db59c 7-8,57,65,87,129,161,193,244,255,286,449-452,454-459,468,470-472,519,643,688,702,723,780,788-792,797,890,926,1000,1035-1040,1046-1051,1152,1232,1270,1297,1346,1373-1376,1395,1404-1412,1416-1423,1431,1461,1469,1477-1479,1482,1484,1503-1516,1533-1655,1658-1660,1664-1667,1670-1674,1677,1712,1747,1767-1768,1819-1822,1850-1852,1968-1971,1975,2033,2047-2050,2052-2055,2058-2060,2343,2363-2364,2366-2368,2370-2371,2373-2376,2555,2563,2617,2635-2651,2661,2671
+apps/web/src/styles/workspace/mention-home.css
+  h_7714b9549db59c 46-51,54-63,81,90-99,101-103,105-106,147,182,191,196,221,224-231,239,255,263,275,284,290,316-317,322,325-327,360-366,369-371,374-377,408,444-447,450-451,489-490,495-496,499-502,510,519-527,604-625,640,666-670,722-775,779-782,795-810,822,829,872-885,908-909,952,958-959,1045,1102,1150,1212,1301-1353,1376-1377,1427-1431,1433,1447-1485,1489,1498-1509,1534-1536,1542,1548-1613,1618-1620,1624-1628,1636-1646,1680,1682-1684,1697,1701,1704-1709,1715-1725,1743-1744,1748,1768,1779-1782,1818-1845,1848-1850,1859-1866,1868-1869,1873-1874,1880,1882-1884,1891,1930,1935,1937-1955,2008,2103,2112,2119,2141,2175,2294,2304,2352,2447,2457,2547,2667,2676,2688,2713,2783,2793,2884-2886,2899,2908,2933,2936-2938,2941,2945-2946,2949
+apps/web/src/types.ts
+  h_7714b9549db59c 70,91,366-369,625,650
+apps/web/src/utils/pluginRequiredInputs.ts
+  h_7714b9549db59c 17-26,35-37,47-90
+apps/web/tests/App.test.ts
+  h_7714b9549db59c 6,9-11,13,16-62,76-239,394-516
+apps/web/tests/all-projects-list.test.ts
+  h_7714b9549db59c 1-479
+apps/web/tests/analytics/amr-attribution.test.ts
+  h_7714b9549db59c 337,344,357,361,365-395
+apps/web/tests/analytics/run-task-analytics.test.ts
+  h_7714b9549db59c 1-78
+apps/web/tests/analytics/workspace.test.ts
+  h_7714b9549db59c 1-56
+apps/web/tests/api-attachment-context.test.ts
+  h_7714b9549db59c 2-6,29-45,130-176
+apps/web/tests/byok-run-analytics.test.ts
+  h_7714b9549db59c 25-29,63-71,111-118
+apps/web/tests/campaigns/deepseek-v4-flash-i18n-matrix.test.ts
+  h_7714b9549db59c 1-76
+apps/web/tests/campaigns/deepseek-v4-flash-modal.test.tsx
+  h_7714b9549db59c 1-218
+apps/web/tests/campaigns/deepseek-v4-flash-ui-contract.test.ts
+  h_7714b9549db59c 1-127
+apps/web/tests/campaigns/deepseek-v4-flash.test.ts
+  h_7714b9549db59c 1-179
+apps/web/tests/collab-client.heartbeat-backoff.test.ts
+  h_7714b9549db59c 1-116
+apps/web/tests/collab-client.test.ts
+  h_7714b9549db59c 1-1675
+apps/web/tests/collab-demo-view.test.tsx
+  h_7714b9549db59c 1-121
+apps/web/tests/collab-presence-bar.test.tsx
+  h_7714b9549db59c 1-192
+apps/web/tests/collab-session.test.ts
+  h_7714b9549db59c 1-72
+apps/web/tests/collab/optimistic-project-ownership.test.ts
+  h_7714b9549db59c 1-190
+apps/web/tests/collab/workspace-identity-key-is-total.test.ts
+  h_7714b9549db59c 1-66
+apps/web/tests/collab/workspace-snapshot-activation.test.tsx
+  h_7714b9549db59c 1-94
+apps/web/tests/comment-anchor-writeback.test.ts
+  h_7714b9549db59c 1-112
+apps/web/tests/comment-drift-demo.test.tsx
+  h_7714b9549db59c 1-38
+apps/web/tests/comments.test.ts
+  h_7714b9549db59c 11,511-584
+apps/web/tests/community-view.test.tsx
+  h_7714b9549db59c 1-449
+apps/web/tests/components/AmrArtifactUpgradeDialog.test.tsx
+  h_7714b9549db59c 52
+apps/web/tests/components/AmrArtifactUpgradeGate.test.tsx
+  h_7714b9549db59c 281-321
+apps/web/tests/components/AmrBalanceDialog.test.tsx
+  h_7714b9549db59c 3,6-27,32-33,57-315
+apps/web/tests/components/AmrGuidance.test.tsx
+  h_7714b9549db59c 99-107
+apps/web/tests/components/AmrLoginPill.test.tsx
+  h_7714b9549db59c 25,30-34,282,297,312,320,369,602-715,1087-1132,1134,1160,1163,1168-1169,1234
+apps/web/tests/components/AmrLowBalanceDialog.test.tsx
+  h_7714b9549db59c 38-40
+apps/web/tests/components/App.amr-plan-tier.test.tsx
+  h_7714b9549db59c 1-280
+apps/web/tests/components/App.amr-polling.test.tsx
+  h_7714b9549db59c 4,21-46,92,102,128,242-243,495-499,599-602
+apps/web/tests/components/App.connectors.test.tsx
+  h_7714b9549db59c 4,28-34,37-48,240-247,250,292-373,411,439,467,488,515
+apps/web/tests/components/App.design-systems-loading-race.test.tsx
+  h_7714b9549db59c 1-585
+apps/web/tests/components/App.mediaProviders.test.tsx
+  h_7714b9549db59c 4,27-32,34,37-49,188
+apps/web/tests/components/App.onboarding-amr-e2e.test.tsx
+  h_7714b9549db59c 240-245,261-268
+apps/web/tests/components/App.onboarding-completion-persistence.test.tsx
+  h_7714b9549db59c 1-575
+apps/web/tests/components/App.previewKeepAlive.test.tsx
+  h_7714b9549db59c 3,7,33,38-40,66,71,74-76,160-168,233,266,273-274,320-347,356,359-360,379,382-383,402,405-406
+apps/web/tests/components/App.project-create-race.test.tsx
+  h_7714b9549db59c 4-7,11-15,38,40,42,44,49-104,109,113-114,117,119,121-125,133-144,147,149,153-154,157-158,163-164,168-191,237-239,243-319,346-347,349-351,354-362,366-373,375-380,383-398,402-408,410-412,416-435,439-468,475-523,529-548,561-567,596,598,600,602,634,636,638,640,700-756,759-765,784-808,810-818,834-958,1194-1355,1393-1496,1651,1781-1782,1785-1790,1805,1810,1887-3512
+apps/web/tests/components/App.skills-workspace-scope.test.tsx
+  h_7714b9549db59c 1-627
+apps/web/tests/components/App.update-dialog.test.tsx
+  h_7714b9549db59c 1-259
+apps/web/tests/components/App.workspace-switch-project-list.test.tsx
+  h_7714b9549db59c 1-1100
+apps/web/tests/components/AssistantMessage.nextStep.test.tsx
+  h_7714b9549db59c 156-159
+apps/web/tests/components/AssistantMessage.test.tsx
+  h_7714b9549db59c 13,16,67-92,186-229,430,440-441,444-464,807-811,875-887,899-910,1270-1314,1319-1327,1334-1336,1338-1339,1345-1348,1375-1377
+apps/web/tests/components/AvatarMenu.test.tsx
+  h_7714b9549db59c 3,6-7,9-10,13-16,21-113,157-185,190,204,214,226,249,252-256,258-259,263-275,279-284,292,297,300-301,307-309,311,315-319,322-326,329-330,332-343,346-349,353-357,360,362-363,375-380,383,387-402,407,409,413-423,431-434,439-444,446-447,449-452,454,456-467,470,472-483,490-497,499-506,510-517,519-526,529-564,566-569,571-573,576-577,580-612,615-625,627,631,633-640,642-649,652-660,662-667,669
+apps/web/tests/components/BoardComposerPopover.actions-visible.test.tsx
+  h_7714b9549db59c 1-85
+apps/web/tests/components/BrandLogo.workspace-scope.test.tsx
+  h_7714b9549db59c 1-81
+apps/web/tests/components/BrandPreviewCard.test.tsx
+  h_7714b9549db59c 6-22,26,71-74,125-208
+apps/web/tests/components/BrandsTab.refresh.test.tsx
+  h_7714b9549db59c 6-7,16-21,31-36,42-52,54-62,110-114,144-176,219-256
+apps/web/tests/components/ChatComposer.context-pickers.test.tsx
+  h_7714b9549db59c 494-502,504-530,533-534,539-554,583-585,644-649,703-705,738-741,751-753,811-819,825,831-833,841-842,848,852,860-861,863-865,869-878,882-885,887-893,897-899,907-909,911,914,916-917,919-921,925-936,970-972
+apps/web/tests/components/ChatComposer.design-toolbox.test.tsx
+  h_7714b9549db59c 114-116,223-255
+apps/web/tests/components/ChatComposer.empty-send-guard.test.tsx
+  h_7714b9549db59c 1-140
+apps/web/tests/components/ChatComposer.search.test.tsx
+  h_7714b9549db59c 108-110,260,354,509-513
+apps/web/tests/components/ChatPane.amr-auth-inline.test.tsx
+  h_7714b9549db59c 12-13,49,60,106-126,150,158,175,177-246,248-363,369,373
+apps/web/tests/components/ChatPane.conversation-title.test.tsx
+  h_7714b9549db59c 146,174-179,181-183,186-189,191-194,232,234-237
+apps/web/tests/components/ChatPane.imported-folder-artifacts.test.tsx
+  h_7714b9549db59c 81-83,86-88
+apps/web/tests/components/ChatPane.jump-button-question-form.test.tsx
+  h_7714b9549db59c 1-166
+apps/web/tests/components/ChatPane.quick-pill-popup-contract.test.tsx
+  h_7714b9549db59c 1-45
+apps/web/tests/components/ChatPane.resume-failed.test.tsx
+  h_7714b9549db59c 8-11,46-47,124-132,142-147
+apps/web/tests/components/CloudSignInTip.test.tsx
+  h_7714b9549db59c 1-207
+apps/web/tests/components/ComposerModePicker.test.tsx
+  h_7714b9549db59c 1-142
+apps/web/tests/components/ComposerPlusMenu.test.tsx
+  h_7714b9549db59c 168,208,422-427,430-431,438-445,455-461,469,473-479,482-483,490-543,600,625-635,637-641,643-655
+apps/web/tests/components/DesignBrowserPanel.viewport-switcher.test.tsx
+  h_7714b9549db59c 1-107
+apps/web/tests/components/DesignBrowserPanel.webview.test.tsx
+  h_7714b9549db59c 361-367,777-780
+apps/web/tests/components/DesignFilesPanel.long-name-truncate.test.tsx
+  h_7714b9549db59c 16,74-76,79,81-82,85,87-97,101,103,107-109
+apps/web/tests/components/DesignFilesPanel.test.tsx
+  h_7714b9549db59c 13,18,25,131-140,160,168-170,176,178,183,185,190-192,196,198,201-243,249,252,254-255,257,260,266,270,273,279-284,286-287,291-294,297,305,307-310,329-342,352-444,447,450,452,455,487-488,498-501,504,506,508,511-515,517-522,524,526,528-537,540-573,587-589,613,624,627-630,633-639,641-643,645-646,648-653,655,657,659-687,708,714-716,720-721,723-724,734,738-744,777,786,788,799-803,838,875-877,879,881-883,886-888,919,950,965,985-1094
+apps/web/tests/components/DesignKitView.test.tsx
+  h_7714b9549db59c 3,6,10,44-89
+apps/web/tests/components/DesignSystemFlow.test.tsx
+  h_7714b9549db59c 3,5-10,34,50-60,108-146,194,201,235-251,1357-1359,1423,1430,1436-1437,1443-1444,1450-1451,1512,1519,1525-1526,1529-1531,1801,1807,1813-1814,1880-1881,1888,1948-1949,1954-1955,1962,2158,2164-2170,2172-2174,2176-2183,2404-2405,2411-2412,2418-2419,2425-2426,2438,2445,2452,2458-2459,2466,2473,2480,2486-2487,2493-2494,2500-2501,2507-2508,2514-2515,2521-2522,2590-2828,2914-3057,3136-3138,3204-3206,3212-3213,3278-3285,3333-3336,3345-3390,3464-3470,3535-3542,3545-3547,3614-3616
+apps/web/tests/components/DesignSystemPicker.brand-preview.test.tsx
+  h_7714b9549db59c 180
+apps/web/tests/components/DesignSystemPicker.test.tsx
+  h_7714b9549db59c 100,115,164-245
+apps/web/tests/components/DesignSystemPreviewModal.layering.test.tsx
+  h_7714b9549db59c 4,6,12-19,26-49,52,54-60,71-93,115-169,200
+apps/web/tests/components/DesignSystemReadIdentity.test.tsx
+  h_7714b9549db59c 1-355
+apps/web/tests/components/DesignSystemsSection.test.tsx
+  h_7714b9549db59c 92
+apps/web/tests/components/DesignSystemsTab.sync-to-team.test.tsx
+  h_7714b9549db59c 1-609
+apps/web/tests/components/DesignSystemsTab.team-permissions.test.tsx
+  h_7714b9549db59c 1-163
+apps/web/tests/components/DesignSystemsTab.team-scope.test.tsx
+  h_7714b9549db59c 1-149
+apps/web/tests/components/DesignSystemsTab.test.tsx
+  h_7714b9549db59c 8-13,149-150,315-344
+apps/web/tests/components/DesignsTab.empty.test.tsx
+  h_7714b9549db59c 7-19,27-45,65-66,121-149,182-242
+apps/web/tests/components/DesignsTab.select-mode.test.tsx
+  h_7714b9549db59c 7,133-150
+apps/web/tests/components/EntryNavRail.all-projects-team-only.test.tsx
+  h_7714b9549db59c 2-7,10-11,13,16,18-26,29,32-37,43-45,47-50,53-56,58-60
+apps/web/tests/components/EntryNavRail.analytics.test.tsx
+  h_7714b9549db59c 1-74
+apps/web/tests/components/EntryNavRail.billing-card.test.tsx
+  h_7714b9549db59c 1-289
+apps/web/tests/components/EntryNavRail.directory-account-scope.test.tsx
+  h_7714b9549db59c 1-271
+apps/web/tests/components/EntryNavRail.invite-seat-gate.test.tsx
+  h_7714b9549db59c 1-258
+apps/web/tests/components/EntryNavRail.message-center-entry.test.tsx
+  h_7714b9549db59c 1-140
+apps/web/tests/components/EntryNavRail.no-duplicate-settings.test.tsx
+  h_7714b9549db59c 1-66
+apps/web/tests/components/EntryNavRail.sign-out-confirm.test.tsx
+  h_7714b9549db59c 1-160
+apps/web/tests/components/EntryNavRail.signout-restores-cloud-tip.test.tsx
+  h_7714b9549db59c 1-111
+apps/web/tests/components/EntryNavRail.switch-seeds-context.test.tsx
+  h_7714b9549db59c 1-245
+apps/web/tests/components/EntryNavRail.team-plan-badge.test.tsx
+  h_7714b9549db59c 1-246
+apps/web/tests/components/EntryNavRail.top-tier-upgrade.test.tsx
+  h_7714b9549db59c 1-180
+apps/web/tests/components/EntryNavRail.updater-above-account-row.test.tsx
+  h_7714b9549db59c 1-208
+apps/web/tests/components/EntryNavRail.workspace-directory.test.tsx
+  h_7714b9549db59c 1-200
+apps/web/tests/components/EntryNavRail.workspace-name.test.tsx
+  h_7714b9549db59c 1-128
+apps/web/tests/components/EntryShell.amr-workspace-race.test.tsx
+  h_7714b9549db59c 1-308
+apps/web/tests/components/EntryShell.blank-project-naming.test.tsx
+  h_7714b9549db59c 1-774
+apps/web/tests/components/EntryShell.onboarding.test.tsx
+  h_7714b9549db59c 14,261,275-286,305,330-332,335,340,344-351,369-374,380,383-385,405-415,418-444,465,467-510,512,514-523,565-568,581,630-632,640-902,919-920,937-939,948-953,957,968-973,998,1021-1026,1045,1148,1153,1365,1369-1431,1469,1492-1493,1526,1539-1544,1570-1575,1590,1604-1608,1615-1620,1648,1698-1699
+apps/web/tests/components/EntryShell.workspace-plan-badge-scope.test.tsx
+  h_7714b9549db59c 1-389
+apps/web/tests/components/ExtensionsMarketplace.card-actions.test.tsx
+  h_7714b9549db59c 1-460
+apps/web/tests/components/ExtensionsMarketplace.create-dialog-layout.test.tsx
+  h_7714b9549db59c 1-107
+apps/web/tests/components/ExtensionsMarketplace.plugin-detail-entry.test.tsx
+  h_7714b9549db59c 1-216
+apps/web/tests/components/ExtensionsMarketplace.sync-to-team.test.tsx
+  h_7714b9549db59c 1-244
+apps/web/tests/components/ExtensionsMarketplace.team-scope.test.tsx
+  h_7714b9549db59c 1-706
+apps/web/tests/components/ExtensionsMarketplace.workspace-mutation-scope.test.tsx
+  h_7714b9549db59c 1-217
+apps/web/tests/components/FigmaImportModal.workspace-scope.test.tsx
+  h_7714b9549db59c 1-70
+apps/web/tests/components/FileViewer.board-mode-content-update.test.tsx
+  h_7714b9549db59c 1-187
+apps/web/tests/components/FileViewer.deploy-target.test.tsx
+  h_7714b9549db59c 101-103,105
+apps/web/tests/components/FileViewer.manual-edit-history.test.tsx
+  h_7714b9549db59c 39-85,142,180,234,296,343,397
+apps/web/tests/components/FileViewer.manual-edit.test.tsx
+  h_7714b9549db59c 3,31-70,79-82,99-101,115-117,121,128-141,184,189,193,208,215,227,229,232,234-235,237-238,261,263,304,306,308,357,359,387,389,424,426,441,461,463-478,481-486,489-493,496-504,506-521,524,526,530,536,546,548-550,552,554-559,561-564,567,569-570,573-577,586-588,590-593,595,602-604,608,614,624-626,629,634-635,639,641-643,650,652-654,657-659,661-665,667,677,680-683,686,688-689,691-694
+apps/web/tests/components/FileViewer.readonly-publish-probe.test.tsx
+  h_7714b9549db59c 1-163
+apps/web/tests/components/FileViewer.srcdoc-reload-races.test.tsx
+  h_7714b9549db59c 66-76,132-133,223,238-395,802-804,807-808,1052-1054
+apps/web/tests/components/FileViewer.test.tsx
+  h_7714b9549db59c 5,61,69-71,88-165,172-175,232-236,238-241,276-311,314-321,329-333,409-636,659-900,905-908,911-915,999-1043,1444-1445,1453,1458-1553,1609-1612,1666-1697,1802,1806-1811,1813,1815,1817-1891,1970,1976,1979,1982-1992,2006-2007,2013-2014,2019-2028,2030,2032-2038,2040-2045,2047,2049,2052-2070,2076-2077,2082-2088,2091-2152,2154-2158,2160-2169,2172-2190,2196-2197,2202-2212,2214,2216-2219,2222-2230,2232-2234,2236-2248,2250-2267,2270-2273,2279-2280,2285-2286,2289-2292,2295-2296,2298-2309,2311-2320,2323-2365,2367-2368,2371,2375-2376,2381-2382,2384,2389,2393,2395-2396,2398-2400,2402-2410,2412-2418,2420-2428,2430,2434-2436,2441-2446,2448-2450,2452-2460,2462-2468,2471-2486,2491-2493,2498,2500,2502-2504,2507-3131,3133-3531,3535-3545,3551-3552,3561-3585,3590-3593,3660,3738-3742,3744,3805,3812-3813,3815,3904,3923,3925-3928,3931-3935,3938-3944,3946,3948-3949,3952,3970,3975,3977-3982,4136-4138,4140,4165-4220,4540,4607,4651,4700,4716,4782,4844,4970,5070,5139,5190,5246,5301,5311-5389,5403,5405-5414,5417,5421-5458,5460-5465,5467-5610,5612-5617,5619-5621,5665,5723,5787,5917-5924,6013-6014,6021,6047-6053,6166-6171,6302,6357,6566,6630,6697,6765,6834,6908-6913,6919-6921,6923-6925,6985-6986,7022-7178,7516,7537-7539,7641-7767,7796-7797,8010-8012,8039-8044,8049-8058,8081-8137,8142-8144,8185-8187,8189-8192,8198,8206,8209-8212,8241-8246,8256-8375,8422-8481,8702-8830,8916-8922,8966-8972,9224-9228,9244,9256,9288,9331-9334,9379-9382,9631-9725,9727,9729-9731,9734-9736,9740-9742,9746,9751-9754,9756,9762-9764,9769-9772,9774-9776,9778-9809,9815-9816,9820-9869,9871-9904,10019-10131,10211-10213,10216-10240,10242-10243,10245-10246,10248-10249,10251-10252,10254-10365,10456
+apps/web/tests/components/FileWorkspace.design-system.test.tsx
+  h_7714b9549db59c 8-12,15-18,105-145,178-217,305,327-360,422-423,446-447,488-505,562-563,621-638,682-683,685-689,727-744,1030
+apps/web/tests/components/FileWorkspace.test.tsx
+  h_7714b9549db59c 6,10-14,19,21,23,33-61,266,298-341,676-680,768-771,827-828,847-850,916-917,951-954,968-969,979,981,992,1006,1009-1014,1016-1020,1083-1085,1100-1102,1344,1369-2428,2499-2502,2539-2571,3021-3075,3319-3322,3325
+apps/web/tests/components/GenUIInbox.test.tsx
+  h_7714b9549db59c 1-67
+apps/web/tests/components/GenUISurfaceRenderer.test.tsx
+  h_7714b9549db59c 15-18,66-98
+apps/web/tests/components/HandoffButton.fallback-reveal.test.tsx
+  h_7714b9549db59c 54,123-125
+apps/web/tests/components/HandoffButton.loading.test.tsx
+  h_7714b9549db59c 1-108
+apps/web/tests/components/HomeHero.rail.test.tsx
+  h_7714b9549db59c 105-117,119,121,123-125,127-129,132-143,163,191,195-198,219,221,225-227,230,293,296-299,306,463-474,476-477
+apps/web/tests/components/HomeHero.scenario-cards.test.tsx
+  h_7714b9549db59c 73-78,80,82-88,97,99,101
+apps/web/tests/components/HomeView.chip-restore.test.tsx
+  h_7714b9549db59c 1-267
+apps/web/tests/components/HomeView.community-filter-decouple.test.tsx
+  h_7714b9549db59c 15-16,23,75-83,88-93,100-103,105,107,113,115,117,123-132
+apps/web/tests/components/HomeView.composer-sending-state.test.tsx
+  h_7714b9549db59c 20-31,109-112,146-148,196-198,201
+apps/web/tests/components/HomeView.context-picker.test.tsx
+  h_7714b9549db59c 17-28,127-135,359,361,371-374,442,444
+apps/web/tests/components/HomeView.first-run-guide.test.tsx
+  h_7714b9549db59c 62-71,73,78,90,107,109-110,130,185,203,205-206
+apps/web/tests/components/HomeView.media-options.test.tsx
+  h_7714b9549db59c 10-21,75,82-87,531-542
+apps/web/tests/components/HomeView.plugin-i18n.test.tsx
+  h_7714b9549db59c 4-17,19,118
+apps/web/tests/components/HomeView.plugin-workspace-scope.test.tsx
+  h_7714b9549db59c 1-423
+apps/web/tests/components/HomeView.prefill.test.tsx
+  h_7714b9549db59c 11-22,24,499-563,875,907,910,1005,1073,1076,1078-1079,1082,1136,1152,1155,1200-1207,1218,1302,1312-1314,1382,1452,1506,1509,1555,1561,1572,1576,2113-2114,2118,2123-2127,2130-2146
+apps/web/tests/components/HomeView.prompt-example-send-pulse.test.tsx
+  h_7714b9549db59c 14,84-86,130-132,135
+apps/web/tests/components/HomeView.recommendation-strip-removed.test.tsx
+  h_7714b9549db59c 1-92
+apps/web/tests/components/HomeView.seed-while-mounted.test.tsx
+  h_7714b9549db59c 1-60
+apps/web/tests/components/HomeView.template-use-send-enabled.test.tsx
+  h_7714b9549db59c 1-553
+apps/web/tests/components/HomeView.web-clone-tracking.test.tsx
+  h_7714b9549db59c 106-114,121,143,158,171,191
+apps/web/tests/components/InlineModelSwitcher.compact-model-click.test.tsx
+  h_7714b9549db59c 1-319
+apps/web/tests/components/InlineModelSwitcher.test.tsx
+  h_7714b9549db59c 5,13,15,116-190,234,500,505-557,624,639-647,660,665-668,675-739,1542-1597
+apps/web/tests/components/InlinePluginsRail.test.tsx
+  h_7714b9549db59c 13-33,84-88,99-110
+apps/web/tests/components/InlinePluginsRail.workspace-scope.test.tsx
+  h_7714b9549db59c 1-261
+apps/web/tests/components/IntegrationsView.config-reconciliation.test.tsx
+  h_7714b9549db59c 1-100
+apps/web/tests/components/InviteDialog.analytics.test.tsx
+  h_7714b9549db59c 1-83
+apps/web/tests/components/InviteDialog.role-menu.test.tsx
+  h_7714b9549db59c 1-84
+apps/web/tests/components/InviteDialog.seat-gate.test.tsx
+  h_7714b9549db59c 1-132
+apps/web/tests/components/ManualEditPanel.test.tsx
+  h_7714b9549db59c 8,11-15,68-76,120,230,247-249,260-265,335,357,469,480-496,515-520,523-525,537-753,763-774,782-830,848-851,869-872,907-910
+apps/web/tests/components/MemoryToast.connection-budget.test.tsx
+  h_7714b9549db59c 1-135
+apps/web/tests/components/NewAutomationModal.workspace-scope.test.tsx
+  h_7714b9549db59c 6-26,28-38,42-43,46-66,69-75,78-79,81-82,84,86-92
+apps/web/tests/components/NewProjectModal.test.tsx
+  h_7714b9549db59c 11-39,189-195
+apps/web/tests/components/NextStepActions.test.tsx
+  h_7714b9549db59c 187-192
+apps/web/tests/components/PluginDetailView.curated-layout.test.tsx
+  h_7714b9549db59c 3-5,7,9-10,12-14,17-20,22-25,27-74,76-107,109-128,130-142,144,146-153,155-158,160-165,168-202,205-214,216-220,224-226,229-237,240,242-244,247-252,255-277,280-304,306-311,313-316,318-323,326-366,369-396,398-400,402-409,412-444,447-450,452-454
+apps/web/tests/components/PluginDetailView.use-handoff.test.tsx
+  h_7714b9549db59c 1-144
+apps/web/tests/components/PluginPreviewHero.workspace-scope.test.tsx
+  h_7714b9549db59c 1-47
+apps/web/tests/components/PluginsSection.test.tsx
+  h_7714b9549db59c 17-37,90-94,119-128
+apps/web/tests/components/PluginsView.sharedResourceIsMine.test.ts
+  h_7714b9549db59c 1-29
+apps/web/tests/components/PluginsView.team-workspace-scope.test.tsx
+  h_7714b9549db59c 1-446
+apps/web/tests/components/PluginsView.test.tsx
+  h_7714b9549db59c 25-35,316-319,400,415,435,514,670-673
+apps/web/tests/components/PreviewDrawOverlay.send-disabled.test.tsx
+  h_7714b9549db59c 30
+apps/web/tests/components/PreviewDrawOverlay.test.tsx
+  h_7714b9549db59c 221-228,243,251-252,254-257,260-264,266-267,270,272,278,280-283,297,325,345,369,399,436,540-541,559,585,725,786-789,792,809-812,815,821-823
+apps/web/tests/components/PrivacySection.test.tsx
+  h_7714b9549db59c 78-81,93-95,100-115,117,168,180-181,202-203,256-257
+apps/web/tests/components/ProjectReferenceModal.test.tsx
+  h_7714b9549db59c 6-10,47,57-61,67-86,149-171
+apps/web/tests/components/ProjectSearchModal.keyboard.test.tsx
+  h_7714b9549db59c 1-156
+apps/web/tests/components/ProjectView.api-empty-response.test.tsx
+  h_7714b9549db59c 4,35-36,126-155,169,180,207-209,303-304,402-442,468-472,478,915
+apps/web/tests/components/ProjectView.deleteConversation.test.tsx
+  h_7714b9549db59c 215,248,308-314
+apps/web/tests/components/ProjectView.fileSyncBadgeStatusCheck.test.tsx
+  h_7714b9549db59c 1-339
+apps/web/tests/components/ProjectView.pendingPrompt.test.tsx
+  h_7714b9549db59c 3,17,26-28,39-49,101-113,155,162,206-210,244-245,281,286,307,311-318,331,338-339,354-619,655-708,798-882,1022
+apps/web/tests/components/ProjectView.previewKeepAlive.test.tsx
+  h_7714b9549db59c 24-27,219-220,264-336
+apps/web/tests/components/ProjectView.questionFormKey.test.ts
+  h_7714b9549db59c 6,95-146
+apps/web/tests/components/ProjectView.reattach-restore.test.tsx
+  h_7714b9549db59c 1193,1199
+apps/web/tests/components/ProjectView.run-cleanup.test.tsx
+  h_7714b9549db59c 46,149,510-575,1645-1647,1737-1739,1820-1822,2270-2275,2352-2354,3849,4018,4294,4393
+apps/web/tests/components/ProjectView.run-isolation.test.tsx
+  h_7714b9549db59c 7-12,14-16,54-108,129-185,202,227-228,629-668,728-775,782-799,889-1321,1562-1723,1914-1923,1928-1931,1937-2007,2176,2191-2193,2199,2428,2442,2448,2635-2638,2648-2651,2694-2697,2707-2710,2850-2863,3003,3009,3136,3170-3175,3191-3203,3207,3211,3246-3249,3262-3264,3429-3451,3454,3470,3476
+apps/web/tests/components/ProjectView.run-workspace-identity.test.tsx
+  h_7714b9549db59c 1-1510
+apps/web/tests/components/ProjectView.shared-non-owner-chat-default.test.ts
+  h_7714b9549db59c 1-32
+apps/web/tests/components/ProjectView.sharedTitleRefresh.test.tsx
+  h_7714b9549db59c 1-1395
+apps/web/tests/components/ProjectView.tabs-navigation.test.tsx
+  h_7714b9549db59c 184,190,308,345,347-351,359,361-362,368,374-377,379-380,425-429,435-439
+apps/web/tests/components/RecentProjectsStrip.invite-target.test.tsx
+  h_7714b9549db59c 1-196
+apps/web/tests/components/RecentProjectsStrip.move-owner-conflict.test.tsx
+  h_7714b9549db59c 1-145
+apps/web/tests/components/RecentProjectsStrip.test.tsx
+  h_7714b9549db59c 3-4,8-12,15-42,64-65,70-71,75,78,82-92,99-120,146-168,172-176,181-209,211-805,934,938-940,969,1001-1006,1008,1014-1021,1024-1032,1055,1065-1324
+apps/web/tests/components/RecentProjectsStrip.type-filter-bulk.test.tsx
+  h_7714b9549db59c 1-382
+apps/web/tests/components/RoutinesSection.workspace-scope.test.tsx
+  h_7714b9549db59c 1-217
+apps/web/tests/components/SettingsDialog.execution.test.tsx
+  h_7714b9549db59c 7,116,163-242,361,366,377,390,392-397,467,575-576,601-603,623-628,665,670,693,894,968,974,990,1004-1009,1090,1130,1136,1169,1765-1770,1804-1812,2105-2110,2159-2164,2322-2327,2372-2377,2422-2430,2437-2442,2483-2488,2548-2553,2588-2593,2630-2635,2690-2695,2755-2756,2777-2780,2887-2890,2908-2910,2913-2914,2917-2918,2923,2926-2927,2935,2937-2938,2940-2945,2948-2949,2953,2970,2972,2975-2981,3008-3013,3161,3214,3220-3225,3250-3255,3284,3300-3305,3330,3333,3338-3445,3449-3454,3483,3502-3507,3558,3591-3596,3639,3667-3672,3732,3755-3760,3795,3805-3810,3858,3862-3867,3911,3914,3917,3925-4032,4036-4041,4071,4080-4085,4139-4144,4180,4183-4185,4188,4219-4222,4224-4228,4251-4254,4278,4309,4332-4335,4380,4398-4402,4409,4442-4444,4476-4477,4490,4520,4542,4601,4621,4686-4687,4691-4692,4736,4770-4773,4776-4780,4786-4787,4789,4798,4808,4827,4834-4837,4841,4892-4894,4900,4920,4936,4946,4952-4960,4970-4977,4992,5001-5006,5017,5025-5033,5038,5127-5144,5321-5335,5338,5448,5505,5566-5611,6072,6084-6090,6115-6123,6126,6135
+apps/web/tests/components/SettingsDialog.media.test.tsx
+  h_7714b9549db59c 28,30,72,76,79-82,117,127-128,134-135,152,157,160,194,198,201-204,209,286,348,352,359,411-413,426-427,441,472-477,509-512,514,516,519,528
+apps/web/tests/components/SettingsDialog.search-removed.test.tsx
+  h_7714b9549db59c 1-57
+apps/web/tests/components/SettingsDialog.team-plan-badge.test.tsx
+  h_7714b9549db59c 1-256
+apps/web/tests/components/SettingsDialog.test.ts
+  h_7714b9549db59c 11,29,81-107,1335-1380
+apps/web/tests/components/SettingsDialog.top-tier-upgrade.test.tsx
+  h_7714b9549db59c 1-291
+apps/web/tests/components/SketchEditor.save.test.tsx
+  h_7714b9549db59c 118-120
+apps/web/tests/components/SketchPreview.test.tsx
+  h_7714b9549db59c 5-9,43-62,136-179
+apps/web/tests/components/SkillsSection.workspace-scope.test.tsx
+  h_7714b9549db59c 1-368
+apps/web/tests/components/TasksView.workspace-scope.test.tsx
+  h_7714b9549db59c 1-162
+apps/web/tests/components/Theater/CritiqueTheaterMount.test.tsx
+  h_7714b9549db59c 5-10,14-15,17-26,31,39,44,56-79,83,91,115,157,163,180,207-307,320,359,391,443
+apps/web/tests/components/Theater/hooks/useCritiqueReplay.test.tsx
+  h_7714b9549db59c 12-16,52-74,127-151
+apps/web/tests/components/Theater/hooks/useCritiqueStream.test.tsx
+  h_7714b9549db59c 12-16,35,55,71,76,78-81,86-108,191-220
+apps/web/tests/components/Theater/hooks/useCritiqueTheaterEnabled.test.tsx
+  h_7714b9549db59c 13-17,37-56,366-393
+apps/web/tests/components/Theater/state/sse.test.ts
+  h_7714b9549db59c 10-14,18,83-105,124-153
+apps/web/tests/components/Toast.test.tsx
+  h_7714b9549db59c 77-79
+apps/web/tests/components/UpdaterPopup.rocket-indicator.test.tsx
+  h_7714b9549db59c 1-148
+apps/web/tests/components/UserActionCard.test.tsx
+  h_7714b9549db59c 4,41-76
+apps/web/tests/components/WhatsNewPopup.test.tsx
+  h_7714b9549db59c 4-19,23,27,37-42,44-48,51-52,54-56,59,61,64-66,87-88,157-354
+apps/web/tests/components/WorkspaceTabsBar.test.tsx
+  h_7714b9549db59c 4,74-82,95-110,112-117,165-170,173-175,194-196,198,203-230,241-245,276-278,290,309,314-323,325-327,357-358,360-361,374-376,394,412-414,500-501,619-622,633-635,650-652,717-720,789-799,980-1787
+apps/web/tests/components/agentModelSelection.test.ts
+  h_7714b9549db59c 3,79-175
+apps/web/tests/components/assistant-message-tool-status.test.tsx
+  h_7714b9549db59c 425-455
+apps/web/tests/components/chat-code-style.test.ts
+  h_7714b9549db59c 13,17-19
+apps/web/tests/components/community-remix-workspace-binding.test.tsx
+  h_7714b9549db59c 1-479
+apps/web/tests/components/entry-rail-account-state.test.ts
+  h_7714b9549db59c 2-18,21-25,28-44,47-51,54-59
+apps/web/tests/components/file-viewer-image-export.test.tsx
+  h_7714b9549db59c 92-93,155-156,453,458-463,479
+apps/web/tests/components/file-viewer-markdown-copy.test.tsx
+  h_7714b9549db59c 6-10,13-17,57-99,185-220,270-271,328-329,376-377,408-409
+apps/web/tests/components/file-viewer-preview-assets.test.ts
+  h_7714b9549db59c 11,119-130,227-255
+apps/web/tests/components/file-viewer-readonly-save.test.tsx
+  h_7714b9549db59c 1-110
+apps/web/tests/components/file-viewer-screenshot-tooltip.test.tsx
+  h_7714b9549db59c 74,87
+apps/web/tests/components/file-viewer-version-download.test.tsx
+  h_7714b9549db59c 391,393-410
+apps/web/tests/components/home-hero/PlaceholderCarousel.paused.test.tsx
+  h_7714b9549db59c 1-91
+apps/web/tests/components/home-hero/TemplatePicker.test.tsx
+  h_7714b9549db59c 60-61,80-83
+apps/web/tests/components/home-logo-assets.test.ts
+  h_7714b9549db59c 11-17,41-49,52-56
+apps/web/tests/components/html-source-snapshot-cache.test.ts
+  h_7714b9549db59c 1-83
+apps/web/tests/components/manual-edit-kind.test.ts
+  h_7714b9549db59c 22-26
+apps/web/tests/components/modelProviderIcon.test.ts
+  h_7714b9549db59c 1-44
+apps/web/tests/components/plugins-home-media-surface.test.tsx
+  h_7714b9549db59c 126-159
+apps/web/tests/components/project-cover.lazy.test.tsx
+  h_7714b9549db59c 1-119
+apps/web/tests/components/recent-projects-strip.thumbnail-budget.test.tsx
+  h_7714b9549db59c 1-301
+apps/web/tests/components/team-console-url.test.ts
+  h_7714b9549db59c 1-206
+apps/web/tests/components/template-modal-mapping.test.tsx
+  h_7714b9549db59c 1-274
+apps/web/tests/components/theme-settings-removed.test.tsx
+  h_7714b9549db59c 1-8,10-11,13-42,44-49,52-80,82-108,110-119,122-159,162-163,165-167,169-176
+apps/web/tests/components/useOpenFolderImport.test.tsx
+  h_7714b9549db59c 1-43
+apps/web/tests/design-files-lazy-render.test.tsx
+  h_7714b9549db59c 1-368
+apps/web/tests/edit-mode/bridge.test.ts
+  h_7714b9549db59c 262,385,387,390-395,397,399-414,419,421,424-427,431-433,435-444,449-459,461-478,481-482,484,487-504,507-603,605,607,612-642,644-648,651-652,654,657-669,672,675-687,689-700,705-706,708,711-721,724,727-794,796-805,810-818,821-830,1002,1030
+apps/web/tests/edit-mode/source-patches.test.ts
+  h_7714b9549db59c 27-28,91-94,97-109,114-122
+apps/web/tests/helpers/motion-mock.tsx
+  h_7714b9549db59c 20-28,31-32,50
+apps/web/tests/helpers/workspace-context.ts
+  h_7714b9549db59c 1-81
+apps/web/tests/hooks/useBrandReadyPrompt.test.tsx
+  h_7714b9549db59c 3,92,121-128,139-140,169-173,175
+apps/web/tests/hooks/useDismissOnOutsideInteraction.test.tsx
+  h_7714b9549db59c 1-92
+apps/web/tests/hooks/useEventStream.test.tsx
+  h_7714b9549db59c 1-180
+apps/web/tests/hooks/useFinalizeProject.test.tsx
+  h_7714b9549db59c 5,38-50,88-103
+apps/web/tests/hooks/useProjectDetail.test.tsx
+  h_7714b9549db59c 5,24-53,55-82,135-170
+apps/web/tests/i18n/locales.test.ts
+  h_7714b9549db59c 72-159,248,250,253,256
+apps/web/tests/invite-continuation.test.ts
+  h_7714b9549db59c 1-208
+apps/web/tests/invite-deeplink.test.ts
+  h_7714b9549db59c 1-116
+apps/web/tests/lib/coalesced-get.test.ts
+  h_7714b9549db59c 1-151
+apps/web/tests/project-route-bootstrap.test.ts
+  h_7714b9549db59c 1-267
+apps/web/tests/providers/api-proxy.test.ts
+  h_7714b9549db59c 1-5,63-105,162-175,218,222-226
+apps/web/tests/providers/project-events.test.ts
+  h_7714b9549db59c 240-323
+apps/web/tests/providers/project-workspace-transport-scope.test.ts
+  h_7714b9549db59c 1-445
+apps/web/tests/providers/registry.test.ts
+  h_7714b9549db59c 3-7,14-16,18,22,27,30,32,34,37-38,41,45-69,86-419,510-747,769-982,1173-1200,1261-1281,1714-1781
+apps/web/tests/providers/sse.test.ts
+  h_7714b9549db59c 56,72,1063,1086
+apps/web/tests/public-file-publish.test.ts
+  h_7714b9549db59c 1-82
+apps/web/tests/router.navigate.test.tsx
+  h_7714b9549db59c 3,7,15-28,93-258,280,299-344
+apps/web/tests/router.test.ts
+  h_7714b9549db59c 114-123
+apps/web/tests/run-workspace-identity.test.ts
+  h_7714b9549db59c 1-250
+apps/web/tests/runtime/amr-auth-retry-continuation.test.ts
+  h_7714b9549db59c 1-177
+apps/web/tests/runtime/amr-balance-gate.test.ts
+  h_7714b9549db59c 7-8,37-73,80,109-145,270-501
+apps/web/tests/runtime/amr-guidance.test.ts
+  h_7714b9549db59c 1-21,24-30,32,34,37,39-64,66-116
+apps/web/tests/runtime/exports.test.ts
+  h_7714b9549db59c 28,729-803
+apps/web/tests/runtime/font-recovery.test.ts
+  h_7714b9549db59c 1-111
+apps/web/tests/runtime/kit-edit.test.ts
+  h_7714b9549db59c 2,12-16,57-59,64-66,68-72,114-134
+apps/web/tests/runtime/kit-upload.test.tsx
+  h_7714b9549db59c 1-165
+apps/web/tests/runtime/plugin-skill-descriptions.client-boundary.test.ts
+  h_7714b9549db59c 1-18
+apps/web/tests/runtime/srcdoc-bridge-empty-targets.test.ts
+  h_7714b9549db59c 470-554
+apps/web/tests/runtime/srcdoc-deck-bridge-framework-deck.test.ts
+  h_7714b9549db59c 18-26,78-84,130-132
+apps/web/tests/runtime/srcdoc-sandbox-shim.test.ts
+  h_7714b9549db59c 206-333
+apps/web/tests/runtime/srcdoc-transport.test.ts
+  h_7714b9549db59c 23,54,56,114-120,124-148
+apps/web/tests/runtime/srcdoc.test.ts
+  h_7714b9549db59c 32-59
+apps/web/tests/settings-access.test.ts
+  h_7714b9549db59c 1-88
+apps/web/tests/setup/coalesced-get-reset.ts
+  h_7714b9549db59c 1-32
+apps/web/tests/setup/jsdom-lexical.ts
+  h_7714b9549db59c 2,11-17
+apps/web/tests/sidecar-proxy-keepalive.test.ts
+  h_7714b9549db59c 1-167
+apps/web/tests/single-flight-project-reads.test.tsx
+  h_7714b9549db59c 1-216
+apps/web/tests/state/appearance.test.ts
+  h_7714b9549db59c 40-41,43,49-50,52,54-55,61,64,66,75,77,90,92
+apps/web/tests/state/config.test.ts
+  h_7714b9549db59c 160-165,263-300,994-995,1036,1055,1270-1271,1293-1294,1373,1382-1385,1419-1451
+apps/web/tests/state/force-light-theme.test.ts
+  h_7714b9549db59c 1-166
+apps/web/tests/state/project-display-cache.test.ts
+  h_7714b9549db59c 1-150
+apps/web/tests/state/projects.test.ts
+  h_7714b9549db59c 4,6,10-13,16,19-25,28-31,33-128,178-212,231-473,506-773,822-1012,1035-1043,1050-1053,1060-1119,1170-1201,1221-1234,1243-1246,1255-1258,1265-1317,1414-1439,1481-1514,1552-1716,1754-1806
+apps/web/tests/styles/acceptance-visual-fixes.test.ts
+  h_7714b9549db59c 1-154
+apps/web/tests/styles/app-wash-platform.test.ts
+  h_7714b9549db59c 1-30
+apps/web/tests/styles/avatar-menu-pinned-footer.test.ts
+  h_7714b9549db59c 4-21,23,25-26,30,45-50,53-62,64-67,69-71,73-77
+apps/web/tests/styles/chat-disclosure-accessibility.test.ts
+  h_7714b9549db59c 20-28
+apps/web/tests/styles/chat-message-rail-glass.test.ts
+  h_7714b9549db59c 1-15
+apps/web/tests/styles/chat-project-header-glass.test.ts
+  h_7714b9549db59c 1-18
+apps/web/tests/styles/chatpane-grid-transition.test.ts
+  h_7714b9549db59c 1-54
+apps/web/tests/styles/cloud-signin-tip-selectable-text.test.ts
+  h_7714b9549db59c 1-40
+apps/web/tests/styles/default-background.test.ts
+  h_7714b9549db59c 17-18,24-25,33,35
+apps/web/tests/styles/design-browser-styles.test.ts
+  h_7714b9549db59c 90
+apps/web/tests/styles/design-files-preview-list.test.ts
+  h_7714b9549db59c 34-39,53-54,59-62,65-69,73-74,78-102
+apps/web/tests/styles/design-kit-section-spacing.test.ts
+  h_7714b9549db59c 1-31
+apps/web/tests/styles/home-hero-compact-controls.test.ts
+  h_7714b9549db59c 22,24-29,47,52-59,62
+apps/web/tests/styles/mention-popover.test.ts
+  h_7714b9549db59c 39,42-52
+apps/web/tests/styles/onboarding-layout.test.ts
+  h_7714b9549db59c 9-12,17,26-37,49-62
+apps/web/tests/styles/plugin-share-menu-layout.test.ts
+  h_7714b9549db59c 1-35
+apps/web/tests/styles/settings-polish.test.ts
+  h_7714b9549db59c 71,77-81,83-86,89-90
+apps/web/tests/styles/workspace-switcher-overflow.test.ts
+  h_7714b9549db59c 1-38
+apps/web/tests/styles/workspace-tabs-chrome.test.ts
+  h_7714b9549db59c 39,264,272-273,277-278,295,297-298,303,312-319,324-326,335-337,341,350-353,355-356,381,397-400
+apps/web/tests/tab-scope.test.ts
+  h_7714b9549db59c 1-234
+apps/web/tests/team-members-store.test.ts
+  h_7714b9549db59c 1-145
+apps/web/tests/team-plan.test.ts
+  h_7714b9549db59c 1-239
+apps/web/tests/team-projects-cache-key-collision.test.tsx
+  h_7714b9549db59c 1-146
+apps/web/tests/team-projects-workspace-scope.test.ts
+  h_7714b9549db59c 1-72
+apps/web/tests/update-surface-real-data.test.ts
+  h_7714b9549db59c 1-63
+apps/web/tests/use-brand-extract.workspace-headers.test.tsx
+  h_7714b9549db59c 1-108
+apps/web/tests/use-collab.test.tsx
+  h_7714b9549db59c 1-359
+apps/web/tests/use-project-collab.auto-pull-retry.test.tsx
+  h_7714b9549db59c 1-479
+apps/web/tests/use-project-collab.context-seed.test.tsx
+  h_7714b9549db59c 1-318
+apps/web/tests/use-project-collab.created-by-viewer.test.tsx
+  h_7714b9549db59c 1-460
+apps/web/tests/use-project-collab.first-open-materializing.test.tsx
+  h_7714b9549db59c 1-2,4-53,55-57,59-64,69-77,79-83,85-95,97-99,101-105,107,110-121,123-125,127-128,131-138,140-148,151
+apps/web/tests/use-project-collab.status-poll-parallel.test.tsx
+  h_7714b9549db59c 1-307
+apps/web/tests/use-project-collab.test.tsx
+  h_7714b9549db59c 1-353
+apps/web/tests/useProjectRouteWorkspaceContext.test.tsx
+  h_7714b9549db59c 1-376
+apps/web/tests/useProjectWorkspaceScope.test.tsx
+  h_7714b9549db59c 1-657
+apps/web/tests/useProjectWorkspaceScope.workspace-identity.test.tsx
+  h_7714b9549db59c 1-261
+apps/web/tests/useTeamMembers.shared-scheduler.test.tsx
+  h_7714b9549db59c 1-425
+apps/web/tests/useTeamMembers.workspace-identity.test.tsx
+  h_7714b9549db59c 1-267
+apps/web/tests/useTeamProjects.metadata-refresh.test.tsx
+  h_7714b9549db59c 1-352
+apps/web/tests/useTeamProjects.workspace-switch-race.test.tsx
+  h_7714b9549db59c 1-632
+apps/web/tests/useWorkspaceBilling.scope.test.tsx
+  h_7714b9549db59c 1-1966
+apps/web/tests/useWorkspaceContext.cache.test.tsx
+  h_7714b9549db59c 1-139
+apps/web/tests/useWorkspaceContext.identity-generation.test.tsx
+  h_7714b9549db59c 1-156
+apps/web/tests/useWorkspaceContext.invalidation.test.tsx
+  h_7714b9549db59c 1-152
+apps/web/tests/useWorkspaceContext.multi-consumer-dedupe.test.tsx
+  h_7714b9549db59c 1-146
+apps/web/tests/useWorkspaceContext.sign-in-refresh.test.tsx
+  h_7714b9549db59c 1-170
+apps/web/tests/workspace-billing-interests.test.ts
+  h_7714b9549db59c 1-236
+apps/web/tests/workspace-events-scope.test.ts
+  h_7714b9549db59c 1-43
+apps/web/tests/workspace-member-directory-preloader.test.tsx
+  h_7714b9549db59c 1-155
+apps/web/vitest.config.ts
+  h_7714b9549db59c 14-17
+bun.lock
+  h_7714b9549db59c 1-3636
+craft/typography.md
+  h_7714b9549db59c 32-62,116-119
+data/cards/lefarcen-signal-1785911256163.svg
+  h_7714b9549db59c 1
+data/contributors.json
+  h_7714b9549db59c 2-3,27-49
+data/events.jsonl
+  h_7714b9549db59c 2-3
+data/plugin-previews/manifest.json
+  h_7714b9549db59c 1228-1234
+design-templates/trading-analysis-dashboard-template/example.html
+  h_7714b9549db59c 7,10-19
+docs/CHANGELOG/v0.18.0/en.md
+  h_7714b9549db59c 1-68
+docs/CHANGELOG/v0.18.0/zh-CN.md
+  h_7714b9549db59c 1-68
+docs/CHANGELOG/v0.18.1/en.md
+  h_7714b9549db59c 1-54
+docs/CHANGELOG/v0.18.1/zh-CN.md
+  h_7714b9549db59c 1-54
+docs/deployment/workspace-team-rollout.md
+  h_7714b9549db59c 1-406
+docs/skills-protocol.md
+  h_7714b9549db59c 275-278,281-291,366-369
+e2e/AGENTS.md
+  h_7714b9549db59c 56
+e2e/lib/fake-agents.ts
+  h_7714b9549db59c 159-166,703-720
+e2e/lib/playwright/amr.ts
+  h_7714b9549db59c 3-7,21-171,250-319,322-334,342-365,395-401,403
+e2e/lib/playwright/campaign-dismissals.ts
+  h_7714b9549db59c 1-36
+e2e/lib/playwright/collab-cluster.ts
+  h_7714b9549db59c 1-163
+e2e/lib/playwright/fake-collab-hub.ts
+  h_7714b9549db59c 1-840
+e2e/lib/playwright/home-hero.ts
+  h_7714b9549db59c 1-71
+e2e/lib/playwright/mock-factory.ts
+  h_7714b9549db59c 65-68,72-111
+e2e/lib/playwright/rail.ts
+  h_7714b9549db59c 3,7-18,21-33,40-60,63-71,73,75,80,86-110
+e2e/lib/playwright/runtime-lifecycle.ts
+  h_7714b9549db59c 1,3-5,7,37-85
+e2e/lib/playwright/suite.ts
+  h_7714b9549db59c 6,9,12,22,31-35,54,82-93,118-130
+e2e/lib/playwright/suites.ts
+  h_7714b9549db59c 39,51-75,93-94,122-124
+e2e/lib/playwright/visual.ts
+  h_7714b9549db59c 6,139-148,182-183,341-358,380-461,520-535,724-726,735-738,748-772,774-778,787-790,805-808,818-823,836-855
+e2e/lib/playwright/workspace.ts
+  h_7714b9549db59c 4-7,9-11,16,20
+e2e/lib/vitest/amr.ts
+  h_7714b9549db59c 5-20,57
+e2e/lib/vitest/http.ts
+  h_7714b9549db59c 23-31
+e2e/lib/vitest/messages.ts
+  h_7714b9549db59c 36,41
+e2e/lib/vitest/packaged-app-shell.ts
+  h_7714b9549db59c 1-532
+e2e/lib/vitest/packaged-smoke-profile.ts
+  h_7714b9549db59c 1-46
+e2e/lib/vitest/runs.ts
+  h_7714b9549db59c 27,35-38,42,44-47,53,55-59,62-71,74-78,82-86,94,102-106,122,130-134
+e2e/lib/vitest/suite.ts
+  h_7714b9549db59c 36-40,85-88,95
+e2e/lib/vitest/win-installer-log.ts
+  h_7714b9549db59c 1-68
+e2e/package.json
+  h_7714b9549db59c 3
+e2e/playwright.visual.config.ts
+  h_7714b9549db59c 32-33
+e2e/specs/mac.spec.ts
+  h_7714b9549db59c 42-43,144,379,450-467,1012,1038-1039,1176-1183,1198,1203,1208-1213,1221-1223,1875-1881,1906-1908,2054,2056,2100-2101,2105-2106,2183-2192,2198-2202,2271,2273,2376-2379,2381-2384,2388-2392,2911-2934
+e2e/specs/win.spec.ts
+  h_7714b9549db59c 13-20,22,34,43-47,63-64,253,516-519,556,573-617,692-698,700-772,901-903,954,956-961,1271,1310-1311,1681,1782-1787,2075-2093,2095-2112,2574-2657
+e2e/tests/actions-cache-workflows.test.ts
+  h_7714b9549db59c 6,20-30,46-72,83,85-86,97-109,122-123,133
+e2e/tests/amr/auth-error-convergence.test.ts
+  h_7714b9549db59c 8,49,51-54,57-62,65-67
+e2e/tests/amr/insufficient-balance.test.ts
+  h_7714b9549db59c 8,48,50-53,56-58,61,64-69
+e2e/tests/amr/logout-state-persistence.test.ts
+  h_7714b9549db59c 8,56-59,86-89,93-97
+e2e/tests/amr/relogin-required.test.ts
+  h_7714b9549db59c 8,48-51,55-59,98,100-103,148,150-153
+e2e/tests/amr/turn.test.ts
+  h_7714b9549db59c 25,27,32,35,58,69-84,128-165,214-221,314,338,352,357-373,388-615
+e2e/tests/collab-cluster.test.ts
+  h_7714b9549db59c 1-238
+e2e/tests/collab/created-project-binding.test.ts
+  h_7714b9549db59c 1-352
+e2e/tests/collab/headerless-mutation.test.ts
+  h_7714b9549db59c 1-416
+e2e/tests/collab/new-account-default-workspace.test.ts
+  h_7714b9549db59c 1-186
+e2e/tests/collab/packaged-workspace-binding.test.ts
+  h_7714b9549db59c 1-221
+e2e/tests/collab/project-workspace-scope.test.ts
+  h_7714b9549db59c 1-321
+e2e/tests/collab/reconcile-unbound-authority.test.ts
+  h_7714b9549db59c 1-441
+e2e/tests/collab/team-project-catalog.test.ts
+  h_7714b9549db59c 1-633
+e2e/tests/collab/workspace-invite-flow.test.ts
+  h_7714b9549db59c 1-282
+e2e/tests/collab/workspace-plugin-resource-retraction.test.ts
+  h_7714b9549db59c 1-223
+e2e/tests/collab/workspace-project-isolation.test.ts
+  h_7714b9549db59c 1-322
+e2e/tests/collab/workspace-skill-resource-isolation.test.ts
+  h_7714b9549db59c 1-422
+e2e/tests/collab/workspace-switch-and-billing.test.ts
+  h_7714b9549db59c 1-325
+e2e/tests/dialog/service-error-convergence.test.ts
+  h_7714b9549db59c 139-160,162-228
+e2e/tests/fake-collab-hub.test.ts
+  h_7714b9549db59c 1-103
+e2e/tests/packaged-launcher-update-loop.test.ts
+  h_7714b9549db59c 5,35-40,48,485-1054
+e2e/tests/packaged-smoke-workflow.test.ts
+  h_7714b9549db59c 12-13,20-26,28,33-34,221-227,404-453,1128,1178,1190-1191,1204-1210,1216-1221,1226-1227,1237-1249,1265-1283,1289-1310,1340,1362-1363,1368-1370,1372-1376,1384-1386,1388-1405,1416-1417,1419-1432,1673-1718
+e2e/tests/packaged/app-shell.test.ts
+  h_7714b9549db59c 1-704
+e2e/tests/packaged/smoke-profile.test.ts
+  h_7714b9549db59c 1-63
+e2e/tests/playwright-runtime-lifecycle.test.ts
+  h_7714b9549db59c 10-13,114-213
+e2e/tests/plugin-example-iframe-shell.test.ts
+  h_7714b9549db59c 1-91
+e2e/tests/scripts/scopes.test.ts
+  h_7714b9549db59c 35-62,298-325,581-592,600-638,950,961,978-985,1035
+e2e/tests/server-identifier-scope.test.ts
+  h_7714b9549db59c 1-228
+e2e/tests/win-installer-log.test.ts
+  h_7714b9549db59c 1-45
+e2e/ui/amr-login-pill-workspace-refresh.test.ts
+  h_7714b9549db59c 1-407
+e2e/ui/amr-login-pill.test.ts
+  h_7714b9549db59c 34-36
+e2e/ui/amr-logout-requires-relogin.test.ts
+  h_7714b9549db59c 5-6,10,24-27,50-55,122-126,134-148
+e2e/ui/amr-onboarding.test.ts
+  h_7714b9549db59c 6,12-18,29,47-50,74-77,85-89,99-100,104-106,112,133-135,141-144,150,158-169,172,176-177,194,201,207,214,221,226,230,233,243,322-323,336-337,353-357,363-364,390,395-402,412-413,415-418,423,428-434,436-437,440-448,450,452-456,460-464,467-468,473-478,481-500,502-504,506-508,510,512,521-524,526-528,530-534,571-573,582,634-636,656,682,693,696,749-750,759,803-804,816,824,1026-1031,1067-1086,1107,1110-1113,1116-1119
+e2e/ui/amr-run-failure-recovery.test.ts
+  h_7714b9549db59c 10,14,22,53-58,62-70,73-76,170,237,289,303,338,390,404,433-436,494,505-507,509,556,560,604,612-613,653,664,727,781,795,861,875,953,967,1015,1076-1088
+e2e/ui/api-empty-response.test.ts
+  h_7714b9549db59c 2-6,16-26
+e2e/ui/app-design-files.test.ts
+  h_7714b9549db59c 3,5,17,286-289,293,295-299,313-315,317-340,347-404,473-481,484-488,519,904-905,918-1136,1182,1184
+e2e/ui/app-manual-edit.test.ts
+  h_7714b9549db59c 3,11,22,35,39,55,58-59,64-65,72,79,95-98,104-224,227-291,322-325,330-339,343,387,417,461,491-493,541,543,665-671,683-688,712-753,780-787,790,794-798,809-812,818,836-839,843-858,880-889,1106,1108-1109,1127-1134,1217-1310
+e2e/ui/app-restoration.test.ts
+  h_7714b9549db59c 17-21,58,231,255-256,263,268,292-293,300-303,305,309,311,336-338,340-341,382,385,1175-1178,1196-1210,1227,1229-1234,1239-1252,2454,2457,2475-2487,2595-2611,2616-2640,2955-2963,2965-2975,2977-2978,3180,3182-3189,3223,3322,3324
+e2e/ui/app.test.ts
+  h_7714b9549db59c 3-8,65,561,563-566,1327-1347
+e2e/ui/automations-page.test.ts
+  h_7714b9549db59c 3,9-11,78-86,103-105,110-113,115-117,122,210,346-348,350-353,355,357-365,1009,1079,1155,1914
+e2e/ui/chat-error-card-layout.test.ts
+  h_7714b9549db59c 2-3,5,11-12,15-22,24-46,48,51-53,57-61,63-64,66-72,74,76,79-80,84,86-87,89,92-106,110-113,116-121,123-181,183-184,186-193,195-205
+e2e/ui/community-template-modal-mapping.test.ts
+  h_7714b9549db59c 1-157
+e2e/ui/composer-toolbar-alignment.test.ts
+  h_7714b9549db59c 6,88
+e2e/ui/critical-smoke.test.ts
+  h_7714b9549db59c 3,18-20,24-27,33-42,44-46
+e2e/ui/design-systems-manager.test.ts
+  h_7714b9549db59c 18-24,77,80,91-210,442-507
+e2e/ui/entry-chrome-flows.test.ts
+  h_7714b9549db59c 3-10,128-145,164-167,169,178-186,193-195,197-199,204-307,334,404-414,417-425,428-436,438-440,443,451-456,458-459,461-472,474,476-479,490,494-500,502,505,619-621,625-626,642-645,651-653,658-659,748-751,753-756,758-765,853-857,1072-1075,1077-1079,1112-1114,1116,1118,1132-1137,1142-1144,1150-1151,1153-1163,1179-1181,1243,1263-1265,1271-1276,1283,1298,1300,1322-1327,1354-1355,1373,1379,1970-1972,1989,2002-2004,2065,2078,2091,2125,2167,2205,2307,2498,2512,2534-2537,2549-2551,2555-2715,2717-2733,2753-2772,2778-2779,2781-2785,2787-2796,2798-2809,2812-2827,2842-2847,2849,2870,2873,2880-2881
+e2e/ui/entry-configuration-flows.test.ts
+  h_7714b9549db59c 397-399,401-406
+e2e/ui/entry-topbar.test.ts
+  h_7714b9549db59c 3,5,10,13,23-26,101-112,115,117-119,122,125-126,128-129,135-142,145,154-158,165-167,175
+e2e/ui/home-hero-rail.test.ts
+  h_7714b9549db59c 3-7,15,196-228,311-341,435-437,488-494,551,561-563,565-568,641-643,648-650,674,1127,1134-1143,1175-1177,1179,1182,1199,1222,1245,1253-1258,1307-1317,1320,1322-1328,1330-1332,1334-1336,1339-1341,1345-1346,1348-1349,1352-1353,1377-1379,1381,1386-1388,1391-1401,1404,1477,1481,1483,1486,1488,1492,1495,1498,1503,1505,1510,1512,1515,1517,1522-1524,1526-1529,1531,1533-1571,1574,1580,1582,1588-1594,1596-1644,1646,1648-1651,1654-1658,1661,1665-1682,1685-1686,1692-1693,1695-1697,1699-1704,1706-1718,1720,1722,1725-1726,1728-1729,1731-1733,1735-1741,1743-1746,1757,1759,1770,1782,1785,1790,1796-1799,1807,1809,1815,1817,1820,1830,1832-1835,1843-1854,1857-1864,1869,1997
+e2e/ui/project-management-flows.test.ts
+  h_7714b9549db59c 7-12,32-36,124-126,131-139,245,275,325-437,440,475,504,566,601,617,626-627,646,649,656-659,662-664,667-668,680,701-703,823-824,826,828,1339-1781,1787-1790,1792-1797,1800,1804,1807-1809,1812,1824-1825,1838,1924,1926,1930,1932,1934,1960,1964,1980-1990,1992,2056-2059,2065-2066,2068,2071-2075,2099-2100,2106,2110,2344-2346,2367-2369,2372-2373,2386-2387,2660,2662-2663,2912-2915,2952,2955-2957,2960-2962,2965,2974-2976,3010-3016,3018-3020,3023-3025,3028,3056-3059,3062-3064,3067-3069,3072,3673,3675,3683,3686,3688-3709,3933-3935,3967-3976,3984-3985,3987-3994,4014-4017,4021,4023-4027,4155,4166,4200-4201,4203,4286-4294,4300-4317,4339-4347
+e2e/ui/real-daemon-run.test.ts
+  h_7714b9549db59c 540,549,556,617-628,716,719-725,727-729,772-799,835-838,842,844-848
+e2e/ui/settings-api-protocol.test.ts
+  h_7714b9549db59c 3-4,14-17,29-34,38-40,44,46-53,100,167,206,244,268,281,307,328,331,355,381,384,450,475-476,526,585,612,656,735,796,866,934,992,1002,1005,1043,1056,1068,1071
+e2e/ui/settings-connectors-auth-happy-path.test.ts
+  h_7714b9549db59c 224-233
+e2e/ui/settings-connectors-auth-recovery.test.ts
+  h_7714b9549db59c 3,9-12,92-93,99-103,247
+e2e/ui/settings-hover-contrast.test.ts
+  h_7714b9549db59c 173-179,186
+e2e/ui/settings-local-cli-codex-fallback.test.ts
+  h_7714b9549db59c 78-84,175
+e2e/ui/settings-memory-routines.test.ts
+  h_7714b9549db59c 1,4,102-104,132,602-603,2286-2288,2358-2360
+e2e/ui/split-resize-scrollbar-hitbox.test.ts
+  h_7714b9549db59c 162-165,171-172
+e2e/ui/updater-popup-stacking.test.ts
+  h_7714b9549db59c 3,120-122
+e2e/ui/visual-entry.test.ts
+  h_7714b9549db59c 2,18-21,26,68,70-75,82,84-86,93,95,97-98,105,107,109,111,148-167,169-183,192,194-195,197-199,215-235
+e2e/ui/visual-navigation.test.ts
+  h_7714b9549db59c 3,16-32,43-59,106-107,110-112,119-123,127-128,138-139,145-146,150-151,162-164,172-181
+e2e/ui/visual-settings.test.ts
+  h_7714b9549db59c 1-2,5,21-41,66-74,158,181,204
+e2e/ui/visual-workspace.test.ts
+  h_7714b9549db59c 17-26,43-67,86-91,102-112,122,134-142,145,149-170,173,183-185,187-201,206-211,221-239,242-248,251-264,273-277,291,304-311,315,317-342,345,347-357,367-372,378,390-394,397
+e2e/ui/workspace-keyboard-flows.test.ts
+  h_7714b9549db59c 91,265,298-301,320-324,332,378,424-441,443-444,539-545
+e2e/ui/workspace-multi-client-collab.test.ts
+  h_7714b9549db59c 1-595
+e2e/ui/workspace-team-design-system-picker.test.ts
+  h_7714b9549db59c 1-379
+e2e/ui/workspace-team-interactions.test.ts
+  h_7714b9549db59c 1-2144
+mocks/golden/9a9522ec-575f-432f-aeed-efc491e900aa.events.json
+  h_7714b9549db59c 7-8
+mocks/golden/dcdff3b3-cd39-4dcd-be83-372830a29639.events.json
+  h_7714b9549db59c 7-8,12
+mocks/lib/vela-subcommands.mjs
+  h_7714b9549db59c 40,51,54-55,57
+nix/pnpm-deps.nix
+  h_7714b9549db59c 12-13
+package.json
+  h_7714b9549db59c 3
+packages/components/src/button.module.css
+  h_7714b9549db59c 7,9-14,16-17,20-25,34,38-41,43-46,50-56,60-62,66-70,75,81-85,91,98-101,103-106,110-112,114
+packages/components/src/dialog.module.css
+  h_7714b9549db59c 4,12,19,21,24,26,37,43,49,53,57,61-63,68,70,76-77
+packages/components/src/form-controls.module.css
+  h_7714b9549db59c 5,7,9-11,21
+packages/components/src/styles.css
+  h_7714b9549db59c 3-6,8-13,15-16,19-24,27-28,31-34,37-42,45-47,49-50,54,57-58,101,104,106-122,129,131,133-135,141,202,207,210-213,278,280,318
+packages/contracts/package.json
+  h_7714b9549db59c 3
+packages/contracts/src/analytics/events.ts
+  h_7714b9549db59c 17
+packages/contracts/src/analytics/events/design-systems.ts
+  h_7714b9549db59c 6,354
+packages/contracts/src/analytics/events/event-names.ts
+  h_7714b9549db59c 48-55,104-106,124-125
+packages/contracts/src/analytics/events/event-payload.ts
+  h_7714b9549db59c 18,49-54
+packages/contracts/src/analytics/events/onboarding.ts
+  h_7714b9549db59c 25-27,33-34,48-49,57-59
+packages/contracts/src/analytics/events/result-events.ts
+  h_7714b9549db59c 132-272,280-282,343-344,366-367,377-381,410-411,414-415,459-462,515-519
+packages/contracts/src/analytics/events/shared-enums.ts
+  h_7714b9549db59c 63-66,86-88,94-103,109-113
+packages/contracts/src/analytics/events/surface-view.ts
+  h_7714b9549db59c 6-7,9,19,36-63,122-146,269,271-272,274-276
+packages/contracts/src/analytics/events/ui-click.ts
+  h_7714b9549db59c 8-10,77-80,96,553,555,564,677,935-950,960-977,1125-1129,1595-1601,1654,1656-1657
+packages/contracts/src/analytics/events/workspace.ts
+  h_7714b9549db59c 1-221
+packages/contracts/src/analytics/index.ts
+  h_7714b9549db59c 5
+packages/contracts/src/analytics/public-params.ts
+  h_7714b9549db59c 14-18
+packages/contracts/src/analytics/run-schema-v4.ts
+  h_7714b9549db59c 1-373
+packages/contracts/src/api/app-config.ts
+  h_7714b9549db59c 22-31
+packages/contracts/src/api/chat.ts
+  h_7714b9549db59c 27,83-86,139,234-240,502-610,708-709,864-867,883-891
+packages/contracts/src/api/collab.ts
+  h_7714b9549db59c 1-826
+packages/contracts/src/api/comments.ts
+  h_7714b9549db59c 36-52,87-92,117-156,160-164,168-185,192-202
+packages/contracts/src/api/project-sync.ts
+  h_7714b9549db59c 1-42
+packages/contracts/src/api/projects.ts
+  h_7714b9549db59c 8-10,217-224,244-265,346-385,397-516
+packages/contracts/src/api/registry.ts
+  h_7714b9549db59c 210-221,307-324,713-719
+packages/contracts/src/api/routines.ts
+  h_7714b9549db59c 7,100,108-115,138,149
+packages/contracts/src/api/team-resources.ts
+  h_7714b9549db59c 1-80
+packages/contracts/src/api/whats-new.ts
+  h_7714b9549db59c 1-6,16,18,20,22
+packages/contracts/src/api/workspace-invites.ts
+  h_7714b9549db59c 1-344
+packages/contracts/src/errors.ts
+  h_7714b9549db59c 121-140
+packages/contracts/src/index.ts
+  h_7714b9549db59c 17-19,48,58
+packages/contracts/src/sse/collab.ts
+  h_7714b9549db59c 1-195
+packages/contracts/tests/analytics-run-finished-contract.test.ts
+  h_7714b9549db59c 6-7,16-18,22,29-32,36-37,39,44-86,165-238,266-268
+packages/contracts/tests/error-codes.test.ts
+  h_7714b9549db59c 6-13
+packages/contracts/tests/team-resources.test.ts
+  h_7714b9549db59c 1-79
+packages/download/package.json
+  h_7714b9549db59c 3
+packages/host/package.json
+  h_7714b9549db59c 3
+packages/host/src/index.ts
+  h_7714b9549db59c 15,25,38
+packages/host/src/protocol.ts
+  h_7714b9549db59c 42-72,77,141-156,364-368
+packages/launcher-proto/package.json
+  h_7714b9549db59c 3
+packages/platform/package.json
+  h_7714b9549db59c 3
+packages/platform/src/index.ts
+  h_7714b9549db59c 36
+packages/platform/src/process.ts
+  h_7714b9549db59c 55-67,449-452,460-463,468-471
+packages/platform/tests/process-tree.test.ts
+  h_7714b9549db59c 1-2,8,10,91-126
+packages/release/package.json
+  h_7714b9549db59c 3
+packages/sidecar-proto/package.json
+  h_7714b9549db59c 3
+packages/sidecar-proto/src/index.ts
+  h_7714b9549db59c 515-518,925-935,984-988
+packages/sidecar-proto/tests/index.test.ts
+  h_7714b9549db59c 154-164
+packages/sidecar/package.json
+  h_7714b9549db59c 3
+plugins/_official/examples/fs-creative-voltage/open-design.json
+  h_7714b9549db59c 149-151
+plugins/_official/examples/trading-analysis-dashboard-template/example.html
+  h_7714b9549db59c 7,10-19
+pnpm-lock.yaml
+  h_7714b9549db59c 384-386,409-411,813-814,1176-1178,2056-2057,2061-2062,2066-2067,2071-2072,2076-2077,2081-2082,2741-2743,2962-2967,2980-2982,4812-4814,5908-5910,7078-7079,7914,7917,7920,7923,7926,7929,7931-7935,8540-8541,8816-8826,8837-8838,11080-11081,12398-12399
+scripts/lib/guard/scope.ts
+  h_7714b9549db59c 21-22,29,44,55
+scripts/scopes.ts
+  h_7714b9549db59c 77,419-433,830-836,850,864-868,870,873,876-878
+skills/frontend-slides/SKILL.md
+  h_7714b9549db59c 15-17
+skills/slides/SKILL.md
+  h_7714b9549db59c 14-16
+specs/current/ci.md
+  h_7714b9549db59c 20-22
+specs/current/collab-sse-vela-push.md
+  h_7714b9549db59c 1-162
+specs/current/run-analytics-v4-test-plan.md
+  h_7714b9549db59c 1-534
+specs/current/workspace-scope-model.md
+  h_7714b9549db59c 1-225
+tools/dev/package.json
+  h_7714b9549db59c 3
+tools/pack/package.json
+  h_7714b9549db59c 3,28
+tools/pack/src/config.ts
+  h_7714b9549db59c 21,102-115,190-193,226-247,399
+tools/pack/src/linux.ts
+  h_7714b9549db59c 241-246,595
+tools/pack/src/mac/app.ts
+  h_7714b9549db59c 172
+tools/pack/src/mac/builder.ts
+  h_7714b9549db59c 140-151
+tools/pack/src/prebundle-runtime-dependencies.ts
+  h_7714b9549db59c 1-8
+tools/pack/src/vela-cli.ts
+  h_7714b9549db59c 1-2,7-24,27-34,66,73,77-79,90-199
+tools/pack/src/win/custom-installer.ts
+  h_7714b9549db59c 419,985-988,1014-1017
+tools/pack/src/win/manifest.ts
+  h_7714b9549db59c 33
+tools/pack/tests/config.test.ts
+  h_7714b9549db59c 10,13-17,42,44,50,186-216
+tools/pack/tests/mac.test.ts
+  h_7714b9549db59c 78-83,279-321
+tools/pack/tests/release-workflows.test.ts
+  h_7714b9549db59c 397-452
+tools/pack/tests/resources.test.ts
+  h_7714b9549db59c 32-73,228-317,356,392,470
+tools/pack/tests/win-identity.test.ts
+  h_7714b9549db59c 86-109
+tools/release/package.json
+  h_7714b9549db59c 3
+tools/release/src/index.ts
+  h_7714b9549db59c 47-52
+tools/release/src/storage/dogfood.ts
+  h_7714b9549db59c 1-133
+tools/release/src/storage/publish-dogfood.ts
+  h_7714b9549db59c 1-118
+tools/release/tests/dogfood.test.ts
+  h_7714b9549db59c 1-181
+tools/release/tests/launcher-version-floor.test.ts
+  h_7714b9549db59c 92-169
+tools/serve/AGENTS.md
+  h_7714b9549db59c 9-10,17-48
+tools/serve/src/collab-cloud-fixture.ts
+  h_7714b9549db59c 1-388
+tools/serve/src/index.ts
+  h_7714b9549db59c 4-7,23,65-90,139
+tools/serve/tests/collab-cloud-fixture.test.ts
+  h_7714b9549db59c 1-242
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "00c73f7141d571d6bfcc97d38fe58e8736db7881",
+  "prompts": {},
+  "humans": {
+    "h_7714b9549db59c": {
+      "author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
