@@ -1,0 +1,17 @@
+apps/web/src/components/InlineModelSwitcher.tsx
+  h_7714b9549db59c 340-345,389,416-452,456,463-466,470-474,502-506,511-513,516,553,663-675,682,939-956,997
+  h_7714b9549db59c 315,453-455,457-462
+apps/web/tests/components/InlineModelSwitcher.test.tsx
+  h_7714b9549db59c 1712-1834,1908-2008,2343-2560
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "1061c8c34ef782bab08381e7bf1de9fee98aaf26",
+  "prompts": {},
+  "humans": {
+    "h_7714b9549db59c": {
+      "author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
