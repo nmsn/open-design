@@ -1,0 +1,21 @@
+apps/web/src/components/InlineModelSwitcher.tsx
+  s_4d1cd96dffd8a8::t_af33cb0686029e 349-358,671-675,699-706,727-732,851-859,861,1150-1168
+apps/web/tests/components/InlineModelSwitcher.test.tsx
+  s_4d1cd96dffd8a8::t_f17a3e99fd096f 11,2118-2462
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "a2c1374f0ac302a9cd9090b89e01c6b9c822bb2a",
+  "prompts": {},
+  "sessions": {
+    "s_4d1cd96dffd8a8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f3358536-0491-46b0-a80e-ee6e3330c038",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
