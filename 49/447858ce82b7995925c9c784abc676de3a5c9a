@@ -1,0 +1,21 @@
+apps/web/src/components/InlineModelSwitcher.tsx
+  s_d754aa75210305::t_7004f92898c23d 336-343,705-709,737-745,1250-1265
+apps/web/tests/components/InlineModelSwitcher.test.tsx
+  s_d754aa75210305::t_ecf091d3a7a866 2905-3040
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "49447858ce82b7995925c9c784abc676de3a5c9a",
+  "prompts": {},
+  "sessions": {
+    "s_d754aa75210305": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fe98d-4192-7b83-b53a-5bec1c65bdcb",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
