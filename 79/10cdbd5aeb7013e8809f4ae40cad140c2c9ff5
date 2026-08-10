@@ -1,0 +1,31 @@
+apps/web/src/components/AmrLoginPill.tsx
+  s_4ba39c76d8cb8f::t_41870bedb40d9e 31,397,432,466-500,579-590,637,674,745,773
+apps/web/src/components/CloudSignInTip.tsx
+  s_4ba39c76d8cb8f::t_add21d9c1b92de 156,165-167,171
+apps/web/src/components/EntryShell.tsx
+  s_4ba39c76d8cb8f::t_7e77496407566f 2669-2680,2718,2814,2841
+apps/web/src/components/InlineModelSwitcher.tsx
+  s_4ba39c76d8cb8f::t_e573306a2b4ae2 81,487,592-606,609-611,670-683,733-738,761,804-810,820-827,873-880,902,952-963,1080-1098,1100,1121-1129,1139-1154,1205-1213
+apps/web/src/components/amrLoginPolling.ts
+  s_4ba39c76d8cb8f::t_33c7abea381003 32,35-37,41-59
+apps/web/tests/components/AmrLoginPill.test.tsx
+  s_4ba39c76d8cb8f::t_024ab344c7570c 861-925
+apps/web/tests/components/InlineModelSwitcher.test.tsx
+  s_4ba39c76d8cb8f::t_662b7cd18d7c73 3236,3246,3406-4186
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "7910cdbd5aeb7013e8809f4ae40cad140c2c9ff5",
+  "prompts": {},
+  "sessions": {
+    "s_4ba39c76d8cb8f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fea3d-82de-7062-80b7-2b97852f4ae3",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
