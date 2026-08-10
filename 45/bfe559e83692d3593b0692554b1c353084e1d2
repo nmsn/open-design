@@ -1,0 +1,21 @@
+apps/web/src/components/EntryShell.tsx
+  s_4ba39c76d8cb8f::t_9ff54812281383 2694-2696,2779-2781
+apps/web/tests/components/AmrLoginPill.test.tsx
+  s_4ba39c76d8cb8f::t_89dd54e97215fe 926-1141
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "45bfe559e83692d3593b0692554b1c353084e1d2",
+  "prompts": {},
+  "sessions": {
+    "s_4ba39c76d8cb8f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fea3d-82de-7062-80b7-2b97852f4ae3",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
