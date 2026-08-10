@@ -1,0 +1,19 @@
+apps/web/tests/components/InlineModelSwitcher.compact-model-click.test.tsx
+  s_4ba39c76d8cb8f::t_891d9afb900db3 26,90-94,118,324-366,368
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "dfc0d27775d52d028425e83c29177e9e912637d8",
+  "prompts": {},
+  "sessions": {
+    "s_4ba39c76d8cb8f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fea3d-82de-7062-80b7-2b97852f4ae3",
+        "model": "unknown"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
