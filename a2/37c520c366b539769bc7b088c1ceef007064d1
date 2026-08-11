@@ -1,0 +1,21 @@
+apps/web/src/App.tsx
+  s_b9e3847dba3f33::t_8f68c3399f1bfe 1889-1897
+apps/web/tests/components/App.project-create-race.test.tsx
+  s_b9e3847dba3f33::t_3310372f2f243d 3419-3479
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "a237c520c366b539769bc7b088c1ceef007064d1",
+  "prompts": {},
+  "sessions": {
+    "s_b9e3847dba3f33": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_01060704affeHlTSzFleGI9S1v",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
