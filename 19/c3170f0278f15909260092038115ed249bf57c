@@ -1,0 +1,20 @@
+apps/web/src/App.tsx
+  h_7714b9549db59c 97,1631-1635,1658,1890-1902
+apps/web/src/components/CloudSignInTip.tsx
+  h_7714b9549db59c 102-117,137-139,144,151-155,157-168,177,180,193-195,197,215-217,220-224,228-233
+apps/web/tests/components/App.project-create-race.test.tsx
+  h_7714b9549db59c 3361-3418
+apps/web/tests/components/CloudSignInTip.test.tsx
+  h_7714b9549db59c 23,338-535
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "19c3170f0278f15909260092038115ed249bf57c",
+  "prompts": {},
+  "humans": {
+    "h_7714b9549db59c": {
+      "author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
