@@ -1,0 +1,24 @@
+apps/web/src/App.tsx
+  h_7714b9549db59c 1875-1881,1886,1888,1902-1905
+apps/web/src/components/AmrLoginPill.tsx
+  h_7714b9549db59c 850-859
+apps/web/src/components/CloudSignInTip.tsx
+  h_7714b9549db59c 108-111,166-170,182-188,240,246-247,253-259,262
+apps/web/src/components/EntryShell.tsx
+  h_7714b9549db59c 2762-2766
+apps/web/tests/components/AmrLoginPill.test.tsx
+  h_7714b9549db59c 1703-1798
+apps/web/tests/components/CloudSignInTip.test.tsx
+  h_7714b9549db59c 670-814
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "5b810db663ad100e4821abac8d0c09a12e4af159",
+  "prompts": {},
+  "humans": {
+    "h_7714b9549db59c": {
+      "author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
