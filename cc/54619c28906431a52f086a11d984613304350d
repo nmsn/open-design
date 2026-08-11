@@ -1,0 +1,28 @@
+apps/web/src/components/AmrLoginPill.tsx
+  h_7714b9549db59c 679-694,696-704,707-710,806,808,811-823,829-836,839-842,846
+apps/web/src/components/CloudSignInTip.tsx
+  h_7714b9549db59c 102-108,124,142,156-158,167,176-180,183
+apps/web/src/components/EntryShell.tsx
+  h_7714b9549db59c 2706-2710,2795-2799,2840-2843,2845-2849
+apps/web/src/components/InlineModelSwitcher.tsx
+  h_7714b9549db59c 694-697
+apps/web/tests/components/AmrLoginPill.test.tsx
+  h_7714b9549db59c 1529-1702
+apps/web/tests/components/CloudSignInTip.test.tsx
+  h_7714b9549db59c 14,22-25,155-261
+apps/web/tests/components/EntryShell.onboarding.test.tsx
+  h_7714b9549db59c 1369-1468
+apps/web/tests/components/InlineModelSwitcher.test.tsx
+  h_7714b9549db59c 4667-4860
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "cc54619c28906431a52f086a11d984613304350d",
+  "prompts": {},
+  "humans": {
+    "h_7714b9549db59c": {
+      "author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
