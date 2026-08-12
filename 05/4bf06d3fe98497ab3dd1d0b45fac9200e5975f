@@ -1,0 +1,21 @@
+apps/web/src/components/InlineModelSwitcher.tsx
+  s_cbd19e232b38bb::t_0c62de491df6bc 1163-1173
+apps/web/tests/components/InlineModelSwitcher.test.tsx
+  s_cbd19e232b38bb::t_8055e79a4edaf4 4187-4308
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "054bf06d3fe98497ab3dd1d0b45fac9200e5975f",
+  "prompts": {},
+  "sessions": {
+    "s_cbd19e232b38bb": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_00ef599f5ffedm35JI7NvGp3Fj",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "nmsn <136696700@qq.com>"
+    }
+  }
+}
